@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Shellback Marines Security Agency</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Barlow Condensed', 'sans-serif'],
+            body:    ['Barlow', 'sans-serif'],
+          },
+          colors: {
+            navy:         '#080c18',
+            gold:         '#C9A84C',
+            'gold-light': '#E8C96A',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: #080c18; }
+
+    /* ── NAVBAR ── */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+    #info-bar { overflow: hidden; max-height: 40px; transition: max-height .35s ease, opacity .35s ease; opacity: 1; }
+    #navbar.scrolled #info-bar { max-height: 0; opacity: 0; }
+    #nav-row { transition: background .35s ease, box-shadow .35s ease; background: transparent; }
+    #navbar.scrolled #nav-row { background: #080c18; box-shadow: 0 2px 28px rgba(0,0,0,.6); }
+    .nav-link { position: relative; letter-spacing: .08em; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: .85rem; }
+    .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: #C9A84C; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    #mobile-menu { display: none; max-height: calc(100vh - 80px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+    #mobile-menu.open { display: block; background: #080c18; }
+    @media(max-width:767px){ .ib-desktop { display: none !important; } .ib-mobile-cta { display: inline-flex !important; } }
+
+    .dropdown{position:relative}
+    .dropdown-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-6px);background:#080c18;border:1px solid rgba(201,168,76,.2);border-top:2px solid #C9A84C;width:260px;z-index:200;opacity:0;visibility:hidden;transition:opacity .25s ease,transform .25s ease,visibility .25s;}
+    .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+    .dropdown-item{display:flex;align-items:center;gap:10px;padding:11px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);transition:all .2s ease;white-space:nowrap;}
+    .dropdown-item:last-child{border-bottom:none}.dropdown-item:hover{color:#C9A84C;background:rgba(201,168,76,.06);padding-left:26px}.dropdown-item i{color:#C9A84C;width:14px;font-size:.75rem}.dropdown-item.active{color:#C9A84C}
+
+    /* ── HERO ── */
+    .hero-overlay { position:absolute; inset:0; background: linear-gradient(to right, rgba(8,12,24,.96) 0%, rgba(8,12,24,.80) 60%, rgba(8,12,24,.70) 100%), linear-gradient(to top, rgba(8,12,24,.98) 0%, rgba(8,12,24,.0) 55%); }
+
+    /* ── POLICY CONTENT ── */
+    .policy-section { background: #f8f9fb; }
+    .policy-wrap { max-width: 860px; margin: 0 auto; padding: 80px 40px 100px; }
+    .policy-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(1.6rem,3vw,2.2rem); letter-spacing: .06em; text-transform: uppercase; color: #111827; margin-bottom: 6px; padding-top: 40px; border-top: 2px solid #e5e7eb; }
+    .policy-title:first-child { border-top: none; padding-top: 0; }
+    .policy-subtitle { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: #C9A84C; margin-bottom: 18px; }
+    .policy-body { font-family: 'Barlow', sans-serif; font-size: .97rem; color: #374151; line-height: 1.85; margin-bottom: 16px; }
+    .policy-list { list-style: none; margin: 0 0 20px 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .policy-list li { display: flex; align-items: flex-start; gap: 12px; font-family: 'Barlow', sans-serif; font-size: .95rem; color: #374151; line-height: 1.7; }
+    .policy-list li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #C9A84C; flex-shrink: 0; margin-top: 8px; }
+    .policy-divider { display: flex; align-items: center; margin: 36px 0; }
+    .policy-divider::before, .policy-divider::after { content: ''; flex: 1; height: 1.5px; background: #e5e7eb; }
+    .policy-divider span { width: 10px; height: 10px; border-radius: 50%; background: #C9A84C; margin: 0 12px; flex-shrink: 0; box-shadow: 0 0 0 4px rgba(201,168,76,.18); }
+    .policy-info-box { background: #fff; border: 1px solid #e5e7eb; border-left: 4px solid #C9A84C; padding: 24px 28px; margin: 24px 0 32px; }
+    .policy-info-box p { font-family: 'Barlow', sans-serif; font-size: .93rem; color: #374151; line-height: 1.75; margin-bottom: 6px; }
+    .policy-info-box p:last-child { margin-bottom: 0; }
+    .policy-info-box a { color: #C9A84C; text-decoration: none; }
+    .policy-info-box a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    .ft-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px; padding:64px 48px 52px; max-width:1280px; margin:0 auto; }
+    @media(max-width:1024px){ .ft-grid{ grid-template-columns:1fr 1fr; gap:40px 32px; } }
+    @media(max-width:580px) { .ft-grid{ grid-template-columns:1fr; padding:48px 28px 40px; } }
+    .ft-col-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:#C9A84C; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid rgba(201,168,76,.2); }
+    .ft-body { font-family:'Barlow',sans-serif; font-size:.88rem; color:rgba(255,255,255,.55); line-height:1.8; }
+    .ft-link { display:block; font-family:'Barlow',sans-serif; font-size:.88rem; color:rgba(255,255,255,.55); text-decoration:none; padding:4px 0; transition:color .2s ease, padding-left .2s; border-bottom:1px solid rgba(255,255,255,.05); }
+    .ft-link:last-child { border-bottom:none; }
+    .ft-link:hover { color:#C9A84C; padding-left:4px; }
+    .ft-link i { width:14px; margin-right:6px; color:#C9A84C; font-size:.75rem; }
+    .ft-news-item { padding:10px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+    .ft-news-item:last-child { border-bottom:none; }
+    .ft-news-title { font-family:'Barlow',sans-serif; font-size:.87rem; color:rgba(255,255,255,.75); line-height:1.5; text-decoration:none; display:block; transition:color .2s; }
+    .ft-news-title:hover { color:#C9A84C; }
+    .ft-news-date { font-family:'Barlow',sans-serif; font-size:.72rem; color:rgba(255,255,255,.3); margin-top:3px; }
+    .ft-social { display:flex; gap:10px; margin-top:24px; }
+    .ft-soc-btn { width:36px; height:36px; border-radius:6px; border:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.5); font-size:.9rem; text-decoration:none; transition:all .2s ease; }
+    .ft-soc-btn:hover { background:#C9A84C; border-color:#C9A84C; color:#080c18; }
+    .ft-bottom { border-top:1px solid rgba(255,255,255,.07); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding:20px 48px; max-width:1280px; margin:0 auto; }
+    @media(max-width:640px){ .ft-bottom{ padding:20px 28px; flex-direction:column; text-align:center; } }
+    .ft-bottom p { font-family:'Barlow',sans-serif; font-size:.78rem; color:rgba(255,255,255,.28); margin:0; }
+    .ft-bottom-links { display:flex; gap:20px; flex-wrap:wrap; }
+    .ft-bottom-links a { font-family:'Barlow',sans-serif; font-size:.78rem; color:rgba(255,255,255,.28); text-decoration:none; transition:color .2s; }
+    .ft-bottom-links a:hover { color:#C9A84C; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+
+<!-- ════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════ -->
+<header id="navbar">
+  <!-- Info bar -->
+  <div id="info-bar" style="background:#C9A84C; width:100%;">
+    <div style="max-width:1280px; margin:0 auto; padding:7px 20px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
+      <a href="tel:+919434127571" style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18; text-decoration:none; flex-shrink:0;">
+        <i class="fa-solid fa-phone" style="font-size:.7rem;"></i> +91 9434127571
+      </a>
+      <div class="ib-desktop" style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <a href="mailto:contact@shellbackmarines.in" style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18; text-decoration:none;">
+          <i class="fa-solid fa-envelope" style="font-size:.7rem;"></i> contact@shellbackmarines.in
+        </a>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18;">
+          <i class="fa-solid fa-location-dot" style="font-size:.7rem;"></i> Oodlabari, Jalpaiguri, WB – 735222
+        </span>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18;">
+          <i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> Licence: W.B – 55/WB/PSA/2025
+        </span>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919434127571" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <a href="tel:+919434127571" class="ib-mobile-cta" style="display:none; align-items:center; gap:6px; background:#080c18; color:#C9A84C; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; padding:5px 14px; text-decoration:none; border-radius:3px; flex-shrink:0;">
+        <i class="fa-solid fa-phone-volume" style="font-size:.65rem;"></i> Get a Quote
+      </a>
+    </div>
+  </div>
+
+  <!-- Nav row -->
+  <div id="nav-row">
+    <nav class="max-w-screen-xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+      <a href="./home.html" class="flex items-center gap-3 group flex-shrink-0">
+        <img src="./img/logo.png" alt="Shellback Marines Logo"
+             class="w-11 h-11 object-contain rounded-full border-2 border-gold bg-navy/60"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="w-11 h-11 rounded-full border-2 border-gold items-center justify-center bg-navy/60 group-hover:bg-gold transition-colors duration-300" style="display:none;">
+          <i class="fa-solid fa-anchor text-gold group-hover:text-navy text-lg"></i>
+        </div>
+        <div class="leading-tight">
+          <span class="block font-display font-800 text-white text-lg tracking-wider uppercase">Shellback Marines</span>
+          <span class="block font-body text-gold text-[10px] tracking-[0.2em] uppercase">Security Agency</span>
+        </div>
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-8">
+        <li><a href="./home.html"        class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Home</a></li>
+        <li><a href="./about.html"       class="nav-link text-white/80 hover:text-gold transition-colors duration-200">About</a></li>
+        <li class="dropdown"><a href="./home.html#services" class="nav-link text-white/80 hover:text-gold transition-colors duration-200 flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a><div class="dropdown-menu"><a href="./physical-guarding.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i>Physical Guarding</a>
+<a href="./escort.html" class="dropdown-item"><i class="fa-solid fa-person-walking-arrow-right"></i>Escort Guarding</a>
+<a href="./intelligence.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass-chart"></i>Intelligence &amp; Investigation</a>
+<a href="./electronic.html" class="dropdown-item"><i class="fa-solid fa-camera-cctv"></i>Electronic Surveillance</a>
+<a href="./security-surveys.html" class="dropdown-item"><i class="fa-solid fa-file-shield"></i>Security Surveys &amp; Audits</a>
+<a href="./event.html" class="dropdown-item"><i class="fa-solid fa-people-group"></i>Event Security</a>
+<a href="./corporate.html" class="dropdown-item"><i class="fa-solid fa-briefcase"></i>Corporate Risk Management</a>
+<a href="./access-control.html" class="dropdown-item"><i class="fa-solid fa-door-open"></i>Access Control &amp; CCTV</a>
+<a href="./maintenance.html" class="dropdown-item"><i class="fa-solid fa-screwdriver-wrench"></i>Maintenance</a></div></li>
+        <li><a href="./casestudies.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Case Studies</a></li>
+        <li><a href="./contact.html"     class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-4">
+        <a href="tel:+919434127571" class="hidden lg:inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-display font-700 text-sm tracking-wider uppercase px-6 py-2.5 transition-all duration-200 hover:shadow-lg hover:shadow-gold/30">
+          <i class="fa-solid fa-phone-volume"></i> Get a Quote
+        </a>
+        <button id="hamburger" class="lg:hidden text-white text-2xl focus:outline-none" aria-label="Toggle menu">
+          <i id="ham-icon" class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="lg:hidden bg-navy/98 border-t border-gold/20">
+      <ul class="flex flex-col py-4">
+        <li><a href="./home.html"        class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Home</a></li>
+        <li><a href="./about.html"       class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">About</a></li>
+        <li><div class="px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider cursor-pointer">Services</div>
+          <ul style="background:rgba(201,168,76,.05); border-left:3px solid #C9A84C; margin-left:32px;">
+            <li><a href="./physical-guarding.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Physical Guarding</a></li>
+            <li><a href="./escort.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Guarding</a></li>
+            <li><a href="./intelligence.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Intelligence &amp; Investigation</a></li>
+            <li><a href="./electronic.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Electronic Surveillance</a></li>
+            <li><a href="./security-surveys.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Security Surveys &amp; Audits</a></li>
+            <li><a href="./event.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li>
+            <li><a href="./corporate.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Corporate Risk Management</a></li>
+            <li><a href="./access-control.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Access Control &amp; CCTV</a></li>
+            <li><a href="./maintenance.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Maintenance</a></li>
+          </ul>
+        </li>
+        <li><a href="./casestudies.html"  class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Case Studies</a></li>
+        <li><a href="./contact.html"      class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Contact</a></li>
+        <li class="px-8 pt-3 pb-4">
+          <a href="tel:+919434127571" class="flex items-center justify-center gap-2 bg-gold text-navy font-display font-700 uppercase tracking-wider text-sm py-3 hover:bg-gold-light transition-colors">
+            <i class="fa-solid fa-phone-volume"></i> Get a Quote
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section style="position:relative; min-height:42vh; display:flex; flex-direction:column; justify-content:center; overflow:hidden; background:#080c18;">
+  <div style="position:absolute; inset:0; background:url('https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?w=1800&q=80') center/cover no-repeat; opacity:.18;"></div>
+  <div class="hero-overlay"></div>
+  <div style="position:absolute; left:0; top:0; bottom:0; width:6px; background:#C9A84C; z-index:3;" class="hidden lg:block"></div>
+  <div style="position:relative; z-index:4; max-width:1280px; margin:0 auto; width:100%; padding:140px 56px 60px;">
+    <!-- Breadcrumb -->
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+      <a href="./home.html" style="font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:.78rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,255,255,.5); text-decoration:none; transition:color .2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Home</a>
+      <i class="fa-solid fa-chevron-right" style="color:rgba(255,255,255,.3); font-size:.6rem;"></i>
+      <span style="font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:.78rem; letter-spacing:.15em; text-transform:uppercase; color:#C9A84C;">Privacy Policy</span>
+    </div>
+    <h1 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(2.8rem,6vw,5rem); letter-spacing:.02em; text-transform:uppercase; color:#ffffff; line-height:1; margin-bottom:16px;">
+      Privacy <span style="color:#C9A84C;">Policy</span>
+    </h1>
+    <p style="font-family:'Barlow',sans-serif; font-weight:300; font-size:1rem; color:rgba(255,255,255,.6); max-width:560px; line-height:1.8;">
+      Last Updated: November 17, 2025
+    </p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     POLICY CONTENT
+════════════════════════════════════════ -->
+<div class="policy-section">
+  <div class="policy-wrap">
+
+    <!-- Company Details -->
+    <div class="policy-info-box">
+      <p style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:#C9A84C; margin-bottom:10px;">Company Details</p>
+      <p><strong style="font-family:'Barlow Condensed',sans-serif; font-weight:700; color:#111827;">Shellback Marines</strong></p>
+      <p>Address: Oodlabari Bidhanpally, PO Manabari, Dist Jalpaiguri, WB – 735222</p>
+      <p>Email: <a href="mailto:contact@shellbackmarines.in">contact@shellbackmarines.in</a></p>
+      <p>Tel: <a href="tel:+919434127571">+91 9434127571</a></p>
+    </div>
+
+    <div class="policy-divider"><span></span></div>
+
+    <!-- Who We Are -->
+    <p class="policy-subtitle">Who We Are</p>
+    <h2 class="policy-title">Introduction</h2>
+    <p class="policy-body">
+      Our website address is <a href="https://www.shellbackmarines.in" style="color:#C9A84C; text-decoration:none;" target="_blank">https://www.shellbackmarines.in</a>. This privacy policy outlines how Shellback Marines collects, uses, and safeguards your personal information when you interact with our website and services.
+    </p>
+
+    <div class="policy-divider"><span></span></div>
+
+    <!-- Personal Data -->
+    <p class="policy-subtitle">Data Collection</p>
+    <h2 class="policy-title">Personal Data We Collect</h2>
+    <p class="policy-body">We collect personal information in the following circumstances:</p>
+    <ul class="policy-list">
+      <li><strong>Comments &amp; Contact Forms:</strong> We collect the data you provide in forms — including name, email, phone number, and message — along with your IP address and browser information for spam detection purposes.</li>
+      <li><strong>Media Uploads:</strong> If you upload images to our website, you should avoid uploading images with embedded EXIF location data, as visitors to the website may be able to download and extract such data.</li>
+      <li><strong>Cookies:</strong> Cookies may be used to store your name, email address, and preferences for convenience when you interact with our website.</li>
+      <li><strong>Embedded Content:</strong> Pages on this site may include embedded content such as videos, images, or articles from other websites. Embedded content from other websites behaves in the same way as though you visited those external websites directly.</li>
+      <li><strong>Analytics:</strong> We may use analytics tools to understand how our website is used and to improve our services and user experience.</li>
+      <li><strong>Client &amp; Service Data:</strong> Information required for the delivery of our security services may be collected and processed as part of our operational requirements.</li>
+    </ul>
+
+    <div class="policy-divider"><span></span></div>
+
+    <!-- Data Sharing -->
+    <p class="policy-subtitle">Third Parties</p>
+    <h2 class="policy-title">Data Sharing</h2>
+    <p class="policy-body">
+      Shellback Marines does not sell or trade your personal data. We do not share your information with third parties except in the following limited circumstances:
+    </p>
+    <ul class="policy-list">
+      <li>With legal authorities where required by law or valid legal process.</li>
+      <li>With trusted service partners who assist us in delivering our services, subject to confidentiality obligations.</li>
+      <li>With analytics providers to help us understand and improve website performance.</li>
+    </ul>
+
+    <div class="policy-divider"><span></span></div>
+
+    <!-- Your Rights -->
+    <p class="policy-subtitle">Your Rights</p>
+    <h2 class="policy-title">Data Rights &amp; Access</h2>
+    <p class="policy-body">
+      You have the right to request access to, export of, or deletion of your personal data held by Shellback Marines. Exceptions apply where retention of your data is required by applicable law or regulation. To exercise your rights, please contact us at the details provided below.
+    </p>
+
+    <div class="policy-divider"><span></span></div>
+
+    <!-- Security -->
+    <p class="policy-subtitle">Data Protection</p>
+    <h2 class="policy-title">Security Measures</h2>
+    <p class="policy-body">
+      Shellback Marines takes the security of your personal data seriously. We employ a range of protective measures including:
+    </p>
+    <ul class="policy-list">
+      <li>Secure, encrypted servers and communication channels.</li>
+      <li>Access controls limiting data access to authorised personnel only.</li>
+      <li>Internal data protection policies and procedures.</li>
+      <li>Regular review of our security practices to ensure ongoing compliance and protection.</li>
+    </ul>
+
+    <div class="policy-divider"><span></span></div>
+
+    <!-- Contact -->
+    <p class="policy-subtitle">Get in Touch</p>
+    <h2 class="policy-title">Privacy Concerns</h2>
+    <p class="policy-body">
+      For any questions, concerns, or requests relating to this Privacy Policy or the handling of your personal data, please contact us:
+    </p>
+    <div class="policy-info-box">
+      <p>Email: <a href="mailto:contact@shellbackmarines.in">contact@shellbackmarines.in</a></p>
+      <p>Tel: <a href="tel:+919434127571">+91 9434127571</a></p>
+      <p>Address: Oodlabari Bidhanpally, PO Manabari, Dist Jalpaiguri, WB – 735222</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer style="background:#080c18; color:#ffffff;">
+  <div class="ft-grid">
+    <div>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+        <img src="./img/logo.png" alt="Shellback Marines Logo" style="width:42px; height:42px; border-radius:50%; border:2px solid #C9A84C; object-fit:contain; background:rgba(201,168,76,.1);" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div style="display:none; width:42px; height:42px; border-radius:50%; border:2px solid #C9A84C; align-items:center; justify-content:center; background:rgba(201,168,76,.1); flex-shrink:0;">
+          <i class="fa-solid fa-anchor" style="color:#C9A84C; font-size:1.1rem;"></i>
+        </div>
+        <div>
+          <p style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.1rem; letter-spacing:.08em; text-transform:uppercase; color:#fff; margin:0; line-height:1.1;">Shellback Marines</p>
+          <p style="font-family:'Barlow',sans-serif; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:#C9A84C; margin:0;">Security Agency</p>
+        </div>
+      </div>
+      <p class="ft-col-title">About Shellback Marines</p>
+      <p class="ft-body">Shellback Marines is an Indian Security Services registered company providing professional security services to factories, educational institutions, commercial complexes, hospitals, banks, and corporate offices across West Bengal and beyond.</p>
+      <p class="ft-body" style="margin-top:16px; color:rgba(255,255,255,.35); font-size:.8rem;">Registered Office: Oodlabari Bidhanpally,<br>PO Manabari, Dist Jalpaiguri, WB – 735222<br>Licence No: W.B – 55/WB/PSA/2025</p>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" class="ft-soc-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" class="ft-soc-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919434127571" target="_blank" class="ft-soc-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:contact@shellbackmarines.in" class="ft-soc-btn" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div>
+      <p class="ft-col-title">Latest News</p>
+      <div class="ft-news-item"><a href="#" class="ft-news-title">Hospital Security Solutions: A Complete Guide</a><p class="ft-news-date">March 2025</p></div>
+      <div class="ft-news-item"><a href="#" class="ft-news-title">Wireless CCTV Camera with Night Vision — What You Need</a><p class="ft-news-date">February 2025</p></div>
+      <div class="ft-news-item"><a href="#" class="ft-news-title">Best Surveillance Agency in West Bengal</a><p class="ft-news-date">January 2025</p></div>
+      <div class="ft-news-item"><a href="#" class="ft-news-title">Professional Armed Security Services Explained</a><p class="ft-news-date">December 2024</p></div>
+      <div class="ft-news-item"><a href="#" class="ft-news-title">Elite Bodyguard Services: What Sets Us Apart</a><p class="ft-news-date">November 2024</p></div>
+    </div>
+    <div>
+      <p class="ft-col-title">Specialist Services</p>
+      <a href="./physical-guarding.html" class="ft-link"><i class="fa-solid fa-user-shield"></i>Physical Guarding</a>
+      <a href="./intelligence.html" class="ft-link"><i class="fa-solid fa-magnifying-glass-chart"></i>Intelligence &amp; Investigation</a>
+      <a href="./electronic.html" class="ft-link"><i class="fa-solid fa-camera-cctv"></i>Electronic Surveillance</a>
+      <a href="./security-surveys.html" class="ft-link"><i class="fa-solid fa-file-shield"></i>Security Surveys &amp; Audits</a>
+      <a href="./event.html" class="ft-link"><i class="fa-solid fa-people-group"></i>Event Security</a>
+      <a href="./corporate.html" class="ft-link"><i class="fa-solid fa-briefcase"></i>Corporate Risk Management</a>
+      <a href="./access-control.html" class="ft-link"><i class="fa-solid fa-door-open"></i>Access Control &amp; CCTV</a>
+      <a href="./maintenance.html" class="ft-link"><i class="fa-solid fa-screwdriver-wrench"></i>Maintenance</a>
+      <p class="ft-col-title" style="margin-top:28px;">Contact Us</p>
+      <a href="tel:+919434127571" class="ft-link"><i class="fa-solid fa-phone-volume"></i>+91 9434127571</a>
+      <a href="mailto:contact@shellbackmarines.in" class="ft-link"><i class="fa-solid fa-envelope"></i>contact@shellbackmarines.in</a>
+      <span class="ft-link" style="cursor:default;"><i class="fa-solid fa-location-dot"></i>Jalpaiguri, West Bengal 735222</span>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.06);">
+    <div class="ft-bottom">
+      <p>© 2023–2026 Shellback Marines Security Agency. All rights reserved. | Licence No: W.B – 55/WB/PSA/2025</p>
+      <div class="ft-bottom-links">
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./terms-conditions.html">Terms &amp; Conditions</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+  const navbar     = document.getElementById('navbar');
+  const navRow     = document.getElementById('nav-row');
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamIcon    = document.getElementById('ham-icon');
+
+  function handleScroll() {
+    const isScrolled = window.scrollY > 10;
+    const menuOpen   = mobileMenu && mobileMenu.classList.contains('open');
+    navbar.classList.toggle('scrolled', isScrolled);
+    navRow.style.background = (isScrolled || menuOpen) ? '#080c18' : 'transparent';
+  }
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    handleScroll();
+    hamIcon.className = mobileMenu.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamIcon.className = 'fa-solid fa-bars';
+    handleScroll();
+  }));
+</script>
+</body>
+</html>
