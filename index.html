@@ -88,24 +88,55 @@
     }
 
     /* ── NAVBAR ── */
-    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
-    #info-bar { overflow: hidden; max-height: 40px; transition: max-height .35s ease, opacity .35s ease; opacity: 1; }
-    #navbar.scrolled #info-bar { max-height: 0; opacity: 0; }
-    #nav-row { transition: background .35s ease, box-shadow .35s ease; background: rgba(8,12,24,0.85); }
-    #navbar.scrolled #nav-row { background: #080c18; box-shadow: 0 2px 28px rgba(0,0,0,.6); }
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    }
 
+    /* Info bar: visible by default, hidden on scroll */
+    #info-bar {
+      overflow: hidden;
+      max-height: 40px;
+      transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
+      opacity: 1;
+    }
+    #navbar.scrolled #info-bar {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    /* Nav row: transparent by default, solid dark on scroll */
+    #nav-row {
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+      background: transparent;
+    }
+    #navbar.scrolled #nav-row {
+      background: transparent;
+      box-shadow: 0 2px 28px rgba(0,0,0,0.6);
+    }
+
+    /* gold line under nav items on hover */
     .nav-link {
-      position: relative; letter-spacing: .08em;
-      font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: .85rem;
+      position: relative;
+      letter-spacing: 0.08em;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
     }
     .nav-link::after {
-      content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-      height: 2px; background: #C9A84C; transform: scaleX(0); transform-origin: left;
-      transition: transform .25s ease;
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 2px; background: #C9A84C;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.25s ease;
     }
     .nav-link:hover::after { transform: scaleX(1); }
+
+    /* mobile menu */
     #mobile-menu { display: none; max-height: calc(100vh - 80px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
-    #mobile-menu.open { display: block; }
+    #mobile-menu.open { display: block; background: #080c18; }
+
 
     .dropdown{position:relative}
     .dropdown-menu{
@@ -120,6 +151,10 @@
     .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
     .dropdown-item{display:flex;align-items:center;gap:10px;padding:11px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);transition:all .2s ease;white-space:nowrap;}
     .dropdown-item:last-child{border-bottom:none}.dropdown-item:hover{color:#C9A84C;background:rgba(201,168,76,.06);padding-left:26px}.dropdown-item i{color:#C9A84C;width:14px;font-size:.75rem}.dropdown-item.active{color:#C9A84C}
+    @media(max-width:767px){
+      .ib-desktop    { display: none !important; }
+      .ib-mobile-cta { display: inline-flex !important; }
+    }
 
     /* ── HERO CONTENT ── */
     .hero-headline {
@@ -205,7 +240,7 @@
       <ul class="hidden lg:flex items-center gap-8">
         <li><a href="./home.html"         class="nav-link text-gold transition-colors duration-200">Home</a></li>
         <li><a href="./about.html"        class="nav-link text-white/80 hover:text-gold transition-colors duration-200">About</a></li>
-        <li class="dropdown"><a href="./home.html#services" class="nav-link text-white/80 hover:text-gold transition-colors duration-200 flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a><div class="dropdown-menu"><a href="./physical-guarding.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i>Physical Guarding</a>
+        <li class="dropdown"><a href="#services" class="nav-link text-white/80 hover:text-gold transition-colors duration-200 flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a><div class="dropdown-menu"><a href="./physical-guarding.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i>Physical Guarding</a>
 <a href="./escort.html" class="dropdown-item"><i class="fa-solid fa-person-walking-arrow-right"></i>Escort Guarding</a>
 <a href="./intelligence.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass-chart"></i>Intelligence &amp; Investigation</a>
 <a href="./electronic.html" class="dropdown-item"><i class="fa-solid fa-camera-cctv"></i>Electronic Surveillance</a>
@@ -234,18 +269,18 @@
         <li><a href="./about.html"       class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">About</a></li>
         <li><div class="px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider cursor-pointer">Services</div>
           <ul style="background:rgba(201,168,76,.05); border-left:3px solid #C9A84C; margin-left:32px;">
-        <li><a href="./physical-guarding.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Physical Guarding</a></li>
-<li><a href="./escort.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Guarding</a></li>
-<li><a href="./intelligence.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Intelligence &amp; Investigation</a></li>
-<li><a href="./electronic.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Electronic Surveillance</a></li>
-<li><a href="./security-surveys.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Security Surveys &amp; Audits</a></li>
-<li><a href="./event.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li>
-<li><a href="./corporate.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Corporate Risk Management</a></li>
-<li><a href="./access-control.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Access Control &amp; CCTV</a></li>
-<li><a href="./maintenance.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Maintenance</a></li>
-</ul>
-</li>
-<li><a href="./casestudies.html"  class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Case Studies</a></li>
+            <li><a href="./physical-guarding.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Physical Guarding</a></li>
+            <li><a href="./escort.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Guarding</a></li>
+            <li><a href="./intelligence.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Intelligence &amp; Investigation</a></li>
+            <li><a href="./electronic.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Electronic Surveillance</a></li>
+            <li><a href="./security-surveys.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Security Surveys &amp; Audits</a></li>
+            <li><a href="./event.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li>
+            <li><a href="./corporate.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Corporate Risk Management</a></li>
+            <li><a href="./access-control.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Access Control &amp; CCTV</a></li>
+            <li><a href="./maintenance.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Maintenance</a></li>
+          </ul>
+        </li>
+        <li><a href="./casestudies.html"  class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Case Studies</a></li>
         <li><a href="./contact.html"     class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Contact</a></li>
         <li class="px-8 pt-3 pb-4">
           <a href="tel:+919434127571" class="flex items-center justify-center gap-2 bg-gold text-navy font-display font-700 uppercase tracking-wider text-sm py-3 hover:bg-gold-light transition-colors">
@@ -1752,7 +1787,7 @@
   <style>
     .ft-grid {
       display:grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      grid-template-columns: 1.4fr 1fr 1fr;
       gap:48px;
       padding:64px 48px 52px;
       max-width:1280px; margin:0 auto;
@@ -1908,19 +1943,6 @@
       </div>
     </div>
 
-    <!-- Col 3: Quick Links -->
-    <div>
-      <p class="ft-col-title">Quick Links</p>
-      <a href="#" class="ft-link"><i class="fa-solid fa-house"></i>Home</a>
-      <a href="#about" class="ft-link"><i class="fa-solid fa-circle-info"></i>About Us</a>
-      <a href="#services" class="ft-link"><i class="fa-solid fa-list-check"></i>Our Services</a>
-      <a href="#industries" class="ft-link"><i class="fa-solid fa-industry"></i>Industries</a>
-      <a href="#gallery" class="ft-link"><i class="fa-solid fa-images"></i>Gallery</a>
-      <a href="#reviews" class="ft-link"><i class="fa-solid fa-star"></i>Client Reviews</a>
-      <a href="#accreditations" class="ft-link"><i class="fa-solid fa-certificate"></i>Accreditations</a>
-      <a href="#contact" class="ft-link"><i class="fa-solid fa-headset"></i>Contact Us</a>
-    </div>
-
     <!-- Col 4: Security Services + Contact -->
     <div>
       <p class="ft-col-title">Specialist Services</p>
@@ -1968,24 +1990,25 @@
 ════════════════════════════════════════ -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── Navbar scroll effect ──
-    const navbar = document.getElementById('navbar');
-  const navRow = document.getElementById('nav-row');
-  // Prevent transparent flash on load
-  navRow.style.background = 'rgba(8,12,24,0.85)';
+  const navbar     = document.getElementById('navbar');
+  const navRow     = document.getElementById('nav-row');
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamIcon    = document.getElementById('ham-icon');
+
   function handleScroll() {
     const isScrolled = window.scrollY > 10;
+    const menuOpen   = mobileMenu && mobileMenu.classList.contains('open');
     navbar.classList.toggle('scrolled', isScrolled);
-    navRow.style.background = isScrolled ? '#080c18' : 'rgba(8,12,24,0.85)';
+    navRow.style.background = (isScrolled || menuOpen) ? '#080c18' : 'transparent';
   }
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
 
   // ── Hamburger toggle ──
-  const hamburger   = document.getElementById('hamburger');
-  const mobileMenu  = document.getElementById('mobile-menu');
-  const hamIcon     = document.getElementById('ham-icon');
   hamburger.addEventListener('click', () => {
     mobileMenu.classList.toggle('open');
+    handleScroll();
     hamIcon.className = mobileMenu.classList.contains('open')
       ? 'fa-solid fa-xmark'
       : 'fa-solid fa-bars';
@@ -1994,6 +2017,7 @@
     a.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
       hamIcon.className = 'fa-solid fa-bars';
+      handleScroll();
     });
   });
 
