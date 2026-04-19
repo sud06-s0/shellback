@@ -88,54 +88,38 @@
     }
 
     /* ── NAVBAR ── */
-    #navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    }
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+    #info-bar { overflow: hidden; max-height: 40px; transition: max-height .35s ease, opacity .35s ease; opacity: 1; }
+    #navbar.scrolled #info-bar { max-height: 0; opacity: 0; }
+    #nav-row { transition: background .35s ease, box-shadow .35s ease; background: rgba(8,12,24,0.85); }
+    #navbar.scrolled #nav-row { background: #080c18; box-shadow: 0 2px 28px rgba(0,0,0,.6); }
 
-    /* Info bar: visible by default, hidden on scroll */
-    #info-bar {
-      overflow: hidden;
-      max-height: 40px;
-      transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
-      opacity: 1;
-    }
-    #navbar.scrolled #info-bar {
-      max-height: 0;
-      opacity: 0;
-      padding-top: 0 !important;
-      padding-bottom: 0 !important;
-    }
-
-    /* Nav row: transparent by default, solid dark on scroll */
-    #nav-row {
-      transition: background 0.35s ease, box-shadow 0.35s ease;
-      background: transparent;
-    }
-    #navbar.scrolled #nav-row {
-      background: #080c18;
-      box-shadow: 0 2px 28px rgba(0,0,0,0.6);
-    }
-
-    /* gold line under nav items on hover */
     .nav-link {
-      position: relative;
-      letter-spacing: 0.08em;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.85rem;
+      position: relative; letter-spacing: .08em;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: .85rem;
     }
     .nav-link::after {
-      content: '';
-      position: absolute; bottom: -4px; left: 0; right: 0;
-      height: 2px; background: #C9A84C;
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.25s ease;
+      content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 2px; background: #C9A84C; transform: scaleX(0); transform-origin: left;
+      transition: transform .25s ease;
     }
     .nav-link:hover::after { transform: scaleX(1); }
-
-    /* mobile menu */
-    #mobile-menu { display: none; }
+    #mobile-menu { display: none; max-height: calc(100vh - 80px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
     #mobile-menu.open { display: block; }
+
+    .dropdown{position:relative}
+    .dropdown-menu{
+      position:absolute;top:calc(100% + 8px);left:50%;
+      transform:translateX(-50%) translateY(-6px);
+      background:#080c18;border:1px solid rgba(201,168,76,.2);
+      border-top:2px solid #C9A84C;
+      width:260px;
+      z-index:200;opacity:0;visibility:hidden;
+      transition:opacity .25s ease,transform .25s ease,visibility .25s;
+    }
+    .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+    .dropdown-item{display:flex;align-items:center;gap:10px;padding:11px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);transition:all .2s ease;white-space:nowrap;}
+    .dropdown-item:last-child{border-bottom:none}.dropdown-item:hover{color:#C9A84C;background:rgba(201,168,76,.06);padding-left:26px}.dropdown-item i{color:#C9A84C;width:14px;font-size:.75rem}.dropdown-item.active{color:#C9A84C}
 
     /* ── HERO CONTENT ── */
     .hero-headline {
@@ -172,119 +156,105 @@
      NAVBAR
 ════════════════════════════════════════ -->
 <header id="navbar">
-
-  <!-- Top info bar — static, single row -->
+  <!-- Info bar -->
   <div id="info-bar" style="background:#C9A84C; width:100%;">
     <div style="max-width:1280px; margin:0 auto; padding:7px 20px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
-
-      <!-- Phone — always visible -->
-      <a href="tel:+919434127571"
-         style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:#080c18; text-decoration:none; flex-shrink:0;">
-        <i class="fa-solid fa-phone" style="font-size:0.7rem;"></i> +91 9434127571
+      <a href="tel:+919434127571" style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18; text-decoration:none; flex-shrink:0;">
+        <i class="fa-solid fa-phone" style="font-size:.7rem;"></i> +91 9434127571
       </a>
-
-      <!-- Desktop-only items -->
       <div class="ib-desktop" style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-        <span style="color:rgba(8,12,24,0.3); font-size:0.7rem;">|</span>
-        <a href="mailto:contact@shellbackmarines.in"
-           style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:#080c18; text-decoration:none;">
-          <i class="fa-solid fa-envelope" style="font-size:0.7rem;"></i> contact@shellbackmarines.in
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <a href="mailto:contact@shellbackmarines.in" style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18; text-decoration:none;">
+          <i class="fa-solid fa-envelope" style="font-size:.7rem;"></i> contact@shellbackmarines.in
         </a>
-        <span style="color:rgba(8,12,24,0.3); font-size:0.7rem;">|</span>
-        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:#080c18;">
-          <i class="fa-solid fa-location-dot" style="font-size:0.7rem;"></i> Oodlabari, Jalpaiguri, WB – 735222
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18;">
+          <i class="fa-solid fa-location-dot" style="font-size:.7rem;"></i> Oodlabari, Jalpaiguri, WB – 735222
         </span>
-        <span style="color:rgba(8,12,24,0.3); font-size:0.7rem;">|</span>
-        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:#080c18;">
-          <i class="fa-solid fa-certificate" style="font-size:0.7rem;"></i> Licence: W.B – 55/WB/PSA/2025
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18;">
+          <i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> Licence: W.B – 55/WB/PSA/2025
         </span>
-        <span style="color:rgba(8,12,24,0.3); font-size:0.7rem;">|</span>
-        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" style="color:#080c18; font-size:0.85rem; opacity:0.7;" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" style="color:#080c18; font-size:0.85rem; opacity:0.7;" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://wa.me/919434127571" target="_blank" style="color:#080c18; font-size:0.85rem; opacity:0.7;" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919434127571" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
-
-      <!-- Mobile-only: Get a Quote pill -->
-      <a href="tel:+919434127571" class="ib-mobile-cta"
-         style="display:none; align-items:center; gap:6px; background:#080c18; color:#C9A84C; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; padding:5px 14px; text-decoration:none; border-radius:3px; flex-shrink:0;">
-        <i class="fa-solid fa-phone-volume" style="font-size:0.65rem;"></i> Get a Quote
+      <a href="tel:+919434127571" class="ib-mobile-cta" style="display:none; align-items:center; gap:6px; background:#080c18; color:#C9A84C; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; padding:5px 14px; text-decoration:none; border-radius:3px; flex-shrink:0;">
+        <i class="fa-solid fa-phone-volume" style="font-size:.65rem;"></i> Get a Quote
       </a>
-
     </div>
   </div>
 
-  <style>
-    @media (max-width: 767px) {
-      .ib-desktop { display: none !important; }
-      .ib-mobile-cta { display: inline-flex !important; }
-    }
-  </style>
-
-  <!-- Main nav row -->
+  <!-- Nav row -->
   <div id="nav-row">
-  <nav class="max-w-screen-xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
-
-    <!-- Logo -->
-    <a href="#" class="flex items-center gap-3 group flex-shrink-0">
-      <!-- Replace src with your actual logo file e.g. ./img/logo.png -->
-      <img src="./img/logo.png"
-           alt="Shellback Marines Logo"
-           class="w-11 h-11 object-contain rounded-full border-2 border-gold bg-navy/60"
-            />
-
-      <!-- Fallback anchor icon shown only if logo fails to load -->
-      <div class="w-11 h-11 rounded-full border-2 border-gold items-center justify-center bg-navy/60 group-hover:bg-gold transition-colors duration-300"
-           style="display:none;">
-        <i class="fa-solid fa-anchor text-gold group-hover:text-navy text-lg transition-colors duration-300"></i>
-      </div>
-      <div class="leading-tight">
-        <span class="block font-display font-800 text-white text-lg tracking-wider uppercase">Shellback Marines</span>
-        <span class="block font-body text-gold text-[10px] tracking-[0.2em] uppercase">Security Agency</span>
-      </div>
-    </a>
-
-    <!-- Desktop nav links -->
-    <ul class="hidden lg:flex items-center gap-8">
-      <li><a href="#" class="nav-link text-white hover:text-gold transition-colors duration-200">Home</a></li>
-      <li><a href="#about" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">About</a></li>
-      <li>
-        <a href="#services" class="nav-link text-white/80 hover:text-gold transition-colors duration-200 flex items-center gap-1">
-          Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i>
-        </a>
-      </li>
-      <li><a href="#industries" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Industries</a></li>
-      <li><a href="#contact" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Contact</a></li>
-    </ul>
-
-    <!-- CTA + hamburger -->
-    <div class="flex items-center gap-4">
-      <a href="tel:+919434127571"
-         class="hidden lg:inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-display font-700 text-sm tracking-wider uppercase px-6 py-2.5 transition-all duration-200 hover:shadow-lg hover:shadow-gold/30">
-        <i class="fa-solid fa-phone-volume"></i> Get a Quote
+    <nav class="max-w-screen-xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+      <a href="./home.html" class="flex items-center gap-3 group flex-shrink-0">
+        <img src="./img/logo.png" alt="Shellback Marines Logo"
+             class="w-11 h-11 object-contain rounded-full border-2 border-gold bg-navy/60"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="w-11 h-11 rounded-full border-2 border-gold items-center justify-center bg-navy/60 group-hover:bg-gold transition-colors duration-300" style="display:none;">
+          <i class="fa-solid fa-anchor text-gold group-hover:text-navy text-lg"></i>
+        </div>
+        <div class="leading-tight">
+          <span class="block font-display font-800 text-white text-lg tracking-wider uppercase">Shellback Marines</span>
+          <span class="block font-body text-gold text-[10px] tracking-[0.2em] uppercase">Security Agency</span>
+        </div>
       </a>
-      <!-- Hamburger -->
-      <button id="hamburger" class="lg:hidden text-white text-2xl focus:outline-none" aria-label="Toggle menu">
-        <i id="ham-icon" class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-  </nav>
 
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="lg:hidden bg-navy/98 border-t border-gold/20">
-    <ul class="flex flex-col py-4">
-      <li><a href="#" class="block px-8 py-3 font-display font-600 text-white hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Home</a></li>
-      <li><a href="#about" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">About</a></li>
-      <li><a href="#services" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Services</a></li>
-      <li><a href="#industries" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Industries</a></li>
-      <li><a href="#contact" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Contact</a></li>
-      <li class="px-8 pt-3 pb-4">
-        <a href="tel:+919434127571" class="flex items-center justify-center gap-2 bg-gold text-navy font-display font-700 uppercase tracking-wider text-sm py-3 hover:bg-gold-light transition-colors">
+      <ul class="hidden lg:flex items-center gap-8">
+        <li><a href="./home.html"         class="nav-link text-gold transition-colors duration-200">Home</a></li>
+        <li><a href="./about.html"        class="nav-link text-white/80 hover:text-gold transition-colors duration-200">About</a></li>
+        <li class="dropdown"><a href="./home.html#services" class="nav-link text-white/80 hover:text-gold transition-colors duration-200 flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a><div class="dropdown-menu"><a href="./physical-guarding.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i>Physical Guarding</a>
+<a href="./escort.html" class="dropdown-item"><i class="fa-solid fa-person-walking-arrow-right"></i>Escort Guarding</a>
+<a href="./intelligence.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass-chart"></i>Intelligence &amp; Investigation</a>
+<a href="./electronic.html" class="dropdown-item"><i class="fa-solid fa-camera-cctv"></i>Electronic Surveillance</a>
+<a href="./security-surveys.html" class="dropdown-item"><i class="fa-solid fa-file-shield"></i>Security Surveys &amp; Audits</a>
+<a href="./event.html" class="dropdown-item"><i class="fa-solid fa-people-group"></i>Event Security</a>
+<a href="./corporate.html" class="dropdown-item"><i class="fa-solid fa-briefcase"></i>Corporate Risk Management</a>
+<a href="./access-control.html" class="dropdown-item"><i class="fa-solid fa-door-open"></i>Access Control &amp; CCTV</a>
+<a href="./maintenance.html" class="dropdown-item"><i class="fa-solid fa-screwdriver-wrench"></i>Maintenance</a></div></li>
+        <li><a href="./casestudies.html"  class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Case Studies</a></li>
+        <li><a href="./contact.html"      class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-4">
+        <a href="tel:+919434127571" class="hidden lg:inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-display font-700 text-sm tracking-wider uppercase px-6 py-2.5 transition-all duration-200 hover:shadow-lg hover:shadow-gold/30">
           <i class="fa-solid fa-phone-volume"></i> Get a Quote
         </a>
-      </li>
-    </ul>
+        <button id="hamburger" class="lg:hidden text-white text-2xl focus:outline-none" aria-label="Toggle menu">
+          <i id="ham-icon" class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="lg:hidden bg-navy/98 border-t border-gold/20">
+      <ul class="flex flex-col py-4">
+        <li><a href="./home.html"        class="block px-8 py-3 font-display font-600 text-gold uppercase tracking-wider">Home</a></li>
+        <li><a href="./about.html"       class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">About</a></li>
+        <li><div class="px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider cursor-pointer">Services</div>
+          <ul style="background:rgba(201,168,76,.05); border-left:3px solid #C9A84C; margin-left:32px;">
+        <li><a href="./physical-guarding.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Physical Guarding</a></li>
+<li><a href="./escort.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Guarding</a></li>
+<li><a href="./intelligence.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Intelligence &amp; Investigation</a></li>
+<li><a href="./electronic.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Electronic Surveillance</a></li>
+<li><a href="./security-surveys.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Security Surveys &amp; Audits</a></li>
+<li><a href="./event.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li>
+<li><a href="./corporate.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Corporate Risk Management</a></li>
+<li><a href="./access-control.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Access Control &amp; CCTV</a></li>
+<li><a href="./maintenance.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Maintenance</a></li>
+</ul>
+</li>
+<li><a href="./casestudies.html"  class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Case Studies</a></li>
+        <li><a href="./contact.html"     class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Contact</a></li>
+        <li class="px-8 pt-3 pb-4">
+          <a href="tel:+919434127571" class="flex items-center justify-center gap-2 bg-gold text-navy font-display font-700 uppercase tracking-wider text-sm py-3 hover:bg-gold-light transition-colors">
+            <i class="fa-solid fa-phone-volume"></i> Get a Quote
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-  </div><!-- /nav-row -->
 </header>
 
 
@@ -1998,12 +1968,17 @@
 ════════════════════════════════════════ -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── Navbar scroll effect ──
-  const navbar = document.getElementById('navbar');
+    const navbar = document.getElementById('navbar');
+  const navRow = document.getElementById('nav-row');
+  // Prevent transparent flash on load
+  navRow.style.background = 'rgba(8,12,24,0.85)';
   function handleScroll() {
-    navbar.classList.toggle('scrolled', window.scrollY > 10);
+    const isScrolled = window.scrollY > 10;
+    navbar.classList.toggle('scrolled', isScrolled);
+    navRow.style.background = isScrolled ? '#080c18' : 'rgba(8,12,24,0.85)';
   }
   window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll(); // run on load in case page is already scrolled
+  handleScroll();
 
   // ── Hamburger toggle ──
   const hamburger   = document.getElementById('hamburger');
