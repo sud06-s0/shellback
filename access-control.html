@@ -42,8 +42,8 @@
       opacity: 1;
     }
     #navbar.scrolled #info-bar { max-height: 0; opacity: 0; }
-    #nav-row { transition: background .35s ease, box-shadow .35s ease; background: rgba(8,12,24,0.85); }
-    #navbar.scrolled #nav-row { background: #080c18; box-shadow: 0 2px 28px rgba(0,0,0,.6); }
+    #nav-row { transition: background .35s ease, box-shadow .35s ease; background: transparent; }
+    #navbar.scrolled #nav-row { background: transparent; box-shadow: 0 2px 28px rgba(0,0,0,.6); }
 
     .nav-link {
       position: relative; letter-spacing: .08em;
@@ -58,7 +58,7 @@
     }
     .nav-link:hover::after { transform: scaleX(1); }
     #mobile-menu { display: none; max-height: calc(100vh - 80px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
-    #mobile-menu.open { display: block; }
+    #mobile-menu.open { display: block; background: #080c18; }
     @media(max-width:767px){
       .ib-desktop    { display: none !important; }
       .ib-mobile-cta { display: inline-flex !important; }
@@ -142,7 +142,7 @@
     .sector-pill:hover { border-color: #C9A84C; color: #C9A84C; background: rgba(201,168,76,.06); }
 
     /* ── FOOTER ── */
-    .ft-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px; padding:64px 48px 52px; max-width:1280px; margin:0 auto; }
+    .ft-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px; padding:64px 48px 52px; max-width:1280px; margin:0 auto; }
     @media(max-width:1024px){ .ft-grid{ grid-template-columns:1fr 1fr; gap:40px 32px; } }
     @media(max-width:580px) { .ft-grid{ grid-template-columns:1fr; padding:48px 28px 40px; } }
     .ft-col-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:#C9A84C; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid rgba(201,168,76,.2); }
@@ -923,18 +923,6 @@ We have designed and installed access control and CCTV systems across all major 
     </div>
 
     <div>
-      <p class="ft-col-title">Quick Links</p>
-      <a href="./home.html" class="ft-link"><i class="fa-solid fa-house"></i>Home</a>
-      <a href="./about.html" class="ft-link"><i class="fa-solid fa-circle-info"></i>About Us</a>
-      <a href="./home.html#services" class="ft-link" style="color:#C9A84C;"><i class="fa-solid fa-list-check"></i>Our Services</a>
-      <a href="./case-studies.html" class="ft-link"><i class="fa-solid fa-folder-open"></i>Case Studies</a>
-      <a href="./home.html#gallery" class="ft-link"><i class="fa-solid fa-images"></i>Gallery</a>
-      <a href="./home.html#reviews" class="ft-link"><i class="fa-solid fa-star"></i>Client Reviews</a>
-      <a href="./home.html#accreditations" class="ft-link"><i class="fa-solid fa-certificate"></i>Accreditations</a>
-      <a href="./home.html#contact" class="ft-link"><i class="fa-solid fa-headset"></i>Contact Us</a>
-    </div>
-
-    <div>
       <p class="ft-col-title">Specialist Services</p>
       <a href="./physical-guarding.html" class="ft-link"><i class="fa-solid fa-user-shield"></i>Physical Guarding</a>
       <a href="./intelligence.html" class="ft-link"><i class="fa-solid fa-magnifying-glass-chart"></i>Intelligence &amp; Investigation</a>
@@ -969,29 +957,30 @@ We have designed and installed access control and CCTV systems across all major 
 ════════════════════════════════════════ -->
 <script>
   // ── Navbar scroll ──
-  const navbar = document.getElementById('navbar');
-  const navRow = document.getElementById('nav-row');
-  // Prevent transparent flash on load
-  navRow.style.background = 'rgba(8,12,24,0.85)';
+  const navbar     = document.getElementById('navbar');
+  const navRow     = document.getElementById('nav-row');
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamIcon    = document.getElementById('ham-icon');
+
   function handleScroll() {
     const isScrolled = window.scrollY > 10;
+    const menuOpen   = mobileMenu && mobileMenu.classList.contains('open');
     navbar.classList.toggle('scrolled', isScrolled);
-    navRow.style.background = isScrolled ? '#080c18' : 'rgba(8,12,24,0.85)';
+    navRow.style.background = (isScrolled || menuOpen) ? '#080c18' : 'transparent';
   }
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
 
-  // ── Hamburger ──
-  const hamburger  = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const hamIcon    = document.getElementById('ham-icon');
   hamburger.addEventListener('click', () => {
     mobileMenu.classList.toggle('open');
+    handleScroll();
     hamIcon.className = mobileMenu.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
   });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     mobileMenu.classList.remove('open');
     hamIcon.className = 'fa-solid fa-bars';
+    handleScroll();
   }));
 
   // ── Testimonial carousel ──
