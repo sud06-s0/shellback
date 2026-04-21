@@ -192,8 +192,67 @@
     .cs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
     @media(max-width:960px) { .cs-grid { grid-template-columns: repeat(2, 1fr); } }
     @media(max-width:580px) { .cs-grid { grid-template-columns: 1fr; } .cs-featured-img { flex: 0 0 100%; min-height: 260px; } .cs-featured-body { padding: 32px 28px; } }
+
+    /* ── WHATSAPP FLOATING BUTTON ── */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  width: 58px;
+  height: 58px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45), 0 2px 8px rgba(0,0,0,0.3);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6), 0 3px 12px rgba(0,0,0,0.35);
+}
+.wa-float i {
+  font-size: 1.75rem;
+  color: #fff;
+  line-height: 1;
+}
+/* Pulse ring animation */
+.wa-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  animation: wa-pulse 2.2s ease-out infinite;
+}
+@keyframes wa-pulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  70%  { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .wa-float {
+    bottom: 20px;
+    right: 18px;
+    width: 52px;
+    height: 52px;
+  }
+  .wa-float i {
+    font-size: 1.55rem;
+  }
+}
+
   </style>
 </head>
+<!-- ── WHATSAPP FLOATING BUTTON ── -->
+<a href="https://wa.me/919434127571" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
 <body class="overflow-x-hidden">
 
 
