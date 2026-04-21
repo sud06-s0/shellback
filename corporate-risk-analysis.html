@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporate Risk Management – Shellback Marines Security Agency</title>
+  <meta name="description" content="Expert corporate risk analysis by Shellback Marines Security Agency. Veteran-operated corporate risk management services protecting businesses across West Bengal and Northeast India." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Barlow Condensed', 'sans-serif'],
+            body:    ['Barlow', 'sans-serif'],
+          },
+          colors: {
+            navy:         '#080c18',
+            gold:         '#C9A84C',
+            'gold-light': '#E8C96A',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: #080c18; }
+
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+    #info-bar { overflow: hidden; max-height: 40px; transition: max-height .35s ease, opacity .35s ease; opacity: 1; }
+    #navbar.scrolled #info-bar { max-height: 0; opacity: 0; }
+    #nav-row { transition: background .35s ease, box-shadow .35s ease; background: transparent; }
+    #navbar.scrolled #nav-row { background: transparent; box-shadow: 0 2px 28px rgba(0,0,0,.6); }
+
+    .nav-link { position: relative; letter-spacing: .08em; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: .85rem; }
+    .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: #C9A84C; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    #mobile-menu { display: none; max-height: calc(100vh - 80px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+    #mobile-menu.open { display: block; background: #080c18; }
+    @media(max-width:767px){ .ib-desktop { display: none !important; } .ib-mobile-cta { display: inline-flex !important; } }
+
+    @keyframes bgPan { 0% { transform: scale(1.08) translateX(0); } 100% { transform: scale(1.08) translateX(-3%); } }
+    .hero-vid-fallback { position: absolute; inset: 0; animation: bgPan 20s ease-in-out infinite alternate; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(8,12,24,.92) 0%, rgba(8,12,24,.65) 55%, rgba(8,12,24,.45) 100%), linear-gradient(to top, rgba(8,12,24,.98) 0%, rgba(8,12,24,.0) 55%); }
+
+    .gold-divider { display:flex; align-items:center; justify-content:center; margin:14px auto 38px; max-width:400px; }
+    .gdl { flex:1; height:1.5px; background:#d1d5db; }
+    .gdd { width:11px; height:11px; border-radius:50%; background:#C9A84C; margin:0 -1px; flex-shrink:0; box-shadow:0 0 0 4px rgba(201,168,76,.18); }
+
+    .svc-list-item { display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.07); text-decoration: none; transition: padding-left .2s ease; }
+    .svc-list-item:last-child { border-bottom: none; }
+    .svc-list-item:hover { padding-left: 6px; }
+    .svc-list-item:hover .sli-arrow { background: #C9A84C; color: #080c18; }
+    .sli-arrow { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #C9A84C; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #C9A84C; font-size: .75rem; transition: all .2s ease; }
+
+    .testi-track { display:flex; transition: transform .6s cubic-bezier(.4,0,.2,1); }
+    .testi-slide { flex: 0 0 100%; }
+
+    .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(201,168,76,.1); }
+    .check-item:last-child { border-bottom: none; }
+
+    .img-reveal { overflow: hidden; }
+    .img-reveal img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .55s ease; }
+    .img-reveal:hover img { transform: scale(1.04); }
+
+    .ft-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px; padding:64px 48px 52px; max-width:1280px; margin:0 auto; }
+    @media(max-width:1024px){ .ft-grid{ grid-template-columns:1fr 1fr; gap:40px 32px; } }
+    @media(max-width:580px) { .ft-grid{ grid-template-columns:1fr; padding:48px 28px 40px; } }
+    .ft-col-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:#C9A84C; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid rgba(201,168,76,.2); }
+    .ft-body { font-family:'Barlow',sans-serif; font-size:.88rem; color:rgba(255,255,255,.55); line-height:1.8; }
+    .ft-link { display:block; font-family:'Barlow',sans-serif; font-size:.88rem; color:rgba(255,255,255,.55); text-decoration:none; padding:4px 0; transition:color .2s ease, padding-left .2s; border-bottom:1px solid rgba(255,255,255,.05); }
+    .ft-link:last-child { border-bottom:none; }
+    .ft-link:hover { color:#C9A84C; padding-left:4px; }
+    .ft-link i { width:14px; margin-right:6px; color:#C9A84C; font-size:.75rem; }
+    .ft-news-item { padding:10px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+    .ft-news-item:last-child { border-bottom:none; }
+    .ft-news-title { font-family:'Barlow',sans-serif; font-size:.87rem; color:rgba(255,255,255,.75); line-height:1.5; text-decoration:none; display:block; transition:color .2s; }
+    .ft-news-title:hover { color:#C9A84C; }
+    .ft-news-date { font-family:'Barlow',sans-serif; font-size:.72rem; color:rgba(255,255,255,.3); margin-top:3px; }
+    .ft-social { display:flex; gap:10px; margin-top:24px; }
+    .ft-soc-btn { width:36px; height:36px; border-radius:6px; border:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.5); font-size:.9rem; text-decoration:none; transition:all .2s ease; }
+    .ft-soc-btn:hover { background:#C9A84C; border-color:#C9A84C; color:#080c18; }
+    .ft-bottom { border-top:1px solid rgba(255,255,255,.07); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding:20px 48px; max-width:1280px; margin:0 auto; }
+    @media(max-width:640px){ .ft-bottom{ padding:20px 28px; flex-direction:column; text-align:center; } }
+    .ft-bottom p { font-family:'Barlow',sans-serif; font-size:.78rem; color:rgba(255,255,255,.28); margin:0; }
+    .ft-bottom-links { display:flex; gap:20px; flex-wrap:wrap; }
+    .ft-bottom-links a { font-family:'Barlow',sans-serif; font-size:.78rem; color:rgba(255,255,255,.28); text-decoration:none; transition:color .2s; }
+    .ft-bottom-links a:hover { color:#C9A84C; }
+
+    .dropdown{position:relative}
+    .dropdown-menu{
+      position:absolute;top:calc(100% + 8px);left:50%;
+      transform:translateX(-50%) translateY(-6px);
+      background:#080c18;border:1px solid rgba(201,168,76,.2);
+      border-top:2px solid #C9A84C;
+      width:260px;
+      z-index:200;opacity:0;visibility:hidden;
+      transition:opacity .25s ease,transform .25s ease,visibility .25s;
+    }
+    .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+    .dropdown-item{display:flex;align-items:center;gap:10px;padding:11px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);transition:all .2s ease;white-space:nowrap;}
+    .dropdown-item:last-child{border-bottom:none}.dropdown-item:hover{color:#C9A84C;background:rgba(201,168,76,.06);padding-left:26px}.dropdown-item i{color:#C9A84C;width:14px;font-size:.75rem}.dropdown-item.active{color:#C9A84C}
+
+    .blog-body { font-family:'Barlow',sans-serif; font-size:1.05rem; color:#374151; line-height:1.9; }
+    .blog-body p { margin-bottom:22px; }
+    .blog-body h3 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.35rem; letter-spacing:.04em; text-transform:uppercase; color:#111827; margin-bottom:14px; margin-top:36px; }
+    .blog-tag { display:inline-flex; align-items:center; gap:6px; background:#f3f4f6; border:1px solid #e5e7eb; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:#374151; padding:8px 14px; }
+    .blog-tag i { color:#C9A84C; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+
+<!-- ════════════════════════ NAVBAR ════════════════════════ -->
+<header id="navbar">
+  <div id="info-bar" style="background:#C9A84C; width:100%;">
+    <div style="max-width:1280px; margin:0 auto; padding:7px 20px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
+      <a href="tel:+919434127571" style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18; text-decoration:none; flex-shrink:0;">
+        <i class="fa-solid fa-phone" style="font-size:.7rem;"></i> +91 9434127571
+      </a>
+      <div class="ib-desktop" style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <a href="mailto:contact@shellbackmarines.in" style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18; text-decoration:none;">
+          <i class="fa-solid fa-envelope" style="font-size:.7rem;"></i> contact@shellbackmarines.in
+        </a>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18;">
+          <i class="fa-solid fa-location-dot" style="font-size:.7rem;"></i> Oodlabari, Jalpaiguri, WB – 735222
+        </span>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18;">
+          <i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> Licence: W.B – 55/WB/PSA/2025
+        </span>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919434127571" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <a href="tel:+919434127571" class="ib-mobile-cta" style="display:none; align-items:center; gap:6px; background:#080c18; color:#C9A84C; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; padding:5px 14px; text-decoration:none; border-radius:3px; flex-shrink:0;">
+        <i class="fa-solid fa-phone-volume" style="font-size:.65rem;"></i> Get a Quote
+      </a>
+    </div>
+  </div>
+
+  <div id="nav-row">
+    <nav class="max-w-screen-xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
+        <img src="./img/logo.png" alt="Shellback Marines Logo"
+             class="w-11 h-11 object-contain rounded-full border-2 border-gold bg-navy/60"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="w-11 h-11 rounded-full border-2 border-gold items-center justify-center bg-navy/60 group-hover:bg-gold transition-colors duration-300" style="display:none;">
+          <i class="fa-solid fa-anchor text-gold group-hover:text-navy text-lg"></i>
+        </div>
+        <div class="leading-tight">
+          <span class="block font-display font-800 text-white text-lg tracking-wider uppercase">Shellback Marines</span>
+          <span class="block font-body text-gold text-[10px] tracking-[0.2em] uppercase">Security Agency</span>
+        </div>
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-8">
+        <li><a href="index.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Home</a></li>
+        <li><a href="./about.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">About</a></li>
+        <li class="dropdown"><a href="./home.html#services" class="nav-link text-white/80 hover:text-gold transition-colors duration-200 flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a>
+          <div class="dropdown-menu">
+            <a href="./physicalguarding.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i>Physical Guarding</a>
+            <a href="./escort.html" class="dropdown-item"><i class="fa-solid fa-person-walking-arrow-right"></i>Escort Guarding</a>
+            <a href="./intelligence.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass-chart"></i>Intelligence &amp; Investigation</a>
+            <a href="./electronic.html" class="dropdown-item"><i class="fa-solid fa-camera-cctv"></i>Electronic Surveillance</a>
+            <a href="./security-surveys.html" class="dropdown-item"><i class="fa-solid fa-file-shield"></i>Security Surveys &amp; Audits</a>
+            <a href="./event.html" class="dropdown-item"><i class="fa-solid fa-people-group"></i>Event Security</a>
+            <a href="./corporate.html" class="dropdown-item"><i class="fa-solid fa-briefcase"></i>Corporate Risk Management</a>
+            <a href="./access-control.html" class="dropdown-item"><i class="fa-solid fa-door-open"></i>Access Control &amp; CCTV</a>
+            <a href="./maintenance.html" class="dropdown-item"><i class="fa-solid fa-screwdriver-wrench"></i>Maintenance</a>
+          </div>
+        </li>
+        <li class="dropdown"><a href="#" class="nav-link text-gold transition-colors duration-200 flex items-center gap-1">Blogs <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a>
+          <div class="dropdown-menu">
+            <a href="./hospital-security.html" class="dropdown-item"><i class="fa-solid fa-hospital"></i>Hospital Security Solutions</a>
+            <a href=".cctv-camera.html" class="dropdown-item"><i class="fa-solid fa-camera"></i>Wireless CCTV Camera</a>
+            <a href="./surveillance-agency.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i>Surveillance Agency WB</a>
+            <a href="./bank-security.html" class="dropdown-item"><i class="fa-solid fa-landmark"></i>Bank Security Services</a>
+            <a href="./event-security.html" class="dropdown-item"><i class="fa-solid fa-people-group"></i>Security for Events</a>
+             <a href="./armed-security-services.html" class="dropdown-item"><i class="fa-solid fa-shield-halved"></i>Armed Security Services</a>
+            <a href="./professional-escort-services.html" class="dropdown-item"><i class="fa-solid fa-car-side"></i>Professional Escort Services</a>
+            <a href="./elite-bodyguard-services.html" class="dropdown-item"><i class="fa-solid fa-user-ninja"></i>Elite Bodyguard Services</a>
+            <a href="./corporate-risk-analysis.html" class="dropdown-item active"><i class="fa-solid fa-briefcase"></i>Corporate Risk Management</a>
+            <a href="./private-investigator.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i>Private Investigator</a>
+          </div>
+        </li>
+        <li><a href="./casestudies.html"  class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Case Studies</a></li>
+        <li><a href="./contact.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-4">
+        <a href="tel:+919434127571" class="hidden lg:inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-display font-700 text-sm tracking-wider uppercase px-6 py-2.5 transition-all duration-200 hover:shadow-lg hover:shadow-gold/30">
+          <i class="fa-solid fa-phone-volume"></i> Get a Quote
+        </a>
+        <button id="hamburger" class="lg:hidden w-10 h-10 flex items-center justify-center text-white" aria-label="Menu">
+          <i id="ham-icon" class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="lg:hidden bg-navy/98 border-t border-gold/20">
+      <ul class="flex flex-col py-4">
+        <li><a href="index.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Home</a></li>
+        <li><a href="./about.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">About</a></li>
+        <li><div class="px-8 py-3 font-display font-600 text-gold uppercase tracking-wider">Services</div>
+          <ul style="background:rgba(201,168,76,.05); border-left:3px solid #C9A84C; margin-left:32px;">
+            <li><a href="./physicalguarding.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Physical Guarding</a></li>
+<li><a href="./escort.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Guarding</a></li>
+<li><a href="./intelligence.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Intelligence &amp; Investigation</a></li>
+<li><a href="./electronic.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Electronic Surveillance</a></li>
+<li><a href="./security-surveys.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Security Surveys &amp; Audits</a></li>
+<li><a href="./event.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li>
+<li><a href="./corporate.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Corporate Risk Management</a></li>
+<li><a href="./access-control.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Access Control &amp; CCTV</a></li>
+<li><a href="./maintenance.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Maintenance</a></li>
+          </ul>
+        </li>
+        <li><div class="px-8 py-3 font-display font-600 text-gold uppercase tracking-wider">Blogs</div>
+          <ul style="background:rgba(201,168,76,.05); border-left:3px solid #C9A84C; margin-left:32px;">
+            <li><a href="./armed-security-services.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Armed Security Services</a></li>
+            <li><a href="./hospital-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Hospital Security</a></li>
+            <li><a href="./bank-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Bank Security Services</a></li>
+             <li><a href=".cctv-camera.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Wireless CCTV Camera</a></li>
+              <li><a href=".corporate-risk-analysis.html" class="block px-6 py-2.5 font-display font-600 text-gold text-sm uppercase tracking-wider">Corporate Risk Mamagement</a></li>
+               <li><a href=".elite-bodyguard-services.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Elite Bodyguards</a></li>
+               <li><a href=".event-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li> 
+               <li><a href=".hospital-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Hospital Security</a></li> 
+               <li><a href=".private-investigator.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Private Investigator</a></li> 
+              <li><a href=".professional-escort-services.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Services</a></li>  
+               <li><a href=".survelliance-agency.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Survelliance Agency</a></li>
+          </ul>
+        </li>
+        <li><a href="./casestudies.html"  class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Case Studies</a></li>
+        <li><a href="./contact.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Contact</a></li>
+        <li class="px-8 pt-3 pb-4">
+          <a href="tel:+919434127571" class="flex items-center justify-center gap-2 bg-gold text-navy font-display font-700 uppercase tracking-wider text-sm py-3 hover:bg-gold-light transition-colors">
+            <i class="fa-solid fa-phone-volume"></i> Get a Quote
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+<!-- ════════════════════════ HERO ════════════════════════ -->
+<section style="position:relative; min-height:88vh; display:flex; align-items:center; overflow:hidden;">
+  <div class="hero-vid-fallback" style="background-image:url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1400'); background-size:cover; background-position:center;"></div>
+  <div class="hero-overlay"></div>
+  <div style="position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:140px 48px 100px;width:100%;">
+    <div style="max-width:700px;">
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);padding:8px 18px;margin-bottom:28px;">
+        <i class="fa-solid fa-briefcase" style="color:#C9A84C;font-size:.75rem;"></i>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;">Corporate Risk Management</span>
+      </div>
+      <h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.4rem,6vw,4.4rem);letter-spacing:.03em;text-transform:uppercase;color:#ffffff;line-height:1.05;margin-bottom:24px;">
+        Strategic Corporate<br><span style="color:#C9A84C;">Risk Analysis</span><br>for Resilient Business
+      </h1>
+      <p style="font-family:'Barlow',sans-serif;font-size:1.05rem;color:rgba(255,255,255,.7);line-height:1.85;max-width:580px;margin-bottom:40px;">
+        In today's volatile business environment, professional <strong style="color:#fff;">corporate risk analysis</strong> is no longer optional — it is the foundation of sustainable growth. Shellback Marines brings military-grade strategic thinking to every corporate risk management engagement across West Bengal and Northeast India.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:16px 36px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
+          <i class="fa-solid fa-headset"></i> Request a Risk Consultation
+        </a>
+        <a href="#article" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#ffffff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:16px 36px;text-decoration:none;border:2px solid rgba(255,255,255,.25);transition:all .2s;" onmouseover="this.style.borderColor='#C9A84C';this.style.color='#C9A84C';" onmouseout="this.style.borderColor='rgba(255,255,255,.25)';this.style.color='#fff';">
+          <i class="fa-solid fa-arrow-down"></i> Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div style="position:absolute;bottom:0;left:0;right:0;z-index:3;background:rgba(8,12,24,.85);backdrop-filter:blur(8px);border-top:1px solid rgba(201,168,76,.15);">
+    <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;">
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-shield-halved" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">360°</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Risk Coverage</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-anchor" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">Navy</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Trained Leadership</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-chart-line" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">PSA</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Licensed Agency</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 20px;gap:8px;text-align:center;">
+        <i class="fa-solid fa-clock" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">24/7</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Monitoring &amp; Support</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ ARTICLE INTRO SPLIT ════════════════════════ -->
+<section id="article" style="background:#ffffff;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:center;">
+
+      <div style="flex:1;min-width:280px;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Why It Matters</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:.03em;text-transform:uppercase;color:#111827;line-height:1.1;margin-bottom:0;">
+          The Strategic Case for<br>Corporate Risk Analysis
+        </h2>
+        <div class="gold-divider" style="justify-content:flex-start;margin-left:0;">
+          <div class="gdl" style="max-width:80px;"></div>
+          <div class="gdd"></div>
+          <div class="gdl" style="max-width:240px;"></div>
+        </div>
+
+        <div class="blog-body">
+          <p>
+            Modern businesses operate in an environment of compounding threats — from industrial espionage and insider fraud to supply chain disruption and reputational damage. Effective <strong>corporate risk analysis</strong> transforms this uncertainty into structured, manageable intelligence that empowers better decision-making at every level.
+          </p>
+          <p>
+            At Shellback Marines, our approach to <strong>corporate risk management</strong> is rooted in military-grade strategic planning. As a veteran-operated security agency, we understand that comprehensive <strong>corporate risk analysis</strong> demands more than a checklist — it requires tactical precision, live threat intelligence, and a deep understanding of the business landscape in Northeast India.
+          </p>
+          <p>
+            From manufacturing facilities in the Siliguri corridor to financial institutions across Kolkata, our <strong>corporate risk management</strong> specialists deliver tailored frameworks that identify vulnerabilities before they become costly incidents — safeguarding operations, assets, and organisational reputation.
+          </p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:0;margin-top:8px;">
+          <div class="check-item">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">Proactive Threat Identification</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">Our <strong>corporate risk analysis</strong> methodology identifies vulnerabilities across physical, personnel, cyber, and operational layers before they manifest as incidents.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">Business Continuity Planning</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">Comprehensive <strong>corporate risk management</strong> ensures your organisation has tested crisis protocols, communication plans, and recovery strategies in place before emergencies strike.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">Measurable ROI on Security</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">Every <strong>corporate risk analysis</strong> engagement includes cost-benefit reporting, helping stakeholders understand the direct return on security investment and risk mitigation.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;margin-top:32px;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
+          <i class="fa-solid fa-headset"></i> Contact Us Today
+        </a>
+      </div>
+
+      <div style="flex:0 0 460px;max-width:100%;">
+        <div class="img-reveal" style="height:520px;">
+          <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Corporate risk analysis team in strategic meeting" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ SERVICES LIST ════════════════════════ -->
+<section style="background:#080c18;padding:80px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start;">
+
+      <div style="flex:1;min-width:280px;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Our Core Services</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:.03em;text-transform:uppercase;color:#ffffff;line-height:1.1;margin-bottom:32px;">
+          Corporate Risk Management<br>Solutions:
+        </h2>
+
+        <div style="display:flex;flex-direction:column;gap:0;">
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Physical Security Risk Assessment</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Comprehensive facility audits examining access controls, perimeter security, surveillance systems, and emergency procedures — forming the foundation of your <strong style="color:rgba(255,255,255,.7);">corporate risk analysis</strong> strategy.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Personnel Security &amp; Background Verification</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Background verification, ongoing personnel monitoring, and insider threat assessment — helping organisations make informed hiring decisions as part of holistic <strong style="color:rgba(255,255,255,.7);">corporate risk management</strong>.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Executive Protection &amp; VIP Security</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Threat assessment, personal security details, secure transportation, and residence security for senior leadership — a critical component of complete <strong style="color:rgba(255,255,255,.7);">corporate risk analysis</strong>.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Crisis Management &amp; Business Continuity</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Crisis response protocols, emergency communication plans, and business continuity strategies — minimising operational impact when challenges arise in any <strong style="color:rgba(255,255,255,.7);">corporate risk management</strong> scenario.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Threat Intelligence &amp; Analysis</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Up-to-date intelligence on emerging threats and regional risk factors — delivered through our maintained intelligence networks as part of ongoing <strong style="color:rgba(255,255,255,.7);">corporate risk analysis</strong>.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Integrated Security Technology Assessment</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Evaluation and integration of surveillance systems, access controls, and digital security measures — building holistic <strong style="color:rgba(255,255,255,.7);">corporate risk management</strong> architectures that unify protection layers.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Employee Security Awareness Training</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Training programmes that educate staff on security protocols, threat recognition, and emergency procedures — creating the security-conscious culture essential for effective <strong style="color:rgba(255,255,255,.7);">corporate risk analysis</strong>.</p>
+            </div>
+          </a>
+
+        </div>
+
+        <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;margin-top:36px;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
+          <i class="fa-solid fa-headset"></i> Discuss Your Requirement
+        </a>
+      </div>
+
+      <div style="flex:0 0 380px;max-width:100%;display:flex;flex-direction:column;gap:4px;">
+        <div class="img-reveal" style="height:260px;">
+          <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Corporate risk management assessment" />
+        </div>
+        <div class="img-reveal" style="height:200px;">
+          <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Business security planning session" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ ARTICLE BODY ════════════════════════ -->
+<section style="background:#ffffff;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start;">
+
+      <div style="flex:0 0 400px;max-width:100%;">
+        <div class="img-reveal" style="height:340px;margin-bottom:4px;">
+          <img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Corporate risk analysis documentation" />
+        </div>
+        <div style="background:#080c18;padding:32px;">
+          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">Industry Expertise</p>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <i class="fa-solid fa-industry" style="color:#C9A84C;width:18px;flex-shrink:0;"></i>
+              <span style="font-family:'Barlow',sans-serif;font-size:.88rem;color:rgba(255,255,255,.7);">Manufacturing &amp; Industrial</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <i class="fa-solid fa-landmark" style="color:#C9A84C;width:18px;flex-shrink:0;"></i>
+              <span style="font-family:'Barlow',sans-serif;font-size:.88rem;color:rgba(255,255,255,.7);">Financial Services</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <i class="fa-solid fa-hospital" style="color:#C9A84C;width:18px;flex-shrink:0;"></i>
+              <span style="font-family:'Barlow',sans-serif;font-size:.88rem;color:rgba(255,255,255,.7);">Healthcare &amp; Pharmaceuticals</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <i class="fa-solid fa-microchip" style="color:#C9A84C;width:18px;flex-shrink:0;"></i>
+              <span style="font-family:'Barlow',sans-serif;font-size:.88rem;color:rgba(255,255,255,.7);">Information Technology</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <i class="fa-solid fa-truck" style="color:#C9A84C;width:18px;flex-shrink:0;"></i>
+              <span style="font-family:'Barlow',sans-serif;font-size:.88rem;color:rgba(255,255,255,.7);">Logistics &amp; Supply Chain</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;">
+          <span class="blog-tag"><i class="fa-solid fa-tag"></i> Corporate Risk Analysis</span>
+          <span class="blog-tag"><i class="fa-solid fa-tag"></i> Risk Assessment</span>
+          <span class="blog-tag"><i class="fa-solid fa-tag"></i> West Bengal</span>
+          <span class="blog-tag"><i class="fa-solid fa-tag"></i> Veteran Security</span>
+          <span class="blog-tag"><i class="fa-solid fa-tag"></i> Business Security</span>
+        </div>
+      </div>
+
+      <div style="flex:1;min-width:280px;">
+        <div class="blog-body">
+          <h3>Understanding Corporate Risk Management</h3>
+          <p>
+            <strong>Corporate risk management</strong> encompasses the systematic identification, assessment, and mitigation of potential threats that could impact business operations, financial performance, or organisational reputation. Unlike reactive security measures, professional <strong>corporate risk analysis</strong> takes a proactive approach — identifying vulnerabilities before they become costly problems, ensuring business continuity and stakeholder confidence.
+          </p>
+
+          <h3>Veteran-Led Strategic Excellence</h3>
+          <p>
+            As a veteran-operated security agency, Shellback Marines brings military-grade strategic thinking to every <strong>corporate risk management</strong> engagement. Our leadership team, comprising former armed forces personnel, applies tactical planning, intelligence analysis, and operational security principles to business risk assessment. This military background ensures that our <strong>corporate risk analysis</strong> services are delivered with the precision and thoroughness that only comes from years of strategic security experience.
+          </p>
+          <p>
+            Effective <strong>corporate risk management</strong> begins with a thorough risk assessment framework. Our security experts conduct detailed analyses of business operations, identifying potential threats across physical security, cybersecurity, personnel security, and operational continuity. This systematic approach ensures that no potential vulnerability goes unaddressed in any <strong>corporate risk analysis</strong> engagement.
+          </p>
+
+          <h3>Regional Advantages in Northeast India</h3>
+          <p>
+            Operating from the Siliguri area in West Bengal, Shellback Marines possesses intimate knowledge of the regional business environment, regulatory requirements, and specific security considerations facing organisations here. This local expertise enables more effective <strong>corporate risk management</strong> strategies that address specific regional risk factors.
+          </p>
+          <p>
+            The Northeast India region's proximity to international borders creates unique challenges that require specialised <strong>corporate risk analysis</strong> attention. Our team understands cross-border security issues and provides appropriate risk mitigation strategies for businesses operating in this strategically important region — whether in manufacturing, logistics, financial services, or healthcare.
+          </p>
+
+          <h3>Continuous Monitoring and Adaptive Strategy</h3>
+          <p>
+            Risk factors evolve continuously, which is why our <strong>corporate risk management</strong> services include regular security reviews, threat assessment updates, and strategy adjustments that maintain effective protection as business conditions change. Clients receive detailed performance metrics, risk reduction reporting, and ongoing recommendations — ensuring that your <strong>corporate risk analysis</strong> investment continues to deliver measurable value year over year.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ TESTIMONIALS ════════════════════════ -->
+<section style="background:#080c18;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="text-align:center;margin-bottom:52px;">
+      <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Client Feedback</p>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:.03em;text-transform:uppercase;color:#ffffff;line-height:1.1;">What Our Corporate Clients Say</h2>
+    </div>
+
+    <div style="position:relative;overflow:hidden;">
+      <div id="testiTrack" class="testi-track">
+
+        <div class="testi-slide">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.12);padding:44px 48px;max-width:780px;margin:0 auto;">
+            <i class="fa-solid fa-quote-left" style="color:#C9A84C;font-size:1.8rem;margin-bottom:20px;display:block;opacity:.6;"></i>
+            <p style="font-family:'Barlow',sans-serif;font-size:1.1rem;color:rgba(255,255,255,.85);line-height:1.85;font-style:italic;margin-bottom:28px;">"Shellback Marines conducted a thorough <strong>corporate risk analysis</strong> for our manufacturing plant in Siliguri. Their veteran-led approach brought a level of rigour we hadn't seen from other agencies. The structured report and actionable recommendations were exactly what we needed to secure our operations."</p>
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:rgba(201,168,76,.2);border:2px solid #C9A84C;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="fa-solid fa-user" style="color:#C9A84C;"></i>
+              </div>
+              <div>
+                <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;color:#ffffff;margin-bottom:2px;">Rajan Mehta</p>
+                <p style="font-family:'Barlow',sans-serif;font-size:.8rem;color:rgba(255,255,255,.4);">Operations Director, Manufacturing Firm — Siliguri</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-slide">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.12);padding:44px 48px;max-width:780px;margin:0 auto;">
+            <i class="fa-solid fa-quote-left" style="color:#C9A84C;font-size:1.8rem;margin-bottom:20px;display:block;opacity:.6;"></i>
+            <p style="font-family:'Barlow',sans-serif;font-size:1.1rem;color:rgba(255,255,255,.85);line-height:1.85;font-style:italic;margin-bottom:28px;">"We engaged Shellback Marines for ongoing <strong>corporate risk management</strong> support after experiencing a security incident. The team's response was immediate and professional. Their intelligence reports and personnel monitoring services have significantly strengthened our overall risk posture."</p>
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:rgba(201,168,76,.2);border:2px solid #C9A84C;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="fa-solid fa-user" style="color:#C9A84C;"></i>
+              </div>
+              <div>
+                <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;color:#ffffff;margin-bottom:2px;">Priya Chatterjee</p>
+                <p style="font-family:'Barlow',sans-serif;font-size:.8rem;color:rgba(255,255,255,.4);">CFO, Financial Services Company — Kolkata</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-slide">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.12);padding:44px 48px;max-width:780px;margin:0 auto;">
+            <i class="fa-solid fa-quote-left" style="color:#C9A84C;font-size:1.8rem;margin-bottom:20px;display:block;opacity:.6;"></i>
+            <p style="font-family:'Barlow',sans-serif;font-size:1.1rem;color:rgba(255,255,255,.85);line-height:1.85;font-style:italic;margin-bottom:28px;">"Their <strong>corporate risk analysis</strong> identified vulnerabilities in our supply chain we had completely overlooked. The integrated security architecture they recommended is now the backbone of our risk mitigation programme. Shellback Marines genuinely understands the Northeast India business environment."</p>
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:rgba(201,168,76,.2);border:2px solid #C9A84C;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="fa-solid fa-user" style="color:#C9A84C;"></i>
+              </div>
+              <div>
+                <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;color:#ffffff;margin-bottom:2px;">Suresh Agarwal</p>
+                <p style="font-family:'Barlow',sans-serif;font-size:.8rem;color:rgba(255,255,255,.4);">MD, Logistics Company — North Bengal</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:36px;">
+        <button id="testiPrev" style="width:44px;height:44px;border-radius:50%;border:2px solid rgba(201,168,76,.4);background:transparent;color:#C9A84C;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;" onmouseover="this.style.background='#C9A84C';this.style.color='#080c18';" onmouseout="this.style.background='transparent';this.style.color='#C9A84C';"><i class="fa-solid fa-chevron-left"></i></button>
+        <div id="testiDots" style="display:flex;gap:8px;"></div>
+        <button id="testiNext" style="width:44px;height:44px;border-radius:50%;border:2px solid rgba(201,168,76,.4);background:transparent;color:#C9A84C;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;" onmouseover="this.style.background='#C9A84C';this.style.color='#080c18';" onmouseout="this.style.background='transparent';this.style.color='#C9A84C';"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ CONCLUSION / CTA ════════════════════════ -->
+<section style="background:#ffffff;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:center;">
+
+      <div style="flex:0 0 460px;max-width:100%;">
+        <div class="img-reveal" style="height:500px;">
+          <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Corporate risk management strategic planning" />
+        </div>
+      </div>
+
+      <div style="flex:1;min-width:280px;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Conclusion</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:.03em;text-transform:uppercase;color:#111827;line-height:1.1;margin-bottom:0;">
+          Protect Your Business<br>Future with Expert<br>Risk Analysis.
+        </h2>
+        <div class="gold-divider" style="justify-content:flex-start;margin-left:0;">
+          <div class="gdl" style="max-width:60px;"></div>
+          <div class="gdd"></div>
+          <div class="gdl" style="max-width:260px;"></div>
+        </div>
+
+        <p style="font-family:'Barlow',sans-serif;font-size:1rem;color:#374151;line-height:1.85;margin-bottom:18px;">
+          Effective <strong>corporate risk management</strong> is essential for business success in today's challenging environment. Shellback Marines combines veteran expertise, comprehensive <strong>corporate risk analysis</strong> capabilities, and deep regional knowledge to deliver solutions that protect what matters most to your organisation.
+        </p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.95rem;color:#6b7280;line-height:1.85;margin-bottom:28px;">
+          As a veteran-operated security agency serving the Siliguri area and throughout Northeast India, we understand that successful <strong>corporate risk analysis</strong> demands strategic planning, professional implementation, and ongoing adaptation. Contact Shellback Marines today to discover how our comprehensive <strong>corporate risk management</strong> services can protect your business, enhance operational security, and provide the confidence needed for continued growth.
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:36px;">
+          <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:14px 20px;">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#374151;">PSA Licensed Agency</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:14px 20px;">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#374151;">Veteran-Operated</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:14px 20px;">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#374151;">Northeast India Experts</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:14px 20px;">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#374151;">Measurable ROI</span>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+          <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
+            <i class="fa-solid fa-headset"></i> Get a Free Consultation
+          </a>
+          <a href="./security-surveys.html" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;border:2px solid rgba(8,12,24,.25);transition:all .2s;" onmouseover="this.style.background='rgba(8,12,24,.05)'" onmouseout="this.style.background='transparent'">
+            <i class="fa-solid fa-file-shield"></i> View Security Audits
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ VALUES CTA BAND ════════════════════════ -->
+<section style="background:#C9A84C;padding:64px 48px;text-align:center;">
+  <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(8,12,24,.6);margin-bottom:12px;">Shellback Marines</p>
+  <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:.04em;text-transform:uppercase;color:#080c18;margin-bottom:16px;">We Protect More Than You Think</h2>
+  <p style="font-family:'Barlow',sans-serif;font-size:1rem;color:rgba(8,12,24,.7);max-width:640px;margin:0 auto 32px;line-height:1.8;">Born from real naval service, Shellback Marines applies military-grade discipline and analytical rigour to every <strong>corporate risk management</strong> engagement. We believe excellent <strong>corporate risk analysis</strong> is the foundation of excellent business — and we deliver it without compromise.</p>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:20px;">
+    <a href="./about.html" style="display:inline-flex;align-items:center;gap:10px;background:#080c18;color:#C9A84C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#0d1120'" onmouseout="this.style.background='#080c18'">
+      <i class="fa-solid fa-anchor"></i> Our Story
+    </a>
+    <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;border:2px solid rgba(8,12,24,.35);transition:all .2s;" onmouseover="this.style.background='rgba(8,12,24,.08)'" onmouseout="this.style.background='transparent'">
+      <i class="fa-solid fa-phone-volume"></i> Contact Us
+    </a>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:16px;">
+    <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(8,12,24,.6);text-decoration:none;border-bottom:1px solid rgba(8,12,24,.25);padding-bottom:2px;transition:color .2s;" onmouseover="this.style.color='#080c18'" onmouseout="this.style.color='rgba(8,12,24,.6)'">» PSA Licence Certificate</a>
+    <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(8,12,24,.6);text-decoration:none;border-bottom:1px solid rgba(8,12,24,.25);padding-bottom:2px;transition:color .2s;" onmouseover="this.style.color='#080c18'" onmouseout="this.style.color='rgba(8,12,24,.6)'">» MSME Registration</a>
+    <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(8,12,24,.6);text-decoration:none;border-bottom:1px solid rgba(8,12,24,.25);padding-bottom:2px;transition:color .2s;" onmouseover="this.style.color='#080c18'" onmouseout="this.style.color='rgba(8,12,24,.6)'">» Privacy Policy</a>
+    <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(8,12,24,.6);text-decoration:none;border-bottom:1px solid rgba(8,12,24,.25);padding-bottom:2px;transition:color .2s;" onmouseover="this.style.color='#080c18'" onmouseout="this.style.color='rgba(8,12,24,.6)'">» Code of Conduct</a>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ FOOTER ════════════════════════ -->
+<footer style="background:#080c18;color:#ffffff;">
+  <div class="ft-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <img src="./img/logo.png" alt="Shellback Marines Logo" style="width:42px;height:42px;border-radius:50%;border:2px solid #C9A84C;object-fit:contain;background:rgba(201,168,76,.1);" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div style="display:none;width:42px;height:42px;border-radius:50%;border:2px solid #C9A84C;align-items:center;justify-content:center;background:rgba(201,168,76,.1);flex-shrink:0;"><i class="fa-solid fa-anchor" style="color:#C9A84C;font-size:1.1rem;"></i></div>
+        <div>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin:0;line-height:1.1;">Shellback Marines</p>
+          <p style="font-family:'Barlow',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#C9A84C;margin:0;">Security Agency</p>
+        </div>
+      </div>
+      <p class="ft-col-title">About Shellback Marines</p>
+      <p class="ft-body">Shellback Marines is a PSA-licensed security agency providing corporate risk management, physical guarding, CCTV surveillance, and integrated security solutions across West Bengal and beyond — founded on the values of the Indian Navy.</p>
+      <p class="ft-body" style="margin-top:16px;color:rgba(255,255,255,.35);font-size:.8rem;">Registered Office: Oodlabari Bidhanpally,<br>PO Manabari, Dist Jalpaiguri, WB – 735222<br>Licence No: W.B – 55/WB/PSA/2025</p>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" class="ft-soc-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" class="ft-soc-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919434127571" target="_blank" class="ft-soc-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:contact@shellbackmarines.in" class="ft-soc-btn" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div>
+      <p class="ft-col-title">Latest Blogs</p>
+      <div class="ft-news-item"><a href="./hospital-security-solutions.html" class="ft-news-title">Comprehensive Hospital Security Solutions in Kolkata</a><p class="ft-news-date">June 2025</p></div>
+      <div class="ft-news-item"><a href="./corporate-risk-management.html" class="ft-news-title" style="color:#C9A84C;">Corporate Risk Management Excellence</a><p class="ft-news-date">May 2025</p></div>
+      <div class="ft-news-item"><a href="./private-investigator.html" class="ft-news-title">Professional Private Investigator Services</a><p class="ft-news-date">April 2025</p></div>
+      <div class="ft-news-item"><a href="./armed-security-services.html" class="ft-news-title">Professional Armed Security Services India</a><p class="ft-news-date">March 2025</p></div>
+      <div class="ft-news-item"><a href="./bank-security.html" class="ft-news-title">Bank Security Services — A Complete Guide</a><p class="ft-news-date">February 2025</p></div>
+    </div>
+    <div>
+      <p class="ft-col-title">Specialist Services</p>
+      <a href="./physicalguarding.html" class="ft-link">Physical Guarding</a>
+      <a href="./electronic.html" class="ft-link">Electronic Surveillance</a>
+      <a href="./corporate.html" class="ft-link">Corporate Risk Management</a>
+      <a href="./security-surveys.html" class="ft-link">Security Surveys &amp; Audits</a>
+      <a href="./maintenance.html" class="ft-link">Security Maintenance</a>
+      <a href="./event.html" class="ft-link">Event Security</a>
+      <a href="./intelligence.html" class="ft-link">Intelligence &amp; Investigation</a>
+      <a href="./access-control.html" class="ft-link">Access Control &amp; CCTV</a>
+      <p class="ft-col-title" style="margin-top:28px;">Contact Us</p>
+      <a href="tel:+919434127571" class="ft-link"><i class="fa-solid fa-phone-volume"></i>+91 9434127571</a>
+      <a href="mailto:contact@shellbackmarines.in" class="ft-link"><i class="fa-solid fa-envelope"></i>contact@shellbackmarines.in</a>
+      <span class="ft-link" style="cursor:default;"><i class="fa-solid fa-location-dot"></i>Jalpaiguri, West Bengal 735222</span>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.06);">
+    <div class="ft-bottom">
+      <p>© 2023–2026 Shellback Marines Security Agency. All rights reserved. | Licence No: W.B – 55/WB/PSA/2025</p>
+      <div class="ft-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms &amp; Conditions</a><a href="#">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar     = document.getElementById('navbar');
+  const navRow     = document.getElementById('nav-row');
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamIcon    = document.getElementById('ham-icon');
+
+  function handleScroll() {
+    const isScrolled = window.scrollY > 10;
+    const menuOpen   = mobileMenu && mobileMenu.classList.contains('open');
+    navbar.classList.toggle('scrolled', isScrolled);
+    navRow.style.background = (isScrolled || menuOpen) ? '#080c18' : 'transparent';
+  }
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    handleScroll();
+    hamIcon.className = mobileMenu.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamIcon.className = 'fa-solid fa-bars';
+    handleScroll();
+  }));
+
+  (function(){
+    const track = document.getElementById('testiTrack');
+    const slides = track.querySelectorAll('.testi-slide');
+    const dots = document.getElementById('testiDots');
+    const total = slides.length;
+    let idx = 0, timer;
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.style.cssText = `width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;padding:0;transition:all .3s;background:${i===0?'#C9A84C':'rgba(201,168,76,.3)'}`;
+      d.addEventListener('click', () => goTo(i));
+      dots.appendChild(d);
+    });
+    function updateDots(){ dots.querySelectorAll('button').forEach((d,i)=>{ d.style.background=i===idx?'#C9A84C':'rgba(201,168,76,.3)'; d.style.transform=i===idx?'scale(1.3)':'scale(1)'; }); }
+    function goTo(n){ idx=(n+total)%total; track.style.transform=`translateX(-${idx*100}%)`; updateDots(); clearInterval(timer); timer=setInterval(()=>goTo(idx+1),6000); }
+    document.getElementById('testiPrev').addEventListener('click', ()=>goTo(idx-1));
+    document.getElementById('testiNext').addEventListener('click', ()=>goTo(idx+1));
+    timer = setInterval(()=>goTo(idx+1), 6000);
+    let tS=0;
+    track.addEventListener('touchstart', e=>{ tS=e.touches[0].clientX; }, { passive:true });
+    track.addEventListener('touchend', e=>{ const d=tS-e.changedTouches[0].clientX; if(Math.abs(d)>50) d>0?goTo(idx+1):goTo(idx-1); });
+  })();
+</script>
+</body>
+</html>

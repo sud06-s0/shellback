@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Surveillance Agency in West Bengal – Shellback Marines Security Agency</title>
+  <meta name="description" content="Shellback Marines is the best surveillance agency in West Bengal, offering advanced CCTV monitoring, corporate investigation, and intelligence solutions across Kolkata and all districts." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ['Barlow Condensed', 'sans-serif'], body: ['Barlow', 'sans-serif'] },
+          colors: { navy: '#080c18', gold: '#C9A84C', 'gold-light': '#E8C96A' },
+        },
+      },
+    };
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: #080c18; }
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+    #info-bar { overflow: hidden; max-height: 40px; transition: max-height .35s ease, opacity .35s ease; opacity: 1; }
+    #navbar.scrolled #info-bar { max-height: 0; opacity: 0; }
+    #nav-row { transition: background .35s ease, box-shadow .35s ease; background: transparent; }
+    #navbar.scrolled #nav-row { background: transparent; box-shadow: 0 2px 28px rgba(0,0,0,.6); }
+    .nav-link { position: relative; letter-spacing: .08em; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: .85rem; }
+    .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: #C9A84C; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    #mobile-menu { display: none; max-height: calc(100vh - 80px); overflow-y: auto; }
+    #mobile-menu.open { display: block; background: #080c18; }
+    @media(max-width:767px){ .ib-desktop { display: none !important; } .ib-mobile-cta { display: inline-flex !important; } }
+    @keyframes bgPan { 0% { transform: scale(1.08) translateX(0); } 100% { transform: scale(1.08) translateX(-3%); } }
+    .hero-vid-wrap { position: absolute; inset: 0; overflow: hidden; }
+    .hero-vid-fallback { position: absolute; inset: 0; animation: bgPan 20s ease-in-out infinite alternate; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(8,12,24,.92) 0%, rgba(8,12,24,.65) 55%, rgba(8,12,24,.45) 100%), linear-gradient(to top, rgba(8,12,24,.98) 0%, rgba(8,12,24,.0) 55%); }
+    .gold-divider { display:flex; align-items:center; justify-content:center; margin:14px auto 38px; max-width:400px; }
+    .gdl { flex:1; height:1.5px; background:#d1d5db; }
+    .gdd { width:11px; height:11px; border-radius:50%; background:#C9A84C; margin:0 -1px; flex-shrink:0; box-shadow:0 0 0 4px rgba(201,168,76,.18); }
+    .svc-list-item { display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.07); text-decoration: none; transition: padding-left .2s ease; }
+    .svc-list-item:last-child { border-bottom: none; }
+    .svc-list-item:hover { padding-left: 6px; }
+    .svc-list-item:hover .sli-arrow { background: #C9A84C; color: #080c18; }
+    .sli-arrow { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #C9A84C; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #C9A84C; font-size: .75rem; transition: all .2s ease; }
+    .testi-track { display:flex; transition: transform .6s cubic-bezier(.4,0,.2,1); }
+    .testi-slide { flex: 0 0 100%; }
+    .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(201,168,76,.1); }
+    .check-item:last-child { border-bottom: none; }
+    .img-reveal { overflow: hidden; }
+    .img-reveal img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .55s ease; }
+    .img-reveal:hover img { transform: scale(1.04); }
+    .ft-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px; padding:64px 48px 52px; max-width:1280px; margin:0 auto; }
+    @media(max-width:1024px){ .ft-grid{ grid-template-columns:1fr 1fr; gap:40px 32px; } }
+    @media(max-width:580px) { .ft-grid{ grid-template-columns:1fr; padding:48px 28px 40px; } }
+    .ft-col-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:#C9A84C; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid rgba(201,168,76,.2); }
+    .ft-body { font-family:'Barlow',sans-serif; font-size:.88rem; color:rgba(255,255,255,.55); line-height:1.8; }
+    .ft-link { display:block; font-family:'Barlow',sans-serif; font-size:.88rem; color:rgba(255,255,255,.55); text-decoration:none; padding:4px 0; transition:color .2s ease, padding-left .2s; border-bottom:1px solid rgba(255,255,255,.05); }
+    .ft-link:last-child { border-bottom:none; }
+    .ft-link:hover { color:#C9A84C; padding-left:4px; }
+    .ft-link i { width:14px; margin-right:6px; color:#C9A84C; font-size:.75rem; }
+    .ft-news-item { padding:10px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+    .ft-news-item:last-child { border-bottom:none; }
+    .ft-news-title { font-family:'Barlow',sans-serif; font-size:.87rem; color:rgba(255,255,255,.75); line-height:1.5; text-decoration:none; display:block; transition:color .2s; }
+    .ft-news-title:hover { color:#C9A84C; }
+    .ft-news-date { font-family:'Barlow',sans-serif; font-size:.72rem; color:rgba(255,255,255,.3); margin-top:3px; }
+    .ft-social { display:flex; gap:10px; margin-top:24px; }
+    .ft-soc-btn { width:36px; height:36px; border-radius:6px; border:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.5); font-size:.9rem; text-decoration:none; transition:all .2s ease; }
+    .ft-soc-btn:hover { background:#C9A84C; border-color:#C9A84C; color:#080c18; }
+    .ft-bottom { border-top:1px solid rgba(255,255,255,.07); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding:20px 48px; max-width:1280px; margin:0 auto; }
+    @media(max-width:640px){ .ft-bottom{ padding:20px 28px; flex-direction:column; text-align:center; } }
+    .ft-bottom p { font-family:'Barlow',sans-serif; font-size:.78rem; color:rgba(255,255,255,.28); margin:0; }
+    .ft-bottom-links { display:flex; gap:20px; flex-wrap:wrap; }
+    .ft-bottom-links a { font-family:'Barlow',sans-serif; font-size:.78rem; color:rgba(255,255,255,.28); text-decoration:none; transition:color .2s; }
+    .ft-bottom-links a:hover { color:#C9A84C; }
+    .dropdown{position:relative}
+    .dropdown-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-6px);background:#080c18;border:1px solid rgba(201,168,76,.2);border-top:2px solid #C9A84C;width:260px;z-index:200;opacity:0;visibility:hidden;transition:opacity .25s ease,transform .25s ease,visibility .25s;}
+    .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+    .dropdown-item{display:flex;align-items:center;gap:10px;padding:11px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);transition:all .2s ease;white-space:nowrap;}
+    .dropdown-item:last-child{border-bottom:none}.dropdown-item:hover{color:#C9A84C;background:rgba(201,168,76,.06);padding-left:26px}.dropdown-item i{color:#C9A84C;width:14px;font-size:.75rem}.dropdown-item.active{color:#C9A84C}
+    .blog-body { font-family:'Barlow',sans-serif; font-size:1.05rem; color:#374151; line-height:1.9; }
+    .blog-body p { margin-bottom:22px; }
+    .blog-body h3 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.35rem; letter-spacing:.04em; text-transform:uppercase; color:#111827; margin-bottom:14px; margin-top:36px; }
+    .blog-tag { display:inline-flex; align-items:center; gap:6px; background:#f3f4f6; border:1px solid #e5e7eb; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:#374151; padding:8px 14px; }
+    .blog-tag i { color:#C9A84C; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- ════════════════ NAVBAR ════════════════ -->
+<header id="navbar">
+  <div id="info-bar" style="background:#C9A84C;width:100%;">
+    <div style="max-width:1280px;margin:0 auto;padding:7px 20px;display:flex;align-items:center;justify-content:space-between;gap:8px;">
+      <a href="tel:+919434127571" style="display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:#080c18;text-decoration:none;flex-shrink:0;"><i class="fa-solid fa-phone" style="font-size:.7rem;"></i> +91 9434127571</a>
+      <div class="ib-desktop" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <span style="color:rgba(8,12,24,.3);font-size:.7rem;">|</span>
+        <a href="mailto:contact@shellbackmarines.in" style="display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:#080c18;text-decoration:none;"><i class="fa-solid fa-envelope" style="font-size:.7rem;"></i> contact@shellbackmarines.in</a>
+        <span style="color:rgba(8,12,24,.3);font-size:.7rem;">|</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:#080c18;"><i class="fa-solid fa-location-dot" style="font-size:.7rem;"></i> Oodlabari, Jalpaiguri, WB – 735222</span>
+        <span style="color:rgba(8,12,24,.3);font-size:.7rem;">|</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:#080c18;"><i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> Licence: W.B – 55/WB/PSA/2025</span>
+        <span style="color:rgba(8,12,24,.3);font-size:.7rem;">|</span>
+        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" style="color:#080c18;font-size:.85rem;opacity:.7;" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" style="color:#080c18;font-size:.85rem;opacity:.7;" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919434127571" target="_blank" style="color:#080c18;font-size:.85rem;opacity:.7;" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <a href="tel:+919434127571" class="ib-mobile-cta" style="display:none;align-items:center;gap:6px;background:#080c18;color:#C9A84C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;text-decoration:none;border-radius:3px;flex-shrink:0;"><i class="fa-solid fa-phone-volume" style="font-size:.65rem;"></i> Get a Quote</a>
+    </div>
+  </div>
+  <div id="nav-row">
+    <nav class="max-w-screen-xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
+        <img src="./img/logo.png" alt="Shellback Marines Logo" class="w-11 h-11 object-contain rounded-full border-2 border-gold bg-navy/60" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="w-11 h-11 rounded-full border-2 border-gold items-center justify-center bg-navy/60 group-hover:bg-gold transition-colors duration-300" style="display:none;"><i class="fa-solid fa-anchor text-gold group-hover:text-navy text-lg"></i></div>
+        <div class="leading-tight">
+          <span class="block font-display font-800 text-white text-lg tracking-wider uppercase">Shellback Marines</span>
+          <span class="block font-body text-gold text-[10px] tracking-[0.2em] uppercase">Security Agency</span>
+        </div>
+      </a>
+      <ul class="hidden lg:flex items-center gap-8">
+        <li><a href="index.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Home</a></li>
+        <li><a href="./about.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">About</a></li>
+        <li class="dropdown"><a href="./home.html#services" class="nav-link text-white/80 hover:text-gold transition-colors duration-200 flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a>
+          <div class="dropdown-menu">
+            <a href="./physicalguarding.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i>Physical Guarding</a>
+            <a href="./escort.html" class="dropdown-item"><i class="fa-solid fa-person-walking-arrow-right"></i>Escort Guarding</a>
+            <a href="./intelligence.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass-chart"></i>Intelligence &amp; Investigation</a>
+            <a href="./electronic.html" class="dropdown-item"><i class="fa-solid fa-camera-cctv"></i>Electronic Surveillance</a>
+            <a href="./security-surveys.html" class="dropdown-item"><i class="fa-solid fa-file-shield"></i>Security Surveys &amp; Audits</a>
+            <a href="./event.html" class="dropdown-item"><i class="fa-solid fa-people-group"></i>Event Security</a>
+            <a href="./corporate.html" class="dropdown-item"><i class="fa-solid fa-briefcase"></i>Corporate Risk Management</a>
+            <a href="./access-control.html" class="dropdown-item"><i class="fa-solid fa-door-open"></i>Access Control &amp; CCTV</a>
+            <a href="./maintenance.html" class="dropdown-item"><i class="fa-solid fa-screwdriver-wrench"></i>Maintenance</a>
+          </div>
+        </li>
+        <li class="dropdown"><a href="#" class="nav-link text-gold transition-colors duration-200 flex items-center gap-1">Blogs <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a>
+          <div class="dropdown-menu">
+            <a href="./hospital-security.html" class="dropdown-item"><i class="fa-solid fa-hospital"></i>Hospital Security Solutions</a>
+            <a href=".cctv-camera.html" class="dropdown-item"><i class="fa-solid fa-camera"></i>Wireless CCTV Camera</a>
+            <a href="./surveillance-agency.html" class="dropdown-item active"><i class="fa-solid fa-magnifying-glass"></i>Surveillance Agency WB</a>
+            <a href="./bank-security.html" class="dropdown-item"><i class="fa-solid fa-landmark"></i>Bank Security Services</a>
+            <a href="./event-security.html" class="dropdown-item"><i class="fa-solid fa-people-group"></i>Security for Events</a>
+             <a href="./armed-security-services.html" class="dropdown-item"><i class="fa-solid fa-shield-halved"></i>Armed Security Services</a>
+            <a href="./professional-escort-services.html" class="dropdown-item"><i class="fa-solid fa-car-side"></i>Professional Escort Services</a>
+            <a href="./elite-bodyguard-services.html" class="dropdown-item"><i class="fa-solid fa-user-ninja"></i>Elite Bodyguard Services</a>
+            <a href="./corporate-risk-analysis.html" class="dropdown-item"><i class="fa-solid fa-briefcase"></i>Corporate Risk Management</a>
+            <a href="./private-investigator.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i>Private Investigator</a>
+          </div>
+        </li>
+        <li><a href="./casestudies.html"  class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Case Studies</a></li>
+        <li><a href="./contact.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-4">
+        <a href="tel:+919434127571" class="hidden lg:inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-display font-700 text-sm tracking-wider uppercase px-6 py-2.5 transition-all duration-200 hover:shadow-lg hover:shadow-gold/30"><i class="fa-solid fa-phone-volume"></i> Get a Quote</a>
+        <button id="hamburger" class="lg:hidden text-white text-2xl focus:outline-none" aria-label="Toggle menu"><i id="ham-icon" class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="lg:hidden bg-navy/98 border-t border-gold/20">
+      <ul class="flex flex-col py-4">
+        <li><a href="index.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Home</a></li>
+        <li><a href="./about.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">About</a></li>
+       <li><div class="px-8 py-3 font-display font-600 text-gold uppercase tracking-wider">Services</div>
+          <ul style="background:rgba(201,168,76,.05); border-left:3px solid #C9A84C; margin-left:32px;">
+            <li><a href="./physicalguarding.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Physical Guarding</a></li>
+<li><a href="./escort.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Guarding</a></li>
+<li><a href="./intelligence.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Intelligence &amp; Investigation</a></li>
+<li><a href="./electronic.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Electronic Surveillance</a></li>
+<li><a href="./security-surveys.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Security Surveys &amp; Audits</a></li>
+<li><a href="./event.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li>
+<li><a href="./corporate.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Corporate Risk Management</a></li>
+<li><a href="./access-control.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Access Control &amp; CCTV</a></li>
+<li><a href="./maintenance.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Maintenance</a></li>
+          </ul>
+        </li>
+        <li><div class="px-8 py-3 font-display font-600 text-gold uppercase tracking-wider">Blogs</div>
+          <ul style="background:rgba(201,168,76,.05);border-left:3px solid #C9A84C;margin-left:32px;">
+             <li><a href="./armed-security-services.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Armed Security Services</a></li>
+            <li><a href="./hospital-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Hospital Security</a></li>
+            <li><a href="./bank-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Bank Security Services</a></li>
+             <li><a href=".cctv-camera.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Wireless CCTV Camera</a></li>
+              <li><a href=".corporate-risk-analysis.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Corporate Risk Mamagement</a></li>
+               <li><a href=".elite-bodyguard-services.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Elite Bodyguards</a></li>
+               <li><a href=".event-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li> 
+               <li><a href=".hospital-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Hospital Security</a></li> 
+               <li><a href=".private-investigator.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Private Investigator</a></li> 
+              <li><a href=".professional-escort-services.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Services</a></li>  
+               <li><a href=".survelliance-agency.html" class="block px-6 py-2.5 font-display font-600 text-gold text-sm uppercase tracking-wider">Survelliance Agency</a></li>
+          </ul>
+        </li>
+        <li><a href="./casestudies.html"  class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Case Studies</a></li>
+        <li><a href="./contact.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Contact</a></li>
+        <li class="px-8 pt-3 pb-4"><a href="tel:+919434127571" class="flex items-center justify-center gap-2 bg-gold text-navy font-display font-700 uppercase tracking-wider text-sm py-3 hover:bg-gold-light transition-colors"><i class="fa-solid fa-phone-volume"></i> Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;">
+  <div class="hero-vid-wrap">
+    <video autoplay muted loop playsinline onerror="this.style.display='none';"></video>
+    <div class="hero-vid-fallback" style="background-image:url('https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=1800');background-size:cover;background-position:center;"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div style="position:absolute;left:0;top:0;bottom:0;width:6px;background:#C9A84C;z-index:3;" class="hidden lg:block"></div>
+  <div style="position:relative;z-index:4;max-width:1280px;margin:0 auto;width:100%;padding:160px 56px 80px;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
+      <a href="./home.html" style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Home</a>
+      <i class="fa-solid fa-chevron-right" style="color:rgba(255,255,255,.3);font-size:.6rem;"></i>
+      <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;">Blogs</a>
+      <i class="fa-solid fa-chevron-right" style="color:rgba(255,255,255,.3);font-size:.6rem;"></i>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:#C9A84C;">Surveillance Agency in West Bengal</span>
+    </div>
+    <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">Shellback Marines — Intelligence &amp; Monitoring</p>
+    <h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.6rem,6.5vw,5.5rem);letter-spacing:.02em;text-transform:uppercase;color:#ffffff;line-height:1;margin-bottom:20px;">
+      Best <span style="color:#C9A84C;">Surveillance Agency</span><br>in West Bengal
+    </h1>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(1rem,2vw,1.4rem);letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:24px;">
+      Advanced Monitoring, Intelligence &amp; Investigation Across All Districts
+    </h2>
+    <p style="font-family:'Barlow',sans-serif;font-weight:300;font-size:clamp(.95rem,1.4vw,1.1rem);color:rgba(255,255,255,.72);max-width:620px;line-height:1.85;margin-bottom:16px;">
+      Recognised by discerning clients across West Bengal, Shellback Marines Security Agency is the trusted <strong style="color:#fff;">surveillance agency</strong> delivering state-of-the-art monitoring, corporate investigation, and intelligence solutions for businesses, institutions, and individuals statewide.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px;margin-top:8px;">
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-calendar" style="color:#C9A84C;"></i> Published: April 2025</span>
+      <span style="color:rgba(255,255,255,.2);">|</span>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-clock" style="color:#C9A84C;"></i> 8 min read</span>
+      <span style="color:rgba(255,255,255,.2);">|</span>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-map-marker-alt" style="color:#C9A84C;"></i> West Bengal, India</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;">
+      <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'"><i class="fa-solid fa-headset"></i> Get a Free Consultation</a>
+      <a href="#article" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;text-decoration:none;border:2px solid rgba(255,255,255,.4);transition:all .2s;" onmouseover="this.style.borderColor='#C9A84C';this.style.color='#C9A84C';" onmouseout="this.style.borderColor='rgba(255,255,255,.4)';this.style.color='#fff';"><i class="fa-solid fa-chevron-down"></i> Read Article</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ STATS ROW ════════════════ -->
+<section style="background:#080c18;border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);">
+  <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
+    <div style="display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;">
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-eye" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">24/7</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Live Monitoring</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-map-location-dot" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">30+</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Districts Covered</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-camera-cctv" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">4K</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">HD Camera Systems</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-user-shield" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">PSA</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Licensed Agency</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;text-align:center;">
+        <i class="fa-solid fa-anchor" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">Navy</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Trained Leadership</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ ARTICLE INTRO ════════════════ -->
+<section id="article" style="background:#ffffff;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:center;">
+      <div style="flex:1;min-width:280px;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Why It Matters</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:.03em;text-transform:uppercase;color:#111827;line-height:1.1;margin-bottom:0;">
+          Why Shellback Marines is West Bengal's<br>Most Trusted Surveillance Agency
+        </h2>
+        <div class="gold-divider" style="justify-content:flex-start;margin-left:0;">
+          <div class="gdl" style="max-width:80px;"></div><div class="gdd"></div><div class="gdl" style="max-width:240px;"></div>
+        </div>
+        <div class="blog-body">
+          <p>The security landscape across West Bengal is complex and perpetually evolving. From bustling commercial hubs in Kolkata and Salt Lake City to the industrial corridors of Durgapur and Howrah, every region presents distinct challenges that demand a truly capable <strong>surveillance agency</strong>. Shellback Marines Security Agency has built an unmatched reputation by addressing these diverse needs with precision, professionalism, and advanced technology.</p>
+          <p>As a PSA-licensed <strong>surveillance agency in West Bengal</strong>, we deliver end-to-end monitoring and intelligence solutions — combining physical surveillance operations with state-of-the-art electronic systems. Our clients include multinational corporations, government bodies, educational institutions, law firms, and private individuals who trust us with their most sensitive security assignments.</p>
+          <p>What distinguishes a premier <strong>surveillance agency</strong> from ordinary providers is the depth of its capabilities. Shellback Marines goes far beyond CCTV installation — offering corporate espionage prevention, matrimonial investigations, insurance fraud detection, threat intelligence, and GPS-based asset tracking across all 30+ districts of West Bengal.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;margin-top:8px;">
+          <div class="check-item">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">State-Wide Coverage</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">Our surveillance teams operate across all districts of West Bengal — from Darjeeling's tea gardens to Haldia's port facilities — delivering consistent, high-quality results wherever you need us.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">Advanced Technology Arsenal</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">4K cameras, thermal imaging, AI-powered analytics, GPS tracking, drone surveillance, and digital forensics form the backbone of our technical surveillance capabilities.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">Legal &amp; Ethical Compliance</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">Every operation is conducted within strict legal boundaries, ensuring court-admissible evidence and zero liability risk for clients across West Bengal.</p>
+            </div>
+          </div>
+        </div>
+        <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;margin-top:32px;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'"><i class="fa-solid fa-headset"></i> Contact Us Today</a>
+      </div>
+      <div style="flex:0 0 460px;max-width:100%;">
+        <div class="img-reveal" style="height:520px;">
+          <img src="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Professional surveillance agency operations in West Bengal" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SERVICES LIST ════════════════ -->
+<section style="background:#080c18;padding:80px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start;">
+      <div style="flex:1;min-width:280px;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Our Surveillance Services</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:.03em;text-transform:uppercase;color:#ffffff;line-height:1.1;margin-bottom:32px;">What Our Surveillance Agency Delivers</h2>
+        <a class="svc-list-item" href="./electronic.html">
+          <div class="sli-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          <div>
+            <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;color:#ffffff;margin-bottom:3px;">CCTV &amp; Electronic Monitoring</p>
+            <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.6;">4K camera networks, remote access, motion detection, and continuous live monitoring across all your premises and facilities.</p>
+          </div>
+        </a>
+        <a class="svc-list-item" href="./intelligence.html">
+          <div class="sli-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          <div>
+            <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;color:#ffffff;margin-bottom:3px;">Corporate Intelligence &amp; Espionage Prevention</p>
+            <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.6;">Protecting businesses from internal fraud, competitor threats, and intellectual property theft through discreet, professional surveillance.</p>
+          </div>
+        </a>
+        <a class="svc-list-item" href="./intelligence.html">
+          <div class="sli-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          <div>
+            <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;color:#ffffff;margin-bottom:3px;">Legal Support &amp; Evidence Collection</p>
+            <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.6;">Court-admissible evidence gathering, witness location, and investigative documentation for legal firms and dispute resolution.</p>
+          </div>
+        </a>
+        <a class="svc-list-item" href="./intelligence.html">
+          <div class="sli-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          <div>
+            <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;color:#ffffff;margin-bottom:3px;">Personal &amp; Matrimonial Investigation</p>
+            <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.6;">Handled with absolute discretion — background checks, matrimonial surveillance, and personal threat assessment services.</p>
+          </div>
+        </a>
+        <a class="svc-list-item" href="./access-control.html">
+          <div class="sli-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          <div>
+            <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;color:#ffffff;margin-bottom:3px;">Drone &amp; GPS Asset Tracking</p>
+            <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.6;">Aerial surveillance and real-time location tracking for large industrial sites, remote areas, and high-value mobile assets.</p>
+          </div>
+        </a>
+      </div>
+      <div style="flex:0 0 420px;max-width:100%;">
+        <div class="img-reveal" style="height:360px;margin-bottom:24px;">
+          <img src="https://images.pexels.com/photos/3951628/pexels-photo-3951628.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Surveillance monitoring control room West Bengal" />
+        </div>
+        <div style="background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);padding:28px 32px;">
+          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Quick Enquiry</p>
+          <p style="font-family:'Barlow',sans-serif;font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:20px;">Speak directly with our surveillance experts for a confidential, no-obligation assessment of your security needs.</p>
+          <a href="tel:+919434127571" style="display:flex;align-items:center;gap:12px;text-decoration:none;margin-bottom:14px;">
+            <div style="width:40px;height:40px;background:#C9A84C;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-phone" style="color:#080c18;font-size:.9rem;"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Call Us Now</p>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;color:#ffffff;">+91 9434127571</p>
+            </div>
+          </a>
+          <a href="mailto:contact@shellbackmarines.in" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+            <div style="width:40px;height:40px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-envelope" style="color:#C9A84C;font-size:.9rem;"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px;">Email Us</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.9rem;color:#ffffff;">contact@shellbackmarines.in</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ THREE-COLUMN DEEP DIVE ════════════════ -->
+<section style="background:#f9fafb;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="text-align:center;margin-bottom:64px;">
+      <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">In Depth</p>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:.03em;text-transform:uppercase;color:#111827;line-height:1.1;">Comprehensive Surveillance Solutions Across West Bengal</h2>
+      <div class="gold-divider"><div class="gdl"></div><div class="gdd"></div><div class="gdd" style="margin-left:6px;"></div><div class="gdd" style="margin-left:6px;"></div><div class="gdl"></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;">
+      <div>
+        <div class="img-reveal" style="height:240px;margin-bottom:24px;">
+          <img src="https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Advanced CCTV surveillance technology Shellback Marines West Bengal" />
+        </div>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Technology &amp; Innovation</p>
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:.04em;text-transform:uppercase;color:#111827;margin-bottom:14px;">Future-Ready Surveillance Technology</h3>
+        <div class="blog-body">
+          <p>As a forward-thinking <strong>surveillance agency in West Bengal</strong>, Shellback Marines invests continuously in cutting-edge equipment. Our arsenal includes 4K camera arrays, thermal imaging, AI-powered motion analytics, digital forensics platforms, and drone surveillance systems that deliver unmatched coverage and evidence quality.</p>
+          <p>We were among the first surveillance agencies in West Bengal to integrate drone-based aerial monitoring, providing coverage for large industrial sites, outdoor events, and rural investigations where ground-level surveillance alone is insufficient.</p>
+        </div>
+      </div>
+      <div>
+        <div class="img-reveal" style="height:240px;margin-bottom:24px;">
+          <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Corporate surveillance investigation team Kolkata" />
+        </div>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Corporate Clients</p>
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:.04em;text-transform:uppercase;color:#111827;margin-bottom:14px;">Specialized Corporate Surveillance Services</h3>
+        <div class="blog-body">
+          <p>Our corporate division serves businesses across every sector — from manufacturing plants in Durgapur to IT firms in New Town, Kolkata. Services include executive protection intelligence, competitor activity monitoring, supply chain surveillance, and internal fraud detection handled by our specialist <strong>surveillance agency</strong> teams.</p>
+          <p>Each corporate assignment is managed by dedicated operatives trained in covert techniques, ensuring that no operation disrupts daily business activities or compromises the client's competitive position.</p>
+        </div>
+      </div>
+      <div>
+        <div class="img-reveal" style="height:240px;margin-bottom:24px;">
+          <img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Surveillance agency local expertise West Bengal districts" />
+        </div>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Local Intelligence</p>
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:.04em;text-transform:uppercase;color:#111827;margin-bottom:14px;">Unmatched Local Knowledge Statewide</h3>
+        <div class="blog-body">
+          <p>What truly makes Shellback Marines the top <strong>surveillance agency in West Bengal</strong> is our ground-level knowledge of every region. Our teams communicate in Bengali, Hindi, Urdu, Nepali, and Santali — enabling effective operations from Darjeeling's hill stations to the coastal stretches of South 24 Parganas.</p>
+          <p>This deep local fluency, combined with strong relationships with regional law enforcement, enables seamless coordination when surveillance operations intersect with legal proceedings or emergency response situations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ TESTIMONIALS ════════════════ -->
+<section style="background:#080c18;padding:80px 0;overflow:hidden;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Client Testimonials</p>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:.03em;text-transform:uppercase;color:#ffffff;line-height:1.1;">Trusted by Clients Across West Bengal</h2>
+    </div>
+    <div style="position:relative;overflow:hidden;">
+      <div id="testiTrack" class="testi-track">
+        <div class="testi-slide" style="padding:0 8px;">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);padding:48px 52px;max-width:860px;margin:0 auto;">
+            <div style="display:flex;gap:4px;margin-bottom:24px;"><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i></div>
+            <p style="font-family:'Barlow',sans-serif;font-size:1.1rem;color:rgba(255,255,255,.85);line-height:1.85;font-style:italic;margin-bottom:32px;">"Shellback Marines handled our corporate surveillance assignment in Kolkata with exceptional professionalism. Their surveillance agency team delivered verified evidence within the agreed timeline, enabling us to resolve a critical internal fraud case quickly and cleanly. Their discretion and legal compliance were outstanding."</p>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:rgba(201,168,76,.15);border:2px solid #C9A84C;display:flex;align-items:center;justify-content:center;"><i class="fa-solid fa-user" style="color:#C9A84C;font-size:1.2rem;"></i></div>
+              <div>
+                <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;color:#ffffff;">Rajesh Bhattacharya</p>
+                <p style="font-family:'Barlow',sans-serif;font-size:.8rem;color:rgba(255,255,255,.4);">Director, Manufacturing Company — Kolkata</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-slide" style="padding:0 8px;">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);padding:48px 52px;max-width:860px;margin:0 auto;">
+            <div style="display:flex;gap:4px;margin-bottom:24px;"><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i></div>
+            <p style="font-family:'Barlow',sans-serif;font-size:1.1rem;color:rgba(255,255,255,.85);line-height:1.85;font-style:italic;margin-bottom:32px;">"We engaged Shellback Marines as our surveillance agency for a multi-location monitoring project across three districts of West Bengal. Their local knowledge and technical depth surpassed every other provider we evaluated. The real-time reporting system they implemented has fundamentally transformed how we manage security risk."</p>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:rgba(201,168,76,.15);border:2px solid #C9A84C;display:flex;align-items:center;justify-content:center;"><i class="fa-solid fa-user" style="color:#C9A84C;font-size:1.2rem;"></i></div>
+              <div>
+                <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;color:#ffffff;">Priya Sengupta</p>
+                <p style="font-family:'Barlow',sans-serif;font-size:.8rem;color:rgba(255,255,255,.4);">Head of Operations, Logistics Firm — Howrah</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-slide" style="padding:0 8px;">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);padding:48px 52px;max-width:860px;margin:0 auto;">
+            <div style="display:flex;gap:4px;margin-bottom:24px;"><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i><i class="fa-solid fa-star" style="color:#C9A84C;font-size:.9rem;"></i></div>
+            <p style="font-family:'Barlow',sans-serif;font-size:1.1rem;color:rgba(255,255,255,.85);line-height:1.85;font-style:italic;margin-bottom:32px;">"Finding a reliable surveillance agency in West Bengal for sensitive legal investigation work was a challenge — until we engaged Shellback Marines. Their evidence collection was meticulous, properly documented, and proved fully admissible in court. The Navy-trained leadership shows in every aspect of their operational discipline."</p>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:rgba(201,168,76,.15);border:2px solid #C9A84C;display:flex;align-items:center;justify-content:center;"><i class="fa-solid fa-user" style="color:#C9A84C;font-size:1.2rem;"></i></div>
+              <div>
+                <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;color:#ffffff;">Adv. Sudipto Ghosh</p>
+                <p style="font-family:'Barlow',sans-serif;font-size:.8rem;color:rgba(255,255,255,.4);">Senior Advocate — Calcutta High Court</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-top:40px;">
+        <button id="testiPrev" style="width:44px;height:44px;border-radius:50%;border:2px solid rgba(201,168,76,.4);background:transparent;color:#C9A84C;cursor:pointer;font-size:.9rem;transition:all .2s;" onmouseover="this.style.background='#C9A84C';this.style.color='#080c18'" onmouseout="this.style.background='transparent';this.style.color='#C9A84C'"><i class="fa-solid fa-chevron-left"></i></button>
+        <div id="testiDots" style="display:flex;align-items:center;gap:8px;"></div>
+        <button id="testiNext" style="width:44px;height:44px;border-radius:50%;border:2px solid rgba(201,168,76,.4);background:transparent;color:#C9A84C;cursor:pointer;font-size:.9rem;transition:all .2s;" onmouseover="this.style.background='#C9A84C';this.style.color='#080c18'" onmouseout="this.style.background='transparent';this.style.color='#C9A84C'"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CTA BAND ════════════════ -->
+<section style="background:#C9A84C;padding:64px 48px;">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px;">
+    <div>
+      <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(8,12,24,.6);margin-bottom:10px;">Ready to Secure Your Interests?</p>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:.03em;text-transform:uppercase;color:#080c18;line-height:1.1;">Partner With West Bengal's Most Trusted Surveillance Agency</h2>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;">
+      <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#080c18;color:#C9A84C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#111827'" onmouseout="this.style.background='#080c18'"><i class="fa-solid fa-headset"></i> Get a Free Consultation</a>
+      <a href="tel:+919434127571" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;text-decoration:none;border:2px solid rgba(8,12,24,.4);transition:all .2s;" onmouseover="this.style.borderColor='#080c18'" onmouseout="this.style.borderColor='rgba(8,12,24,.4)'"><i class="fa-solid fa-phone-volume"></i> +91 9434127571</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ RELATED BLOGS ════════════════ -->
+<section style="background:#ffffff;padding:80px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Continue Reading</p>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:.03em;text-transform:uppercase;color:#111827;margin-bottom:48px;">Related Articles</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;">
+      <a href="./hospital-security-solutions.html" style="text-decoration:none;display:block;border:1px solid #e5e7eb;transition:border-color .2s;overflow:hidden;" onmouseover="this.style.borderColor='#C9A84C'" onmouseout="this.style.borderColor='#e5e7eb'">
+        <div class="img-reveal" style="height:200px;"><img src="https://images.pexels.com/photos/668298/pexels-photo-668298.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Hospital security Kolkata" /></div>
+        <div style="padding:24px;"><span class="blog-tag"><i class="fa-solid fa-hospital"></i> Healthcare</span><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#111827;margin-top:16px;margin-bottom:8px;">Comprehensive Hospital Security Solutions</h3><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">Specialised security for healthcare facilities across Kolkata and West Bengal.</p></div>
+      </a>
+      <a href="./security-guard-services.html" style="text-decoration:none;display:block;border:1px solid #e5e7eb;transition:border-color .2s;overflow:hidden;" onmouseover="this.style.borderColor='#C9A84C'" onmouseout="this.style.borderColor='#e5e7eb'">
+        <div class="img-reveal" style="height:200px;"><img src="https://images.pexels.com/photos/1089073/pexels-photo-1089073.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Security guard services Kolkata" /></div>
+        <div style="padding:24px;"><span class="blog-tag"><i class="fa-solid fa-shield-halved"></i> Guarding</span><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#111827;margin-top:16px;margin-bottom:8px;">Professional Security Guard Services in Kolkata</h3><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">Expert, trained security guards for commercial, industrial, and residential properties.</p></div>
+      </a>
+      <a href="./electronic.html" style="text-decoration:none;display:block;border:1px solid #e5e7eb;transition:border-color .2s;overflow:hidden;" onmouseover="this.style.borderColor='#C9A84C'" onmouseout="this.style.borderColor='#e5e7eb'">
+        <div class="img-reveal" style="height:200px;"><img src="https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Electronic surveillance CCTV" /></div>
+        <div style="padding:24px;"><span class="blog-tag"><i class="fa-solid fa-camera-cctv"></i> Technology</span><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#111827;margin-top:16px;margin-bottom:8px;">Electronic Surveillance &amp; CCTV Solutions</h3><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">HD cameras, access control, and remote monitoring for every sector.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer style="background:#080c18;color:#ffffff;">
+  <div class="ft-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <img src="./img/logo.png" alt="Shellback Marines Logo" style="width:42px;height:42px;border-radius:50%;border:2px solid #C9A84C;object-fit:contain;background:rgba(201,168,76,.1);" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div style="display:none;width:42px;height:42px;border-radius:50%;border:2px solid #C9A84C;align-items:center;justify-content:center;background:rgba(201,168,76,.1);flex-shrink:0;"><i class="fa-solid fa-anchor" style="color:#C9A84C;font-size:1.1rem;"></i></div>
+        <div>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin:0;line-height:1.1;">Shellback Marines</p>
+          <p style="font-family:'Barlow',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#C9A84C;margin:0;">Security Agency</p>
+        </div>
+      </div>
+      <p class="ft-col-title">About Shellback Marines</p>
+      <p class="ft-body">Shellback Marines is a PSA-licensed surveillance agency providing CCTV monitoring, physical guarding, corporate intelligence, and integrated security solutions across West Bengal — founded on the values of the Indian Navy.</p>
+      <p class="ft-body" style="margin-top:16px;color:rgba(255,255,255,.35);font-size:.8rem;">Registered Office: Oodlabari Bidhanpally,<br>PO Manabari, Dist Jalpaiguri, WB – 735222<br>Licence No: W.B – 55/WB/PSA/2025</p>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" class="ft-soc-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" class="ft-soc-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919434127571" target="_blank" class="ft-soc-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:contact@shellbackmarines.in" class="ft-soc-btn" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div>
+      <p class="ft-col-title">Latest Blogs</p>
+      <div class="ft-news-item"><a href="./hospital-security-solutions.html" class="ft-news-title">Comprehensive Hospital Security Solutions in Kolkata</a><p class="ft-news-date">June 2025</p></div>
+      <div class="ft-news-item"><a href="./wireless-cctv.html" class="ft-news-title">Wireless CCTV Camera with Night Vision</a><p class="ft-news-date">May 2025</p></div>
+      <div class="ft-news-item"><a href="./surveillance-agency.html" class="ft-news-title" style="color:#C9A84C;">Best Surveillance Agency in West Bengal</a><p class="ft-news-date">April 2025</p></div>
+      <div class="ft-news-item"><a href="./bank-security.html" class="ft-news-title">Bank Security Services — A Complete Guide</a><p class="ft-news-date">March 2025</p></div>
+      <div class="ft-news-item"><a href="./security-guard-services.html" class="ft-news-title">Professional Security Guard Services</a><p class="ft-news-date">February 2025</p></div>
+    </div>
+    <div>
+      <p class="ft-col-title">Specialist Services</p>
+      <a href="./physicalguarding.html" class="ft-link">Physical Guarding</a>
+      <a href="./electronic.html" class="ft-link">Electronic Surveillance</a>
+      <a href="./corporate.html" class="ft-link">Corporate Risk Management</a>
+      <a href="./security-surveys.html" class="ft-link">Security Surveys &amp; Audits</a>
+      <a href="./maintenance.html" class="ft-link">Security Maintenance</a>
+      <a href="./event.html" class="ft-link">Event Security</a>
+      <a href="./intelligence.html" class="ft-link">Intelligence &amp; Investigation</a>
+      <a href="./access-control.html" class="ft-link">Access Control &amp; CCTV</a>
+      <p class="ft-col-title" style="margin-top:28px;">Contact Us</p>
+      <a href="tel:+919434127571" class="ft-link"><i class="fa-solid fa-phone-volume"></i>+91 9434127571</a>
+      <a href="mailto:contact@shellbackmarines.in" class="ft-link"><i class="fa-solid fa-envelope"></i>contact@shellbackmarines.in</a>
+      <span class="ft-link" style="cursor:default;"><i class="fa-solid fa-location-dot"></i>Jalpaiguri, West Bengal 735222</span>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.06);">
+    <div class="ft-bottom">
+      <p>© 2023–2026 Shellback Marines Security Agency. All rights reserved. | Licence No: W.B – 55/WB/PSA/2025</p>
+      <div class="ft-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms &amp; Conditions</a><a href="#">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar=document.getElementById('navbar'),navRow=document.getElementById('nav-row'),hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobile-menu'),hamIcon=document.getElementById('ham-icon');
+  function handleScroll(){const s=window.scrollY>10,o=mobileMenu&&mobileMenu.classList.contains('open');navbar.classList.toggle('scrolled',s);navRow.style.background=(s||o)?'#080c18':'transparent';}
+  window.addEventListener('scroll',handleScroll,{passive:true});handleScroll();
+  hamburger.addEventListener('click',()=>{mobileMenu.classList.toggle('open');handleScroll();hamIcon.className=mobileMenu.classList.contains('open')?'fa-solid fa-xmark':'fa-solid fa-bars';});
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamIcon.className='fa-solid fa-bars';handleScroll();}));
+  (function(){const track=document.getElementById('testiTrack'),slides=track.querySelectorAll('.testi-slide'),dots=document.getElementById('testiDots'),total=slides.length;let idx=0,timer;slides.forEach((_,i)=>{const d=document.createElement('button');d.style.cssText=`width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;padding:0;transition:all .3s;background:${i===0?'#C9A84C':'rgba(201,168,76,.3)'}`;d.addEventListener('click',()=>goTo(i));dots.appendChild(d);});function updateDots(){dots.querySelectorAll('button').forEach((d,i)=>{d.style.background=i===idx?'#C9A84C':'rgba(201,168,76,.3)';d.style.transform=i===idx?'scale(1.3)':'scale(1)';});}function goTo(n){idx=(n+total)%total;track.style.transform=`translateX(-${idx*100}%)`;updateDots();clearInterval(timer);timer=setInterval(()=>goTo(idx+1),6000);}document.getElementById('testiPrev').addEventListener('click',()=>goTo(idx-1));document.getElementById('testiNext').addEventListener('click',()=>goTo(idx+1));timer=setInterval(()=>goTo(idx+1),6000);let tS=0;track.addEventListener('touchstart',e=>{tS=e.touches[0].clientX;},{passive:true});track.addEventListener('touchend',e=>{const d=tS-e.changedTouches[0].clientX;if(Math.abs(d)>50)d>0?goTo(idx+1):goTo(idx-1);});})();
+</script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elite Bodyguard Services – Shellback Marines Security Agency</title>
+  <meta name="description" content="Elite bodyguard services by Shellback Marines Security Agency. Professional close protection officers, VIP escort, and personal security solutions across Kolkata and West Bengal." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ['Barlow Condensed', 'sans-serif'], body: ['Barlow', 'sans-serif'] },
+          colors: { navy: '#080c18', gold: '#C9A84C', 'gold-light': '#E8C96A' },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: #080c18; }
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+    #info-bar { overflow: hidden; max-height: 40px; transition: max-height .35s ease, opacity .35s ease; opacity: 1; }
+    #navbar.scrolled #info-bar { max-height: 0; opacity: 0; }
+    #nav-row { transition: background .35s ease, box-shadow .35s ease; background: transparent; }
+    #navbar.scrolled #nav-row { background: transparent; box-shadow: 0 2px 28px rgba(0,0,0,.6); }
+    .nav-link { position: relative; letter-spacing: .08em; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: .85rem; }
+    .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: #C9A84C; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    #mobile-menu { display: none; max-height: calc(100vh - 80px); overflow-y: auto; }
+    #mobile-menu.open { display: block; background: #080c18; }
+    @media(max-width:767px){ .ib-desktop { display: none !important; } .ib-mobile-cta { display: inline-flex !important; } }
+    @keyframes bgPan { 0% { transform: scale(1.08) translateX(0); } 100% { transform: scale(1.08) translateX(-3%); } }
+    .hero-vid-wrap { position: absolute; inset: 0; overflow: hidden; }
+    .hero-vid-fallback { position: absolute; inset: 0; animation: bgPan 20s ease-in-out infinite alternate; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(8,12,24,.92) 0%, rgba(8,12,24,.65) 55%, rgba(8,12,24,.45) 100%), linear-gradient(to top, rgba(8,12,24,.98) 0%, rgba(8,12,24,.0) 55%); }
+    .gold-divider { display:flex; align-items:center; justify-content:center; margin:14px auto 38px; max-width:400px; }
+    .gdl { flex:1; height:1.5px; background:#d1d5db; }
+    .gdd { width:11px; height:11px; border-radius:50%; background:#C9A84C; margin:0 -1px; flex-shrink:0; box-shadow:0 0 0 4px rgba(201,168,76,.18); }
+    .svc-list-item { display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.07); text-decoration: none; transition: padding-left .2s ease; }
+    .svc-list-item:last-child { border-bottom: none; }
+    .svc-list-item:hover { padding-left: 6px; }
+    .svc-list-item:hover .sli-arrow { background: #C9A84C; color: #080c18; }
+    .sli-arrow { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #C9A84C; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #C9A84C; font-size: .75rem; transition: all .2s ease; }
+    .testi-track { display:flex; transition: transform .6s cubic-bezier(.4,0,.2,1); }
+    .testi-slide { flex: 0 0 100%; }
+    .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(201,168,76,.1); }
+    .check-item:last-child { border-bottom: none; }
+    .img-reveal { overflow: hidden; }
+    .img-reveal img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .55s ease; }
+    .img-reveal:hover img { transform: scale(1.04); }
+    .ft-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px; padding:64px 48px 52px; max-width:1280px; margin:0 auto; }
+    @media(max-width:1024px){ .ft-grid{ grid-template-columns:1fr 1fr; gap:40px 32px; } }
+    @media(max-width:580px) { .ft-grid{ grid-template-columns:1fr; padding:48px 28px 40px; } }
+    .ft-col-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:#C9A84C; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid rgba(201,168,76,.2); }
+    .ft-body { font-family:'Barlow',sans-serif; font-size:.88rem; color:rgba(255,255,255,.55); line-height:1.8; }
+    .ft-link { display:block; font-family:'Barlow',sans-serif; font-size:.88rem; color:rgba(255,255,255,.55); text-decoration:none; padding:4px 0; transition:color .2s ease, padding-left .2s; border-bottom:1px solid rgba(255,255,255,.05); }
+    .ft-link:last-child { border-bottom:none; }
+    .ft-link:hover { color:#C9A84C; padding-left:4px; }
+    .ft-link i { width:14px; margin-right:6px; color:#C9A84C; font-size:.75rem; }
+    .ft-news-item { padding:10px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+    .ft-news-item:last-child { border-bottom:none; }
+    .ft-news-title { font-family:'Barlow',sans-serif; font-size:.87rem; color:rgba(255,255,255,.75); line-height:1.5; text-decoration:none; display:block; transition:color .2s; }
+    .ft-news-title:hover { color:#C9A84C; }
+    .ft-news-date { font-family:'Barlow',sans-serif; font-size:.72rem; color:rgba(255,255,255,.3); margin-top:3px; }
+    .ft-social { display:flex; gap:10px; margin-top:24px; }
+    .ft-soc-btn { width:36px; height:36px; border-radius:6px; border:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.5); font-size:.9rem; text-decoration:none; transition:all .2s ease; }
+    .ft-soc-btn:hover { background:#C9A84C; border-color:#C9A84C; color:#080c18; }
+    .ft-bottom { border-top:1px solid rgba(255,255,255,.07); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding:20px 48px; max-width:1280px; margin:0 auto; }
+    @media(max-width:640px){ .ft-bottom{ padding:20px 28px; flex-direction:column; text-align:center; } }
+    .ft-bottom p { font-family:'Barlow',sans-serif; font-size:.78rem; color:rgba(255,255,255,.28); margin:0; }
+    .ft-bottom-links { display:flex; gap:20px; flex-wrap:wrap; }
+    .ft-bottom-links a { font-family:'Barlow',sans-serif; font-size:.78rem; color:rgba(255,255,255,.28); text-decoration:none; transition:color .2s; }
+    .ft-bottom-links a:hover { color:#C9A84C; }
+    .dropdown{position:relative}
+    .dropdown-menu{ position:absolute;top:calc(100% + 8px);left:50%; transform:translateX(-50%) translateY(-6px); background:#080c18;border:1px solid rgba(201,168,76,.2); border-top:2px solid #C9A84C; width:260px; z-index:200;opacity:0;visibility:hidden; transition:opacity .25s ease,transform .25s ease,visibility .25s; }
+    .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+    .dropdown-item{display:flex;align-items:center;gap:10px;padding:11px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);transition:all .2s ease;white-space:nowrap;}
+    .dropdown-item:last-child{border-bottom:none}.dropdown-item:hover{color:#C9A84C;background:rgba(201,168,76,.06);padding-left:26px}.dropdown-item i{color:#C9A84C;width:14px;font-size:.75rem}.dropdown-item.active{color:#C9A84C}
+    .blog-body { font-family:'Barlow',sans-serif; font-size:1.05rem; color:#374151; line-height:1.9; }
+    .blog-body p { margin-bottom:22px; }
+    .blog-body h3 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.35rem; letter-spacing:.04em; text-transform:uppercase; color:#111827; margin-bottom:14px; margin-top:36px; }
+    .blog-tag { display:inline-flex; align-items:center; gap:6px; background:#f3f4f6; border:1px solid #e5e7eb; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:#374151; padding:8px 14px; }
+    .blog-tag i { color:#C9A84C; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- NAVBAR -->
+<header id="navbar">
+  <div id="info-bar" style="background:#C9A84C; width:100%;">
+    <div style="max-width:1280px; margin:0 auto; padding:7px 20px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
+      <a href="tel:+919434127571" style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18; text-decoration:none; flex-shrink:0;"><i class="fa-solid fa-phone" style="font-size:.7rem;"></i> +91 9434127571</a>
+      <div class="ib-desktop" style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <a href="mailto:contact@shellbackmarines.in" style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18; text-decoration:none;"><i class="fa-solid fa-envelope" style="font-size:.7rem;"></i> contact@shellbackmarines.in</a>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18;"><i class="fa-solid fa-location-dot" style="font-size:.7rem;"></i> Oodlabari, Jalpaiguri, WB – 735222</span>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18;"><i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> Licence: W.B – 55/WB/PSA/2025</span>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919434127571" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <a href="tel:+919434127571" class="ib-mobile-cta" style="display:none; align-items:center; gap:6px; background:#080c18; color:#C9A84C; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; padding:5px 14px; text-decoration:none; border-radius:3px; flex-shrink:0;"><i class="fa-solid fa-phone-volume" style="font-size:.65rem;"></i> Get a Quote</a>
+    </div>
+  </div>
+  <div id="nav-row">
+    <nav class="max-w-screen-xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
+        <img src="./img/logo.png" alt="Shellback Marines Logo" class="w-11 h-11 object-contain rounded-full border-2 border-gold bg-navy/60" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="w-11 h-11 rounded-full border-2 border-gold items-center justify-center bg-navy/60 group-hover:bg-gold transition-colors duration-300" style="display:none;"><i class="fa-solid fa-anchor text-gold group-hover:text-navy text-lg"></i></div>
+        <div class="leading-tight">
+          <span class="block font-display font-800 text-white text-lg tracking-wider uppercase">Shellback Marines</span>
+          <span class="block font-body text-gold text-[10px] tracking-[0.2em] uppercase">Security Agency</span>
+        </div>
+      </a>
+      <ul class="hidden lg:flex items-center gap-8">
+        <li><a href="index.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Home</a></li>
+        <li><a href="./about.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">About</a></li>
+        <li class="dropdown"><a href="./home.html#services" class="nav-link text-white/80 hover:text-gold transition-colors duration-200 flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a>
+          <div class="dropdown-menu">
+            <a href="./physicalguarding.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i>Physical Guarding</a>
+            <a href="./escort.html" class="dropdown-item"><i class="fa-solid fa-person-walking-arrow-right"></i>Escort Guarding</a>
+            <a href="./intelligence.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass-chart"></i>Intelligence &amp; Investigation</a>
+            <a href="./electronic.html" class="dropdown-item"><i class="fa-solid fa-camera-cctv"></i>Electronic Surveillance</a>
+            <a href="./security-surveys.html" class="dropdown-item"><i class="fa-solid fa-file-shield"></i>Security Surveys &amp; Audits</a>
+            <a href="./event.html" class="dropdown-item"><i class="fa-solid fa-people-group"></i>Event Security</a>
+            <a href="./corporate.html" class="dropdown-item"><i class="fa-solid fa-briefcase"></i>Corporate Risk Management</a>
+            <a href="./access-control.html" class="dropdown-item"><i class="fa-solid fa-door-open"></i>Access Control &amp; CCTV</a>
+            <a href="./maintenance.html" class="dropdown-item"><i class="fa-solid fa-screwdriver-wrench"></i>Maintenance</a>
+          </div>
+        </li>
+        <li class="dropdown"><a href="#" class="nav-link text-gold transition-colors duration-200 flex items-center gap-1">Blogs <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a>
+          <div class="dropdown-menu">
+            <a href="./hospital-security.html" class="dropdown-item"><i class="fa-solid fa-hospital"></i>Hospital Security Solutions</a>
+            <a href=".cctv-camera.html" class="dropdown-item"><i class="fa-solid fa-camera"></i>Wireless CCTV Camera</a>
+            <a href="./surveillance-agency.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i>Surveillance Agency WB</a>
+            <a href="./bank-security.html" class="dropdown-item"><i class="fa-solid fa-landmark"></i>Bank Security Services</a>
+            <a href="./event-security.html" class="dropdown-item"><i class="fa-solid fa-people-group"></i>Security for Events</a>
+             <a href="./armed-security-services.html" class="dropdown-item"><i class="fa-solid fa-shield-halved"></i>Armed Security Services</a>
+            <a href="./professional-escort-services.html" class="dropdown-item"><i class="fa-solid fa-car-side"></i>Professional Escort Services</a>
+            <a href="./elite-bodyguard-services.html" class="dropdown-item active"><i class="fa-solid fa-user-ninja"></i>Elite Bodyguard Services</a>
+            <a href="./corporate-risk-analysis.html" class="dropdown-item"><i class="fa-solid fa-briefcase"></i>Corporate Risk Management</a>
+            <a href="./private-investigator.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i>Private Investigator</a>
+          </div>
+        </li>
+        <li><a href="./casestudies.html"  class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Case Studies</a></li>
+        <li><a href="./contact.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-4">
+        <a href="tel:+919434127571" class="hidden lg:inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-display font-700 text-sm tracking-wider uppercase px-6 py-2.5 transition-all duration-200 hover:shadow-lg hover:shadow-gold/30"><i class="fa-solid fa-phone-volume"></i> Get a Quote</a>
+        <button id="hamburger" class="lg:hidden text-white text-2xl focus:outline-none"><i id="ham-icon" class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="lg:hidden bg-navy/98 border-t border-gold/20">
+      <ul class="flex flex-col py-4">
+        <li><a href="index.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Home</a></li>
+        <li><a href="./about.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">About</a></li>
+        <li><div class="px-8 py-3 font-display font-600 text-gold uppercase tracking-wider">Services</div>
+          <ul style="background:rgba(201,168,76,.05); border-left:3px solid #C9A84C; margin-left:32px;">
+            <li><a href="./physicalguarding.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Physical Guarding</a></li>
+<li><a href="./escort.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Guarding</a></li>
+<li><a href="./intelligence.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Intelligence &amp; Investigation</a></li>
+<li><a href="./electronic.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Electronic Surveillance</a></li>
+<li><a href="./security-surveys.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Security Surveys &amp; Audits</a></li>
+<li><a href="./event.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li>
+<li><a href="./corporate.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Corporate Risk Management</a></li>
+<li><a href="./access-control.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Access Control &amp; CCTV</a></li>
+<li><a href="./maintenance.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Maintenance</a></li>
+          </ul>
+        </li>
+        <li><div class="px-8 py-3 font-display font-600 text-gold uppercase tracking-wider">Blogs</div>
+          <ul style="background:rgba(201,168,76,.05); border-left:3px solid #C9A84C; margin-left:32px;">
+             <li><a href="./armed-security-services.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Armed Security Services</a></li>
+            <li><a href="./hospital-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Hospital Security</a></li>
+            <li><a href="./bank-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Bank Security Services</a></li>
+             <li><a href=".cctv-camera.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Wireless CCTV Camera</a></li>
+              <li><a href=".corporate-risk-analysis.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Corporate Risk Mamagement</a></li>
+               <li><a href=".elite-bodyguard-services.html" class="block px-6 py-2.5 font-display font-600 text-gold text-sm uppercase tracking-wider">Elite Bodyguards</a></li>
+               <li><a href=".event-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li> 
+               <li><a href=".hospital-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Hospital Security</a></li> 
+               <li><a href=".private-investigator.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Private Investigator</a></li> 
+              <li><a href=".professional-escort-services.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Services</a></li>  
+               <li><a href=".survelliance-agency.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Survelliance Agency</a></li>
+          </ul>
+        </li>
+        <li><a href="./casestudies.html"  class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Case Studies</a></li>
+        <li><a href="./contact.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Contact</a></li>
+        <li class="px-8 pt-3 pb-4"><a href="tel:+919434127571" class="flex items-center justify-center gap-2 bg-gold text-navy font-display font-700 uppercase tracking-wider text-sm py-3 hover:bg-gold-light transition-colors"><i class="fa-solid fa-phone-volume"></i> Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;">
+  <div class="hero-vid-wrap">
+    <div class="hero-vid-fallback" style="background-image:url('https://images.pexels.com/photos/5077039/pexels-photo-5077039.jpeg?auto=compress&cs=tinysrgb&w=1800');background-size:cover;background-position:center top;"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div style="position:absolute;left:0;top:0;bottom:0;width:6px;background:#C9A84C;z-index:3;" class="hidden lg:block"></div>
+  <div style="position:relative;z-index:4;max-width:1280px;margin:0 auto;width:100%;padding:160px 56px 80px;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
+      <a href="./home.html" style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Home</a>
+      <i class="fa-solid fa-chevron-right" style="color:rgba(255,255,255,.3);font-size:.6rem;"></i>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);">Blogs</span>
+      <i class="fa-solid fa-chevron-right" style="color:rgba(255,255,255,.3);font-size:.6rem;"></i>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:#C9A84C;">Elite Bodyguard Services</span>
+    </div>
+    <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">Shellback Marines — Close Protection</p>
+    <h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.6rem,6.5vw,5.5rem);letter-spacing:.02em;text-transform:uppercase;color:#ffffff;line-height:1;margin-bottom:20px;">
+      Elite<br><span style="color:#C9A84C;">Bodyguard</span><br>Services
+    </h1>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(1rem,2vw,1.4rem);letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:24px;">
+      Professional Close Protection for VIPs Across Kolkata &amp; West Bengal
+    </h2>
+    <p style="font-family:'Barlow',sans-serif;font-weight:300;font-size:clamp(.95rem,1.4vw,1.1rem);color:rgba(255,255,255,.72);max-width:620px;line-height:1.85;margin-bottom:16px;">
+      When personal safety is non-negotiable, Shellback Marines delivers <strong style="color:#fff;">elite bodyguard services</strong> by ex-naval and professionally trained close protection officers — discreet, alert, and mission-focused at all times.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px;margin-top:8px;">
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-calendar" style="color:#C9A84C;"></i> Published: April 2025</span>
+      <span style="color:rgba(255,255,255,.2);">|</span>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-clock" style="color:#C9A84C;"></i> 7 min read</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;">
+      <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'"><i class="fa-solid fa-headset"></i> Get a Free Consultation</a>
+      <a href="#article" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;text-decoration:none;border:2px solid rgba(255,255,255,.4);transition:all .2s;" onmouseover="this.style.borderColor='#C9A84C';this.style.color='#C9A84C';" onmouseout="this.style.borderColor='rgba(255,255,255,.4)';this.style.color='#fff';"><i class="fa-solid fa-chevron-down"></i> Read Article</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS ROW -->
+<section style="background:#080c18;border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);">
+  <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
+    <div style="display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;">
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-user-tie" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">VIP</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Close Protection</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-user-shield" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">PSA</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Licensed Officers</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-eye" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">24/7</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Protection Detail</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;text-align:center;">
+        <i class="fa-solid fa-anchor" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">Navy</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Trained Leadership</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE INTRO -->
+<section id="article" style="background:#ffffff;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:center;">
+      <div style="flex:1;min-width:280px;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Why It Matters</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:.03em;text-transform:uppercase;color:#111827;line-height:1.1;margin-bottom:0;">Who Needs an Elite<br>Bodyguard Today?</h2>
+        <div class="gold-divider" style="justify-content:flex-start;margin-left:0;"><div class="gdl" style="max-width:80px;"></div><div class="gdd"></div><div class="gdl" style="max-width:240px;"></div></div>
+        <div class="blog-body">
+          <p>The demand for <strong>elite bodyguard services</strong> has grown significantly across India, particularly in urban and high-profile environments. Corporate executives, politicians, celebrities, high-net-worth individuals, and foreign dignitaries increasingly recognise that personal safety cannot be left to chance.</p>
+          <p>A professional <strong>elite bodyguard</strong> is far more than a physical presence. A trained close protection officer (CPO) conducts advance reconnaissance, identifies threat vectors, coordinates safe travel routes, and maintains constant situational awareness — all while remaining unobtrusive so that the principal can conduct business and personal affairs without disruption.</p>
+          <p>Shellback Marines delivers <strong>elite bodyguard services</strong> grounded in Indian Navy discipline and international close protection standards — providing a level of professionalism and reliability that distinguishes us from conventional security providers across Kolkata and West Bengal.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;margin-top:8px;">
+          <div class="check-item"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i><div><p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">Threat Assessment &amp; Advance Work</p><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">Every engagement begins with a thorough threat and risk assessment to tailor the <strong>elite bodyguard</strong> detail to the principal's specific profile and itinerary.</p></div></div>
+          <div class="check-item"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i><div><p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">Discreet Professional Presence</p><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">Our <strong>elite bodyguards</strong> operate with the discretion demanded by high-profile principals — commanding without intimidating, present without being intrusive.</p></div></div>
+          <div class="check-item"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i><div><p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">Emergency Response Expertise</p><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">Trained in emergency extraction, first aid, and incident management — ready to act decisively when seconds matter most.</p></div></div>
+        </div>
+        <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;margin-top:32px;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'"><i class="fa-solid fa-headset"></i> Contact Us Today</a>
+      </div>
+      <div style="flex:0 0 460px;max-width:100%;"><div class="img-reveal" style="height:520px;"><img src="https://images.pexels.com/photos/5077039/pexels-photo-5077039.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Elite bodyguard close protection officer" /></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES LIST -->
+<section style="background:#080c18;padding:80px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start;">
+      <div style="flex:1;min-width:280px;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Our Elite Bodyguard Services</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:.03em;text-transform:uppercase;color:#ffffff;line-height:1.1;margin-bottom:32px;">Comprehensive Close<br>Protection Solutions:</h2>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <a href="./contact.html" class="svc-list-item"><div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div><div><p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Personal Close Protection Officers</p><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Highly trained <strong style="color:rgba(255,255,255,.7);">elite bodyguards</strong> providing one-to-one or team-based protection for executives, VIPs, politicians, and high-net-worth individuals — 24 hours a day, wherever required.</p></div></a>
+          <a href="./contact.html" class="svc-list-item"><div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div><div><p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">VIP Escort &amp; Motorcade Security</p><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Coordinated vehicle escort with advance route clearing, threat assessment, and secure convoy management — a hallmark of professional <strong style="color:rgba(255,255,255,.7);">elite bodyguard services</strong>.</p></div></a>
+          <a href="./contact.html" class="svc-list-item"><div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div><div><p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Residence &amp; Premises Security</p><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Dedicated <strong style="color:rgba(255,255,255,.7);">elite bodyguard</strong> teams for residential protection — covering home perimeter security, access control, and visitor screening for HNI families.</p></div></a>
+          <a href="./contact.html" class="svc-list-item"><div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div><div><p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Event &amp; Function Security Detail</p><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Discreet close protection at public events, corporate functions, press conferences, and social gatherings — where visibility management is as important as physical security.</p></div></a>
+          <a href="./contact.html" class="svc-list-item"><div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div><div><p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Female Close Protection Officers</p><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Specialist female <strong style="color:rgba(255,255,255,.7);">elite bodyguard</strong> professionals for female principals, family members, or sensitive environments requiring culturally appropriate protection.</p></div></a>
+          <a href="./contact.html" class="svc-list-item"><div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div><div><p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Threat Intelligence &amp; Risk Advisory</p><p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Intelligence-led threat profiling and advance planning for travel and events — ensuring our <strong style="color:rgba(255,255,255,.7);">elite bodyguard services</strong> are always one step ahead of potential risks.</p></div></a>
+        </div>
+        <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;margin-top:36px;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'"><i class="fa-solid fa-headset"></i> Discuss Your Requirement</a>
+      </div>
+      <div style="flex:0 0 380px;max-width:100%;display:flex;flex-direction:column;gap:4px;">
+        <div class="img-reveal" style="height:260px;"><img src="https://images.pexels.com/photos/5325879/pexels-photo-5325879.jpeg?auto=compress&cs=tinysrgb&w=800" alt="VIP close protection escort team" /></div>
+        <div class="img-reveal" style="height:200px;"><img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bodyguard security detail in action" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<section style="background:#ffffff;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start;">
+      <div style="flex:1;min-width:280px;" class="blog-body">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">In Depth</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:.03em;text-transform:uppercase;color:#111827;line-height:1.1;margin-bottom:0;">What Sets Elite Bodyguard<br>Services Apart?</h2>
+        <div class="gold-divider" style="justify-content:flex-start;margin-left:0;"><div class="gdl" style="max-width:80px;"></div><div class="gdd"></div><div class="gdl" style="max-width:240px;"></div></div>
+        <h3>Training Standards for Elite Bodyguards</h3>
+        <p>Not all security guards qualify as <strong>elite bodyguards</strong>. Close protection requires a distinct skill set — combining physical fitness, tactical awareness, emergency first aid, counter-surveillance techniques, and impeccable interpersonal skills. Shellback Marines' close protection officers receive rigorous training grounded in naval and law enforcement standards, ensuring they meet the highest benchmarks of professional <strong>elite bodyguard services</strong>.</p>
+        <h3>The Importance of Advance Work</h3>
+        <p>Professional <strong>elite bodyguard</strong> teams don't simply show up and shadow the principal. Effective close protection begins long before the principal moves — with advance teams visiting venues, assessing entry and exit routes, identifying potential threat zones, and establishing communication protocols. This advance work is what separates genuine <strong>elite bodyguard services</strong> from basic security.</p>
+        <h3>Discretion: The Hallmark of Professional Bodyguards</h3>
+        <p>High-profile individuals require protection that doesn't call unnecessary attention. A genuine <strong>elite bodyguard</strong> understands that visibility management is part of the job — maintaining a protective posture without creating a spectacle that could itself attract threats or media attention. Shellback Marines trains all close protection officers in professional discretion as a core competency.</p>
+        <h3>Selecting the Right Elite Bodyguard Service Provider</h3>
+        <p>When choosing <strong>elite bodyguard services</strong> in Kolkata or West Bengal, verify PSA licensing, examine the background and training credentials of officers, and look for a provider with documented experience serving high-risk principals. Shellback Marines meets all these criteria — backed by the discipline of the Indian Navy and a PSA licence confirming full regulatory compliance.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:36px;">
+          <span class="blog-tag"><i class="fa-solid fa-user-tie"></i> Elite Bodyguard</span>
+          <span class="blog-tag"><i class="fa-solid fa-shield-halved"></i> Close Protection</span>
+          <span class="blog-tag"><i class="fa-solid fa-car"></i> VIP Escort</span>
+          <span class="blog-tag"><i class="fa-solid fa-location-dot"></i> Kolkata, WB</span>
+        </div>
+      </div>
+      <div style="flex:0 0 380px;max-width:100%;">
+        <div style="background:#f9fafb;border:1px solid #e5e7eb;padding:36px;">
+          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">Quick Reference</p>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:.04em;text-transform:uppercase;color:#111827;margin-bottom:24px;">Bodyguard Service Essentials</h3>
+          <div style="display:flex;flex-direction:column;gap:0;">
+            <div class="check-item"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:.9rem;margin-top:3px;flex-shrink:0;"></i><p style="font-family:'Barlow',sans-serif;font-size:.88rem;color:#374151;line-height:1.6;">PSA-licensed <strong>elite bodyguard</strong> officers with verified backgrounds</p></div>
+            <div class="check-item"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:.9rem;margin-top:3px;flex-shrink:0;"></i><p style="font-family:'Barlow',sans-serif;font-size:.88rem;color:#374151;line-height:1.6;">Advance threat and route assessment before every movement</p></div>
+            <div class="check-item"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:.9rem;margin-top:3px;flex-shrink:0;"></i><p style="font-family:'Barlow',sans-serif;font-size:.88rem;color:#374151;line-height:1.6;">VIP motorcade and vehicle escort capability</p></div>
+            <div class="check-item"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:.9rem;margin-top:3px;flex-shrink:0;"></i><p style="font-family:'Barlow',sans-serif;font-size:.88rem;color:#374151;line-height:1.6;">24/7 close protection — residential, travel, and event coverage</p></div>
+            <div class="check-item"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:.9rem;margin-top:3px;flex-shrink:0;"></i><p style="font-family:'Barlow',sans-serif;font-size:.88rem;color:#374151;line-height:1.6;">Female <strong>elite bodyguard</strong> officers available for female principals</p></div>
+            <div class="check-item"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:.9rem;margin-top:3px;flex-shrink:0;"></i><p style="font-family:'Barlow',sans-serif;font-size:.88rem;color:#374151;line-height:1.6;">Emergency extraction and first aid trained close protection teams</p></div>
+          </div>
+          <a href="./contact.html" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;padding:14px;text-decoration:none;margin-top:28px;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'"><i class="fa-solid fa-phone-volume"></i> Request a Protection Detail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION CTA -->
+<section style="background:#ffffff;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:center;">
+      <div style="flex:0 0 460px;max-width:100%;"><div class="img-reveal" style="height:500px;"><img src="https://images.pexels.com/photos/3768914/pexels-photo-3768914.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Elite bodyguard security team briefing" /></div></div>
+      <div style="flex:1;min-width:280px;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Conclusion</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:.03em;text-transform:uppercase;color:#111827;line-height:1.1;margin-bottom:0;">Your Safety Is Our<br>Sole Mission.</h2>
+        <div class="gold-divider" style="justify-content:flex-start;margin-left:0;"><div class="gdl" style="max-width:60px;"></div><div class="gdd"></div><div class="gdl" style="max-width:260px;"></div></div>
+        <p style="font-family:'Barlow',sans-serif;font-size:1rem;color:#374151;line-height:1.85;margin-bottom:18px;">Your safety, reputation, and freedom of movement are non-negotiable. Shellback Marines delivers <strong>elite bodyguard services</strong> that protect without imposing — allowing you to live, work, and travel with genuine confidence. Our close protection officers are selected for character, trained to the highest standards, and committed to your security above all else.</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.95rem;color:#6b7280;line-height:1.85;margin-bottom:28px;">Whether you require a single <strong>elite bodyguard</strong>, a full close protection team, or an integrated personal security programme, contact Shellback Marines Security Agency today. We serve clients across Kolkata, West Bengal, and beyond.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:36px;">
+          <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:14px 20px;"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;"></i><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#374151;">PSA Licensed</span></div>
+          <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:14px 20px;"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;"></i><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#374151;">Navy Trained</span></div>
+          <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:14px 20px;"><i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;"></i><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#374151;">24/7 Coverage</span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+          <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'"><i class="fa-solid fa-headset"></i> Get a Free Consultation</a>
+          <a href="./physicalguarding.html" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;border:2px solid rgba(8,12,24,.25);transition:all .2s;" onmouseover="this.style.background='rgba(8,12,24,.05)'" onmouseout="this.style.background='transparent'"><i class="fa-solid fa-user-shield"></i> View All Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES CTA BAND -->
+<section style="background:#C9A84C;padding:64px 48px;text-align:center;">
+  <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(8,12,24,.6);margin-bottom:12px;">Shellback Marines</p>
+  <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:.04em;text-transform:uppercase;color:#080c18;margin-bottom:16px;">We Protect More Than You Think</h2>
+  <p style="font-family:'Barlow',sans-serif;font-size:1rem;color:rgba(8,12,24,.7);max-width:640px;margin:0 auto 32px;line-height:1.8;">Born from real naval service, Shellback Marines applies military-grade discipline and analytical rigour to every elite bodyguard engagement. Your safety is a mission — not a service.</p>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
+    <a href="./about.html" style="display:inline-flex;align-items:center;gap:10px;background:#080c18;color:#C9A84C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;" onmouseover="this.style.background='#0d1120'" onmouseout="this.style.background='#080c18'"><i class="fa-solid fa-anchor"></i> Our Story</a>
+    <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;border:2px solid rgba(8,12,24,.35);" onmouseover="this.style.background='rgba(8,12,24,.08)'" onmouseout="this.style.background='transparent'"><i class="fa-solid fa-phone-volume"></i> Contact Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#080c18;color:#ffffff;">
+  <div class="ft-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <img src="./img/logo.png" alt="Shellback Marines Logo" style="width:42px;height:42px;border-radius:50%;border:2px solid #C9A84C;object-fit:contain;background:rgba(201,168,76,.1);" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div style="display:none;width:42px;height:42px;border-radius:50%;border:2px solid #C9A84C;align-items:center;justify-content:center;background:rgba(201,168,76,.1);flex-shrink:0;"><i class="fa-solid fa-anchor" style="color:#C9A84C;font-size:1.1rem;"></i></div>
+        <div><p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin:0;line-height:1.1;">Shellback Marines</p><p style="font-family:'Barlow',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#C9A84C;margin:0;">Security Agency</p></div>
+      </div>
+      <p class="ft-col-title">About Shellback Marines</p>
+      <p class="ft-body">Shellback Marines is a PSA-licensed security agency providing elite bodyguard services, bank security, physical guarding, and integrated security solutions across West Bengal — founded on the values of the Indian Navy.</p>
+      <p class="ft-body" style="margin-top:16px;color:rgba(255,255,255,.35);font-size:.8rem;">Registered Office: Oodlabari Bidhanpally,<br>PO Manabari, Dist Jalpaiguri, WB – 735222<br>Licence No: W.B – 55/WB/PSA/2025</p>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" class="ft-soc-btn"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" class="ft-soc-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919434127571" target="_blank" class="ft-soc-btn"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:contact@shellbackmarines.in" class="ft-soc-btn"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div>
+      <p class="ft-col-title">Latest Blogs</p>
+      <div class="ft-news-item"><a href="./hospital-security-solutions.html" class="ft-news-title">Hospital Security Solutions in Kolkata</a><p class="ft-news-date">June 2025</p></div>
+      <div class="ft-news-item"><a href="./bank-security.html" class="ft-news-title">Bank Security Services — A Complete Guide</a><p class="ft-news-date">May 2025</p></div>
+      <div class="ft-news-item"><a href="./elite-bodyguard-services.html" class="ft-news-title" style="color:#C9A84C;">Elite Bodyguard Services in West Bengal</a><p class="ft-news-date">April 2025</p></div>
+      <div class="ft-news-item"><a href="./corporate-risk-management.html" class="ft-news-title">Corporate Risk Analysis &amp; Management</a><p class="ft-news-date">March 2025</p></div>
+      <div class="ft-news-item"><a href="./armed-security-services.html" class="ft-news-title">Professional Armed Security Services</a><p class="ft-news-date">February 2025</p></div>
+    </div>
+    <div>
+      <p class="ft-col-title">Specialist Services</p>
+      <a href="./physicalguarding.html" class="ft-link">Physical Guarding</a>
+      <a href="./electronic.html" class="ft-link">Electronic Surveillance</a>
+      <a href="./corporate.html" class="ft-link">Corporate Risk Management</a>
+      <a href="./security-surveys.html" class="ft-link">Security Surveys &amp; Audits</a>
+      <a href="./event.html" class="ft-link">Event Security</a>
+      <a href="./intelligence.html" class="ft-link">Intelligence &amp; Investigation</a>
+      <a href="./access-control.html" class="ft-link">Access Control &amp; CCTV</a>
+      <p class="ft-col-title" style="margin-top:28px;">Contact Us</p>
+      <a href="tel:+919434127571" class="ft-link"><i class="fa-solid fa-phone-volume"></i>+91 9434127571</a>
+      <a href="mailto:contact@shellbackmarines.in" class="ft-link"><i class="fa-solid fa-envelope"></i>contact@shellbackmarines.in</a>
+      <span class="ft-link" style="cursor:default;"><i class="fa-solid fa-location-dot"></i>Jalpaiguri, West Bengal 735222</span>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.06);"><div class="ft-bottom"><p>© 2023–2026 Shellback Marines Security Agency. All rights reserved. | Licence No: W.B – 55/WB/PSA/2025</p><div class="ft-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms &amp; Conditions</a><a href="#">Sitemap</a></div></div></div>
+</footer>
+
+<script>
+  const navbar=document.getElementById('navbar'),navRow=document.getElementById('nav-row'),hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobile-menu'),hamIcon=document.getElementById('ham-icon');
+  function handleScroll(){const s=window.scrollY>10,m=mobileMenu&&mobileMenu.classList.contains('open');navbar.classList.toggle('scrolled',s);navRow.style.background=(s||m)?'#080c18':'transparent';}
+  window.addEventListener('scroll',handleScroll,{passive:true});handleScroll();
+  hamburger.addEventListener('click',()=>{mobileMenu.classList.toggle('open');handleScroll();hamIcon.className=mobileMenu.classList.contains('open')?'fa-solid fa-xmark':'fa-solid fa-bars';});
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamIcon.className='fa-solid fa-bars';handleScroll();}));
+</script>
+</body>
+</html>

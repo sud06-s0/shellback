@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital Security Solutions – Shellback Marines Security Agency</title>
+  <meta name="description" content="Comprehensive hospital security solutions by Shellback Marines Security Agency. Protecting healthcare facilities in Kolkata, West Bengal with specialized guards, CCTV, and access control." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Barlow Condensed', 'sans-serif'],
+            body:    ['Barlow', 'sans-serif'],
+          },
+          colors: {
+            navy:         '#080c18',
+            gold:         '#C9A84C',
+            'gold-light': '#E8C96A',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: #080c18; }
+
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+    #info-bar { overflow: hidden; max-height: 40px; transition: max-height .35s ease, opacity .35s ease; opacity: 1; }
+    #navbar.scrolled #info-bar { max-height: 0; opacity: 0; }
+    #nav-row { transition: background .35s ease, box-shadow .35s ease; background: transparent; }
+    #navbar.scrolled #nav-row { background: transparent; box-shadow: 0 2px 28px rgba(0,0,0,.6); }
+
+    .nav-link { position: relative; letter-spacing: .08em; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: .85rem; }
+    .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: #C9A84C; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    #mobile-menu { display: none; max-height: calc(100vh - 80px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+    #mobile-menu.open { display: block; background: #080c18; }
+    @media(max-width:767px){ .ib-desktop { display: none !important; } .ib-mobile-cta { display: inline-flex !important; } }
+
+    @keyframes bgPan { 0% { transform: scale(1.08) translateX(0); } 100% { transform: scale(1.08) translateX(-3%); } }
+    .hero-vid-wrap { position: absolute; inset: 0; overflow: hidden; }
+    .hero-vid-wrap video { width: 100%; height: 100%; object-fit: cover; animation: bgPan 20s ease-in-out infinite alternate; }
+    .hero-vid-fallback { position: absolute; inset: 0; animation: bgPan 20s ease-in-out infinite alternate; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(8,12,24,.92) 0%, rgba(8,12,24,.65) 55%, rgba(8,12,24,.45) 100%), linear-gradient(to top, rgba(8,12,24,.98) 0%, rgba(8,12,24,.0) 55%); }
+
+    .gold-divider { display:flex; align-items:center; justify-content:center; margin:14px auto 38px; max-width:400px; }
+    .gdl { flex:1; height:1.5px; background:#d1d5db; }
+    .gdd { width:11px; height:11px; border-radius:50%; background:#C9A84C; margin:0 -1px; flex-shrink:0; box-shadow:0 0 0 4px rgba(201,168,76,.18); }
+
+    .svc-list-item { display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.07); text-decoration: none; transition: padding-left .2s ease; }
+    .svc-list-item:last-child { border-bottom: none; }
+    .svc-list-item:hover { padding-left: 6px; }
+    .svc-list-item:hover .sli-arrow { background: #C9A84C; color: #080c18; }
+    .sli-arrow { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #C9A84C; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #C9A84C; font-size: .75rem; transition: all .2s ease; }
+
+    .testi-track { display:flex; transition: transform .6s cubic-bezier(.4,0,.2,1); }
+    .testi-slide { flex: 0 0 100%; }
+
+    .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(201,168,76,.1); }
+    .check-item:last-child { border-bottom: none; }
+
+    .img-reveal { overflow: hidden; }
+    .img-reveal img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .55s ease; }
+    .img-reveal:hover img { transform: scale(1.04); }
+
+    .ft-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px; padding:64px 48px 52px; max-width:1280px; margin:0 auto; }
+    @media(max-width:1024px){ .ft-grid{ grid-template-columns:1fr 1fr; gap:40px 32px; } }
+    @media(max-width:580px) { .ft-grid{ grid-template-columns:1fr; padding:48px 28px 40px; } }
+    .ft-col-title { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:#C9A84C; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid rgba(201,168,76,.2); }
+    .ft-body { font-family:'Barlow',sans-serif; font-size:.88rem; color:rgba(255,255,255,.55); line-height:1.8; }
+    .ft-link { display:block; font-family:'Barlow',sans-serif; font-size:.88rem; color:rgba(255,255,255,.55); text-decoration:none; padding:4px 0; transition:color .2s ease, padding-left .2s; border-bottom:1px solid rgba(255,255,255,.05); }
+    .ft-link:last-child { border-bottom:none; }
+    .ft-link:hover { color:#C9A84C; padding-left:4px; }
+    .ft-link i { width:14px; margin-right:6px; color:#C9A84C; font-size:.75rem; }
+    .ft-news-item { padding:10px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+    .ft-news-item:last-child { border-bottom:none; }
+    .ft-news-title { font-family:'Barlow',sans-serif; font-size:.87rem; color:rgba(255,255,255,.75); line-height:1.5; text-decoration:none; display:block; transition:color .2s; }
+    .ft-news-title:hover { color:#C9A84C; }
+    .ft-news-date { font-family:'Barlow',sans-serif; font-size:.72rem; color:rgba(255,255,255,.3); margin-top:3px; }
+    .ft-social { display:flex; gap:10px; margin-top:24px; }
+    .ft-soc-btn { width:36px; height:36px; border-radius:6px; border:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.5); font-size:.9rem; text-decoration:none; transition:all .2s ease; }
+    .ft-soc-btn:hover { background:#C9A84C; border-color:#C9A84C; color:#080c18; }
+    .ft-bottom { border-top:1px solid rgba(255,255,255,.07); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding:20px 48px; max-width:1280px; margin:0 auto; }
+    @media(max-width:640px){ .ft-bottom{ padding:20px 28px; flex-direction:column; text-align:center; } }
+    .ft-bottom p { font-family:'Barlow',sans-serif; font-size:.78rem; color:rgba(255,255,255,.28); margin:0; }
+    .ft-bottom-links { display:flex; gap:20px; flex-wrap:wrap; }
+    .ft-bottom-links a { font-family:'Barlow',sans-serif; font-size:.78rem; color:rgba(255,255,255,.28); text-decoration:none; transition:color .2s; }
+    .ft-bottom-links a:hover { color:#C9A84C; }
+
+    .dropdown{position:relative}
+    .dropdown-menu{
+      position:absolute;top:calc(100% + 8px);left:50%;
+      transform:translateX(-50%) translateY(-6px);
+      background:#080c18;border:1px solid rgba(201,168,76,.2);
+      border-top:2px solid #C9A84C;
+      width:260px;
+      z-index:200;opacity:0;visibility:hidden;
+      transition:opacity .25s ease,transform .25s ease,visibility .25s;
+    }
+    .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+    .dropdown-item{display:flex;align-items:center;gap:10px;padding:11px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);transition:all .2s ease;white-space:nowrap;}
+    .dropdown-item:last-child{border-bottom:none}.dropdown-item:hover{color:#C9A84C;background:rgba(201,168,76,.06);padding-left:26px}.dropdown-item i{color:#C9A84C;width:14px;font-size:.75rem}.dropdown-item.active{color:#C9A84C}
+
+    /* Blog article styles */
+    .blog-body { font-family:'Barlow',sans-serif; font-size:1.05rem; color:#374151; line-height:1.9; }
+    .blog-body p { margin-bottom:22px; }
+    .blog-body h3 { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.35rem; letter-spacing:.04em; text-transform:uppercase; color:#111827; margin-bottom:14px; margin-top:36px; }
+    .blog-tag { display:inline-flex; align-items:center; gap:6px; background:#f3f4f6; border:1px solid #e5e7eb; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:#374151; padding:8px 14px; }
+    .blog-tag i { color:#C9A84C; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+
+<!-- ════════════════════════ NAVBAR ════════════════════════ -->
+<header id="navbar">
+  <!-- Info bar -->
+  <div id="info-bar" style="background:#C9A84C; width:100%;">
+    <div style="max-width:1280px; margin:0 auto; padding:7px 20px; display:flex; align-items:center; justify-content:space-between; gap:8px;">
+      <a href="tel:+919434127571" style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18; text-decoration:none; flex-shrink:0;">
+        <i class="fa-solid fa-phone" style="font-size:.7rem;"></i> +91 9434127571
+      </a>
+      <div class="ib-desktop" style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <a href="mailto:contact@shellbackmarines.in" style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18; text-decoration:none;">
+          <i class="fa-solid fa-envelope" style="font-size:.7rem;"></i> contact@shellbackmarines.in
+        </a>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18;">
+          <i class="fa-solid fa-location-dot" style="font-size:.7rem;"></i> Oodlabari, Jalpaiguri, WB – 735222
+        </span>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <span style="display:inline-flex; align-items:center; gap:6px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:#080c18;">
+          <i class="fa-solid fa-certificate" style="font-size:.7rem;"></i> Licence: W.B – 55/WB/PSA/2025
+        </span>
+        <span style="color:rgba(8,12,24,.3); font-size:.7rem;">|</span>
+        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919434127571" target="_blank" style="color:#080c18; font-size:.85rem; opacity:.7;" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <a href="tel:+919434127571" class="ib-mobile-cta" style="display:none; align-items:center; gap:6px; background:#080c18; color:#C9A84C; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; padding:5px 14px; text-decoration:none; border-radius:3px; flex-shrink:0;">
+        <i class="fa-solid fa-phone-volume" style="font-size:.65rem;"></i> Get a Quote
+      </a>
+    </div>
+  </div>
+
+  <!-- Nav row -->
+  <div id="nav-row">
+    <nav class="max-w-screen-xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
+        <img src="./img/logo.png" alt="Shellback Marines Logo"
+             class="w-11 h-11 object-contain rounded-full border-2 border-gold bg-navy/60"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="w-11 h-11 rounded-full border-2 border-gold items-center justify-center bg-navy/60 group-hover:bg-gold transition-colors duration-300" style="display:none;">
+          <i class="fa-solid fa-anchor text-gold group-hover:text-navy text-lg"></i>
+        </div>
+        <div class="leading-tight">
+          <span class="block font-display font-800 text-white text-lg tracking-wider uppercase">Shellback Marines</span>
+          <span class="block font-body text-gold text-[10px] tracking-[0.2em] uppercase">Security Agency</span>
+        </div>
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-8">
+        <li><a href="index.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Home</a></li>
+        <li><a href="./about.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">About</a></li>
+        <li class="dropdown"><a href="./home.html#services" class="nav-link text-white/80 hover:text-gold transition-colors duration-200 flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a>
+          <div class="dropdown-menu">
+            <a href="./physicalguarding.html" class="dropdown-item"><i class="fa-solid fa-user-shield"></i>Physical Guarding</a>
+            <a href="./escort.html" class="dropdown-item"><i class="fa-solid fa-person-walking-arrow-right"></i>Escort Guarding</a>
+            <a href="./intelligence.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass-chart"></i>Intelligence &amp; Investigation</a>
+            <a href="./electronic.html" class="dropdown-item"><i class="fa-solid fa-camera-cctv"></i>Electronic Surveillance</a>
+            <a href="./security-surveys.html" class="dropdown-item"><i class="fa-solid fa-file-shield"></i>Security Surveys &amp; Audits</a>
+            <a href="./event.html" class="dropdown-item"><i class="fa-solid fa-people-group"></i>Event Security</a>
+            <a href="./corporate.html" class="dropdown-item"><i class="fa-solid fa-briefcase"></i>Corporate Risk Management</a>
+            <a href="./access-control.html" class="dropdown-item"><i class="fa-solid fa-door-open"></i>Access Control &amp; CCTV</a>
+            <a href="./maintenance.html" class="dropdown-item"><i class="fa-solid fa-screwdriver-wrench"></i>Maintenance</a>
+          </div>
+        </li>
+        <li class="dropdown"><a href="#" class="nav-link text-gold transition-colors duration-200 flex items-center gap-1">Blogs <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i></a>
+          <div class="dropdown-menu">
+            <a href="./hospital-security.html" class="dropdown-item active"><i class="fa-solid fa-hospital"></i>Hospital Security Solutions</a>
+            <a href=".cctv-camera.html" class="dropdown-item"><i class="fa-solid fa-camera"></i>Wireless CCTV Camera</a>
+            <a href="./surveillance-agency.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i>Surveillance Agency WB</a>
+            <a href="./bank-security.html" class="dropdown-item"><i class="fa-solid fa-landmark"></i>Bank Security Services</a>
+            <a href="./event-security.html" class="dropdown-item"><i class="fa-solid fa-people-group"></i>Security for Events</a>
+             <a href="./armed-security-services.html" class="dropdown-item"><i class="fa-solid fa-shield-halved"></i>Armed Security Services</a>
+            <a href="./professional-escort-services.html" class="dropdown-item"><i class="fa-solid fa-car-side"></i>Professional Escort Services</a>
+            <a href="./elite-bodyguard-services.html" class="dropdown-item"><i class="fa-solid fa-user-ninja"></i>Elite Bodyguard Services</a>
+            <a href="./corporate-risk-analysis.html" class="dropdown-item"><i class="fa-solid fa-briefcase"></i>Corporate Risk Management</a>
+            <a href="./private-investigator.html" class="dropdown-item"><i class="fa-solid fa-magnifying-glass"></i>Private Investigator</a>
+          </div>
+        </li>
+        <li><a href="./casestudies.html"  class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Case Studies</a></li>
+        <li><a href="./contact.html" class="nav-link text-white/80 hover:text-gold transition-colors duration-200">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-4">
+        <a href="tel:+919434127571" class="hidden lg:inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-display font-700 text-sm tracking-wider uppercase px-6 py-2.5 transition-all duration-200 hover:shadow-lg hover:shadow-gold/30">
+          <i class="fa-solid fa-phone-volume"></i> Get a Quote
+        </a>
+        <button id="hamburger" class="lg:hidden text-white text-2xl focus:outline-none" aria-label="Toggle menu">
+          <i id="ham-icon" class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="lg:hidden bg-navy/98 border-t border-gold/20">
+      <ul class="flex flex-col py-4">
+        <li><a href="index.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Home</a></li>
+        <li><a href="./about.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">About</a></li>
+        <li><div class="px-8 py-3 font-display font-600 text-gold uppercase tracking-wider">Services</div>
+          <ul style="background:rgba(201,168,76,.05); border-left:3px solid #C9A84C; margin-left:32px;">
+            <li><a href="./physicalguarding.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Physical Guarding</a></li>
+<li><a href="./escort.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Guarding</a></li>
+<li><a href="./intelligence.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Intelligence &amp; Investigation</a></li>
+<li><a href="./electronic.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Electronic Surveillance</a></li>
+<li><a href="./security-surveys.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Security Surveys &amp; Audits</a></li>
+<li><a href="./event.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li>
+<li><a href="./corporate.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Corporate Risk Management</a></li>
+<li><a href="./access-control.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Access Control &amp; CCTV</a></li>
+<li><a href="./maintenance.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Maintenance</a></li>
+          </ul>
+        </li>
+        <li><div class="px-8 py-3 font-display font-600 text-gold uppercase tracking-wider">Blogs</div>
+          <ul style="background:rgba(201,168,76,.05); border-left:3px solid #C9A84C; margin-left:32px;">
+             <li><a href="./armed-security-services.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Armed Security Services</a></li>
+            <li><a href="./hospital-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Hospital Security</a></li>
+            <li><a href="./bank-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Bank Security Services</a></li>
+             <li><a href=".cctv-camera.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Wireless CCTV Camera</a></li>
+              <li><a href=".corporate-risk-analysis.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Corporate Risk Mamagement</a></li>
+               <li><a href=".elite-bodyguard-services.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Elite Bodyguards</a></li>
+               <li><a href=".event-security.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Event Security</a></li> 
+               <li><a href=".hospital-security.html" class="block px-6 py-2.5 font-display font-600 text-gold text-sm uppercase tracking-wider">Hospital Security</a></li> 
+               <li><a href=".private-investigator.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Private Investigator</a></li> 
+              <li><a href=".professional-escort-services.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Escort Services</a></li>  
+               <li><a href=".survelliance-agency.html" class="block px-6 py-2.5 font-display font-600 text-white/70 hover:text-gold text-sm uppercase tracking-wider">Survelliance Agency</a></li>
+          </ul>
+        </li>
+        <li><a href="./casestudies.html"  class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Case Studies</a></li>
+        <li><a href="./contact.html" class="block px-8 py-3 font-display font-600 text-white/80 hover:text-gold hover:bg-white/5 transition-colors uppercase tracking-wider">Contact</a></li>
+        <li class="px-8 pt-3 pb-4">
+          <a href="tel:+919434127571" class="flex items-center justify-center gap-2 bg-gold text-navy font-display font-700 uppercase tracking-wider text-sm py-3 hover:bg-gold-light transition-colors">
+            <i class="fa-solid fa-phone-volume"></i> Get a Quote
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+<!-- ════════════════════════ HERO ════════════════════════ -->
+<section style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;">
+  <div class="hero-vid-wrap">
+    <video autoplay muted loop playsinline onerror="this.style.display='none';"></video>
+    <div class="hero-vid-fallback" style="background-image:url('https://images.pexels.com/photos/668298/pexels-photo-668298.jpeg?auto=compress&cs=tinysrgb&w=1800');background-size:cover;background-position:center;"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div style="position:absolute;left:0;top:0;bottom:0;width:6px;background:#C9A84C;z-index:3;" class="hidden lg:block"></div>
+
+  <div style="position:relative;z-index:4;max-width:1280px;margin:0 auto;width:100%;padding:160px 56px 80px;">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;">
+      <a href="./home.html" style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Home</a>
+      <i class="fa-solid fa-chevron-right" style="color:rgba(255,255,255,.3);font-size:.6rem;"></i>
+      <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.5)'">Blogs</a>
+      <i class="fa-solid fa-chevron-right" style="color:rgba(255,255,255,.3);font-size:.6rem;"></i>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:#C9A84C;">Hospital Security Solutions</span>
+    </div>
+
+    <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">Shellback Marines — Healthcare Security</p>
+
+    <h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.6rem,6.5vw,5.5rem);letter-spacing:.02em;text-transform:uppercase;color:#ffffff;line-height:1;margin-bottom:20px;">
+      Comprehensive<br><span style="color:#C9A84C;">Hospital Security</span><br>Solutions
+    </h1>
+
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(1rem,2vw,1.4rem);letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:24px;">
+      Protecting Healthcare Facilities in Kolkata &amp; West Bengal
+    </h2>
+
+    <p style="font-family:'Barlow',sans-serif;font-weight:300;font-size:clamp(.95rem,1.4vw,1.1rem);color:rgba(255,255,255,.72);max-width:620px;line-height:1.85;margin-bottom:16px;">
+      Healthcare facilities face unique, evolving security threats. Shellback Marines Security Agency provides specialised hospital security services across Kolkata and West Bengal — combining trained personnel, advanced surveillance technology, and rigorous access control to keep patients, staff, and assets safe.
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px;margin-top:8px;">
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-calendar" style="color:#C9A84C;"></i> Published: June 2025</span>
+      <span style="color:rgba(255,255,255,.2);">|</span>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-clock" style="color:#C9A84C;"></i> 7 min read</span>
+      <span style="color:rgba(255,255,255,.2);">|</span>
+      <span style="font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:6px;"><i class="fa-solid fa-map-marker-alt" style="color:#C9A84C;"></i> Kolkata, WB</span>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:14px;">
+      <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
+        <i class="fa-solid fa-headset"></i> Get a Free Consultation
+      </a>
+      <a href="#article" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;text-decoration:none;border:2px solid rgba(255,255,255,.4);transition:all .2s;" onmouseover="this.style.borderColor='#C9A84C';this.style.color='#C9A84C';" onmouseout="this.style.borderColor='rgba(255,255,255,.4)';this.style.color='#fff';">
+        <i class="fa-solid fa-chevron-down"></i> Read Article
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ STATS ROW ════════════════════════ -->
+<section style="background:#080c18;border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);">
+  <div style="max-width:1280px;margin:0 auto;padding:0 32px;">
+    <div style="display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;">
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-hospital" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">24/7</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Continuous Coverage</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-user-shield" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">PSA</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Licensed Guards</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;border-right:1px solid rgba(201,168,76,.12);text-align:center;">
+        <i class="fa-solid fa-camera-cctv" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">360°</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">CCTV Surveillance</p>
+      </div>
+      <div style="flex:1;min-width:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:8px;text-align:center;">
+        <i class="fa-solid fa-anchor" style="color:#C9A84C;font-size:1.8rem;margin-bottom:6px;"></i>
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:#C9A84C;line-height:1;">Navy</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.72rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.15em;">Trained Leadership</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ ARTICLE INTRO SPLIT ════════════════════════ -->
+<section id="article" style="background:#ffffff;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:center;">
+
+      <div style="flex:1;min-width:280px;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Why It Matters</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:.03em;text-transform:uppercase;color:#111827;line-height:1.1;margin-bottom:0;">
+          The Critical Need for<br>Hospital Security Today
+        </h2>
+        <div class="gold-divider" style="justify-content:flex-start;margin-left:0;">
+          <div class="gdl" style="max-width:80px;"></div>
+          <div class="gdd"></div>
+          <div class="gdl" style="max-width:240px;"></div>
+        </div>
+
+        <div class="blog-body">
+          <p>
+            Modern hospitals operate around the clock, serving as complex ecosystems where patients, families, medical staff, and visitors interact continuously. This constant flow of people — combined with valuable medical equipment, pharmaceuticals, and sensitive patient data — creates multiple security vulnerabilities that cannot be left unaddressed.
+          </p>
+          <p>
+            Effective <strong>hospital security</strong> goes far beyond placing a guard at the entrance. It encompasses patient safety, asset protection, emergency response coordination, and maintaining the calm, controlled environment that quality medical care demands.
+          </p>
+          <p>
+            The healthcare sector in Kolkata has witnessed significant growth in recent years, with both government institutions and private hospitals expanding their services and infrastructure. This expansion brings fresh security challenges — from protecting expensive diagnostic equipment to managing crowd control during emergencies and preventing unauthorised access to restricted medical areas.
+          </p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:0;margin-top:8px;">
+          <div class="check-item">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">Patient & Staff Safety</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">Protecting patients in vulnerable conditions and the healthcare professionals who serve them is the foremost priority of any hospital security programme.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">Asset & Equipment Protection</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">High-value medical devices, pharmaceutical inventories, and sensitive records demand dedicated protection against theft, tampering, and misuse.</p>
+            </div>
+          </div>
+          <div class="check-item">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;margin-top:2px;flex-shrink:0;"></i>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:#111827;margin-bottom:2px;">De-escalation & Crisis Response</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:#6b7280;line-height:1.65;">The emotional stress of medical situations can lead to confrontations. Trained security personnel de-escalate situations before they escalate into incidents.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;margin-top:32px;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
+          <i class="fa-solid fa-headset"></i> Contact Us Today
+        </a>
+      </div>
+
+      <div style="flex:0 0 460px;max-width:100%;">
+        <div class="img-reveal" style="height:520px;">
+          <img src="https://images.pexels.com/photos/668298/pexels-photo-668298.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hospital security guard at healthcare facility" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ SERVICES LIST ════════════════════════ -->
+<section style="background:#080c18;padding:80px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start;">
+
+      <div style="flex:1;min-width:280px;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Our Hospital Security Services</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:.03em;text-transform:uppercase;color:#ffffff;line-height:1.1;margin-bottom:32px;">
+          Specialized Healthcare<br>Security Solutions:
+        </h2>
+
+        <div style="display:flex;flex-direction:column;gap:0;">
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Trained Hospital Security Guards</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">PSA-licensed guards specially trained in healthcare environments — including de-escalation techniques, medical emergency protocols, and patient confidentiality requirements.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Access Control &amp; Visitor Management</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Multi-tiered access protocols restricting entry to ICUs, maternity wards, pharmacies, and other sensitive zones — with visitor management systems and staff ID verification.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">CCTV Surveillance &amp; Monitoring</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Strategically positioned surveillance covering emergency departments, car parks, pharmacy storage, and corridors — monitored in real time by trained professionals, with full respect for patient privacy.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Mobile Patrol Units</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Dynamic patrol coverage across large hospital campuses, car parks, and perimeter zones — ensuring no area is left unmonitored and rapid response is always available.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Emergency Response Coordination</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Meticulously planned emergency response protocols — including coordination with medical staff, law enforcement, and emergency services for swift, appropriate incident management.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Pharmaceutical &amp; Asset Security</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Dedicated protection for pharmaceutical storage areas, high-value medical equipment, and sensitive patient records — preventing theft, tampering, and fraud.</p>
+            </div>
+          </a>
+
+          <a href="./contact.html" class="svc-list-item">
+            <div class="sli-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            <div>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#ffffff;">Security Audits for Healthcare Facilities</p>
+              <p style="font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;">Independent assessments of your existing hospital security posture — identifying vulnerabilities across physical, procedural, and electronic security layers and delivering prioritised recommendations.</p>
+            </div>
+          </a>
+
+        </div>
+
+        <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;margin-top:36px;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
+          <i class="fa-solid fa-headset"></i> Discuss Your Requirement
+        </a>
+      </div>
+
+      <div style="flex:0 0 380px;max-width:100%;display:flex;flex-direction:column;gap:4px;">
+        <div class="img-reveal" style="height:260px;">
+          <img src="https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hospital security monitoring room" />
+        </div>
+        <div class="img-reveal" style="height:200px;">
+          <img src="https://images.pexels.com/photos/1170979/pexels-photo-1170979.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Healthcare facility entrance security" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ ARTICLE BODY ════════════════════════ -->
+<section style="background:#ffffff;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start;">
+
+      <!-- Main article content -->
+      <div style="flex:1;min-width:280px;max-width:780px;">
+
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">In Depth</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:.03em;text-transform:uppercase;color:#111827;line-height:1.1;margin-bottom:0;">Specialized Challenges in<br>Healthcare Environments</h2>
+        <div class="gold-divider" style="justify-content:flex-start;margin-left:0;">
+          <div class="gdl" style="max-width:80px;"></div>
+          <div class="gdd"></div>
+          <div class="gdl" style="max-width:240px;"></div>
+        </div>
+
+        <div class="blog-body">
+
+          <p>Healthcare facilities present distinct security challenges that require truly specialised approaches. Unlike conventional commercial buildings, hospitals must balance open accessibility for patients and families with stringent security protocols — a tension that demands well-trained, experienced personnel who understand the unique dynamics of a medical environment.</p>
+
+          <p>Effective <strong>hospital security</strong> personnel must be prepared to handle medical emergencies while maintaining order, deal compassionately with emotionally distressed individuals, and respond to diverse threats without disrupting critical medical procedures. The stakes are uniquely high — the wrong response, or a delayed one, can have serious consequences for both patients and staff.</p>
+
+          <div class="img-reveal" style="height:360px;margin-bottom:28px;margin-top:8px;">
+            <img src="https://images.pexels.com/photos/1170979/pexels-photo-1170979.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hospital security access control and entrance management" />
+          </div>
+
+          <h3>Ward-Specific Security Strategies</h3>
+          <p>Emergency departments, intensive care units, maternity wards, and pharmaceutical storage areas each require different <strong>hospital security</strong> strategies. Emergency departments handle high patient volumes under pressure and are frequent locations for confrontations — often involving relatives distressed by a patient's condition. ICUs require strict access control to protect vulnerable patients. Pharmaceutical stores demand robust physical security and audit trails to prevent theft and misuse.</p>
+
+          <p>Shellback Marines Security Agency's trained professionals understand these nuances. Our guards are specifically trained to navigate the sensitive balance between maintaining security and preserving the healing environment — learning to work alongside medical teams rather than across them.</p>
+
+          <h3>Technology Integration for Modern Hospital Security</h3>
+          <p>Modern <strong>hospital security</strong> requires sophisticated technology integration to address contemporary threats effectively. Shellback Marines leverages cutting-edge security technologies — including biometric access systems, advanced CCTV networks, integrated alarm platforms, and real-time monitoring dashboards — that enable rapid response to security incidents anywhere on the hospital campus.</p>
+
+          <p>Our surveillance systems are strategically positioned to achieve comprehensive coverage of hospital premises while fully respecting patient privacy requirements. Advanced CCTV networks, monitored by trained professionals, are particularly valuable in emergency departments, car parks, and pharmaceutical storage zones where security risks are typically highest.</p>
+
+          <div class="img-reveal" style="height:320px;margin-bottom:28px;margin-top:8px;">
+            <img src="https://images.pexels.com/photos/97080/pexels-photo-97080.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="CCTV surveillance system in hospital" />
+          </div>
+
+          <h3>Local Expertise in Kolkata's Healthcare Landscape</h3>
+          <p>Understanding the local context is crucial for effective <strong>hospital security</strong> implementation. Kolkata's healthcare sector serves a diverse population with varying cultural sensitivities and communication needs. Shellback Marines Security Agency's deep local knowledge ensures that all security measures are culturally appropriate and practically effective within the city's unique healthcare environment.</p>
+
+          <p>Our security professionals are familiar with Kolkata's traffic patterns, emergency service locations, and local law enforcement protocols — enabling more effective coordination during emergencies. This local knowledge proves invaluable when implementing <strong>hospital security</strong> measures that must function seamlessly within the broader urban infrastructure of West Bengal.</p>
+
+          <h3>Commitment to Continuous Improvement</h3>
+          <p>Shellback Marines Security Agency maintains rigorous training standards for all personnel deployed in <strong>hospital security</strong> roles. Regular assessments, updated training modules, and continuous professional development ensure that our team remains prepared for evolving security challenges in healthcare environments. We believe that professional hospital security creates the conditions under which medical professionals can focus entirely on patient care — knowing that security concerns are expertly managed by a dedicated team.</p>
+
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;margin-bottom:32px;">
+          <span class="blog-tag"><i class="fa-solid fa-hospital"></i> Hospital Security</span>
+          <span class="blog-tag"><i class="fa-solid fa-camera-cctv"></i> CCTV Surveillance</span>
+          <span class="blog-tag"><i class="fa-solid fa-door-open"></i> Access Control</span>
+          <span class="blog-tag"><i class="fa-solid fa-user-shield"></i> Healthcare Guards</span>
+          <span class="blog-tag"><i class="fa-solid fa-map-marker-alt"></i> Kolkata, WB</span>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div style="flex:0 0 320px;max-width:100%;display:flex;flex-direction:column;gap:28px;position:sticky;top:96px;">
+
+        <!-- CTA Card -->
+        <div style="background:#080c18;border:1px solid rgba(201,168,76,.25);border-top:4px solid #C9A84C;padding:32px 28px;">
+          <i class="fa-solid fa-shield-halved" style="color:#C9A84C;font-size:1.6rem;margin-bottom:14px;display:block;"></i>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:.06em;text-transform:uppercase;color:#ffffff;margin-bottom:12px;">Need Hospital Security?</p>
+          <p style="font-family:'Barlow',sans-serif;font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:20px;">Contact Shellback Marines today for a free consultation. Our specialists will assess your facility's requirements and recommend the most effective security programme.</p>
+          <a href="./contact.html" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;padding:13px 20px;text-decoration:none;transition:background .2s;margin-bottom:10px;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
+            <i class="fa-solid fa-headset"></i> Get Free Consultation
+          </a>
+          <a href="tel:+919434127571" style="display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:#C9A84C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;padding:12px 20px;text-decoration:none;border:1px solid rgba(201,168,76,.35);transition:all .2s;" onmouseover="this.style.background='rgba(201,168,76,.08)'" onmouseout="this.style.background='transparent'">
+            <i class="fa-solid fa-phone-volume"></i> +91 9434127571
+          </a>
+        </div>
+
+        <!-- Related Services -->
+        <div style="background:#f9fafb;border:1px solid #e5e7eb;border-top:4px solid #C9A84C;padding:28px 24px;">
+          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">Related Services</p>
+          <a href="./physicalguarding.html" style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #e5e7eb;text-decoration:none;transition:all .2s;" onmouseover="this.style.paddingLeft='6px'" onmouseout="this.style.paddingLeft='0'">
+            <i class="fa-solid fa-user-shield" style="color:#C9A84C;width:18px;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#374151;">Physical Guarding</span>
+          </a>
+          <a href="./access-control.html" style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #e5e7eb;text-decoration:none;transition:all .2s;" onmouseover="this.style.paddingLeft='6px'" onmouseout="this.style.paddingLeft='0'">
+            <i class="fa-solid fa-door-open" style="color:#C9A84C;width:18px;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#374151;">Access Control &amp; CCTV</span>
+          </a>
+          <a href="./electronic.html" style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #e5e7eb;text-decoration:none;transition:all .2s;" onmouseover="this.style.paddingLeft='6px'" onmouseout="this.style.paddingLeft='0'">
+            <i class="fa-solid fa-camera-cctv" style="color:#C9A84C;width:18px;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#374151;">Electronic Surveillance</span>
+          </a>
+          <a href="./security-surveys.html" style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #e5e7eb;text-decoration:none;transition:all .2s;" onmouseover="this.style.paddingLeft='6px'" onmouseout="this.style.paddingLeft='0'">
+            <i class="fa-solid fa-file-shield" style="color:#C9A84C;width:18px;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#374151;">Security Surveys &amp; Audits</span>
+          </a>
+          <a href="./corporate.html" style="display:flex;align-items:center;gap:12px;padding:11px 0;text-decoration:none;transition:all .2s;" onmouseover="this.style.paddingLeft='6px'" onmouseout="this.style.paddingLeft='0'">
+            <i class="fa-solid fa-briefcase" style="color:#C9A84C;width:18px;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#374151;">Corporate Risk Management</span>
+          </a>
+        </div>
+
+        <!-- Credentials -->
+        <div style="background:#080c18;border:1px solid rgba(201,168,76,.18);padding:24px 22px;">
+          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">Why Shellback Marines</p>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <i class="fa-solid fa-certificate" style="color:#C9A84C;margin-top:2px;flex-shrink:0;"></i>
+              <span style="font-family:'Barlow',sans-serif;font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.6;">PSA Licensed Agency — W.B: 55/WB/PSA/2025</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <i class="fa-solid fa-anchor" style="color:#C9A84C;margin-top:2px;flex-shrink:0;"></i>
+              <span style="font-family:'Barlow',sans-serif;font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.6;">Founded by retired Indian Navy marine — military-grade discipline</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <i class="fa-solid fa-map-marker-alt" style="color:#C9A84C;margin-top:2px;flex-shrink:0;"></i>
+              <span style="font-family:'Barlow',sans-serif;font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.6;">Deep local expertise across Kolkata &amp; West Bengal</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <i class="fa-solid fa-clock" style="color:#C9A84C;margin-top:2px;flex-shrink:0;"></i>
+              <span style="font-family:'Barlow',sans-serif;font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.6;">24/7 coverage with rapid emergency response capability</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ TESTIMONIALS ════════════════════════ -->
+<section style="background:#0d1120;padding:80px 0;border-top:1px solid rgba(201,168,76,.15);">
+  <div style="max-width:1100px;margin:0 auto;padding:0 48px;">
+    <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;text-align:center;margin-bottom:12px;">What Our Clients Say</p>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.5vw,2.6rem);letter-spacing:.04em;text-transform:uppercase;color:#ffffff;text-align:center;margin-bottom:0;">Trusted by Healthcare Facilities</h2>
+    <div class="gold-divider" style="max-width:360px;">
+      <div class="gdl" style="background:rgba(201,168,76,.3);"></div>
+      <div class="gdd"></div>
+      <div class="gdl" style="background:rgba(201,168,76,.3);"></div>
+    </div>
+
+    <div style="overflow:hidden;" id="testiViewport">
+      <div class="testi-track" id="testiTrack">
+
+        <div class="testi-slide">
+          <div style="background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.18);border-left:4px solid #C9A84C;padding:40px 44px;border-radius:4px;">
+            <i class="fa-solid fa-quote-left" style="color:#C9A84C;font-size:1.8rem;margin-bottom:20px;display:block;opacity:.6;"></i>
+            <p style="font-family:'Barlow',sans-serif;font-size:1.05rem;font-style:italic;color:rgba(255,255,255,.85);line-height:1.85;margin-bottom:28px;">"Shellback Marines transformed our hospital security programme. Their guards understand the healthcare environment — they are firm but compassionate, and they de-escalate difficult situations with a professionalism I have not seen from other providers. Patient and staff feedback has been overwhelmingly positive since we made the switch."</p>
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:#C9A84C;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;color:#080c18;">A</span></div>
+              <div>
+                <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;margin-bottom:2px;">Dr. Arnab Sen</p>
+                <p style="font-family:'Barlow',sans-serif;font-size:.8rem;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;">Medical Superintendent — Private Hospital, Kolkata</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-slide">
+          <div style="background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.18);border-left:4px solid #C9A84C;padding:40px 44px;border-radius:4px;">
+            <i class="fa-solid fa-quote-left" style="color:#C9A84C;font-size:1.8rem;margin-bottom:20px;display:block;opacity:.6;"></i>
+            <p style="font-family:'Barlow',sans-serif;font-size:1.05rem;font-style:italic;color:rgba(255,255,255,.85);line-height:1.85;margin-bottom:28px;">"Following an incident in our emergency ward, we engaged Shellback Marines for a full hospital security review. Their audit identified several access control gaps we had not considered. The remediation they implemented has made a tangible difference — our staff feel safer and our management team has the confidence of knowing our facility is properly protected."</p>
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:#C9A84C;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;color:#080c18;">P</span></div>
+              <div>
+                <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;margin-bottom:2px;">Priya Chatterjee</p>
+                <p style="font-family:'Barlow',sans-serif;font-size:.8rem;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;">Hospital Administrator — Diagnostic Centre, North Kolkata</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-slide">
+          <div style="background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.18);border-left:4px solid #C9A84C;padding:40px 44px;border-radius:4px;">
+            <i class="fa-solid fa-quote-left" style="color:#C9A84C;font-size:1.8rem;margin-bottom:20px;display:block;opacity:.6;"></i>
+            <p style="font-family:'Barlow',sans-serif;font-size:1.05rem;font-style:italic;color:rgba(255,255,255,.85);line-height:1.85;margin-bottom:28px;">"The CCTV upgrade and guard post restructuring Shellback Marines delivered at our facility was exactly what we needed. They understood from day one that our priority was protecting patients without creating an intimidating environment. That balance — firm but human — is precisely what good hospital security looks like."</p>
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:#C9A84C;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;color:#080c18;">S</span></div>
+              <div>
+                <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;margin-bottom:2px;">Sudipto Roy</p>
+                <p style="font-family:'Barlow',sans-serif;font-size:.8rem;color:rgba(255,255,255,.4);letter-spacing:.08em;text-transform:uppercase;">Facilities Manager — Multi-Speciality Clinic, Howrah</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin-top:32px;">
+      <button id="testiPrev" style="width:44px;height:44px;border-radius:50%;border:2px solid rgba(201,168,76,.4);background:transparent;color:#C9A84C;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;" onmouseover="this.style.background='#C9A84C';this.style.color='#080c18';" onmouseout="this.style.background='transparent';this.style.color='#C9A84C';"><i class="fa-solid fa-chevron-left"></i></button>
+      <div id="testiDots" style="display:flex;gap:8px;"></div>
+      <button id="testiNext" style="width:44px;height:44px;border-radius:50%;border:2px solid rgba(201,168,76,.4);background:transparent;color:#C9A84C;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;" onmouseover="this.style.background='#C9A84C';this.style.color='#080c18';" onmouseout="this.style.background='transparent';this.style.color='#C9A84C';"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ CONCLUSION / CTA ════════════════════════ -->
+<section style="background:#ffffff;padding:88px 0;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:center;">
+
+      <div style="flex:0 0 460px;max-width:100%;">
+        <div class="img-reveal" style="height:500px;">
+          <img src="https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hospital security team briefing" />
+        </div>
+      </div>
+
+      <div style="flex:1;min-width:280px;">
+        <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:12px;">Conclusion</p>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:.03em;text-transform:uppercase;color:#111827;line-height:1.1;margin-bottom:0;">
+          Your Facility Deserves<br>Genuine Protection.
+        </h2>
+        <div class="gold-divider" style="justify-content:flex-start;margin-left:0;">
+          <div class="gdl" style="max-width:60px;"></div>
+          <div class="gdd"></div>
+          <div class="gdl" style="max-width:260px;"></div>
+        </div>
+
+        <p style="font-family:'Barlow',sans-serif;font-size:1rem;color:#374151;line-height:1.85;margin-bottom:18px;">
+          Protecting healthcare facilities requires specialised expertise, advanced technology, and an unwavering commitment to excellence. Shellback Marines Security Agency delivers comprehensive <strong>hospital security</strong> solutions that address the unique challenges faced by healthcare institutions across Kolkata and West Bengal.
+        </p>
+        <p style="font-family:'Barlow',sans-serif;font-size:.95rem;color:#6b7280;line-height:1.85;margin-bottom:28px;">
+          Our integrated approach — combining trained personnel, smart surveillance, and rigorous access control — ensures that hospitals remain secure environments where healing and recovery can flourish. Contact Shellback Marines Security Agency today to discover how our specialised <strong>hospital security</strong> services can protect your facility and support your mission of delivering excellent patient care.
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:36px;">
+          <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:14px 20px;">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#374151;">PSA Licensed Agency</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:14px 20px;">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#374151;">24/7 Coverage</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:14px 20px;">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#374151;">Healthcare Specialists</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;padding:14px 20px;">
+            <i class="fa-solid fa-circle-check" style="color:#C9A84C;font-size:1rem;"></i>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#374151;">Kolkata &amp; West Bengal</span>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+          <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#C9A84C;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
+            <i class="fa-solid fa-headset"></i> Get a Free Consultation
+          </a>
+          <a href="./security-surveys.html" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;border:2px solid rgba(8,12,24,.25);transition:all .2s;" onmouseover="this.style.background='rgba(8,12,24,.05)'" onmouseout="this.style.background='transparent'">
+            <i class="fa-solid fa-file-shield"></i> View Security Audits
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ VALUES CTA BAND ════════════════════════ -->
+<section style="background:#C9A84C;padding:64px 48px;text-align:center;">
+  <p style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(8,12,24,.6);margin-bottom:12px;">Shellback Marines</p>
+  <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:.04em;text-transform:uppercase;color:#080c18;margin-bottom:16px;">We Protect More Than You Think</h2>
+  <p style="font-family:'Barlow',sans-serif;font-size:1rem;color:rgba(8,12,24,.7);max-width:640px;margin:0 auto 32px;line-height:1.8;">Born from real naval service, Shellback Marines applies military-grade discipline and analytical rigour to every hospital security engagement. We believe excellent security is the foundation of excellent care — and we deliver it without compromise.</p>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:20px;">
+    <a href="./about.html" style="display:inline-flex;align-items:center;gap:10px;background:#080c18;color:#C9A84C;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#0d1120'" onmouseout="this.style.background='#080c18'">
+      <i class="fa-solid fa-anchor"></i> Our Story
+    </a>
+    <a href="./contact.html" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#080c18;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:14px 32px;text-decoration:none;border:2px solid rgba(8,12,24,.35);transition:all .2s;" onmouseover="this.style.background='rgba(8,12,24,.08)'" onmouseout="this.style.background='transparent'">
+      <i class="fa-solid fa-phone-volume"></i> Contact Us
+    </a>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:16px;">
+    <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(8,12,24,.6);text-decoration:none;border-bottom:1px solid rgba(8,12,24,.25);padding-bottom:2px;transition:color .2s;" onmouseover="this.style.color='#080c18'" onmouseout="this.style.color='rgba(8,12,24,.6)'">» PSA Licence Certificate</a>
+    <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(8,12,24,.6);text-decoration:none;border-bottom:1px solid rgba(8,12,24,.25);padding-bottom:2px;transition:color .2s;" onmouseover="this.style.color='#080c18'" onmouseout="this.style.color='rgba(8,12,24,.6)'">» MSME Registration</a>
+    <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(8,12,24,.6);text-decoration:none;border-bottom:1px solid rgba(8,12,24,.25);padding-bottom:2px;transition:color .2s;" onmouseover="this.style.color='#080c18'" onmouseout="this.style.color='rgba(8,12,24,.6)'">» Privacy Policy</a>
+    <a href="#" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(8,12,24,.6);text-decoration:none;border-bottom:1px solid rgba(8,12,24,.25);padding-bottom:2px;transition:color .2s;" onmouseover="this.style.color='#080c18'" onmouseout="this.style.color='rgba(8,12,24,.6)'">» Code of Conduct</a>
+  </div>
+</section>
+
+
+<!-- ════════════════════════ FOOTER ════════════════════════ -->
+<footer style="background:#080c18;color:#ffffff;">
+  <div class="ft-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <img src="./img/logo.png" alt="Shellback Marines Logo" style="width:42px;height:42px;border-radius:50%;border:2px solid #C9A84C;object-fit:contain;background:rgba(201,168,76,.1);" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div style="display:none;width:42px;height:42px;border-radius:50%;border:2px solid #C9A84C;align-items:center;justify-content:center;background:rgba(201,168,76,.1);flex-shrink:0;"><i class="fa-solid fa-anchor" style="color:#C9A84C;font-size:1.1rem;"></i></div>
+        <div>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin:0;line-height:1.1;">Shellback Marines</p>
+          <p style="font-family:'Barlow',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#C9A84C;margin:0;">Security Agency</p>
+        </div>
+      </div>
+      <p class="ft-col-title">About Shellback Marines</p>
+      <p class="ft-body">Shellback Marines is a PSA-licensed security agency providing hospital security, physical guarding, CCTV surveillance, and integrated security solutions across West Bengal and beyond — founded on the values of the Indian Navy.</p>
+      <p class="ft-body" style="margin-top:16px;color:rgba(255,255,255,.35);font-size:.8rem;">Registered Office: Oodlabari Bidhanpally,<br>PO Manabari, Dist Jalpaiguri, WB – 735222<br>Licence No: W.B – 55/WB/PSA/2025</p>
+      <div class="ft-social">
+        <a href="https://www.facebook.com/profile.php?id=61578946993697" target="_blank" class="ft-soc-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/company/shellback-marines" target="_blank" class="ft-soc-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/919434127571" target="_blank" class="ft-soc-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:contact@shellbackmarines.in" class="ft-soc-btn" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div>
+      <p class="ft-col-title">Latest Blogs</p>
+      <div class="ft-news-item"><a href="./hospital-security-solutions.html" class="ft-news-title" style="color:#C9A84C;">Comprehensive Hospital Security Solutions in Kolkata</a><p class="ft-news-date">June 2025</p></div>
+      <div class="ft-news-item"><a href="#" class="ft-news-title">Wireless CCTV Camera with Night Vision</a><p class="ft-news-date">May 2025</p></div>
+      <div class="ft-news-item"><a href="#" class="ft-news-title">Best Surveillance Agency in West Bengal</a><p class="ft-news-date">April 2025</p></div>
+      <div class="ft-news-item"><a href="#" class="ft-news-title">Bank Security Services — A Complete Guide</a><p class="ft-news-date">March 2025</p></div>
+      <div class="ft-news-item"><a href="#" class="ft-news-title">Professional Armed Security Services</a><p class="ft-news-date">February 2025</p></div>
+    </div>
+    <div>
+      <p class="ft-col-title">Specialist Services</p>
+      <a href="./physicalguarding.html" class="ft-link">Physical Guarding</a>
+      <a href="./electronic.html" class="ft-link">Electronic Surveillance</a>
+      <a href="./corporate.html" class="ft-link">Corporate Risk Management</a>
+      <a href="./security-surveys.html" class="ft-link">Security Surveys &amp; Audits</a>
+      <a href="./maintenance.html" class="ft-link">Security Maintenance</a>
+      <a href="./event.html" class="ft-link">Event Security</a>
+      <a href="./intelligence.html" class="ft-link">Intelligence &amp; Investigation</a>
+      <a href="./access-control.html" class="ft-link">Access Control &amp; CCTV</a>
+      <p class="ft-col-title" style="margin-top:28px;">Contact Us</p>
+      <a href="tel:+919434127571" class="ft-link"><i class="fa-solid fa-phone-volume"></i>+91 9434127571</a>
+      <a href="mailto:contact@shellbackmarines.in" class="ft-link"><i class="fa-solid fa-envelope"></i>contact@shellbackmarines.in</a>
+      <span class="ft-link" style="cursor:default;"><i class="fa-solid fa-location-dot"></i>Jalpaiguri, West Bengal 735222</span>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.06);">
+    <div class="ft-bottom">
+      <p>© 2023–2026 Shellback Marines Security Agency. All rights reserved. | Licence No: W.B – 55/WB/PSA/2025</p>
+      <div class="ft-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms &amp; Conditions</a><a href="#">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar     = document.getElementById('navbar');
+  const navRow     = document.getElementById('nav-row');
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamIcon    = document.getElementById('ham-icon');
+
+  function handleScroll() {
+    const isScrolled = window.scrollY > 10;
+    const menuOpen   = mobileMenu && mobileMenu.classList.contains('open');
+    navbar.classList.toggle('scrolled', isScrolled);
+    navRow.style.background = (isScrolled || menuOpen) ? '#080c18' : 'transparent';
+  }
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    handleScroll();
+    hamIcon.className = mobileMenu.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamIcon.className = 'fa-solid fa-bars';
+    handleScroll();
+  }));
+
+  (function(){
+    const track = document.getElementById('testiTrack');
+    const slides = track.querySelectorAll('.testi-slide');
+    const dots = document.getElementById('testiDots');
+    const total = slides.length;
+    let idx = 0, timer;
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.style.cssText = `width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;padding:0;transition:all .3s;background:${i===0?'#C9A84C':'rgba(201,168,76,.3)'}`;
+      d.addEventListener('click', () => goTo(i));
+      dots.appendChild(d);
+    });
+    function updateDots(){ dots.querySelectorAll('button').forEach((d,i)=>{ d.style.background=i===idx?'#C9A84C':'rgba(201,168,76,.3)'; d.style.transform=i===idx?'scale(1.3)':'scale(1)'; }); }
+    function goTo(n){ idx=(n+total)%total; track.style.transform=`translateX(-${idx*100}%)`; updateDots(); clearInterval(timer); timer=setInterval(()=>goTo(idx+1),6000); }
+    document.getElementById('testiPrev').addEventListener('click', ()=>goTo(idx-1));
+    document.getElementById('testiNext').addEventListener('click', ()=>goTo(idx+1));
+    timer = setInterval(()=>goTo(idx+1), 6000);
+    let tS=0;
+    track.addEventListener('touchstart', e=>{ tS=e.touches[0].clientX; }, { passive:true });
+    track.addEventListener('touchend', e=>{ const d=tS-e.changedTouches[0].clientX; if(Math.abs(d)>50) d>0?goTo(idx+1):goTo(idx-1); });
+  })();
+</script>
+</body>
+</html>
