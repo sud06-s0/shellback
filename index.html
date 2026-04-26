@@ -423,33 +423,23 @@
 ════════════════════════════════════════ -->
 <section id="hero" class="relative w-full min-h-screen flex flex-col overflow-hidden">
 
-  <!-- BG Image Slideshow -->
-  <div class="absolute inset-0 z-0">
-    <!-- Slide 1 -->
-    <div class="bg-slide active"
-         data-desktop="./img/guardians.png?w=1800&q=80"
-         data-mobile="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&q=80"
-         style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1800&q=80'); background-position:center top;">
-    </div>
-    <!-- Slide 2 -->
-    <div class="bg-slide"
-         data-desktop="https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?w=1800&q=80"
-         data-mobile="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80"
-         style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80');">
-    </div>
-    <!-- Slide 3 -->
-    <div class="bg-slide"
-         data-desktop="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=80"
-         data-mobile="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&q=80"
-         style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=80');">
-    </div>
-    <!-- Slide 4 -->
-    <div class="bg-slide"
-         data-desktop="https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?w=1800&q=80"
-         data-mobile="https://images.unsplash.com/photo-1565374392409-891e5d4c9e43?w=800&q=80"
-         style="background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1800&q=80');">
-    </div>
-  </div>
+  <!-- BG Video — desktop (≥768 px) -->
+  <video id="hero-video-desktop"
+         class="absolute inset-0 w-full h-full object-cover z-0 hidden md:block"
+         autoplay muted loop playsinline
+         poster="./img/guardians.png">
+    <!-- Replace the src below with your own desktop hero video -->
+    <source src="./vid/deskt.mp4" type="video/mp4" />
+  </video>
+
+  <!-- BG Video — mobile (<768 px) -->
+  <video id="hero-video-mobile"
+         class="absolute inset-0 w-full h-full object-cover z-0 block md:hidden"
+         autoplay muted loop playsinline
+         poster="./img/guardians.png">
+    <!-- Replace the src below with your own mobile hero video -->
+    <source src="./vid/mobi.mp4" type="video/mp4" />
+  </video>
 
   <!-- Double gradient overlay -->
   <div class="hero-overlay"></div>
@@ -582,23 +572,6 @@
 </section>
 
 
-<!-- ════════════════════════════════════════
-     VIDEO MODAL
-════════════════════════════════════════ -->
-<div id="videoModal" class="fixed inset-0 z-[200] hidden items-center justify-center bg-black/90 backdrop-blur-sm">
-  <div class="relative w-full max-w-4xl mx-4">
-    <button id="closeModal" class="absolute -top-12 right-0 text-white/60 hover:text-white text-3xl">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <div class="aspect-video bg-navy border border-gold/30 flex items-center justify-center">
-      <div class="text-center">
-        <i class="fa-solid fa-film text-gold text-5xl mb-4"></i>
-        <p class="font-display font-600 text-white text-xl uppercase tracking-wider">Company Reel</p>
-        <p class="font-body text-white/50 text-sm mt-2">Replace with your brand video</p>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ════════════════════════════════════════
      STATS SECTION
@@ -2294,31 +2267,17 @@
     });
   });
 
-  // ── BG slideshow — desktop vs mobile images ──
-  const slides = document.querySelectorAll('.bg-slide');
-  let current = 0;
-
-  function isMobile() { return window.innerWidth < 768; }
-
-  function applySlideImages() {
-    slides.forEach(s => {
-      const src = isMobile() ? s.dataset.mobile : s.dataset.desktop;
-      if (src) s.style.backgroundImage = `url('${src}')`;
-      // portrait fit on mobile
-      s.style.backgroundPosition = isMobile() ? 'center top' : 'center center';
-    });
+  // ── Hero video: pause/play based on visibility (perf) ──
+  const heroVideos = document.querySelectorAll('#hero-video-desktop, #hero-video-mobile');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.play && e.target.play(); }
+        else { e.target.pause && e.target.pause(); }
+      });
+    }, { threshold: 0.1 });
+    heroVideos.forEach(v => obs.observe(v));
   }
-
-  // ensure only first slide is active on load
-  slides.forEach((s, i) => s.classList.toggle('active', i === 0));
-  applySlideImages();
-  window.addEventListener('resize', applySlideImages, { passive: true });
-
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 5500);
 
   // ── Video modal ──
   document.getElementById('playBtn').addEventListener('click', () => {
