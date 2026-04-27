@@ -651,6 +651,22 @@
 }
 </style>
 
+<div id="industries" class="bg-[#0d1120] py-32 px-8 text-center">
+  <p class="font-display font-600 text-gold text-sm tracking-[0.25em] uppercase mb-4">Who We Protect</p>
+  <h2 class="font-display font-800 text-white text-5xl uppercase mb-12">Industries</h2>
+  <div class="max-w-screen-xl mx-auto flex flex-wrap justify-center gap-4">
+    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-hospital"></i> Healthcare</span>
+    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-building"></i> Corporate</span>
+    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-landmark"></i> Banking</span>
+    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-industry"></i> Manufacturing</span>
+    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-hard-hat"></i> Construction</span>
+    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-mountain"></i> Mining</span>
+    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-graduation-cap"></i> Education</span>
+    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-landmark-flag"></i> Government</span>
+    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-car"></i> Automobile</span>
+  </div>
+</div>
+
 
 
 <!-- ════════════════════════════════════════
@@ -853,224 +869,6 @@
   .svc-card:hover .svc-img { transform: scale(1.04); }
 </style>
 
-<!-- ════════════════════════════════════════
-     ABOUT US — Corps Security split-panel style
-════════════════════════════════════════ -->
-<section id="about" style="background:#ffffff; display:flex; flex-direction:column; min-height:82vh;">
-
-  <style>
-    /* About split layout */
-    .about-split {
-      display: flex;
-      flex: 1;
-      min-height: 82vh;
-    }
-    @media (max-width: 900px) {
-      .about-split { flex-direction: column; min-height:auto; }
-      .about-img-wrap { min-height: 52vw !important; width: 100% !important; }
-      .about-content-wrap { width: 100% !important; padding: 52px 28px 56px !important; }
-    }
-
-    /* Image panel crossfade */
-    .about-img-panel {
-      position: absolute; inset: 0;
-      background-size: cover;
-      background-position: center top;
-      opacity: 0;
-      transition: opacity 0.9s ease;
-    }
-    .about-img-panel.a-active { opacity: 1; }
-
-    /* Content slide fade */
-    .about-slide {
-      position: absolute; inset: 0;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.7s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .about-slide.a-active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* Progress line (corps security style) */
-    .progress-line {
-      position: relative;
-      height: 2px;
-      background: #e5e7eb;
-      width: 100%;
-      max-width: 320px;
-      margin: 28px 0 32px;
-    }
-    .progress-dot {
-      position: absolute;
-      top: 50%;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: #C9A84C;
-      transform: translate(-50%, -50%);
-      transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .progress-fill {
-      position: absolute;
-      left: 0; top: 0; height: 100%;
-      background: #C9A84C;
-      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Slide dots */
-    .about-dot {
-      width: 8px; height: 22px;
-      border-radius: 4px;
-      background: #d1d5db;
-      cursor: pointer;
-      transition: background 0.3s ease, height 0.3s ease;
-      border: none;
-      padding: 0;
-    }
-    .about-dot.a-active {
-      background: #C9A84C;
-      height: 32px;
-    }
-  </style>
-
-  <div class="about-split">
-
-    <!-- LEFT: Full-bleed image panel -->
-    <div class="about-img-wrap" style="position:relative; width:54%; overflow:hidden; flex-shrink:0;">
-
-      <!-- Image 1 – professional security commander -->
-      <div class="about-img-panel a-active"
-           style="background-image:url('./img/tr.png');">
-      </div>
-      <!-- Image 2 – team briefing / operations -->
-      <div class="about-img-panel"
-           style="background-image:url('./img/ser.png');">
-      </div>
-
-      <!-- Light right-side vignette to blend into white -->
-      <div style="position:absolute;inset:0;background:linear-gradient(to right, transparent 60%, rgba(255,255,255,0.18) 100%);z-index:2;pointer-events:none;"></div>
-    </div>
-
-    <!-- RIGHT: Content panel -->
-    <div class="about-content-wrap" style="flex:1; background:#ffffff; display:flex; flex-direction:column; justify-content:center; padding:72px 64px 56px 72px; position:relative;">
-
-      <!-- Slide 1 -->
-      <div class="about-slide a-active" style="position:relative;">
-        <h2 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(1.9rem,3.2vw,2.75rem); letter-spacing:0.04em; text-transform:uppercase; color:#111827; line-height:1.12; margin:0;">
-          AS A LICENSED SECURITY AGENCY<br>WE ARE TRUSTED
-        </h2>
-
-        <!-- Progress indicator -->
-        <div class="progress-line" id="progressLine">
-          <div class="progress-fill" id="progressFill" style="width:0%;"></div>
-          <div class="progress-dot" id="progressDot" style="left:0%;"></div>
-        </div>
-
-        <p style="font-family:'Barlow',sans-serif; font-size:1.08rem; font-style:italic; color:#1f2937; line-height:1.75; margin-bottom:20px; max-width:520px;">
-          "Shellback Marines provides security with professionalism and vigilance. We exist to make a difference through the delivery of our services — the only PSA-licensed security agency committed to safeguarding India's vital institutions."
-        </p>
-        <p style="font-family:'Barlow',sans-serif; font-size:0.97rem; color:#6b7280; line-height:1.75; max-width:500px; margin-bottom:36px;">
-          Find out more about how our PSA Licence No. W.B&nbsp;–&nbsp;55/WB/PSA/2025 and MSME registration ensure you receive verified, compliant, and professional security services for your business.
-        </p>
-        <div>
-          <a href="https://shellbackmarines.in/about.html"
-             style="display:inline-flex; align-items:center; gap:10px; background:#C9A84C; color:#080c18; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.88rem; letter-spacing:0.14em; text-transform:uppercase; padding:15px 36px; text-decoration:none; border-radius:4px; transition:background 0.2s ease;"
-             onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
-            <i class="fa-solid fa-shield-halved"></i>
-            About Shellback Marines
-          </a>
-        </div>
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="about-slide" style="position:absolute; inset:0; padding:72px 64px 56px 72px;">
-        <h2 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(1.9rem,3.2vw,2.75rem); letter-spacing:0.04em; text-transform:uppercase; color:#111827; line-height:1.12; margin:0;">
-          PROUDLY SERVING<br>THE NATION WITH HONOUR
-        </h2>
-
-        <!-- Progress indicator -->
-        <div class="progress-line">
-          <div style="position:absolute;left:0;top:0;height:100%;width:100%;background:#C9A84C;border-radius:2px;"></div>
-          <div class="progress-dot" style="left:100%; background:#C9A84C;"></div>
-        </div>
-
-        <p style="font-family:'Barlow',sans-serif; font-size:1.08rem; font-style:italic; color:#1f2937; line-height:1.75; margin-bottom:20px; max-width:520px;">
-          "Our trained security professionals bring discipline and dedication to every post — from corporate offices and banks to hospitals and government facilities across West Bengal and beyond."
-        </p>
-        <p style="font-family:'Barlow',sans-serif; font-size:0.97rem; color:#6b7280; line-height:1.75; max-width:500px; margin-bottom:36px;">
-          From physical guarding and intelligence services to electronic surveillance and corporate risk management — Shellback Marines delivers comprehensive, professional security across all major sectors.
-        </p>
-        <div>
-          <a href="https://shellbackmarines.in/#services"
-             style="display:inline-flex; align-items:center; gap:10px; background:#C9A84C; color:#080c18; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.88rem; letter-spacing:0.14em; text-transform:uppercase; padding:15px 36px; text-decoration:none; border-radius:4px; transition:background 0.2s ease;"
-             onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
-            <i class="fa-solid fa-list-check"></i>
-            Explore Our Services
-          </a>
-        </div>
-      </div>
-
-      <!-- Slide dot indicators (bottom-left, vertical, like Corps Security) -->
-      <div style="position:absolute; bottom:44px; left:72px; display:flex; flex-direction:column; align-items:center; gap:8px;">
-        <button class="about-dot a-active" id="aDot0" onclick="goAboutSlide(0)" aria-label="Slide 1"></button>
-        <button class="about-dot" id="aDot1" onclick="goAboutSlide(1)" aria-label="Slide 2"></button>
-      </div>
-
-      <!-- Right arrow navigation -->
-      <button onclick="nextAboutSlide()"
-              style="position:absolute; bottom:36px; right:56px; width:48px; height:48px; border-radius:50%; border:2px solid #e5e7eb; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#374151; font-size:1rem; transition:all 0.2s ease;"
-              onmouseover="this.style.borderColor='#C9A84C';this.style.color='#C9A84C';"
-              onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151';"
-              aria-label="Next slide">
-        <i class="fa-solid fa-arrow-right"></i>
-      </button>
-
-    </div><!-- /content wrap -->
-  </div><!-- /about-split -->
-</section>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── About section carousel ──
-  let aSlide     = 0;
-  const aTotalSlides  = 2;
-  const aImgPanels    = document.querySelectorAll('.about-img-panel');
-  const aSlides       = document.querySelectorAll('.about-slide');
-  const aDots         = document.querySelectorAll('.about-dot');
-  let aTimer          = null;
-
-  function goAboutSlide(n) {
-    aImgPanels[aSlide].classList.remove('a-active');
-    aSlides[aSlide].classList.remove('a-active');
-    aDots[aSlide].classList.remove('a-active');
-
-    aSlide = (n + aTotalSlides) % aTotalSlides;
-
-    aImgPanels[aSlide].classList.add('a-active');
-    aSlides[aSlide].classList.add('a-active');
-    aDots[aSlide].classList.add('a-active');
-
-    // Update progress bar
-    const pct = aSlide === 0 ? 0 : 100;
-    if (document.getElementById('progressFill')) {
-      document.getElementById('progressFill').style.width = pct + '%';
-      document.getElementById('progressDot').style.left   = pct + '%';
-    }
-
-    resetAboutTimer();
-  }
-
-  function nextAboutSlide() { goAboutSlide(aSlide + 1); }
-
-  function resetAboutTimer() {
-    clearInterval(aTimer);
-    aTimer = setInterval(nextAboutSlide, 6500);
-  }
-  resetAboutTimer();
-</script>
 
 <!-- ════════════════════════════════════════
      GALLERY CAROUSEL — Security Guards UK style
@@ -1079,7 +877,9 @@
 
   <style>
     /* Header */
-    .gal-header { padding: 56px 48px 40px; }
+    .gal-header { padding: 56px 48px 40px;
+    text-align: center;
+    }
     @media(max-width:640px){ .gal-header{ padding:40px 24px 28px; } }
 
     /* Track */
@@ -1478,21 +1278,7 @@
 </script>
 
 
-<div id="industries" class="bg-[#0d1120] py-32 px-8 text-center">
-  <p class="font-display font-600 text-gold text-sm tracking-[0.25em] uppercase mb-4">Who We Protect</p>
-  <h2 class="font-display font-800 text-white text-5xl uppercase mb-12">Industries</h2>
-  <div class="max-w-screen-xl mx-auto flex flex-wrap justify-center gap-4">
-    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-hospital"></i> Healthcare</span>
-    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-building"></i> Corporate</span>
-    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-landmark"></i> Banking</span>
-    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-industry"></i> Manufacturing</span>
-    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-hard-hat"></i> Construction</span>
-    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-mountain"></i> Mining</span>
-    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-graduation-cap"></i> Education</span>
-    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-landmark-flag"></i> Government</span>
-    <span class="inline-flex items-center gap-2 border border-gold/30 text-white/70 font-display font-600 text-sm uppercase tracking-wider px-5 py-3 hover:border-gold hover:text-gold transition-colors"><i class="fa-solid fa-car"></i> Automobile</span>
-  </div>
-</div>
+
 
 
 <!-- ════════════════════════════════════════
@@ -1849,6 +1635,8 @@
 </script>
 
 
+
+
 <!-- ════════════════════════════════════════
      ACCREDITATIONS — Corps Security style
 ════════════════════════════════════════ -->
@@ -1953,6 +1741,226 @@
   </div><!-- /badges -->
 </div>
 </section>
+
+
+<!-- ════════════════════════════════════════
+     ABOUT US — Corps Security split-panel style
+════════════════════════════════════════ -->
+<section id="about" style="background:#ffffff; display:flex; flex-direction:column; min-height:82vh;">
+
+  <style>
+    /* About split layout */
+    .about-split {
+      display: flex;
+      flex: 1;
+      min-height: 82vh;
+    }
+    @media (max-width: 900px) {
+      .about-split { flex-direction: column; min-height:auto; }
+      .about-img-wrap { min-height: 52vw !important; width: 100% !important; }
+      .about-content-wrap { width: 100% !important; padding: 52px 28px 56px !important; }
+    }
+
+    /* Image panel crossfade */
+    .about-img-panel {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center top;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+    }
+    .about-img-panel.a-active { opacity: 1; }
+
+    /* Content slide fade */
+    .about-slide {
+      position: absolute; inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.7s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-slide.a-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Progress line (corps security style) */
+    .progress-line {
+      position: relative;
+      height: 2px;
+      background: #e5e7eb;
+      width: 100%;
+      max-width: 320px;
+      margin: 28px 0 32px;
+    }
+    .progress-dot {
+      position: absolute;
+      top: 50%;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #C9A84C;
+      transform: translate(-50%, -50%);
+      transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .progress-fill {
+      position: absolute;
+      left: 0; top: 0; height: 100%;
+      background: #C9A84C;
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Slide dots */
+    .about-dot {
+      width: 8px; height: 22px;
+      border-radius: 4px;
+      background: #d1d5db;
+      cursor: pointer;
+      transition: background 0.3s ease, height 0.3s ease;
+      border: none;
+      padding: 0;
+    }
+    .about-dot.a-active {
+      background: #C9A84C;
+      height: 32px;
+    }
+  </style>
+
+  <div class="about-split">
+
+    <!-- LEFT: Full-bleed image panel -->
+    <div class="about-img-wrap" style="position:relative; width:54%; overflow:hidden; flex-shrink:0;">
+
+      <!-- Image 1 – professional security commander -->
+      <div class="about-img-panel a-active"
+           style="background-image:url('./img/tr.png');">
+      </div>
+      <!-- Image 2 – team briefing / operations -->
+      <div class="about-img-panel"
+           style="background-image:url('./img/ser.png');">
+      </div>
+
+      <!-- Light right-side vignette to blend into white -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to right, transparent 60%, rgba(255,255,255,0.18) 100%);z-index:2;pointer-events:none;"></div>
+    </div>
+
+    <!-- RIGHT: Content panel -->
+    <div class="about-content-wrap" style="flex:1; background:#ffffff; display:flex; flex-direction:column; justify-content:center; padding:72px 64px 56px 72px; position:relative;">
+
+      <!-- Slide 1 -->
+      <div class="about-slide a-active" style="position:relative;">
+        <h2 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(1.9rem,3.2vw,2.75rem); letter-spacing:0.04em; text-transform:uppercase; color:#111827; line-height:1.12; margin:0;">
+          AS A LICENSED SECURITY AGENCY<br>WE ARE TRUSTED
+        </h2>
+
+        <!-- Progress indicator -->
+        <div class="progress-line" id="progressLine">
+          <div class="progress-fill" id="progressFill" style="width:0%;"></div>
+          <div class="progress-dot" id="progressDot" style="left:0%;"></div>
+        </div>
+
+        <p style="font-family:'Barlow',sans-serif; font-size:1.08rem; font-style:italic; color:#1f2937; line-height:1.75; margin-bottom:20px; max-width:520px;">
+          "Shellback Marines provides security with professionalism and vigilance. We exist to make a difference through the delivery of our services — the only PSA-licensed security agency committed to safeguarding India's vital institutions."
+        </p>
+        <p style="font-family:'Barlow',sans-serif; font-size:0.97rem; color:#6b7280; line-height:1.75; max-width:500px; margin-bottom:36px;">
+          Find out more about how our PSA Licence No. W.B&nbsp;–&nbsp;55/WB/PSA/2025 and MSME registration ensure you receive verified, compliant, and professional security services for your business.
+        </p>
+        <div>
+          <a href="https://shellbackmarines.in/about.html"
+             style="display:inline-flex; align-items:center; gap:10px; background:#C9A84C; color:#080c18; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.88rem; letter-spacing:0.14em; text-transform:uppercase; padding:15px 36px; text-decoration:none; border-radius:4px; transition:background 0.2s ease;"
+             onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
+            <i class="fa-solid fa-shield-halved"></i>
+            About Shellback Marines
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="about-slide" style="position:absolute; inset:0; padding:72px 64px 56px 72px;">
+        <h2 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(1.9rem,3.2vw,2.75rem); letter-spacing:0.04em; text-transform:uppercase; color:#111827; line-height:1.12; margin:0;">
+          PROUDLY SERVING<br>THE NATION WITH HONOUR
+        </h2>
+
+        <!-- Progress indicator -->
+        <div class="progress-line">
+          <div style="position:absolute;left:0;top:0;height:100%;width:100%;background:#C9A84C;border-radius:2px;"></div>
+          <div class="progress-dot" style="left:100%; background:#C9A84C;"></div>
+        </div>
+
+        <p style="font-family:'Barlow',sans-serif; font-size:1.08rem; font-style:italic; color:#1f2937; line-height:1.75; margin-bottom:20px; max-width:520px;">
+          "Our trained security professionals bring discipline and dedication to every post — from corporate offices and banks to hospitals and government facilities across West Bengal and beyond."
+        </p>
+        <p style="font-family:'Barlow',sans-serif; font-size:0.97rem; color:#6b7280; line-height:1.75; max-width:500px; margin-bottom:36px;">
+          From physical guarding and intelligence services to electronic surveillance and corporate risk management — Shellback Marines delivers comprehensive, professional security across all major sectors.
+        </p>
+        <div>
+          <a href="https://shellbackmarines.in/#services"
+             style="display:inline-flex; align-items:center; gap:10px; background:#C9A84C; color:#080c18; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.88rem; letter-spacing:0.14em; text-transform:uppercase; padding:15px 36px; text-decoration:none; border-radius:4px; transition:background 0.2s ease;"
+             onmouseover="this.style.background='#E8C96A'" onmouseout="this.style.background='#C9A84C'">
+            <i class="fa-solid fa-list-check"></i>
+            Explore Our Services
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide dot indicators (bottom-left, vertical, like Corps Security) -->
+      <div style="position:absolute; bottom:44px; left:72px; display:flex; flex-direction:column; align-items:center; gap:8px;">
+        <button class="about-dot a-active" id="aDot0" onclick="goAboutSlide(0)" aria-label="Slide 1"></button>
+        <button class="about-dot" id="aDot1" onclick="goAboutSlide(1)" aria-label="Slide 2"></button>
+      </div>
+
+      <!-- Right arrow navigation -->
+      <button onclick="nextAboutSlide()"
+              style="position:absolute; bottom:36px; right:56px; width:48px; height:48px; border-radius:50%; border:2px solid #e5e7eb; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#374151; font-size:1rem; transition:all 0.2s ease;"
+              onmouseover="this.style.borderColor='#C9A84C';this.style.color='#C9A84C';"
+              onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151';"
+              aria-label="Next slide">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+
+    </div><!-- /content wrap -->
+  </div><!-- /about-split -->
+</section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── About section carousel ──
+  let aSlide     = 0;
+  const aTotalSlides  = 2;
+  const aImgPanels    = document.querySelectorAll('.about-img-panel');
+  const aSlides       = document.querySelectorAll('.about-slide');
+  const aDots         = document.querySelectorAll('.about-dot');
+  let aTimer          = null;
+
+  function goAboutSlide(n) {
+    aImgPanels[aSlide].classList.remove('a-active');
+    aSlides[aSlide].classList.remove('a-active');
+    aDots[aSlide].classList.remove('a-active');
+
+    aSlide = (n + aTotalSlides) % aTotalSlides;
+
+    aImgPanels[aSlide].classList.add('a-active');
+    aSlides[aSlide].classList.add('a-active');
+    aDots[aSlide].classList.add('a-active');
+
+    // Update progress bar
+    const pct = aSlide === 0 ? 0 : 100;
+    if (document.getElementById('progressFill')) {
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressDot').style.left   = pct + '%';
+    }
+
+    resetAboutTimer();
+  }
+
+  function nextAboutSlide() { goAboutSlide(aSlide + 1); }
+
+  function resetAboutTimer() {
+    clearInterval(aTimer);
+    aTimer = setInterval(nextAboutSlide, 6500);
+  }
+  resetAboutTimer();
+</script>
 
 
 <!-- ════════════════════════════════════════
