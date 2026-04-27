@@ -646,7 +646,11 @@
 <style>
 @media (max-width: 640px) {
   section [style*="grid-template-columns"] {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: 1fr !important;
+  }
+  /* Services: full-width image on mobile */
+  .svc-card img {
+    height: 240px !important;
   }
 }
 </style>
@@ -897,6 +901,7 @@
     }
     @media(max-width:900px){ .gal-item{ flex: 0 0 50%; } }
     @media(max-width:560px){ .gal-item{ flex: 0 0 100%; } }
+    @media(max-width:560px){ .gal-item img { height: 100vw; } }
 
     .gal-item img {
       width: 100%; height: 520px;
@@ -1348,7 +1353,6 @@
   }
   @media(max-width:900px){ .rev-card{ flex:0 0 calc(50% - 10px); } }
   @media(max-width:580px){ .rev-card{ flex:0 0 100%; } }
-
   /* Card header */
   .rev-card-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
   .rev-avatar {
@@ -1413,9 +1417,12 @@
     .rev-left { flex-direction:row !important; gap:24px; padding:0 0 0 0 !important; border-right:none !important; border-bottom:1px solid #e5e7eb; padding-bottom:28px !important; }
     .rev-right { padding-left:0 !important; }
   }
+  @media(max-width:580px){
+    .rev-section-pad { padding:0 16px !important; }
+  }
 </style>
 
-<div style="max-width:1280px; margin:0 auto; padding:0 40px;">
+<div class="rev-section-pad" style="max-width:1280px; margin:0 auto; padding:0 40px;">
 
   <!-- Heading -->
   <div style="text-align:center; margin-bottom:52px;">
