@@ -106,10 +106,22 @@
       width: 100%; height: 100%; object-fit: cover;
       animation: bgPan 20s ease-in-out infinite alternate;
     }
+    /* Desktop fallback image */
     .hero-vid-fallback {
       position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1800&q=80') center/cover no-repeat;
+      background: url('./img/event.png') center/cover no-repeat;
       animation: bgPan 20s ease-in-out infinite alternate;
+    }
+    /* Mobile fallback image — shown only on small screens */
+    .hero-vid-fallback-mobile {
+      position: absolute; inset: 0;
+      background: url('./img/event-mobile.png') center top / cover no-repeat;
+      animation: bgPan 20s ease-in-out infinite alternate;
+      display: none;
+    }
+    @media (max-width: 767px) {
+      .hero-vid-fallback         { display: none; }
+      .hero-vid-fallback-mobile  { display: block; }
     }
     .hero-overlay {
       position: absolute; inset: 0;
@@ -400,8 +412,10 @@
 
   <div class="hero-vid-wrap">
     <video autoplay muted loop playsinline onerror="this.style.display='none';"></video>
-    <div class="hero-vid-fallback"
-         style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1800&q=80');"></div>
+    <!-- Desktop fallback image (hidden on mobile) -->
+    <div class="hero-vid-fallback"></div>
+    <!-- Mobile fallback image (hidden on desktop) — swap src to your mobile-optimised image -->
+    <div class="hero-vid-fallback-mobile"></div>
   </div>
   <div class="hero-overlay"></div>
 
