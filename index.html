@@ -444,9 +444,6 @@
   <!-- Double gradient overlay -->
   <div class="hero-overlay"></div>
 
-  <!-- Gold left-edge accent bar -->
-  <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gold z-10 hidden lg:block"></div>
-
   <!-- ── Hero Body ── -->
   <div class="relative z-10 flex-1 flex flex-col justify-center max-w-screen-xl mx-auto w-full px-8 lg:px-16 pt-40 pb-16 lg:pb-32">
 
@@ -1419,6 +1416,10 @@
   }
   @media(max-width:580px){
     .rev-section-pad { padding:0 16px !important; }
+    .rev-viewport { width: 100%; max-width: 100%; overflow: hidden; }
+    .rev-track { width: 100%; }
+    .rev-card { flex: 0 0 100%; min-width: 0; max-width: 100%; box-sizing: border-box; }
+    #reviews { overflow-x: hidden; }
   }
 </style>
 
@@ -1445,7 +1446,7 @@
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
       </div>
-      <p class="rev-based">Based on <span>5 reviews</span></p>
+      <p class="rev-based">Based on <span>9 reviews</span></p>
       <!-- Google logo -->
       <div style="display:flex; align-items:center; gap:0; font-size:1.7rem; font-weight:700; font-family:'Barlow',sans-serif; line-height:1;">
         <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
@@ -1458,13 +1459,13 @@
       <div class="rev-viewport" id="revViewport">
         <div class="rev-track" id="revTrack">
 
-          <!-- Review 1 -->
+          <!-- Review 1: Ethan Walker -->
           <div class="rev-card">
             <div class="rev-card-head">
               <div style="display:flex; align-items:center;">
-                <div class="rev-avatar" style="background:#4285F4;">R</div>
+                <div class="rev-avatar" style="background:#4285F4;">E</div>
                 <div>
-                  <p class="rev-name">Rajesh Kumar</p>
+                  <p class="rev-name">Ethan Walker</p>
                   <p class="rev-time">2 months ago</p>
                 </div>
               </div>
@@ -1476,83 +1477,17 @@
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-circle-check rev-verified"></i>
             </div>
-            <p class="rev-text">We hired Shellback Marines for our factory premises in West Bengal. The guards are highly disciplined and professional. We feel much safer with their team on-site every day. Highly recommended for industrial security.</p>
+            <p class="rev-text">Shellback Marines provided an awesome security service at our international event in Kolkata. The response and 360° secured 24/7 solution by CCTV provided absolute confidence in our participants. We would call them again at our next event. Great Service.</p>
             <button class="rev-readmore" onclick="expandRev(this)">Read more</button>
           </div>
 
-          <!-- Review 2 -->
+          <!-- Review 2: Gopal Kumar -->
           <div class="rev-card">
             <div class="rev-card-head">
               <div style="display:flex; align-items:center;">
-                <div class="rev-avatar" style="background:#34A853;">P</div>
+                <div class="rev-avatar" style="background:#34A853;">G</div>
                 <div>
-                  <p class="rev-name">Priya Sharma</p>
-                  <p class="rev-time">3 months ago</p>
-                </div>
-              </div>
-              <div class="g-icon-circle">
-                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-              </div>
-            </div>
-            <div class="rev-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-circle-check rev-verified"></i>
-            </div>
-            <p class="rev-text">Shellback Marines is one stop solution for all types of security concerns for our hospital. Response time is excellent and their surveillance setup is top notch. I have already recommended them to three other facilities.</p>
-            <button class="rev-readmore" onclick="expandRev(this)">Read more</button>
-          </div>
-
-          <!-- Review 3 -->
-          <div class="rev-card">
-            <div class="rev-card-head">
-              <div style="display:flex; align-items:center;">
-                <div class="rev-avatar" style="background:#EA4335;">A</div>
-                <div>
-                  <p class="rev-name">Amit Das</p>
-                  <p class="rev-time">4 months ago</p>
-                </div>
-              </div>
-              <div class="g-icon-circle">
-                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-              </div>
-            </div>
-            <div class="rev-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-circle-check rev-verified"></i>
-            </div>
-            <p class="rev-text">I recommend Shellback Marines for surveillance services. Their Guards are very professional, well-trained and always on time. The CCTV installation they did for our bank branch is excellent and very reliable.</p>
-            <button class="rev-readmore" onclick="expandRev(this)">Read more</button>
-          </div>
-
-          <!-- Review 4 -->
-          <div class="rev-card">
-            <div class="rev-card-head">
-              <div style="display:flex; align-items:center;">
-                <div class="rev-avatar" style="background:#FBBC05; color:#111;">S</div>
-                <div>
-                  <p class="rev-name">Sunita Ghosh</p>
-                  <p class="rev-time">5 months ago</p>
-                </div>
-              </div>
-              <div class="g-icon-circle">
-                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-              </div>
-            </div>
-            <div class="rev-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-circle-check rev-verified"></i>
-            </div>
-            <p class="rev-text">We needed event security for our college annual function and Shellback Marines delivered beyond expectations. Crowd management was handled very smoothly and all attendees felt safe throughout the event.</p>
-            <button class="rev-readmore" onclick="expandRev(this)">Read more</button>
-          </div>
-
-          <!-- Review 5 -->
-          <div class="rev-card">
-            <div class="rev-card-head">
-              <div style="display:flex; align-items:center;">
-                <div class="rev-avatar" style="background:#7c3aed;">M</div>
-                <div>
-                  <p class="rev-name">Mohan Biswas</p>
+                  <p class="rev-name">Gopal Kumar</p>
                   <p class="rev-time">6 months ago</p>
                 </div>
               </div>
@@ -1564,8 +1499,154 @@
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-circle-check rev-verified"></i>
             </div>
-            <p class="rev-text">Outstanding security services from Shellback Marines at our manufacturing plant. Their risk assessment team identified vulnerabilities we had missed for years. Professional, reliable and very cost effective for the quality provided.</p>
-            <button class="rev-readmore" onclick="expandRev(this)">Read more</button>
+            <p class="rev-text">We hired their security guards for an industrial project and they performed excellently.</p>
+          </div>
+
+          <!-- Review 3: Tushar Yadav -->
+          <div class="rev-card">
+            <div class="rev-card-head">
+              <div style="display:flex; align-items:center;">
+                <div class="rev-avatar" style="background:#EA4335;">T</div>
+                <div>
+                  <p class="rev-name">Tushar Yadav</p>
+                  <p class="rev-time">6 months ago</p>
+                </div>
+              </div>
+              <div class="g-icon-circle">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-circle-check rev-verified"></i>
+            </div>
+            <p class="rev-text">I've seen their guards handle tough situations calmly — very impressive professionalism.</p>
+          </div>
+
+          <!-- Review 4: Sudip Das -->
+          <div class="rev-card">
+            <div class="rev-card-head">
+              <div style="display:flex; align-items:center;">
+                <div class="rev-avatar" style="background:#FBBC05; color:#111;">S</div>
+                <div>
+                  <p class="rev-name">Sudip Das</p>
+                  <p class="rev-time">3 months ago</p>
+                </div>
+              </div>
+              <div class="g-icon-circle">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-circle-check rev-verified"></i>
+            </div>
+            <p class="rev-text">Very good security service at events. Their guards were very alert day and night.</p>
+          </div>
+
+          <!-- Review 5: Nishant Pal -->
+          <div class="rev-card">
+            <div class="rev-card-head">
+              <div style="display:flex; align-items:center;">
+                <div class="rev-avatar" style="background:#7c3aed;">N</div>
+                <div>
+                  <p class="rev-name">Nishant Pal</p>
+                  <p class="rev-time">6 months ago</p>
+                </div>
+              </div>
+              <div class="g-icon-circle">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-circle-check rev-verified"></i>
+            </div>
+            <p class="rev-text">We hired their security Guards for an industrial project and they performed excellently.</p>
+          </div>
+
+          <!-- Review 6: AB Tyagi -->
+          <div class="rev-card">
+            <div class="rev-card-head">
+              <div style="display:flex; align-items:center;">
+                <div class="rev-avatar" style="background:#0891b2;">A</div>
+                <div>
+                  <p class="rev-name">AB Tyagi</p>
+                  <p class="rev-time">6 months ago</p>
+                </div>
+              </div>
+              <div class="g-icon-circle">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-circle-check rev-verified"></i>
+            </div>
+            <p class="rev-text">Amazing Team, Always Professional and Polite.</p>
+          </div>
+
+          <!-- Review 7: pirsha pal -->
+          <div class="rev-card">
+            <div class="rev-card-head">
+              <div style="display:flex; align-items:center;">
+                <div class="rev-avatar" style="background:#be185d;">P</div>
+                <div>
+                  <p class="rev-name">Pirsha Pal</p>
+                  <p class="rev-time">6 months ago</p>
+                </div>
+              </div>
+              <div class="g-icon-circle">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-circle-check rev-verified"></i>
+            </div>
+            <p class="rev-text">Excellent job.</p>
+          </div>
+
+          <!-- Review 8: Aryan Kumar -->
+          <div class="rev-card">
+            <div class="rev-card-head">
+              <div style="display:flex; align-items:center;">
+                <div class="rev-avatar" style="background:#d97706;">A</div>
+                <div>
+                  <p class="rev-name">Aryan Kumar</p>
+                  <p class="rev-time">6 months ago</p>
+                </div>
+              </div>
+              <div class="g-icon-circle">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-circle-check rev-verified"></i>
+            </div>
+            <p class="rev-text">Great security service. Very professional team — highly recommended.</p>
+          </div>
+
+          <!-- Review 9: Adi Dad -->
+          <div class="rev-card">
+            <div class="rev-card-head">
+              <div style="display:flex; align-items:center;">
+                <div class="rev-avatar" style="background:#059669;">A</div>
+                <div>
+                  <p class="rev-name">Adi Dad</p>
+                  <p class="rev-time">Recent</p>
+                </div>
+              </div>
+              <div class="g-icon-circle">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              </div>
+            </div>
+            <div class="rev-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-circle-check rev-verified"></i>
+            </div>
+            <p class="rev-text">Trusted and professional security services. Reliable team and excellent on-site presence.</p>
           </div>
 
         </div><!-- /rev-track -->
@@ -1600,7 +1681,7 @@
   if (!track) return;
 
   const cards   = track.querySelectorAll('.rev-card');
-  const total   = cards.length; // 5
+  const total   = cards.length; // 9
   let rIdx = 0;
 
   const perView = () => window.innerWidth <= 580 ? 1 : window.innerWidth <= 900 ? 2 : 3;
@@ -1968,6 +2049,145 @@
   }
   resetAboutTimer();
 </script>
+
+
+<!-- ════════════════════════════════════════
+     CASE STUDIES
+════════════════════════════════════════ -->
+<section style="background:#f8f9fb; padding:80px 0 90px; border-top:1px solid #e9eaec;">
+  <div style="max-width:1280px; margin:0 auto; padding:0 40px;">
+
+    <!-- Heading -->
+    <div style="text-align:center; margin-bottom:56px;">
+      <p style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase; color:#C9A84C; margin-bottom:12px; display:inline-block; border-bottom:2px solid #C9A84C; padding-bottom:6px;">Real Results</p>
+      <h2 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:clamp(2rem,4vw,2.8rem); text-transform:uppercase; color:#080c18; line-height:1; margin:12px 0 0;">Case Studies</h2>
+    </div>
+
+    <!-- Cards Grid -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:28px;">
+
+      <!-- Case Study 1: Hospital -->
+      <div style="background:#ffffff; border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 2px 12px rgba(0,0,0,0.05); transition:transform 0.25s ease, box-shadow 0.25s ease;"
+           onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.12)';"
+           onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.05)';">
+        <!-- Image -->
+        <div style="position:relative; height:200px; overflow:hidden; background:#e5e7eb;">
+          <img src="./img/hos.png" alt="Hospital Complex Security" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s ease;"
+               onmouseover="this.style.transform='scale(1.04)';" onmouseout="this.style.transform='scale(1)';" />
+          <!-- Category badge over image -->
+          <div style="position:absolute; top:14px; left:14px;">
+            <span style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:#080c18; background:#C9A84C; padding:4px 12px; border-radius:3px;">Physical Guarding · Healthcare</span>
+          </div>
+        </div>
+        <!-- Content -->
+        <div style="padding:24px 24px 26px; flex:1; display:flex; flex-direction:column;">
+          <h3 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.18rem; color:#080c18; text-transform:uppercase; letter-spacing:0.04em; margin:0 0 12px; line-height:1.25;">Multi-Building Hospital Complex Security, Jalpaiguri</h3>
+          <p style="font-family:'Barlow',sans-serif; font-size:0.875rem; color:#4b5563; line-height:1.75; margin:0 0 20px; flex:1;">A leading healthcare institution faced repeated unauthorised access across multiple buildings and emergency areas. Shellback Marines deployed a coordinated three-shift guard team — achieving zero unauthorised access incidents within the very first month.</p>
+          <!-- Stats -->
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px;">
+            <div style="background:#f8f9fb; border:1px solid #e5e7eb; border-left:3px solid #C9A84C; border-radius:4px; padding:8px 14px;">
+              <p style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1rem; color:#C9A84C; margin:0;">Zero</p>
+              <p style="font-family:'Barlow',sans-serif; font-size:0.7rem; color:#6b7280; margin:0;">Incidents Month 1</p>
+            </div>
+            <div style="background:#f8f9fb; border:1px solid #e5e7eb; border-left:3px solid #C9A84C; border-radius:4px; padding:8px 14px;">
+              <p style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1rem; color:#C9A84C; margin:0;">3-Shift</p>
+              <p style="font-family:'Barlow',sans-serif; font-size:0.7rem; color:#6b7280; margin:0;">Guard Coverage</p>
+            </div>
+            <div style="background:#f8f9fb; border:1px solid #e5e7eb; border-left:3px solid #C9A84C; border-radius:4px; padding:8px 14px;">
+              <p style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1rem; color:#C9A84C; margin:0;">Extended</p>
+              <p style="font-family:'Barlow',sans-serif; font-size:0.7rem; color:#6b7280; margin:0;">Contract + CCTV</p>
+            </div>
+          </div>
+          <a href="casestudies.html#cs-hospital" style="display:inline-flex; align-items:center; gap:8px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#080c18; text-decoration:none; background:#C9A84C; padding:10px 20px; border-radius:3px; width:fit-content; transition:background 0.2s ease, color 0.2s ease;"
+             onmouseover="this.style.background='#b8922e';" onmouseout="this.style.background='#C9A84C';">
+            Read Full Case Study <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Case Study 2: Cultural Festival -->
+      <div style="background:#ffffff; border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 2px 12px rgba(0,0,0,0.05); transition:transform 0.25s ease, box-shadow 0.25s ease;"
+           onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.12)';"
+           onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.05)';">
+        <div style="position:relative; height:200px; overflow:hidden; background:#e5e7eb;">
+          <img src="./img/eve.png" alt="Cultural Festival Security" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s ease;"
+               onmouseover="this.style.transform='scale(1.04)';" onmouseout="this.style.transform='scale(1)';" />
+          <div style="position:absolute; top:14px; left:14px;">
+            <span style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:#080c18; background:#C9A84C; padding:4px 12px; border-radius:3px;">Event Security · Cultural</span>
+          </div>
+        </div>
+        <div style="padding:24px 24px 26px; flex:1; display:flex; flex-direction:column;">
+          <h3 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.18rem; color:#080c18; text-transform:uppercase; letter-spacing:0.04em; margin:0 0 12px; line-height:1.25;">2,000-Attendee Cultural Festival, Jalpaiguri</h3>
+          <p style="font-family:'Barlow',sans-serif; font-size:0.875rem; color:#4b5563; line-height:1.75; margin:0 0 20px; flex:1;">A prominent cultural committee required comprehensive event security for a two-day annual festival attracting nearly 2,000 visitors. Shellback Marines deployed teams across all entry points and crowd zones. Both days concluded without a single reportable incident.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px;">
+            <div style="background:#f8f9fb; border:1px solid #e5e7eb; border-left:3px solid #C9A84C; border-radius:4px; padding:8px 14px;">
+              <p style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1rem; color:#C9A84C; margin:0;">Zero</p>
+              <p style="font-family:'Barlow',sans-serif; font-size:0.7rem; color:#6b7280; margin:0;">Incidents — 2 Days</p>
+            </div>
+            <div style="background:#f8f9fb; border:1px solid #e5e7eb; border-left:3px solid #C9A84C; border-radius:4px; padding:8px 14px;">
+              <p style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1rem; color:#C9A84C; margin:0;">2,000+</p>
+              <p style="font-family:'Barlow',sans-serif; font-size:0.7rem; color:#6b7280; margin:0;">Attendees Secured</p>
+            </div>
+            <div style="background:#f8f9fb; border:1px solid #e5e7eb; border-left:3px solid #C9A84C; border-radius:4px; padding:8px 14px;">
+              <p style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1rem; color:#C9A84C; margin:0;">Renewed</p>
+              <p style="font-family:'Barlow',sans-serif; font-size:0.7rem; color:#6b7280; margin:0;">Contract</p>
+            </div>
+          </div>
+          <a href="casestudies.html#cs-festival" style="display:inline-flex; align-items:center; gap:8px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#080c18; text-decoration:none; background:#C9A84C; padding:10px 20px; border-radius:3px; width:fit-content; transition:background 0.2s ease;"
+             onmouseover="this.style.background='#b8922e';" onmouseout="this.style.background='#C9A84C';">
+            Read Full Case Study <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Case Study 3: Cash Transit -->
+      <div style="background:#ffffff; border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 2px 12px rgba(0,0,0,0.05); transition:transform 0.25s ease, box-shadow 0.25s ease;"
+           onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.12)';"
+           onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(0,0,0,0.05)';">
+        <div style="position:relative; height:200px; overflow:hidden; background:#e5e7eb;">
+          <img src="./img/mon.png" alt="Cash Transit Security" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s ease;"
+               onmouseover="this.style.transform='scale(1.04)';" onmouseout="this.style.transform='scale(1)';" />
+          <div style="position:absolute; top:14px; left:14px;">
+            <span style="font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:#080c18; background:#C9A84C; padding:4px 12px; border-radius:3px;">Escort Guarding · Banking</span>
+          </div>
+        </div>
+        <div style="padding:24px 24px 26px; flex:1; display:flex; flex-direction:column;">
+          <h3 style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1.18rem; color:#080c18; text-transform:uppercase; letter-spacing:0.04em; margin:0 0 12px; line-height:1.25;">Weekly Cash Transit Programme, Cooperative Bank, Jalpaiguri</h3>
+          <p style="font-family:'Barlow',sans-serif; font-size:0.875rem; color:#4b5563; line-height:1.75; margin:0 0 20px; flex:1;">A regional cooperative bank needed a PSA-licensed escort partner for weekly cash-in-transit operations across multiple branches. Shellback Marines designed a structured programme with route planning, briefing protocols, and full documentation — delivering 52+ consecutive zero-incident operations.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px;">
+            <div style="background:#f8f9fb; border:1px solid #e5e7eb; border-left:3px solid #C9A84C; border-radius:4px; padding:8px 14px;">
+              <p style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1rem; color:#C9A84C; margin:0;">52+</p>
+              <p style="font-family:'Barlow',sans-serif; font-size:0.7rem; color:#6b7280; margin:0;">Zero-Incident Ops</p>
+            </div>
+            <div style="background:#f8f9fb; border:1px solid #e5e7eb; border-left:3px solid #C9A84C; border-radius:4px; padding:8px 14px;">
+              <p style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1rem; color:#C9A84C; margin:0;">PSA</p>
+              <p style="font-family:'Barlow',sans-serif; font-size:0.7rem; color:#6b7280; margin:0;">Licensed Ops</p>
+            </div>
+            <div style="background:#f8f9fb; border:1px solid #e5e7eb; border-left:3px solid #C9A84C; border-radius:4px; padding:8px 14px;">
+              <p style="font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:1rem; color:#C9A84C; margin:0;">Expanded</p>
+              <p style="font-family:'Barlow',sans-serif; font-size:0.7rem; color:#6b7280; margin:0;">Programme</p>
+            </div>
+          </div>
+          <a href="casestudies.html#cs-bank" style="display:inline-flex; align-items:center; gap:8px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:#080c18; text-decoration:none; background:#C9A84C; padding:10px 20px; border-radius:3px; width:fit-content; transition:background 0.2s ease;"
+             onmouseover="this.style.background='#b8922e';" onmouseout="this.style.background='#C9A84C';">
+            Read Full Case Study <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+
+    <!-- View all CTA -->
+    <div style="text-align:center; margin-top:48px;">
+      <a href="casestudies.html" style="display:inline-flex; align-items:center; gap:10px; border:2px solid #080c18; padding:14px 32px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:0.85rem; letter-spacing:0.14em; text-transform:uppercase; color:#080c18; text-decoration:none; transition:all 0.25s ease; border-radius:2px;"
+         onmouseover="this.style.background='#080c18';this.style.color='#C9A84C';"
+         onmouseout="this.style.background='';this.style.color='#080c18';">
+        <i class="fa-solid fa-folder-open"></i> View All Case Studies
+      </a>
+    </div>
+
+  </div>
+</section>
 
 
 <!-- ════════════════════════════════════════
