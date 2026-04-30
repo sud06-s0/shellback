@@ -75,6 +75,12 @@
     .hero-vid-wrap { position: absolute; inset: 0; overflow: hidden; }
     .hero-vid-wrap video { width: 100%; height: 100%; object-fit: cover; animation: bgPan 20s ease-in-out infinite alternate; }
     .hero-vid-fallback { position: absolute; inset: 0; animation: bgPan 20s ease-in-out infinite alternate; }
+    .hero-bg-desktop { display: block; }
+    .hero-bg-mobile  { display: none; }
+    @media (max-width: 767px) {
+      .hero-bg-desktop { display: none; }
+      .hero-bg-mobile  { display: block; }
+    }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(8,12,24,.92) 0%, rgba(8,12,24,.65) 55%, rgba(8,12,24,.45) 100%), linear-gradient(to top, rgba(8,12,24,.98) 0%, rgba(8,12,24,.0) 55%); }
 
     .gold-divider { display:flex; align-items:center; justify-content:center; margin:14px auto 38px; max-width:400px; }
@@ -342,7 +348,8 @@
 <section style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;">
   <div class="hero-vid-wrap">
     <video autoplay muted loop playsinline onerror="this.style.display='none';"></video>
-    <div class="hero-vid-fallback" style="background-image:url('https://images.pexels.com/photos/3943882/pexels-photo-3943882.jpeg?auto=compress&cs=tinysrgb&w=1800');background-size:cover;background-position:center;"></div>
+    <div class="hero-vid-fallback hero-bg-desktop" style="background-image:url('./img/phyg.png?auto=compress&cs=tinysrgb&w=1800');background-size:cover;background-position:center;"></div>
+    <div class="hero-vid-fallback hero-bg-mobile" style="background-image:url('./img/bank.png?auto=compress&cs=tinysrgb&w=800');background-size:cover;background-position:center top;"></div>
   </div>
   <div class="hero-overlay"></div>
   <div style="position:absolute;left:0;top:0;bottom:0;width:6px;background:#C9A84C;z-index:3;" class="hidden lg:block"></div>
@@ -477,7 +484,7 @@
 
       <div style="flex:0 0 460px;max-width:100%;">
         <div class="img-reveal" style="height:520px;">
-          <img src="https://images.pexels.com/photos/3943882/pexels-photo-3943882.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bank security guard at financial institution entrance" />
+          <img src="./img/bank.png?auto=compress&cs=tinysrgb&w=800" alt="Bank security guard at financial institution entrance" />
         </div>
       </div>
 
@@ -564,10 +571,10 @@
 
       <div style="flex:0 0 380px;max-width:100%;display:flex;flex-direction:column;gap:4px;">
         <div class="img-reveal" style="height:260px;">
-          <img src="https://images.pexels.com/photos/50987/money-card-business-credit-card-50987.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bank vault and security monitoring" />
+          <img src="./img/mon.png?auto=compress&cs=tinysrgb&w=800" alt="Bank vault and security monitoring" />
         </div>
         <div class="img-reveal" style="height:200px;">
-          <img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Security guard at bank entrance" />
+          <img src="./img/phyg.png?auto=compress&cs=tinysrgb&w=800" alt="Security guard at bank entrance" />
         </div>
       </div>
 
@@ -734,7 +741,7 @@
 
       <div style="flex:0 0 460px;max-width:100%;">
         <div class="img-reveal" style="height:500px;">
-          <img src="https://images.pexels.com/photos/955447/pexels-photo-955447.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Bank security team briefing" />
+          <img src="./img/phyg-mobile.png?auto=compress&cs=tinysrgb&w=800" alt="Bank security team briefing" />
         </div>
       </div>
 

@@ -74,6 +74,12 @@
     .hero-vid-wrap { position: absolute; inset: 0; overflow: hidden; }
     .hero-vid-wrap video { width: 100%; height: 100%; object-fit: cover; animation: bgPan 20s ease-in-out infinite alternate; }
     .hero-vid-fallback { position: absolute; inset: 0; animation: bgPan 20s ease-in-out infinite alternate; }
+    .hero-bg-desktop { display: block; }
+    .hero-bg-mobile  { display: none; }
+    @media (max-width: 767px) {
+      .hero-bg-desktop { display: none; }
+      .hero-bg-mobile  { display: block; }
+    }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(8,12,24,.92) 0%, rgba(8,12,24,.65) 55%, rgba(8,12,24,.45) 100%), linear-gradient(to top, rgba(8,12,24,.98) 0%, rgba(8,12,24,.0) 55%); }
 
     .gold-divider { display:flex; align-items:center; justify-content:center; margin:14px auto 38px; max-width:400px; }
@@ -335,7 +341,8 @@
 <section style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;">
   <div class="hero-vid-wrap">
     <video autoplay muted loop playsinline onerror="this.style.display='none';"></video>
-    <div class="hero-vid-fallback" style="background-image:url('https://images.pexels.com/photos/5935755/pexels-photo-5935755.jpeg?auto=compress&cs=tinysrgb&w=1800');background-size:cover;background-position:center;"></div>
+    <div class="hero-vid-fallback hero-bg-desktop" style="background-image:url('./img/phyg.png?auto=compress&cs=tinysrgb&w=1800');background-size:cover;background-position:center;"></div>
+    <div class="hero-vid-fallback hero-bg-mobile" style="background-image:url('./img/escort-mobile.png?auto=compress&cs=tinysrgb&w=800');background-size:cover;background-position:center top;"></div>
   </div>
   <div class="hero-overlay"></div>
   <div style="position:absolute;left:0;top:0;bottom:0;width:6px;background:#C9A84C;z-index:3;" class="hidden lg:block"></div>
@@ -451,7 +458,7 @@
       </div>
       <div style="flex:0 0 460px;max-width:100%;">
         <div class="img-reveal" style="height:520px;">
-          <img src="https://images.pexels.com/photos/5935755/pexels-photo-5935755.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Armed security guard on duty" />
+          <img src=",/img/escort-mobile.png?auto=compress&cs=tinysrgb&w=800" alt="Armed security guard on duty" />
         </div>
       </div>
     </div>
@@ -517,10 +524,10 @@
       </div>
       <div style="flex:0 0 380px;max-width:100%;display:flex;flex-direction:column;gap:4px;">
         <div class="img-reveal" style="height:260px;">
-          <img src="https://images.pexels.com/photos/6249502/pexels-photo-6249502.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Armed security patrol" />
+          <img src="./img/mon.png?auto=compress&cs=tinysrgb&w=800" alt="Armed security patrol" />
         </div>
         <div class="img-reveal" style="height:200px;">
-          <img src="https://images.pexels.com/photos/7275385/pexels-photo-7275385.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Security briefing" />
+          <img src="./img/phyg.png?auto=compress&cs=tinysrgb&w=800" alt="Security briefing" />
         </div>
       </div>
     </div>
@@ -547,7 +554,7 @@
           <p>The psychological preparation of armed personnel is equally important. Our guards undergo stress management training and decision-making exercises to ensure sound judgment under pressure — a critical requirement for any <strong>armed security services</strong> deployment where poor decisions can have irreversible consequences.</p>
 
           <div class="img-reveal" style="height:360px;margin-bottom:28px;margin-top:8px;">
-            <img src="https://images.pexels.com/photos/6249502/pexels-photo-6249502.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Armed security training and briefing" />
+            <img src="./img/phyg.png?auto=compress&cs=tinysrgb&w=1200" alt="Armed security training and briefing" />
           </div>
 
           <h3>Legal Compliance &amp; Regulatory Framework</h3>
@@ -675,7 +682,7 @@
     <div style="display:flex;flex-wrap:wrap;gap:64px;align-items:center;">
       <div style="flex:0 0 460px;max-width:100%;">
         <div class="img-reveal" style="height:500px;">
-          <img src="https://images.pexels.com/photos/7275385/pexels-photo-7275385.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Armed security team readiness" />
+          <img src="./img/ser.png?auto=compress&cs=tinysrgb&w=800" alt="Armed security team readiness" />
         </div>
       </div>
       <div style="flex:1;min-width:280px;">
