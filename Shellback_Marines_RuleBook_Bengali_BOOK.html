@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>শেলব্যাক মেরিনস — নিরাপত্তা বিধি পুস্তিকা</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700;900&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0B2545;
+  --navy-mid: #163872;
+  --gold: #C9973A;
+  --gold-light: #E8BE6A;
+  --cream: #FAF7F2;
+  --cream-dark: #F0EBE1;
+  --text: #1C1C1C;
+  --text-mid: #3A3A3A;
+  --text-light: #666;
+  --rule-bg: #FFF8E7;
+  --page-w: 794px;
+}
+
+body {
+  background: #C8C8C8;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 11.5px;
+  color: var(--text);
+  line-height: 1.9;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.book {
+  width: var(--page-w);
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.page {
+  width: var(--page-w);
+  min-height: 1123px;
+  background: var(--cream);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.35);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--navy) 50%, var(--gold) 100%);
+}
+
+/* ===== COVER ===== */
+.cover-page {
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  min-height: 1123px;
+  position: relative;
+  overflow: hidden;
+}
+.cover-page::before { display: none; }
+
+.cover-page .corner-tl, .cover-page .corner-br,
+.cover-page .corner-tr, .cover-page .corner-bl {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.6;
+}
+.cover-page .corner-tl { top: 24px; left: 24px; border-width: 2px 0 0 2px; }
+.cover-page .corner-br { bottom: 24px; right: 24px; border-width: 0 2px 2px 0; }
+.cover-page .corner-tr { top: 24px; right: 24px; border-width: 2px 2px 0 0; }
+.cover-page .corner-bl { bottom: 24px; left: 24px; border-width: 0 0 2px 2px; }
+
+.cover-hero {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  opacity: 0.35;
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.cover-stripe-top {
+  width: 100%;
+  height: 7px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  position: absolute;
+  top: 0; left: 0;
+}
+.cover-stripe-bottom {
+  width: 100%;
+  height: 7px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  position: absolute;
+  bottom: 0; left: 0;
+}
+
+.cover-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 60px 50px;
+  height: 100%;
+}
+
+.cover-logo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(201,151,58,0.3);
+}
+.cover-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+.cover-badge {
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 22px;
+  margin-bottom: 30px;
+}
+
+.cover-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.cover-title span { color: var(--gold); }
+
+.cover-subtitle {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cover-divider {
+  width: 280px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 30px;
+}
+
+.cover-rule-book {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cover-img-strip {
+  width: 100%;
+  display: flex;
+  gap: 4px;
+  margin-bottom: 36px;
+}
+.cover-img-strip img {
+  flex: 1;
+  height: 100px;
+  object-fit: cover;
+  filter: brightness(0.7) saturate(0.8);
+}
+
+.cover-meta {
+  text-align: center;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 10px;
+  line-height: 2;
+}
+.cover-meta strong { color: var(--gold); font-weight: 600; }
+
+.cover-tagline {
+  margin-top: 24px;
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+}
+
+/* ===== INNER PAGES ===== */
+.page-inner {
+  padding: 54px 54px 70px 68px;
+  position: relative;
+  z-index: 1;
+}
+
+.running-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--gold);
+}
+.running-header .rh-left {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 1px;
+}
+.running-header .rh-right {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 9px;
+  color: var(--text-light);
+}
+.running-header .rh-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--gold);
+}
+
+/* ===== PART BANNER ===== */
+.part-divider {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 20px 14px 24px;
+  margin: 28px -54px 22px -68px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+.part-divider::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 50px;
+  background: linear-gradient(90deg, transparent, var(--navy-mid));
+}
+.part-divider .pd-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--gold);
+  opacity: 0.4;
+  line-height: 1;
+  min-width: 30px;
+}
+.part-divider .pd-text {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+}
+.part-divider .pd-sub {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 10px;
+  color: rgba(255,255,255,0.55);
+  display: block;
+  margin-top: 2px;
+}
+
+/* ===== HEADINGS ===== */
+h2.sh {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 24px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--cream-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+h2.sh::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: var(--gold);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+h3.sub {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--navy-mid);
+  margin: 16px 0 7px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+h3.sub::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* ===== BODY ===== */
+p { margin-bottom: 8px; text-align: justify; color: var(--text-mid); font-size: 11.5px; line-height: 1.9; }
+
+ul { margin: 6px 0 10px 0; list-style: none; }
+ul li {
+  padding: 3px 0 3px 20px;
+  position: relative;
+  color: var(--text-mid);
+  font-size: 11.5px;
+  line-height: 1.85;
+}
+ul li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+ol { margin: 6px 0 10px 24px; }
+ol li { padding: 2px 0; color: var(--text-mid); font-size: 11.5px; margin-bottom: 3px; line-height: 1.85; }
+
+strong { font-weight: 700; color: var(--navy); }
+
+/* ===== RULE BOX ===== */
+.rule-box {
+  background: var(--rule-bg);
+  border-left: 4px solid var(--gold);
+  padding: 10px 14px;
+  margin: 12px 0;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.rule-box .rb-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+.rule-box .rb-text {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--navy);
+  line-height: 1.6;
+}
+.rule-box .rb-text em { font-style: normal; color: var(--gold); font-weight: 700; }
+
+/* ===== TABLE ===== */
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 11px; }
+th {
+  background: var(--navy);
+  color: #fff;
+  padding: 8px 10px;
+  text-align: left;
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-weight: 600;
+  font-size: 10.5px;
+}
+td { padding: 7px 10px; border: 1px solid #DDD; color: var(--text-mid); vertical-align: top; line-height: 1.7; }
+tr:nth-child(even) td { background: var(--cream-dark); }
+
+/* ===== IMAGES ===== */
+.img-block {
+  width: 100%;
+  margin: 18px 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.img-block img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.img-block .img-caption {
+  background: rgba(11,37,69,0.88);
+  color: rgba(255,255,255,0.85);
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 9.5px;
+  padding: 6px 12px;
+}
+
+.img-float-right {
+  float: right;
+  width: 215px;
+  margin: 0 0 12px 18px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid var(--cream-dark);
+}
+.img-float-right img { width: 100%; height: 135px; object-fit: cover; display: block; }
+.img-float-right .img-caption {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 9px;
+  padding: 4px 8px;
+}
+.clearfix::after { content: ''; display: table; clear: both; }
+
+.img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 14px 0; }
+.img-grid-2 .ig-item { border-radius: 4px; overflow: hidden; border: 2px solid var(--cream-dark); }
+.img-grid-2 .ig-item img { width: 100%; height: 110px; object-fit: cover; display: block; }
+.img-grid-2 .ig-item .img-caption {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 9px;
+  padding: 4px 8px;
+}
+
+.img-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 14px 0; }
+.img-grid-3 .ig-item { border-radius: 4px; overflow: hidden; border: 2px solid var(--cream-dark); }
+.img-grid-3 .ig-item img { width: 100%; height: 85px; object-fit: cover; display: block; }
+.img-grid-3 .ig-item .img-caption {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 8.5px;
+  padding: 3px 7px;
+}
+
+/* ===== CALLOUT ===== */
+.callout {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 18px;
+  margin: 16px 0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.callout::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+}
+.callout p { color: rgba(255,255,255,0.85); font-size: 11px; margin: 0; line-height: 1.7; }
+.callout strong { color: var(--gold); }
+
+/* ===== DO / DON'T ===== */
+.do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+.do-box, .dont-box { border-radius: 4px; overflow: hidden; }
+.do-box .box-header { background: #1A6B3C; color: #fff; padding: 6px 12px; font-family: 'Noto Sans Bengali', sans-serif; font-weight: 700; font-size: 11px; }
+.dont-box .box-header { background: #8B1A1A; color: #fff; padding: 6px 12px; font-family: 'Noto Sans Bengali', sans-serif; font-weight: 700; font-size: 11px; }
+.do-box .box-body { background: #F0FAF4; padding: 10px 12px; border: 1px solid #A8D5BC; border-top: none; }
+.dont-box .box-body { background: #FDF0F0; padding: 10px 12px; border: 1px solid #E0A8A8; border-top: none; }
+.do-box .box-body li::before { background: #1A6B3C; }
+.dont-box .box-body li::before { background: #8B1A1A; }
+
+/* ===== PASS BOX ===== */
+.pass-box { display: grid; grid-template-columns: 40px 1fr; gap: 0; margin: 12px 0; border: 1px solid var(--cream-dark); border-radius: 4px; overflow: hidden; }
+.pass-letter {
+  background: var(--navy);
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pass-desc {
+  padding: 8px 12px;
+  background: #fff;
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-mid);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--cream-dark);
+  line-height: 1.6;
+}
+
+/* ===== PAGE FOOTER ===== */
+.page-footer {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 12px 54px 14px 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--cream-dark);
+  background: var(--cream);
+}
+.page-footer .pf-text {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 8.5px;
+  color: var(--text-light);
+}
+.page-footer .pf-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* ===== EMERGENCY TABLE ===== */
+.emergency-table th { background: #8B1A1A; }
+.emergency-table td:first-child { font-weight: 600; color: var(--navy); }
+.emergency-table td:last-child { font-family: 'Noto Sans Bengali', sans-serif; font-size: 15px; font-weight: 700; color: #8B1A1A; }
+
+/* ===== DECLARATION ===== */
+.declaration-block {
+  background: var(--cream-dark);
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+.declaration-block p { margin-bottom: 12px; }
+.sig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+.sig-field { border-bottom: 1px solid #AAA; padding-bottom: 4px; margin-bottom: 6px; height: 22px; }
+.sig-label {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 9px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ===== BACK COVER ===== */
+.back-cover {
+  background: var(--navy);
+  min-height: 1123px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 60px;
+}
+.back-cover::before { display: none; }
+.back-cover .bc-stripe-top, .back-cover .bc-stripe-bottom {
+  position: absolute;
+  left: 0; right: 0;
+  height: 7px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+}
+.back-cover .bc-stripe-top { top: 0; }
+.back-cover .bc-stripe-bottom { bottom: 0; }
+.back-cover .bc-logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 0 40px rgba(201,151,58,0.2);
+}
+.back-cover .bc-logo img { width: 100%; height: 100%; object-fit: cover; }
+.back-cover .bc-title {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.back-cover .bc-tagline {
+  font-family: 'Noto Serif Bengali', serif;
+  font-size: 15px;
+  color: var(--gold);
+  margin-bottom: 40px;
+}
+.back-cover .bc-divider {
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 40px;
+}
+.back-cover .bc-info {
+  text-align: center;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Noto Sans Bengali', sans-serif;
+  font-size: 10px;
+  line-height: 2;
+}
+.back-cover .bc-info strong { color: var(--gold); }
+
+@media print {
+  body { background: #fff; }
+  .book { margin: 0; gap: 0; }
+  .page { box-shadow: none; page-break-after: always; break-after: page; }
+}
+</style>
+</head>
+<body>
+<div class="book">
+
+<!-- ============================================================
+     COVER PAGE
+============================================================ -->
+<div class="page cover-page">
+  <div class="cover-stripe-top"></div>
+  <div class="cover-stripe-bottom"></div>
+  <div class="corner-tl"></div>
+  <div class="corner-tr"></div>
+  <div class="corner-bl"></div>
+  <div class="corner-br"></div>
+
+  <img class="cover-hero"
+    src="https://images.unsplash.com/photo-1508511267-9990d3a350d3?w=794&q=80&auto=format&fit=crop"
+    alt="Security background">
+
+  <div class="cover-inner">
+    <div class="cover-logo">
+      <!-- আপনার আসল লোগো দিয়ে প্রতিস্থাপন করুন -->
+      <img src="./img/logo.png?w=200&h=200&q=80&auto=format&fit=crop" alt="শেলব্যাক মেরিনস লোগো">
+    </div>
+
+    <div class="cover-badge">W.B – 55/WB/PSA/2025 &nbsp;|&nbsp; লাইসেন্সপ্রাপ্ত নিরাপত্তা সংস্থা</div>
+
+    <div class="cover-title">শেলব্যাক মেরিনস<br><span>সিকিউরিটি এজেন্সি</span></div>
+    <div class="cover-subtitle">পশ্চিমবঙ্গ — জলপাইগুড়ি</div>
+
+    <div class="cover-divider"></div>
+
+    <div class="cover-rule-book">বেসরকারি নিরাপত্তা কর্মী — প্রশিক্ষণ ও আচরণ বিধি পুস্তিকা</div>
+
+    <div class="cover-img-strip">
+      <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=200&h=120&q=70&auto=format&fit=crop" alt="নিরাপত্তা গার্ড">
+      <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=200&h=120&q=70&auto=format&fit=crop" alt="প্রবেশ নিয়ন্ত্রণ">
+      <img src="https://images.unsplash.com/photo-1597452485595-b07d96de6f1d?w=200&h=120&q=70&auto=format&fit=crop" alt="CCTV পর্যবেক্ষণ">
+      <img src="https://images.unsplash.com/photo-1508856028117-89a28a12df56?w=200&h=120&q=70&auto=format&fit=crop" alt="টহল">
+    </div>
+
+    <div class="cover-meta">
+      <strong>বেসরকারি নিরাপত্তা সংস্থা (নিয়ন্ত্রণ) আইন, ২০০৫ (PSARA)</strong><br>
+      এবং পশ্চিমবঙ্গ রাজ্য বিধিমালা অনুযায়ী প্রণীত<br><br>
+      উদলাবাড়ি বিধানপল্লী, পিও মানাবাড়ি, জেলা জলপাইগুড়ি, পশ্চিমবঙ্গ – ৭৩৫২২২<br>
+      +91 9434127571 &nbsp;|&nbsp; contact@shellbackmarines.in
+    </div>
+
+    <div class="cover-tagline">"নিরাপত্তার বিশ্বস্ত অভিভাবক"</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     পৃষ্ঠা ২ — ভূমিকা ও প্রথম অংশ শুরু
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">শেলব্যাক মেরিনস — বিধি পুস্তিকা</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="লোগো">
+      <span class="rh-right">ভূমিকা ও প্রশিক্ষণ বিষয়</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">০০</span>
+      <div><span class="pd-text">ভূমিকা</span><span class="pd-sub">শেলব্যাক মেরিনস ব্যবস্থাপনার পক্ষ থেকে</span></div>
+    </div>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1562564055-71e051d33c19?w=300&h=200&q=80&auto=format&fit=crop" alt="নিরাপত্তা ব্রিফিং">
+      <div class="img-caption">পোস্ট হস্তান্তরে নিরাপত্তা ব্রিফিং</div>
+    </div>
+
+    <p>এই বিধি পুস্তিকা <strong>শেলব্যাক মেরিনস সিকিউরিটি এজেন্সির</strong> অধীনে কর্মরত সকল নিরাপত্তা কর্মীর জন্য তৈরি করা হয়েছে। এটি সহজ ভাষায় লেখা হয়েছে যাতে প্রতিটি গার্ড, শিক্ষাগত যোগ্যতা নির্বিশেষে, তাদের দায়িত্ব, অধিকার এবং কর্তব্য বুঝতে পারেন।</p>
+    <p>প্রতিটি নিরাপত্তা গার্ডকে এই বইটি মনোযোগ দিয়ে পড়তে হবে। যদি পড়তে না পারেন, আপনার সুপারভাইজার আপনাকে বুঝিয়ে দেবেন। এই বই আপনাকে একজন <strong>পেশাদার, আইন মান্যকারী এবং সম্মানিত নিরাপত্তা কর্মকর্তা</strong> হওয়ার পথ দেখাবে।</p>
+    <p>এই বইটি সঙ্গে রাখুন। প্রতিদিন মেনে চলুন।</p>
+
+    <div class="clearfix"></div>
+
+    <div class="part-divider">
+      <span class="pd-num">১</span>
+      <div><span class="pd-text">প্রশিক্ষণ বিষয়সমূহ</span><span class="pd-sub">ন্যূনতম ৬ কার্যদিবস — PSARA ২০০৫ অনুযায়ী বাধ্যতামূলক</span></div>
+    </div>
+
+    <h2 class="sh">বিষয় ১: বর্তমান নিরাপত্তা পরিস্থিতি</h2>
+
+    <h3 class="sub">(ক) ভিআইপি নিরাপত্তা</h3>
+    <p>ভিআইপি নিরাপত্তা মানে গুরুত্বপূর্ণ ব্যক্তিদের সুরক্ষা প্রদান করা — যেমন সরকারি কর্মকর্তা, কোম্পানির পরিচালক, চিকিৎসক, বা যে কোনো ব্যক্তি যার নিরাপত্তা বিশেষ ঝুঁকিতে রয়েছে।</p>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&h=180&q=80&auto=format&fit=crop" alt="ভিআইপি নিরাপত্তা">
+      <div class="img-caption">ভিআইপি এস্কর্ট ও পরিধি পর্যবেক্ষণ</div>
+    </div>
+
+    <p><strong>একজন নিরাপত্তা গার্ডকে যা জানতে হবে:</strong></p>
+    <ul>
+      <li>ভিআইপি হলেন এমন কোনো ব্যক্তি যাকে তার পদ, কাজ বা হুমকির মাত্রার কারণে বিশেষ সুরক্ষা দেওয়া হয়।</li>
+      <li>ভিআইপি নিরাপত্তায় অতিরিক্ত সতর্কতা প্রয়োজন — সর্বদা মনোযোগী থাকুন এবং যেকোনো অস্বাভাবিক বিষয় অবিলম্বে রিপোর্ট করুন।</li>
+      <li>যথাযথ যাচাই ছাড়া কোনো অজ্ঞাত ব্যক্তিকে ভিআইপির কাছে যেতে দেবেন না।</li>
+      <li>নিরাপদ দূরত্ব বজায় রাখুন। ভিআইপির কাছে ভিড় জমতে দেবেন না।</li>
+      <li>যেকোনো হুমকির ক্ষেত্রে, অবিলম্বে আপনার সুপারভাইজার এবং নিকটতম থানাকে সতর্ক করুন।</li>
+      <li>লিখিত হস্তান্তর ছাড়া কখনো ভিআইপি পোস্ট ছেড়ে যাবেন না।</li>
+    </ul>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> ভিআইপি ডিউটিতে — এক মুহূর্তের অবহেলাও চলবে না। চোখ ও কান সর্বদা সজাগ রাখুন।</span>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <h3 class="sub">(খ) আভ্যন্তরীণ নিরাপত্তা</h3>
+    <p>আভ্যন্তরীণ নিরাপত্তা মানে কর্মক্ষেত্র, কারখানা, অফিস বা সাইটকে ভেতর থেকে আসা হুমকি থেকে নিরাপদ রাখা — যেমন কর্মীর চুরি, সম্পদের অপব্যবহার বা কর্মক্ষেত্রে দ্বন্দ্ব।</p>
+    <ul>
+      <li>কর্মীদের অস্বাভাবিক আচরণ লক্ষ্য করুন — বারবার রাতে থাকা, ব্যাগ পরীক্ষা না করে বহন করা ইত্যাদি।</li>
+      <li>সকল কর্মী — স্টাফ, সুপারভাইজার বা ম্যানেজার — সকলেই নিয়মিত নিরাপত্তা পরীক্ষার আওতায় আসেন। কেউ ব্যতিক্রম নয়।</li>
+      <li>চুরি, মারামারি বা অসদাচরণের যেকোনো ঘটনা অবিলম্বে লিখিতভাবে সুপারভাইজারকে জানান।</li>
+      <li>কোনো আভ্যন্তরীণ দ্বন্দ্বে পক্ষ নেবেন না। নিরপেক্ষ থাকুন এবং সুপারভাইজারকে ডাকুন।</li>
+      <li>প্রতিদিন সাইটে দেখা যেকোনো অস্বাভাবিক বিষয়ের লগ রাখুন।</li>
+    </ul>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> ভেতরের হুমকি বাইরের হুমকির মতোই বিপজ্জনক। সবার উপর নজর রাখুন, সবার সাথে ন্যায্য ব্যবহার করুন।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">শেলব্যাক মেরিনস সিকিউরিটি এজেন্সি | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">২</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     পৃষ্ঠা ৩ — প্রাতিষ্ঠানিক নিরাপত্তা + অগ্নি + দুর্যোগ
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">প্রথম অংশ — প্রশিক্ষণ বিষয়</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="লোগো">
+      <span class="rh-right">নিরাপত্তা পরিস্থিতি ও সংস্থার ভূমিকা</span>
+    </div>
+
+    <h3 class="sub">(গ) প্রাতিষ্ঠানিক নিরাপত্তা</h3>
+    <p>প্রাতিষ্ঠানিক নিরাপত্তা মানে হাসপাতাল, স্কুল, ব্যাংক, কারখানা এবং সরকারি অফিসের মতো ভবন ও সুবিধা রক্ষা করা।</p>
+
+    <div class="img-grid-3">
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=200&h=120&q=70&auto=format&fit=crop" alt="হাসপাতাল নিরাপত্তা">
+        <div class="img-caption">হাসপাতাল নিরাপত্তা পোস্ট</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=200&h=120&q=70&auto=format&fit=crop" alt="ব্যাংক নিরাপত্তা">
+        <div class="img-caption">ব্যাংক প্রবেশ নিয়ন্ত্রণ</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=200&h=120&q=70&auto=format&fit=crop" alt="কারখানা নিরাপত্তা">
+        <div class="img-caption">শিল্প সাইট গার্ড</div>
+      </div>
+    </div>
+
+    <ul>
+      <li>প্রতিটি প্রতিষ্ঠানের নিজস্ব নিয়ম রয়েছে। আপনি যে সাইটে পোস্টেড সেখানকার নির্দিষ্ট নিয়মগুলি শিখুন।</li>
+      <li>ভবনের সকল প্রবেশ ও বাহির পথ, অগ্নিনির্গমন পথ, অগ্নি নির্বাপক যন্ত্র এবং প্রাথমিক চিকিৎসা বাক্সের অবস্থান জানুন।</li>
+      <li>সাইট ইন-চার্জ, HSE অফিসার এবং জরুরি যোগাযোগের নম্বর জানুন।</li>
+      <li><strong>হাসপাতালের জন্য:</strong> শান্তি বজায় রাখুন, রোগী ও দর্শনার্থীদের ভদ্রভাবে সহায়তা করুন।</li>
+      <li><strong>কারখানার জন্য:</strong> PPE ও নিরাপত্তা বিধি কঠোরভাবে প্রয়োগ করুন।</li>
+      <li><strong>ব্যাংকের জন্য:</strong> লাইনের শৃঙ্খলা বজায় রাখুন, প্রবেশে ব্যাগ পরীক্ষা করুন।</li>
+    </ul>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> যে সাইটে পোস্টেড সেখানকার নিয়ম শিখুন। প্রতিটি ভবন আলাদা — সে অনুযায়ী কাজ করুন।</span>
+    </div>
+
+    <h2 class="sh">বিষয় ২: বেসরকারি নিরাপত্তা সংস্থার ভূমিকা ও কার্যক্রম</h2>
+
+    <h3 class="sub">(ঘ) অগ্নি নির্বাপণ</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=160&q=80&auto=format&fit=crop" alt="অগ্নি নির্বাপক">
+      <div class="img-caption">অগ্নি নির্বাপকের ধরন চিনুন</div>
+    </div>
+
+    <p>প্রতিটি নিরাপত্তা গার্ডকে অগ্নি নিরাপত্তার মৌলিক বিষয় এবং আগুন লাগলে কীভাবে সাড়া দিতে হয় তা জানতে হবে।</p>
+    <p><strong>অগ্নি নির্বাপকের ধরন:</strong></p>
+    <ul>
+      <li><strong>লাল (জল)</strong> — কাগজ, কাঠের আগুনের জন্য</li>
+      <li><strong>হলুদ (শুকনো গুঁড়া)</strong> — বৈদ্যুতিক ও রাসায়নিক আগুনের জন্য</li>
+      <li><strong>সবুজ (CO2)</strong> — বৈদ্যুতিক আগুনের জন্য</li>
+    </ul>
+    <p><strong>অগ্নি নির্বাপক ব্যবহারের পদ্ধতি — PASS মনে রাখুন:</strong></p>
+    <div class="pass-box">
+      <div class="pass-letter">P</div><div class="pass-desc">পিন খুলুন (Pull the pin)</div>
+      <div class="pass-letter">A</div><div class="pass-desc">আগুনের গোড়ায় নির্দেশ করুন (Aim at the base)</div>
+      <div class="pass-letter">S</div><div class="pass-desc">হ্যান্ডেল চাপুন (Squeeze the handle)</div>
+      <div class="pass-letter" style="border-bottom:none;">S</div><div class="pass-desc" style="border-bottom:none;">পাশাপাশি ঘোরান (Sweep side to side)</div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="callout">
+      <p>আগুন বড় হলে — <strong>নিজে নেভানোর চেষ্টা করবেন না।</strong> "আগুন!" বলে চিৎকার করুন, অ্যালার্ম বাজান, দমকল বিভাগে <strong>(101)</strong> ফোন করুন এবং মানুষকে শান্তভাবে বের করুন। আগুনের সময় লিফট ব্যবহার করবেন না — সিঁড়ি ব্যবহার করুন।</p>
+    </div>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> আগুন লাগলে — আগে অ্যালার্ম বাজান, মানুষ বের করুন, তারপর ছোট হলে নেভান।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">শেলব্যাক মেরিনস সিকিউরিটি এজেন্সি | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">৩</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     পৃষ্ঠা ৪ — দুর্যোগ + নিরাপত্তা কর্তব্য + নথি যাচাই
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">প্রথম অংশ — প্রশিক্ষণ বিষয়</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="লোগো">
+      <span class="rh-right">জরুরি ব্যবস্থাপনা ও কর্তব্য</span>
+    </div>
+
+    <h3 class="sub">(ঙ) দুর্যোগ / জরুরি ব্যবস্থাপনা প্রোটোকল</h3>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=794&h=160&q=80&auto=format&fit=crop" alt="জরুরি প্রতিক্রিয়া">
+      <div class="img-caption">জরুরি প্রতিক্রিয়া ও সরিয়ে নেওয়া — প্রতিটি গার্ডকে পদ্ধতি জানতে হবে</div>
+    </div>
+
+    <p>দুর্যোগ প্রাকৃতিক (বন্যা, ভূমিকম্প) বা মানবসৃষ্ট (আগুন, বোমা হুমকি, দুর্ঘটনা) হতে পারে। প্রতিটি গার্ডকে সাড়া দিতে জানতে হবে।</p>
+    <p><strong>মানক জরুরি প্রতিক্রিয়ার ধাপসমূহ:</strong></p>
+    <ol>
+      <li>শান্ত থাকুন। অকারণে দৌড়াবেন বা চিৎকার করবেন না।</li>
+      <li>অ্যালার্ম বাজান — চিৎকার করুন, হুইসেল বাজান বা জরুরি বোতাম চাপুন।</li>
+      <li>অবিলম্বে সুপারভাইজার ও সাইট ইন-চার্জকে জানান।</li>
+      <li>জরুরি সেবায় ফোন করুন: পুলিশ – 100 | দমকল – 101 | অ্যাম্বুলেন্স – 108</li>
+      <li>মানুষকে নিকটতম নিরাপদ বাহির পথ বা সমাবেশ স্থলে নিয়ে যান।</li>
+      <li>কর্তৃপক্ষের অনুমোদন না পাওয়া পর্যন্ত কাউকে ভবনে পুনরায় প্রবেশ করতে দেবেন না।</li>
+      <li>প্রশিক্ষিত হলেই আহত ব্যক্তিদের সহায়তা করুন — অন্যথায় চিকিৎসা সহায়তার জন্য অপেক্ষা করুন।</li>
+      <li>ঘটনার পরে ডিউটি রেজিস্টারে সবকিছু লিখুন।</li>
+    </ol>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> দুর্যোগে ঘাবড়াবেন না — সংকেত দিন, মানুষ বাঁচান, সাহায্য ডাকুন।</span>
+    </div>
+
+    <h3 class="sub">(চ) নিরাপত্তা কর্তব্য</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=300&h=160&q=80&auto=format&fit=crop" alt="গার্ড ডিউটিতে">
+      <div class="img-caption">মূল প্রবেশ গেটে গার্ড</div>
+    </div>
+
+    <ul>
+      <li>সময়মতো ডিউটিতে রিপোর্ট করুন, পূর্ণ ইউনিফর্মে, পরিষ্কার ও উপস্থাপনযোগ্য অবস্থায়।</li>
+      <li>বহির্গামী গার্ডের কাছ থেকে সঠিকভাবে হস্তান্তর নিন। হস্তান্তর রেজিস্টার পড়ুন।</li>
+      <li>আপনার পোস্ট পরীক্ষা করুন — গেট, তালা, আলো, CCTV কাজ করছে কিনা।</li>
+      <li>বৈধ পরিচয়পত্র সহ শুধুমাত্র অনুমোদিত ব্যক্তিদের প্রবেশ দিন।</li>
+      <li>প্রবেশ ও বাহির হওয়া সকল যানবাহন পরীক্ষা করুন।</li>
+      <li>নির্ধারিত সময় অনুযায়ী আপনার এলাকা টহল দিন।</li>
+      <li>সকল রেজিস্টার বজায় রাখুন — দর্শনার্থী, যানবাহন, উপকরণ, উপস্থিতি।</li>
+      <li>রিলিফ ছাড়া পোস্ট ছাড়বেন না।</li>
+      <li>পুরো শিফটে সজাগ ও সতর্ক থাকুন। <strong>ডিউটিতে ঘুমানো গুরুতর অপরাধ।</strong></li>
+    </ul>
+
+    <div class="clearfix"></div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> ডিউটিতে আসুন — ইউনিফর্ম ঠিক রাখুন, রেজিস্টার লিখুন, সজাগ থাকুন, পোস্ট কখনো ছাড়বেন না।</span>
+    </div>
+
+    <h3 class="sub">(ছ) বিভিন্ন নথি যাচাই</h3>
+    <table>
+      <tr><th>নথি</th><th>কখন পরীক্ষা করবেন</th></tr>
+      <tr><td>সরকারি পরিচয়পত্র (আধার, ভোটার কার্ড, ড্রাইভিং লাইসেন্স, পাসপোর্ট)</td><td>প্রবেশের সময় সকল দর্শনার্থীর</td></tr>
+      <tr><td>কোম্পানির আইডি কার্ড</td><td>প্রতিদিন সকল কর্মীর</td></tr>
+      <tr><td>ভিজিটর পাস / গেট পাস</td><td>সকল বহিরাগতের</td></tr>
+      <tr><td>যানবাহন প্রবেশ পাস</td><td>সকল যানবাহনের</td></tr>
+      <tr><td>ডেলিভারি চালান</td><td>সকল উপকরণ চলাচলে</td></tr>
+      <tr><td>ওয়ার্ক অর্ডার / পারমিট</td><td>ঠিকাদার ও বিক্রেতাদের</td></tr>
+    </table>
+    <p>আইডির ছবি দেখুন এবং সামনের ব্যক্তির সাথে মেলান। কার্ডের নাম, পদবি এবং মেয়াদ পরীক্ষা করুন। কোনো নথি পরিবর্তিত বা অস্পষ্ট দেখালে — প্রবেশ দেবেন না। অবিলম্বে রিপোর্ট করুন।</p>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> আইডি দেখুন, ছবি মেলান, রেজিস্টারে লিখুন — তারপর প্রবেশ দিন।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">শেলব্যাক মেরিনস সিকিউরিটি এজেন্সি | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">৪</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     পৃষ্ঠা ৫ — দ্বিতীয় অংশ: নিরাপত্তা বিষয়
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">দ্বিতীয় অংশ — নিরাপত্তা বিষয়</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="লোগো">
+      <span class="rh-right">তথ্য সুরক্ষা · প্রবেশ নিয়ন্ত্রণ · বিস্ফোরক</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">২</span>
+      <div><span class="pd-text">নিরাপত্তা বিষয়সমূহ</span><span class="pd-sub">তথ্য সুরক্ষা · প্রবেশ নিয়ন্ত্রণ · IED · ASC · সরঞ্জাম · যোগাযোগ · টহল · পোস্ট ডিউটি</span></div>
+    </div>
+
+    <h3 class="sub">(জ) তথ্য সুরক্ষা</h3>
+    <p>তথ্য সুরক্ষা মানে আপনার সাইট, ক্লায়েন্ট বা এজেন্সি সম্পর্কিত সকল ডেটা, নথি, রেকর্ড এবং কথোপকথন অননুমোদিত ব্যক্তিদের কাছ থেকে রক্ষা করা।</p>
+    <ul>
+      <li>ক্লায়েন্টের বিবরণ — তাদের ব্যবসা, কার্যক্রম, বিন্যাস বা নিরাপত্তা ব্যবস্থা — প্রতিষ্ঠানের বাইরে কারো সাথে আলোচনা করবেন না।</li>
+      <li>সাইট ইন-চার্জ বিশেষভাবে অনুমোদন না করলে সাইটের ভেতরে ছবি তুলবেন না।</li>
+      <li>CCTV ফুটেজ, প্রবেশ রেকর্ড, দর্শনার্থী লগ বা যেকোনো রেজিস্টার ডেটা বাইরের কারো সাথে শেয়ার করবেন না।</li>
+      <li>সিনিয়র অফিসার, টহলের পথ, শিফটের সময় বা গার্ড মোতায়েন সম্পর্কে কোনো তথ্য অপরিচিতদের সাথে শেয়ার করবেন না।</li>
+      <li>কেউ সাইট সম্পর্কে আপনার কাছ থেকে তথ্য সংগ্রহ করার চেষ্টা করলে — অবিলম্বে সুপারভাইজারকে জানান।</li>
+      <li>সকল রেজিস্টার ও নথি নিরাপদ স্থানে রাখুন। অরক্ষিত রেখে যাবেন না।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> কাজের কথা — কাজের মধ্যেই থাকুক। বাইরে কাউকে কিছু বলবেন না।</span>
+    </div>
+
+    <h3 class="sub">(ঝ) প্রবেশ নিয়ন্ত্রণ</h3>
+
+    <div class="img-grid-2">
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=140&q=70&auto=format&fit=crop" alt="আইডি কার্ড যাচাই">
+        <div class="img-caption">প্রবেশে আইডি কার্ড যাচাই</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1597452485595-b07d96de6f1d?w=300&h=140&q=70&auto=format&fit=crop" alt="CCTV পর্যবেক্ষণ">
+        <div class="img-caption">CCTV পর্যবেক্ষিত প্রবেশ পয়েন্ট</div>
+      </div>
+    </div>
+
+    <ul>
+      <li>প্রতিটি প্রবেশ ও বাহির In-Out রেজিস্টারে নাম, সময়, আইডি নম্বর এবং স্বাক্ষর সহ লগ করতে হবে।</li>
+      <li>সঠিক অনুমতি ছাড়া কেউ সীমাবদ্ধ এলাকায় প্রবেশ করতে পারবে না।</li>
+      <li><strong>টেইলগেটিং</strong> — যখন একজন ব্যক্তি পৃথক যাচাই ছাড়া অন্যের পিছু পিছু প্রবেশ করে — কঠোরভাবে নিষিদ্ধ।</li>
+      <li>সমস্ত যানবাহন গেটে পরীক্ষা করতে হবে — কেবিন, বুট এবং প্রয়োজনে চ্যাসির নিচে।</li>
+      <li>ঠিকাদার কর্মীদের জন্য: আলাদা ঠিকাদার রেজিস্টার রাখুন। প্রতিদিন ওয়ার্ক পারমিট পরীক্ষা করুন।</li>
+      <li>কাজের সময়ের পরে, সিনিয়র অফিসারের লিখিত অনুমোদন ছাড়া কাউকে ভেতরে যেতে দেওয়া যাবে না।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> এক আইডি — এক প্রবেশ। টেইলগেটিং বন্ধ করা আপনার দায়িত্ব।</span>
+    </div>
+
+    <h3 class="sub">(ঞ) বিস্ফোরক ও IED (ইম্প্রোভাইজড এক্সপ্লোসিভ ডিভাইস)</h3>
+    <p>IED হলো সহজলভ্য উপকরণ দিয়ে তৈরি হাতে বানানো বোমা। এগুলি সন্ত্রাসী ও অসামাজিক উপাদান দ্বারা ক্ষতি করতে ব্যবহৃত হয়।</p>
+    <p><strong>সন্দেহজনক বস্তু কীভাবে চিহ্নিত করবেন:</strong></p>
+    <ul>
+      <li>পাবলিক এলাকায় ফেলে রাখা ব্যাগ, বাক্স বা প্যাকেজ।</li>
+      <li>তার, ব্যাটারি বা কোনো বস্তু থেকে অস্বাভাবিক গন্ধ।</li>
+      <li>আপনার শেষ রাউন্ডে যা ছিল না এমন বস্তু।</li>
+      <li>অস্বাভাবিক জায়গায় দীর্ঘ সময় ধরে পার্ক করা যানবাহন।</li>
+    </ul>
+    <div class="callout">
+      <p><strong>সন্দেহজনক বস্তু পেলে:</strong> বস্তুটি স্পর্শ করবেন না, সরাবেন না বা খোলার চেষ্টা করবেন না। এলাকা অবিলম্বে পরিষ্কার করুন — সবাইকে কমপক্ষে ১০০ মিটার দূরে সরান। অবিলম্বে পুলিশ: <strong>100</strong> এ কল করুন। বোমা নিষ্ক্রিয়করণ দলের জন্য অপেক্ষা করুন।</p>
+    </div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> কোনো বস্তু সন্দেহজনক হলে — স্পর্শ করবেন না, এলাকা পরিষ্কার করুন, পুলিশ ডাকুন।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">শেলব্যাক মেরিনস সিকিউরিটি এজেন্সি | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">৫</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     পৃষ্ঠা ৬ — ASC + সরঞ্জাম + যোগাযোগ + টহল + পোস্ট
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">দ্বিতীয় অংশ — নিরাপত্তা বিষয়</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="লোগো">
+      <span class="rh-right">ASC · সরঞ্জাম · টহল · পোস্ট ডিউটি</span>
+    </div>
+
+    <h3 class="sub">(ট) অ্যান্টি স্যাবোটাজ চেক (ASC)</h3>
+    <p>অ্যান্টি স্যাবোটাজ চেক হলো নিয়মিত তল্লাশি যা নিশ্চিত করে যে প্রাঙ্গণের ভেতরে কোনো বিপজ্জনক বস্তু বা অননুমোদিত উপকরণ রাখা হয়নি। যেকোনো ভিআইপি সফরের আগে, গুরুত্বপূর্ণ অনুষ্ঠানের আগে, প্রতিটি শিফটের শুরুতে এবং সন্দেহজনক কার্যকলাপ রিপোর্ট হলে ASC পরিচালনা করুন।</p>
+    <ul>
+      <li>পুরো এলাকায় পদ্ধতিগতভাবে হাঁটুন — ঘর থেকে ঘরে, তলা থেকে তলায়।</li>
+      <li>টেবিলের নিচে, চেয়ারের পিছনে, পর্দার আড়ালে, ডাস্টবিনের ভেতরে এবং ফলস সিলিংয়ে পরীক্ষা করুন।</li>
+      <li>সমস্ত টয়লেট, স্টোর রুম এবং রক্ষণাবেক্ষণ এলাকা পরীক্ষা করুন।</li>
+      <li>অপরিচিত ব্যাগ, বাক্স, প্যাকেজ বা বস্তু খুঁজুন।</li>
+      <li>বৈদ্যুতিক বোর্ড ও জাংশন বাক্স অনুপ্রবেশের জন্য পরীক্ষা করুন।</li>
+      <li>যেকোনো বস্তু যা সেখানে থাকার কথা নয় — রিপোর্ট করুন এবং <strong>স্পর্শ করবেন না।</strong></li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> ASC করুন — চোখ খোলা রেখে, প্রতিটি কোণ পরীক্ষা করুন। অচেনা কিছু দেখলে স্পর্শ করবেন না।</span>
+    </div>
+
+    <h3 class="sub">(ঠ) নিরাপত্তা সংক্রান্ত সরঞ্জাম &amp; (ড) যোগাযোগ সরঞ্জাম</h3>
+
+    <div class="img-grid-2">
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=110&q=70&auto=format&fit=crop" alt="HHMD">
+        <div class="img-caption">হ্যান্ডহেল্ড মেটাল ডিটেক্টর (HHMD)</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1580745294621-09af2ced30a3?w=300&h=110&q=70&auto=format&fit=crop" alt="ওয়াকি-টকি">
+        <div class="img-caption">ওয়াকি-টকি / টু-ওয়ে রেডিও</div>
+      </div>
+    </div>
+
+    <ul>
+      <li><strong>HHMD:</strong> শরীরের উপর ধীরে চালান — সামনে, পিছনে, পাশে এবং পায়ে। বিপ শব্দ হলে ভদ্রভাবে তদন্ত করুন। ব্যাটারি চার্জ রাখুন।</li>
+      <li><strong>DFMD:</strong> একবারে একজনই যেতে পারবেন। ব্যক্তিদের এটি এড়িয়ে যেতে দেবেন না।</li>
+      <li><strong>টর্চ:</strong> রাতের ডিউটিতে সর্বদা একটি কার্যকর টর্চ বহন করুন।</li>
+      <li><strong>লাঠি:</strong> শুধুমাত্র আত্মরক্ষা এবং প্রতিরোধের জন্য। ন্যায্যতা ছাড়া ব্যবহার ফৌজদারি অপরাধ।</li>
+      <li><strong>ওয়াকি-টকি:</strong> সর্বদা চার্জ করা ও চালু রাখুন। স্পষ্ট ও ধীরে কথা বলুন। উদাহরণ: "গেট ১ থেকে কন্ট্রোল রুম — ওভার।"</li>
+      <li><strong>মোবাইল ফোন:</strong> শুধুমাত্র সরাসরি কলের জন্য। ডিউটিতে সামাজিক মিডিয়া ব্রাউজ করবেন না।</li>
+      <li><strong>জরুরি অ্যালার্ম বোতাম:</strong> শুধুমাত্র প্রকৃত জরুরি অবস্থায় চাপুন। মিথ্যা অ্যালার্ম গুরুতর অপরাধ।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> সরঞ্জাম প্রস্তুত রাখুন এবং সঠিকভাবে ব্যবহার করুন। কথা বলুন — স্পষ্ট, সংক্ষিপ্ত ও প্রাসঙ্গিক।</span>
+    </div>
+
+    <h3 class="sub">(ঢ) টহল (পেট্রোলিং) &amp; (ণ) পোস্ট ডিউটি</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1508856028117-89a28a12df56?w=300&h=160&q=80&auto=format&fit=crop" alt="রাতের টহল">
+      <div class="img-caption">রাতে পরিধি টহল</div>
+    </div>
+
+    <p><strong>টহল:</strong> স্থায়ী পথ টহল বা এলোমেলো টহল (পূর্বানুমানযোগ্যতা রোধে সময় ও পথ পরিবর্তন করুন)। সর্বদা টর্চ (রাতে), রেডিও এবং রেজিস্টার বহন করুন। সমস্ত দরজা, জানালা, তালা এবং গেট পরীক্ষা করুন। অগ্নি বিপদ এবং অননুমোদিত ব্যক্তিদের খুঁজুন।</p>
+    <p><strong>পোস্ট ডিউটি নিয়ম:</strong></p>
+    <ul>
+      <li>শিফট শুরুর ১০ মিনিট আগে পোস্টে পৌঁছান।</li>
+      <li>সঠিক হস্তান্তর নিন। আগের গার্ডের সমস্ত নোট পড়ুন।</li>
+      <li>পোস্টে থাকা অবস্থায় খাবেন না, ঘুমাবেন না বা ব্যক্তিগত কলে ফোন ব্যবহার করবেন না।</li>
+      <li>রিলিফ গার্ড না আসা পর্যন্ত কোনো কারণে পোস্ট ছাড়বেন না।</li>
+      <li>শিফটের শেষে: আগত গার্ডকে সম্পূর্ণ ব্রিফ করুন, হস্তান্তর রেজিস্টারে স্বাক্ষর করুন, সকল চাবি ও সরঞ্জাম হস্তান্তর করুন।</li>
+    </ul>
+
+    <div class="clearfix"></div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> টহল দিন — চোখ খোলা রাখুন, সব পরীক্ষা করুন, সব রেকর্ড করুন। পোস্ট ছাড়া = দায়িত্ব ভাঙা। রিলিফ না আসা পর্যন্ত এখানেই থাকুন।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">শেলব্যাক মেরিনস সিকিউরিটি এজেন্সি | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">৬</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     পৃষ্ঠা ৭ — তৃতীয় অংশ আইনি বিধান + চতুর্থ অংশ ব্যবস্থাপনা
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">তৃতীয় অংশ — আইনি বিধান</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="লোগো">
+      <span class="rh-right">PSARA ২০০৫ · শ্রম আইন</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">৩</span>
+      <div><span class="pd-text">আইনি বিধান</span><span class="pd-sub">PSARA ২০০৫ · শ্রম আইন · আপনার অধিকার</span></div>
+    </div>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=300&h=170&q=80&auto=format&fit=crop" alt="আইনি">
+      <div class="img-caption">PSARA — আমাদের কাজের আইন</div>
+    </div>
+
+    <h3 class="sub">(ত) বেসরকারি নিরাপত্তা সংস্থা (নিয়ন্ত্রণ) আইন, ২০০৫ — PSARA</h3>
+    <p>PSARA হলো ভারতের কেন্দ্রীয় আইন যা সমস্ত বেসরকারি নিরাপত্তা সংস্থা নিয়ন্ত্রণ করে। এই আইনটি ২০০৫ সালে সংসদ পাস করেছে।</p>
+    <p><strong>কে নিরাপত্তা গার্ড হতে পারবেন:</strong> শুধুমাত্র ভারতীয় নাগরিক | বয়স: ১৮–৬৫ বছর | নৈতিক অধঃপতন সংক্রান্ত অপরাধে দোষী নয় | শারীরিক ও মানসিকভাবে সুস্থ | ন্যূনতম প্রশিক্ষণ সম্পন্ন।</p>
+    <p><strong>এজেন্সিকে যা করতে হবে:</strong> রাজ্য সরকারের লাইসেন্স প্রাপ্তি | মোতায়েনের আগে প্রশিক্ষণ | ন্যূনতম মজুরি প্রদান | ইউনিফর্ম, আইডি কার্ড এবং নিয়োগ পত্র প্রদান | সকল গার্ডের রেকর্ড বজায় রাখা।</p>
+    <p><strong>গার্ডকে যা করতে হবে:</strong> ডিউটিতে সর্বদা পরিচয়পত্র বহন | অনুমোদিত ইউনিফর্ম পরিধান | মদ বা মাদকের প্রভাবে ডিউটিতে না আসা | সর্বদা পেশাদার ও আইনগতভাবে আচরণ।</p>
+    <p><strong>শাস্তি:</strong> লাইসেন্স ছাড়া পরিচালনা: সর্বোচ্চ ১ বছর কারাদণ্ড এবং/অথবা ২৫,০০০ টাকা জরিমানা।</p>
+    <p>শেলব্যাক মেরিনস লাইসেন্স নম্বর <strong>W.B – 55/WB/PSA/2025</strong> ধারণ করে, পশ্চিমবঙ্গ সরকার কর্তৃক জারি করা।</p>
+
+    <div class="clearfix"></div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> PSARA আমাদের কাজের আইন — লাইসেন্স বাধ্যতামূলক, প্রশিক্ষণ বাধ্যতামূলক, নিয়ম মানুন।</span>
+    </div>
+
+    <h3 class="sub">(থ) প্রাসঙ্গিক শ্রম আইন — আপনার অধিকার</h3>
+    <table>
+      <tr><th>আইন</th><th>আপনার জন্য যা মানে</th></tr>
+      <tr><td><strong>ন্যূনতম মজুরি আইন, ১৯৪৮</strong></td><td>সরকার নির্ধারিত ন্যূনতম মজুরি পাওয়ার অধিকার। সঠিক পরিমাণ না পেলে শ্রম বিভাগে অভিযোগ করুন।</td></tr>
+      <tr><td><strong>EPF আইন, ১৯৫২</strong></td><td>মূল বেতনের ১২% কর্মচারী + ১২% নিয়োগকর্তা PF অ্যাকাউন্টে। অবসর বা জরুরি অবস্থায় পাওয়া যায়।</td></tr>
+      <tr><td><strong>ESI আইন, ১৯৪৮</strong></td><td>মজুরি ২১,০০০ টাকার নিচে হলে আপনি ও পরিবার ESI হাসপাতালে বিনামূল্যে চিকিৎসা পাবেন।</td></tr>
+      <tr><td><strong>গ্র্যাচুইটি আইন, ১৯৭২</strong></td><td>৫ বছরের সেবার পরে: ১৫ দিনের বেতন × সেবার বছর। পদত্যাগ বা অবসরে পরিশোধযোগ্য।</td></tr>
+      <tr><td><strong>কারখানা আইন</strong></td><td>নিরাপদ কাজের পরিবেশ আপনার আইনগত অধিকার। একক শিফটে ১২ ঘন্টার বেশি কাজ করানো যাবে না।</td></tr>
+    </table>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> আইন আপনাকেও রক্ষা করে — আপনার অধিকার জানুন এবং দাবি করুন।</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">৪</span>
+      <div><span class="pd-text">নিরাপত্তা সংস্থার ব্যবস্থাপনা</span><span class="pd-sub">ইউনিফর্ম · প্রশিক্ষণ · নথিপত্র · ডেটা প্রোটোকল</span></div>
+    </div>
+
+    <h3 class="sub">(দ) ইউনিফর্ম মানদণ্ড</h3>
+    <ul>
+      <li>ডিউটির সময় সর্বদা সম্পূর্ণ ইউনিফর্ম পরতে হবে — পরিষ্কার, ইস্ত্রি করা এবং দাগ বা ছেঁড়া মুক্ত।</li>
+      <li>জুতা পালিশ করা ও পরিষ্কার। ক্যাপ সঠিকভাবে পরুন — সোজা, কাত করা নয়। বেল্ট সঠিকভাবে বাঁধুন।</li>
+      <li>আইডি কার্ড সর্বদা বুকে দৃশ্যমানভাবে পরতে হবে।</li>
+      <li>চুল পরিষ্কারভাবে কাটা ও আঁচড়ানো। ব্যবস্থাপনার অনুমোদন ছাড়া অপরিচ্ছন্ন দাড়ি নয়।</li>
+      <li>ডিউটিতে কোনো গহনা বা সাধারণ পোশাক পরা যাবে না। ইউনিফর্ম এজেন্সির সম্পদ।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> ইউনিফর্ম = সম্মান। পরিষ্কার, সঠিক, সম্পূর্ণ — এটাই আপনার পরিচয়।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">শেলব্যাক মেরিনস সিকিউরিটি এজেন্সি | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">৭</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     পৃষ্ঠা ৮ — প্রশিক্ষণ + রেকর্ড + পঞ্চম-ষষ্ঠ অংশ
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">চতুর্থ-ষষ্ঠ অংশ — ব্যবস্থাপনা · সম্পর্ক · আচরণ বিধি</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="লোগো">
+      <span class="rh-right">নথিপত্র · জনগণ · পুলিশ · করণীয় ও অকরণীয়</span>
+    </div>
+
+    <h3 class="sub">(ধ) কর্মীদের প্রশিক্ষণ &amp; (ন) রেকর্ড বজায় রাখা</h3>
+    <p>PSARA অনুযায়ী, প্রশিক্ষণ ঐচ্ছিক নয় — এটি বাধ্যতামূলক। <strong>ন্যূনতম প্রশিক্ষণের মেয়াদ: ৬ কার্যদিবস।</strong> পর্যায়ক্রমিক রিফ্রেশার প্রশিক্ষণ পরিচালিত হবে। আপনার প্রশিক্ষণ সার্টিফিকেট নিরাপদে রাখুন।</p>
+    <p><strong>প্রতিটি পোস্টে বজায় রাখার রেজিস্টারসমূহ:</strong></p>
+    <table>
+      <tr><th>রেজিস্টার</th><th>উদ্দেশ্য</th></tr>
+      <tr><td>দর্শনার্থী রেজিস্টার</td><td>সকল দর্শনার্থী — নাম, আইডি, উদ্দেশ্য, প্রবেশ-বাহির সময়</td></tr>
+      <tr><td>যানবাহন রেজিস্টার</td><td>সকল যানবাহন — নম্বর প্লেট, চালক, উদ্দেশ্য, প্রবেশ-বাহির সময়</td></tr>
+      <tr><td>উপকরণ In-Out রেজিস্টার</td><td>সকল পণ্য — চালান নম্বর, আইটেম, পরিমাণ, অনুমোদন</td></tr>
+      <tr><td>ডিউটি/উপস্থিতি রেজিস্টার</td><td>গার্ডের নাম, শিফট, প্রবেশ-বাহির সময়, স্বাক্ষর</td></tr>
+      <tr><td>ঘটনা / অকারেন্স বই</td><td>যেকোনো ঘটনা, অভিযোগ বা অস্বাভাবিক ঘটনা</td></tr>
+      <tr><td>ASC রেজিস্টার</td><td>অ্যান্টি স্যাবোটাজ চেকের রেকর্ড</td></tr>
+      <tr><td>চাবি রেজিস্টার</td><td>চাবি ইস্যু ও ফেরত</td></tr>
+      <tr><td>ঠিকাদার রেজিস্টার</td><td>ঠিকাদার কর্মীদের প্রবেশ ও বাহির</td></tr>
+    </table>
+    <p>কলম ব্যবহার করুন — পেন্সিল নয়। হোয়াইটনার ব্যবহার করবেন না। কোনো কলাম খালি রাখবেন না — 'Nil' লিখুন। রেজিস্টার ন্যূনতম ১ বছর সংরক্ষণ করতে হবে।</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> যা ঘটেছে, রেকর্ড করুন। যা রেকর্ড হয়েছে, সত্য হোক। রেজিস্টার মিথ্যা বলে না।</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">৫</span>
+      <div><span class="pd-text">জনগণ, পুলিশ ও অন্যান্য বিভাগের সাথে সম্পর্ক</span><span class="pd-sub">আচরণ · পুলিশ সম্পর্ক · সরকারি বিভাগ</span></div>
+    </div>
+
+    <p><strong>সোনালি নিয়ম: দৃঢ় কিন্তু ভদ্র। কঠোর কিন্তু সম্মানজনক।</strong></p>
+    <p>দর্শনার্থীদের সম্মানজনক নমস্কার দিয়ে স্বাগত জানান। ভদ্রভাবে আইডি চান: "স্যার/ম্যাডাম, আপনার আইডি দেখতে পারি কি?" দর্শনার্থীদের প্রশ্ন শুনুন এবং সঠিকভাবে গাইড করুন। বয়স্ক ও প্রতিবন্ধী ব্যক্তিদের সহায়তা করুন। দর্শনার্থীদের সাথে গলা তুলবেন না বা তর্ক করবেন না। উপহার, অর্থ বা খাবার গ্রহণ করবেন না।</p>
+    <p><strong>পুলিশের সাথে:</strong> স্থানীয় থানার নাম, নম্বর এবং বিট কনস্টেবলের বিবরণের লিখিত রেকর্ড রাখুন। জরুরি অবস্থায় অবিলম্বে 100 এ কল করুন। পরিদর্শনে এলে পূর্ণ সহযোগিতা করুন। গুরুতর ঘটনার জন্য FIR দাখিল করুন — চুরি, হামলা, সন্দেহজনক বস্তু।</p>
+    <p><strong>সরকারি পরিদর্শকদের সাথে:</strong> ভদ্র ও সহযোগী থাকুন। অনুমোদিত সরকারি পরিদর্শকদের প্রবেশ অস্বীকার করবেন না।</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> সম্মান দিন, সম্মান নিন। সরকারি বিভাগ ও পুলিশের সাথে মিলে কাজ করুন — তারা শত্রু নয়, সহযোগী।</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">৬</span>
+      <div><span class="pd-text">আচরণ বিধি — করণীয় ও অকরণীয়</span><span class="pd-sub">শেলব্যাক মেরিনস নিরাপত্তা গার্ডের দৈনিক আচরণবিধি</span></div>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="box-header">✓ &nbsp; করণীয় — অবশ্যই করতে হবে</div>
+        <div class="box-body">
+          <ul>
+            <li>সময়মতো ডিউটিতে রিপোর্ট করুন, সঠিক ইউনিফর্মে, আইডি কার্ড সহ।</li>
+            <li>পুরো শিফটে সজাগ ও সতর্ক থাকুন।</li>
+            <li>সকলকে সম্মানের সাথে ব্যবহার করুন।</li>
+            <li>সকল ব্যক্তি, যানবাহন ও উপকরণ ব্যতিক্রম ছাড়াই পরীক্ষা করুন।</li>
+            <li>সকল ডিউটি রেজিস্টার নির্ভুলভাবে বজায় রাখুন।</li>
+            <li>প্রতিটি ঘটনা অবিলম্বে রিপোর্ট করুন।</li>
+            <li>নির্ধারিত সময়সূচি অনুযায়ী টহল দিন ও রেকর্ড করুন।</li>
+            <li>প্রতিটি শিফট পরিবর্তনে সঠিক হস্তান্তর নিন।</li>
+            <li>পুলিশ ও সরকারি বিভাগের সাথে পূর্ণ সহযোগিতা করুন।</li>
+            <li>ক্লায়েন্টের সম্পদ নিজের সম্পদের মতো রক্ষা করুন।</li>
+            <li>সরঞ্জাম — রেডিও, টর্চ, HHMD — চার্জ ও কার্যকর রাখুন।</li>
+            <li>জরুরি নম্বর জানুন: 100 | 101 | 108।</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dont-box">
+        <div class="box-header">✗ &nbsp; অকরণীয় — কখনো করা যাবে না</div>
+        <div class="box-body">
+          <ul>
+            <li>কখনো ঘুমাবেন না বা ডিউটিতে অমনোযোগী হবেন না।</li>
+            <li>রিলিফ গার্ড না আসা পর্যন্ত কখনো পোস্ট ছাড়বেন না।</li>
+            <li>কখনো মদ বা মাদকের প্রভাবে ডিউটিতে আসবেন না।</li>
+            <li>কখনো ঘুষ, উপহার বা সুবিধা গ্রহণ করবেন না।</li>
+            <li>কখনো অননুমোদিত ব্যক্তিদের প্রবেশ করতে দেবেন না।</li>
+            <li>প্রকৃত আত্মরক্ষা ছাড়া কখনো শারীরিক বল প্রয়োগ করবেন না।</li>
+            <li>কখনো অপমানজনক ভাষা ব্যবহার করবেন না।</li>
+            <li>কখনো গোপনীয় ক্লায়েন্ট তথ্য শেয়ার করবেন না।</li>
+            <li>কখনো ক্লায়েন্ট বা এজেন্সির সম্পদ নষ্ট করবেন না।</li>
+            <li>কখনো কোনো ঘটনার রিপোর্ট দমন বা বিলম্ব করবেন না।</li>
+            <li>কখনো অবৈধ অস্ত্র বহন করবেন না।</li>
+            <li>ডিউটি সময়ে কখনো সামাজিক মিডিয়া ব্রাউজ করবেন না।</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">শেলব্যাক মেরিনস সিকিউরিটি এজেন্সি | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">৮</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     পৃষ্ঠা ৯ — সপ্তম অংশ: দায়িত্বের পরিধি
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">সপ্তম অংশ — দায়িত্বের পরিধি</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="লোগো">
+      <span class="rh-right">ফ্রিস্কিং · প্রবেশ · আইডি · উপকরণ · নিরাপত্তা · শৃঙ্খলা</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">৭</span>
+      <div><span class="pd-text">দায়িত্বের পরিধি</span><span class="pd-sub">সকল মোতায়েন গার্ডের সাইট-স্তরের কর্তব্যসমূহ</span></div>
+    </div>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=794&h=155&q=80&auto=format&fit=crop" alt="সাইট নিরাপত্তা">
+      <div class="img-caption">ব্যাপক সাইট নিরাপত্তা — প্রতিটি শেলব্যাক মেরিনস গার্ডের দৈনিক দায়িত্ব</div>
+    </div>
+
+    <h3 class="sub">১. ফ্রিস্কিং ও পদার্থ নিয়ন্ত্রণ</h3>
+    <p>ফ্রিস্কিং হলো নিষিদ্ধ আইটেম সনাক্ত করতে কোনো ব্যক্তির শরীর ও জিনিসপত্রের শারীরিক অনুসন্ধান। গুটখা, তামাক, মদ এবং মাদক সাইটে স্বাস্থ্য ও নিরাপত্তা বিপদ তৈরি করে।</p>
+    <ul>
+      <li>ফ্রিস্কিং অবশ্যই ফ্রিস্ক করা ব্যক্তির একই <strong>লিঙ্গের গার্ড</strong> দ্বারা পরিচালিত হতে হবে।</li>
+      <li>ফ্রিস্ক করার আগে ঘোষণা করুন: "স্যার/ম্যাডাম, নিরাপত্তা পরীক্ষা — আমি কি এগিয়ে যেতে পারি?"</li>
+      <li>প্রথমে HHMD ব্যবহার করুন। শুধুমাত্র ডিভাইস সংকেত দিলে শারীরিক প্যাট-ডাউন করুন।</li>
+      <li>ব্যাগ, টিফিন, পকেট এবং প্যাকেজ পরীক্ষা করুন।</li>
+      <li>কোনো নিষিদ্ধ আইটেম পেলে রসিদ ইস্যু ছাড়া বাজেয়াপ্ত করবেন না। আইটেম, ব্যক্তির নাম, সময় ও পদক্ষেপ রেকর্ড করুন।</li>
+    </ul>
+    <p><strong>নিষিদ্ধ আইটেম:</strong> গুটখা, তামাক, পান মসলা | মদ বা নেশাজনক পদার্থ | মাদক (চিকিৎসাগতভাবে ঘোষিত নয়) | ধারালো অস্ত্র বা বিপজ্জনক আইটেম।</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> সম্মানের সাথে এবং নিয়ম মেনে ফ্রিস্ক করুন। কেউ লুকায় না — কেউ ব্যতিক্রম নয়।</span>
+    </div>
+
+    <h3 class="sub">২. প্রবেশ নিয়ন্ত্রণ ও উপস্থিতি</h3>
+    <table>
+      <tr><th>কলাম</th><th>কী লিখবেন</th></tr>
+      <tr><td>নাম</td><td>ব্যক্তির পুরো নাম</td></tr>
+      <tr><td>প্রতিষ্ঠান</td><td>কোম্পানি / বিভাগ</td></tr>
+      <tr><td>আইডির ধরন ও নম্বর</td><td>আধার / কর্মী আইডি / ড্রাইভিং লাইসেন্স — সঠিক নম্বর</td></tr>
+      <tr><td>উদ্দেশ্য</td><td>পরিদর্শনের কারণ</td></tr>
+      <tr><td>প্রবেশ / বাহির সময়</td><td>সঠিক সময় (উভয়)</td></tr>
+      <tr><td>স্বাক্ষর</td><td>ব্যক্তির নিজের স্বাক্ষর — <strong>স্বাক্ষর নেই = প্রবেশ নেই</strong></td></tr>
+    </table>
+    <p>প্রক্সি উপস্থিতি (অন্য গার্ডের জন্য স্বাক্ষর) গুরুতর অপরাধ যা বরখাস্তের দিকে নিয়ে যায়।</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> রেজিস্টারে নাম, সময় ও স্বাক্ষর। স্বাক্ষর ছাড়া — প্রবেশ নেই।</span>
+    </div>
+
+    <h3 class="sub">৩. আইডি যাচাই &nbsp;|&nbsp; ৪. উপকরণ চলাচল নিয়ন্ত্রণ</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=300&h=150&q=80&auto=format&fit=crop" alt="উপকরণ পরীক্ষা">
+      <div class="img-caption">উপকরণ চলাচল গেট পরীক্ষা</div>
+    </div>
+
+    <p><strong>আইডি যাচাইয়ের ধাপ:</strong> ভদ্রভাবে আইডি চান → ছবির সাথে মুখ মেলান → নাম, পদবি ও মেয়াদ পরীক্ষা করুন → অনুপ্রবেশের লক্ষণ খুঁজুন → বৈধ হলে রেজিস্টারে রেকর্ড করুন → সন্দেহজনক হলে সুপারভাইজার ডাকুন।</p>
+    <p><strong>গ্রহণযোগ্য আইডি:</strong> আধার কার্ড | ভোটার আইডি | ড্রাইভিং লাইসেন্স | পাসপোর্ট | কোম্পানির কর্মী আইডি | ঠিকাদার ইস্যু করা ওয়ার্কার পাস।</p>
+    <p><strong>উপকরণ চলাচল:</strong> আগত উপকরণে — ডেলিভারি চালান, ক্রয় আদেশ নম্বর, বাক্স গণনা, সিল পরীক্ষা, যানবাহন নম্বর। বহির্গামী উপকরণে — অনুমোদিত কর্মকর্তা স্বাক্ষরিত গেট পাস। <strong>গেট পাস নেই = কোনো উপকরণ বাহির হবে না।</strong></p>
+
+    <div class="clearfix"></div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> চালান দেখুন, গেট পাস দেখুন, গণনা করুন, রেকর্ড করুন — তারপর যেতে দিন। কাগজ ছাড়া কিছু প্রবেশ-বাহির নেই।</span>
+    </div>
+
+    <h3 class="sub">৫. নিরাপত্তা ও হাউসকিপিং নজরদারি &nbsp;|&nbsp; ৬. শৃঙ্খলা ও সমন্বয়</h3>
+    <ul>
+      <li>কর্মক্ষেত্রে প্রবেশের আগে সকল কর্মী প্রয়োজনীয় PPE পরছেন কিনা নিশ্চিত করুন (হেলমেট, সেফটি শু, রিফ্লেক্টিভ জ্যাকেট, গ্লাভস, গগলস)। PPE লঙ্ঘন নথিভুক্ত করুন।</li>
+      <li>উচ্চ-ঝুঁকির এলাকায় (খনন গর্ত, উঁচু কাজের অঞ্চল, ওয়েল্ডিং এলাকা, বৈদ্যুতিক প্যানেল) সর্বদা ব্যারিকেডিং টেপ, সতর্কতা চিহ্ন এবং শারীরিক বাধা থাকতে হবে।</li>
+      <li>শিফটের শুরুতে প্রাথমিক চিকিৎসা বাক্স দৃশ্যত পরীক্ষা করুন। বাক্স তালাবদ্ধ, খালি বা ক্ষতিগ্রস্ত হলে অবিলম্বে রিপোর্ট করুন।</li>
+      <li>অনিরাপদ কাজ বা পরিস্থিতি — অবিলম্বে HSE অফিসারকে মৌখিক ও লিখিতভাবে রিপোর্ট করুন।</li>
+      <li><strong>অডিটের সময়:</strong> পূর্ণ ইউনিফর্মে থাকুন, সমস্ত রেজিস্টার আপডেট ও উপস্থাপনযোগ্য। কোনো রেকর্ড লুকাবেন না।</li>
+      <li><strong>জরুরি অবস্থায়:</strong> সাইটের জরুরি প্রতিক্রিয়া পরিকল্পনা অনুসরণ করুন। জরুরি যানবাহনের জন্য প্রবেশ/বাহির পথ পরিষ্কার রাখুন। সরিয়ে নেওয়ার সময় সমাবেশ স্থলে হেডকাউন্ট বজায় রাখুন।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="নিয়ম">
+      <span class="rb-text"><em>সহজ নিয়ম:</em> নিরাপত্তাও আপনার দায়িত্ব। কিছু ভুল দেখলে অবিলম্বে জানান। অডিট হোক বা জরুরি অবস্থা — সর্বদা প্রস্তুত, সর্বদা সঠিক।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">শেলব্যাক মেরিনস সিকিউরিটি এজেন্সি | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">৯</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     পৃষ্ঠা ১০ — জরুরি নম্বর + ঘোষণা
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">পরিশিষ্ট ও ঘোষণা</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="লোগো">
+      <span class="rh-right">জরুরি নম্বর · গার্ডের স্বীকৃতি</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num"></span>
+      <div><span class="pd-text">পরিশিষ্ট — দ্রুত রেফারেন্স: জরুরি নম্বরসমূহ</span></div>
+    </div>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=794&h=130&q=80&auto=format&fit=crop" alt="জরুরি অবস্থা">
+      <div class="img-caption">যেকোনো জরুরি অবস্থায় — অবিলম্বে পদক্ষেপ নিন। প্রতিটি মুহূর্ত গুরুত্বপূর্ণ।</div>
+    </div>
+
+    <table class="emergency-table">
+      <tr><th>সেবা</th><th>নম্বর</th></tr>
+      <tr><td>পুলিশ</td><td>100</td></tr>
+      <tr><td>দমকল সেবা</td><td>101</td></tr>
+      <tr><td>অ্যাম্বুলেন্স</td><td>108</td></tr>
+      <tr><td>দুর্যোগ ব্যবস্থাপনা</td><td>1078</td></tr>
+      <tr><td>শেলব্যাক মেরিনস নিয়ন্ত্রণ</td><td>+91 9434127571</td></tr>
+    </table>
+
+    <div class="callout" style="margin-top:20px;">
+      <p><strong>মনে রাখুন:</strong> প্রথমে আপনার সুপারভাইজারকে কল করুন। তারপর জরুরি সেবায় কল করুন। লাইনে থাকুন। আপনার অবস্থান, নাম এবং কী ঘটেছে তা জানান। নির্দেশ না পেলে ঘটনাস্থল ছাড়বেন না।</p>
+    </div>
+
+    <div class="part-divider" style="margin-top:30px;">
+      <span class="pd-num"></span>
+      <div><span class="pd-text">গার্ডের ঘোষণা ও স্বীকৃতি</span></div>
+    </div>
+
+    <div class="declaration-block">
+      <p>আমি, <span style="display:inline-block;width:200px;border-bottom:1px solid #888;">&nbsp;</span> (নাম), গার্ড আইডি নম্বর <span style="display:inline-block;width:130px;border-bottom:1px solid #888;">&nbsp;</span>, এতদ্বারা নিশ্চিত করি যে আমি এই বিধি পুস্তিকার বিষয়বস্তু পড়েছি / বোঝানো হয়েছে।</p>
+      <p>আমি <strong>শেলব্যাক মেরিনস সিকিউরিটি এজেন্সির</strong> একজন পেশাদার নিরাপত্তা গার্ড হিসেবে আমার দায়িত্ব, কর্তব্য এবং আমার কাছে প্রত্যাশিত আচরণ বুঝি।</p>
+      <p>আমি এই পুস্তিকায় বর্ণিত সকল নিয়ম মেনে চলতে এবং সর্বদা <strong>শৃঙ্খলা, সততা ও পেশাদারিত্বের</strong> সাথে আচরণ করতে সম্মত।</p>
+
+      <div class="sig-row">
+        <div>
+          <div class="sig-field"></div>
+          <div class="sig-label">গার্ডের স্বাক্ষর</div>
+        </div>
+        <div>
+          <div class="sig-field"></div>
+          <div class="sig-label">তারিখ</div>
+        </div>
+        <div>
+          <div class="sig-field"></div>
+          <div class="sig-label">পোস্ট / সাইটের নাম</div>
+        </div>
+        <div>
+          <div class="sig-field"></div>
+          <div class="sig-label">সুপারভাইজারের স্বাক্ষর</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">শেলব্যাক মেরিনস সিকিউরিটি এজেন্সি | W.B – 55/WB/PSA/2025 | জলপাইগুড়ি, পশ্চিমবঙ্গ</span>
+    <span class="pf-num">১০</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     পেছনের প্রচ্ছদ
+============================================================ -->
+<div class="page back-cover">
+  <div class="bc-stripe-top"></div>
+  <div class="bc-stripe-bottom"></div>
+
+  <div class="bc-logo">
+    <!-- আপনার আসল লোগো দিয়ে প্রতিস্থাপন করুন -->
+    <img src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=200&h=200&q=80&auto=format&fit=crop" alt="শেলব্যাক মেরিনস লোগো">
+  </div>
+
+  <div class="bc-title">শেলব্যাক মেরিনস<br>সিকিউরিটি এজেন্সি</div>
+  <div class="bc-tagline">"নিরাপত্তার বিশ্বস্ত অভিভাবক"</div>
+
+  <div class="bc-divider"></div>
+
+  <div class="bc-info">
+    <strong>লাইসেন্স নম্বর: W.B – 55/WB/PSA/2025</strong><br>
+    পশ্চিমবঙ্গ সরকার কর্তৃক জারি করা<br><br>
+    উদলাবাড়ি বিধানপল্লী, পিও মানাবাড়ি<br>
+    জেলা জলপাইগুড়ি, পশ্চিমবঙ্গ – ৭৩৫২২২<br><br>
+    <strong>+91 9434127571</strong><br>
+    contact@shellbackmarines.in<br>
+    www.shellbackmarines.in<br><br><br>
+    বেসরকারি নিরাপত্তা সংস্থা (নিয়ন্ত্রণ) আইন, ২০০৫<br>
+    এবং পশ্চিমবঙ্গ রাজ্য বিধিমালা অনুযায়ী প্রণীত।
+  </div>
+</div>
+
+</div><!-- end .book -->
+</body>
+</html>

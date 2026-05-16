@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>शेलबैक मेरिन्स — सुरक्षा नियम पुस्तिका</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700;900&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0B2545;
+  --navy-mid: #163872;
+  --gold: #C9973A;
+  --gold-light: #E8BE6A;
+  --cream: #FAF7F2;
+  --cream-dark: #F0EBE1;
+  --text: #1C1C1C;
+  --text-mid: #3A3A3A;
+  --text-light: #666;
+  --rule-bg: #FFF8E7;
+  --page-w: 794px;
+}
+
+body {
+  background: #C8C8C8;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 11.5px;
+  color: var(--text);
+  line-height: 1.9;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.book {
+  width: var(--page-w);
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.page {
+  width: var(--page-w);
+  min-height: 1123px;
+  background: var(--cream);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.35);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--navy) 50%, var(--gold) 100%);
+}
+
+/* ===== COVER ===== */
+.cover-page {
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  min-height: 1123px;
+  position: relative;
+  overflow: hidden;
+}
+.cover-page::before { display: none; }
+
+.cover-page .corner-tl, .cover-page .corner-br,
+.cover-page .corner-tr, .cover-page .corner-bl {
+  position: absolute;
+  width: 120px; height: 120px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.6;
+}
+.cover-page .corner-tl { top: 24px; left: 24px; border-width: 2px 0 0 2px; }
+.cover-page .corner-br { bottom: 24px; right: 24px; border-width: 0 2px 2px 0; }
+.cover-page .corner-tr { top: 24px; right: 24px; border-width: 2px 2px 0 0; }
+.cover-page .corner-bl { bottom: 24px; left: 24px; border-width: 0 0 2px 2px; }
+
+.cover-hero {
+  width: 100%; height: 340px;
+  object-fit: cover; object-position: center 30%;
+  display: block; opacity: 0.35;
+  position: absolute; top: 0; left: 0;
+}
+
+.cover-stripe-top {
+  width: 100%; height: 7px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  position: absolute; top: 0; left: 0;
+}
+.cover-stripe-bottom {
+  width: 100%; height: 7px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  position: absolute; bottom: 0; left: 0;
+}
+
+.cover-inner {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center;
+  padding: 60px 60px 50px;
+  height: 100%;
+}
+
+.cover-logo {
+  width: 130px; height: 130px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,0.05);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 30px rgba(201,151,58,0.3);
+}
+.cover-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+.cover-badge {
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px;
+  padding: 5px 22px;
+  margin-bottom: 30px;
+}
+
+.cover-title {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 42px; font-weight: 900;
+  color: #fff; text-align: center;
+  line-height: 1.2; margin-bottom: 8px;
+}
+.cover-title span { color: var(--gold); }
+
+.cover-subtitle {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 17px; font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  text-align: center; margin-bottom: 30px;
+}
+
+.cover-divider {
+  width: 280px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 30px;
+}
+
+.cover-rule-book {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--gold-light);
+  text-align: center; margin-bottom: 40px;
+}
+
+.cover-img-strip {
+  width: 100%; display: flex; gap: 4px;
+  margin-bottom: 36px;
+}
+.cover-img-strip img {
+  flex: 1; height: 100px;
+  object-fit: cover;
+  filter: brightness(0.7) saturate(0.8);
+}
+
+.cover-meta {
+  text-align: center;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 10px; line-height: 2;
+}
+.cover-meta strong { color: var(--gold); font-weight: 600; }
+
+.cover-tagline {
+  margin-top: 24px;
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+}
+
+/* ===== INNER PAGES ===== */
+.page-inner {
+  padding: 54px 54px 70px 68px;
+  position: relative; z-index: 1;
+}
+
+.running-header {
+  display: flex; justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--gold);
+}
+.running-header .rh-left {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 9px; font-weight: 600;
+  color: var(--navy);
+}
+.running-header .rh-right {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 9px; color: var(--text-light);
+}
+.running-header .rh-logo {
+  width: 28px; height: 28px;
+  border-radius: 50%; object-fit: cover;
+  border: 1px solid var(--gold);
+}
+
+/* ===== PART BANNER ===== */
+.part-divider {
+  background: var(--navy); color: #fff;
+  padding: 14px 20px 14px 24px;
+  margin: 28px -54px 22px -68px;
+  display: flex; align-items: center; gap: 14px;
+  position: relative;
+}
+.part-divider::after {
+  content: '';
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: 50px;
+  background: linear-gradient(90deg, transparent, var(--navy-mid));
+}
+.part-divider .pd-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 900;
+  color: var(--gold); opacity: 0.4;
+  line-height: 1; min-width: 30px;
+}
+.part-divider .pd-text {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 13px; font-weight: 700;
+  color: #fff; display: block;
+}
+.part-divider .pd-sub {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 10px;
+  color: rgba(255,255,255,0.55);
+  display: block; margin-top: 2px;
+}
+
+/* ===== HEADINGS ===== */
+h2.sh {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--navy);
+  margin: 24px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--cream-dark);
+  display: flex; align-items: center; gap: 10px;
+}
+h2.sh::before {
+  content: '';
+  display: inline-block;
+  width: 4px; height: 18px;
+  background: var(--gold);
+  border-radius: 2px; flex-shrink: 0;
+}
+
+h3.sub {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 11.5px; font-weight: 700;
+  color: var(--navy-mid);
+  margin: 16px 0 7px;
+  display: flex; align-items: center; gap: 8px;
+}
+h3.sub::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* ===== BODY ===== */
+p { margin-bottom: 8px; text-align: justify; color: var(--text-mid); font-size: 11.5px; line-height: 1.9; }
+ul { margin: 6px 0 10px 0; list-style: none; }
+ul li {
+  padding: 3px 0 3px 20px;
+  position: relative;
+  color: var(--text-mid);
+  font-size: 11.5px; line-height: 1.85;
+}
+ul li::before {
+  content: '';
+  position: absolute; left: 4px; top: 12px;
+  width: 6px; height: 6px;
+  background: var(--gold); border-radius: 50%;
+}
+ol { margin: 6px 0 10px 24px; }
+ol li { padding: 2px 0; color: var(--text-mid); font-size: 11.5px; margin-bottom: 3px; line-height: 1.85; }
+strong { font-weight: 700; color: var(--navy); }
+
+/* ===== RULE BOX ===== */
+.rule-box {
+  background: var(--rule-bg);
+  border-left: 4px solid var(--gold);
+  padding: 10px 14px; margin: 12px 0;
+  border-radius: 0 4px 4px 0;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.rule-box .rb-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+.rule-box .rb-text {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-weight: 600; font-size: 11px;
+  color: var(--navy); line-height: 1.6;
+}
+.rule-box .rb-text em { font-style: normal; color: var(--gold); font-weight: 700; }
+
+/* ===== TABLE ===== */
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 11px; }
+th {
+  background: var(--navy); color: #fff;
+  padding: 8px 10px; text-align: left;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-weight: 600; font-size: 10.5px;
+}
+td { padding: 7px 10px; border: 1px solid #DDD; color: var(--text-mid); vertical-align: top; line-height: 1.7; }
+tr:nth-child(even) td { background: var(--cream-dark); }
+
+/* ===== IMAGES ===== */
+.img-block { width: 100%; margin: 18px 0; border-radius: 4px; overflow: hidden; }
+.img-block img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.img-block .img-caption {
+  background: rgba(11,37,69,0.88);
+  color: rgba(255,255,255,0.85);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 9.5px; padding: 6px 12px;
+}
+
+.img-float-right {
+  float: right; width: 215px;
+  margin: 0 0 12px 18px;
+  border-radius: 4px; overflow: hidden;
+  border: 2px solid var(--cream-dark);
+}
+.img-float-right img { width: 100%; height: 135px; object-fit: cover; display: block; }
+.img-float-right .img-caption {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 9px; padding: 4px 8px;
+}
+.clearfix::after { content: ''; display: table; clear: both; }
+
+.img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 14px 0; }
+.img-grid-2 .ig-item { border-radius: 4px; overflow: hidden; border: 2px solid var(--cream-dark); }
+.img-grid-2 .ig-item img { width: 100%; height: 110px; object-fit: cover; display: block; }
+.img-grid-2 .ig-item .img-caption {
+  background: var(--navy); color: rgba(255,255,255,0.7);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 9px; padding: 4px 8px;
+}
+
+.img-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 14px 0; }
+.img-grid-3 .ig-item { border-radius: 4px; overflow: hidden; border: 2px solid var(--cream-dark); }
+.img-grid-3 .ig-item img { width: 100%; height: 85px; object-fit: cover; display: block; }
+.img-grid-3 .ig-item .img-caption {
+  background: var(--navy); color: rgba(255,255,255,0.7);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 8.5px; padding: 3px 7px;
+}
+
+/* ===== CALLOUT ===== */
+.callout {
+  background: var(--navy); color: #fff;
+  padding: 14px 18px; margin: 16px 0;
+  border-radius: 4px; position: relative; overflow: hidden;
+}
+.callout::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+}
+.callout p { color: rgba(255,255,255,0.85); font-size: 11px; margin: 0; line-height: 1.7; }
+.callout strong { color: var(--gold); }
+
+/* ===== DO / DON'T ===== */
+.do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+.do-box, .dont-box { border-radius: 4px; overflow: hidden; }
+.do-box .box-header { background: #1A6B3C; color: #fff; padding: 6px 12px; font-family: 'Noto Sans Devanagari', sans-serif; font-weight: 700; font-size: 11px; }
+.dont-box .box-header { background: #8B1A1A; color: #fff; padding: 6px 12px; font-family: 'Noto Sans Devanagari', sans-serif; font-weight: 700; font-size: 11px; }
+.do-box .box-body { background: #F0FAF4; padding: 10px 12px; border: 1px solid #A8D5BC; border-top: none; }
+.dont-box .box-body { background: #FDF0F0; padding: 10px 12px; border: 1px solid #E0A8A8; border-top: none; }
+.do-box .box-body li::before { background: #1A6B3C; }
+.dont-box .box-body li::before { background: #8B1A1A; }
+
+/* ===== PASS BOX ===== */
+.pass-box { display: grid; grid-template-columns: 40px 1fr; gap: 0; margin: 12px 0; border: 1px solid var(--cream-dark); border-radius: 4px; overflow: hidden; }
+.pass-letter {
+  background: var(--navy); color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+}
+.pass-desc {
+  padding: 8px 12px; background: #fff;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 11px; font-weight: 500;
+  color: var(--text-mid);
+  display: flex; align-items: center;
+  border-bottom: 1px solid var(--cream-dark);
+  line-height: 1.6;
+}
+
+/* ===== PAGE FOOTER ===== */
+.page-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 12px 54px 14px 68px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--cream-dark);
+  background: var(--cream);
+}
+.page-footer .pf-text {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 8.5px; color: var(--text-light);
+}
+.page-footer .pf-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 12px; color: var(--navy); font-weight: 600;
+}
+
+/* ===== EMERGENCY TABLE ===== */
+.emergency-table th { background: #8B1A1A; }
+.emergency-table td:first-child { font-weight: 600; color: var(--navy); }
+.emergency-table td:last-child { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 15px; font-weight: 700; color: #8B1A1A; }
+
+/* ===== DECLARATION ===== */
+.declaration-block {
+  background: var(--cream-dark);
+  border: 1px solid #DDD; border-radius: 4px;
+  padding: 20px 24px; margin: 16px 0;
+}
+.declaration-block p { margin-bottom: 12px; }
+.sig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+.sig-field { border-bottom: 1px solid #AAA; padding-bottom: 4px; margin-bottom: 6px; height: 22px; }
+.sig-label {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 9px; color: var(--text-light);
+  text-transform: uppercase; margin-top: 4px;
+}
+
+/* ===== BACK COVER ===== */
+.back-cover {
+  background: var(--navy);
+  min-height: 1123px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden; padding: 60px;
+}
+.back-cover::before { display: none; }
+.back-cover .bc-stripe-top, .back-cover .bc-stripe-bottom {
+  position: absolute; left: 0; right: 0; height: 7px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+}
+.back-cover .bc-stripe-top { top: 0; }
+.back-cover .bc-stripe-bottom { bottom: 0; }
+.back-cover .bc-logo {
+  width: 110px; height: 110px;
+  border-radius: 50%; border: 3px solid var(--gold);
+  overflow: hidden; margin-bottom: 30px;
+  box-shadow: 0 0 40px rgba(201,151,58,0.2);
+}
+.back-cover .bc-logo img { width: 100%; height: 100%; object-fit: cover; }
+.back-cover .bc-title {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 26px; font-weight: 700;
+  color: #fff; text-align: center; margin-bottom: 12px;
+}
+.back-cover .bc-tagline {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 15px; color: var(--gold); margin-bottom: 40px;
+}
+.back-cover .bc-divider {
+  width: 200px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 40px;
+}
+.back-cover .bc-info {
+  text-align: center;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 10px; line-height: 2;
+}
+.back-cover .bc-info strong { color: var(--gold); }
+
+@media print {
+  body { background: #fff; }
+  .book { margin: 0; gap: 0; }
+  .page { box-shadow: none; page-break-after: always; break-after: page; }
+}
+</style>
+</head>
+<body>
+<div class="book">
+
+<!-- ============================================================
+     मुख पृष्ठ / COVER
+============================================================ -->
+<div class="page cover-page">
+  <div class="cover-stripe-top"></div>
+  <div class="cover-stripe-bottom"></div>
+  <div class="corner-tl"></div><div class="corner-tr"></div>
+  <div class="corner-bl"></div><div class="corner-br"></div>
+
+  <img class="cover-hero"
+    src="https://images.unsplash.com/photo-1508511267-9990d3a350d3?w=794&q=80&auto=format&fit=crop"
+    alt="Security background">
+
+  <div class="cover-inner">
+    <div class="cover-logo">
+      <!-- अपना असली लोगो यहाँ लगाएं -->
+      <img src="./img/logo.png?w=200&h=200&q=80&auto=format&fit=crop" alt="शेलबैक मेरिन्स लोगो">
+    </div>
+
+    <div class="cover-badge">W.B – 55/WB/PSA/2025 &nbsp;|&nbsp; लाइसेंसप्राप्त सुरक्षा एजेंसी</div>
+
+    <div class="cover-title">शेलबैक मेरिन्स<br><span>सिक्योरिटी एजेंसी</span></div>
+    <div class="cover-subtitle">पश्चिम बंगाल — जलपाईगुड़ी</div>
+
+    <div class="cover-divider"></div>
+
+    <div class="cover-rule-book">निजी सुरक्षा कर्मी — प्रशिक्षण एवं आचार संहिता पुस्तिका</div>
+
+    <div class="cover-img-strip">
+      <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=200&h=120&q=70&auto=format&fit=crop" alt="सुरक्षा गार्ड">
+      <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=200&h=120&q=70&auto=format&fit=crop" alt="प्रवेश नियंत्रण">
+      <img src="https://images.unsplash.com/photo-1597452485595-b07d96de6f1d?w=200&h=120&q=70&auto=format&fit=crop" alt="CCTV निगरानी">
+      <img src="https://images.unsplash.com/photo-1508856028117-89a28a12df56?w=200&h=120&q=70&auto=format&fit=crop" alt="गश्त">
+    </div>
+
+    <div class="cover-meta">
+      <strong>निजी सुरक्षा एजेंसी (विनियमन) अधिनियम, 2005 (PSARA)</strong><br>
+      और पश्चिम बंगाल राज्य नियमों के अनुसार तैयार किया गया<br><br>
+      ऊदलाबाड़ी बिधानपल्ली, पो. मानाबाड़ी, जिला जलपाईगुड़ी, पश्चिम बंगाल – 735222<br>
+      +91 9434127571 &nbsp;|&nbsp; contact@shellbackmarines.in
+    </div>
+
+    <div class="cover-tagline">"सुरक्षा के विश्वसनीय प्रहरी"</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     पृष्ठ २ — प्रस्तावना और भाग एक शुरू
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">शेलबैक मेरिन्स — नियम पुस्तिका</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="लोगो">
+      <span class="rh-right">प्रस्तावना एवं प्रशिक्षण विषय</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">00</span>
+      <div><span class="pd-text">प्रस्तावना</span><span class="pd-sub">शेलबैक मेरिन्स प्रबंधन की ओर से</span></div>
+    </div>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1562564055-71e051d33c19?w=300&h=200&q=80&auto=format&fit=crop" alt="सुरक्षा ब्रीफिंग">
+      <div class="img-caption">पोस्ट हस्तांतरण पर सुरक्षा ब्रीफिंग</div>
+    </div>
+
+    <p>यह नियम पुस्तिका <strong>शेलबैक मेरिन्स सिक्योरिटी एजेंसी</strong> के अंतर्गत कार्यरत सभी सुरक्षा कर्मियों के लिए तैयार की गई है। इसे सरल भाषा में लिखा गया है ताकि हर गार्ड, चाहे उसकी शैक्षिक पृष्ठभूमि कुछ भी हो, अपने कर्तव्यों, अधिकारों और जिम्मेदारियों को समझ सके।</p>
+    <p>प्रत्येक सुरक्षा गार्ड को यह पुस्तिका ध्यान से पढ़नी चाहिए। यदि आप पढ़ नहीं सकते, तो आपका सुपरवाइजर आपको समझाएगा। यह पुस्तिका आपको एक <strong>पेशेवर, कानून का पालन करने वाले और सम्मानित सुरक्षा अधिकारी</strong> बनने का मार्गदर्शन करेगी।</p>
+    <p>इस पुस्तिका को अपने साथ रखें। इसे प्रतिदिन पालन करें।</p>
+
+    <div class="clearfix"></div>
+
+    <div class="part-divider">
+      <span class="pd-num">१</span>
+      <div><span class="pd-text">प्रशिक्षण विषय</span><span class="pd-sub">न्यूनतम 6 कार्य दिवस — PSARA 2005 के अनुसार अनिवार्य</span></div>
+    </div>
+
+    <h2 class="sh">विषय 1: वर्तमान सुरक्षा परिदृश्य</h2>
+
+    <h3 class="sub">(क) वीआईपी सुरक्षा</h3>
+    <p>वीआईपी सुरक्षा का अर्थ है महत्वपूर्ण व्यक्तियों की सुरक्षा करना — जैसे सरकारी अधिकारी, कंपनी निदेशक, डॉक्टर, या कोई भी व्यक्ति जिसकी सुरक्षा विशेष खतरे में हो।</p>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&h=180&q=80&auto=format&fit=crop" alt="वीआईपी सुरक्षा">
+      <div class="img-caption">वीआईपी एस्कॉर्ट और परिधि निगरानी</div>
+    </div>
+
+    <p><strong>एक सुरक्षा गार्ड को क्या जानना चाहिए:</strong></p>
+    <ul>
+      <li>वीआईपी वह व्यक्ति होता है जिसे उसके पद, कार्य या खतरे के स्तर के कारण विशेष सुरक्षा दी जाती है।</li>
+      <li>वीआईपी सुरक्षा में अतिरिक्त सतर्कता आवश्यक है — सदा सावधान रहें और किसी भी असामान्य बात की तुरंत सूचना दें।</li>
+      <li>उचित सत्यापन के बिना किसी अज्ञात व्यक्ति को वीआईपी के पास न आने दें।</li>
+      <li>सुरक्षित दूरी बनाए रखें। वीआईपी के पास भीड़ न होने दें।</li>
+      <li>किसी भी खतरे की स्थिति में, तुरंत अपने सुपरवाइजर और निकटतम पुलिस चौकी को सूचित करें।</li>
+      <li>लिखित हस्तांतरण के बिना वीआईपी पोस्ट कभी न छोड़ें।</li>
+    </ul>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> वीआईपी ड्यूटी पर — एक पल की भी लापरवाही नहीं चलेगी। आंखें और कान सदा खुले रखें।</span>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <h3 class="sub">(ख) आंतरिक सुरक्षा</h3>
+    <p>आंतरिक सुरक्षा का अर्थ है कार्यस्थल, कारखाने, कार्यालय या साइट को अंदर से आने वाले खतरों से सुरक्षित रखना — जैसे कर्मचारियों द्वारा चोरी, संपत्ति का दुरुपयोग या कार्यस्थल पर विवाद।</p>
+    <ul>
+      <li>कर्मचारियों के असामान्य व्यवहार पर नजर रखें — बार-बार देर रात रुकना, बिना जांच के बैग ले जाना आदि।</li>
+      <li>सभी कर्मचारी — स्टाफ, सुपरवाइजर या मैनेजर — सभी मानक सुरक्षा जांच के दायरे में आते हैं। कोई अपवाद नहीं।</li>
+      <li>आंतरिक चोरी, झगड़े या दुर्व्यवहार की किसी भी घटना की तुरंत लिखित रूप से सुपरवाइजर को सूचना दें।</li>
+      <li>किसी भी आंतरिक विवाद में पक्ष न लें। तटस्थ रहें और सुपरवाइजर को बुलाएं।</li>
+      <li>साइट पर देखी गई किसी भी असामान्य बात का दैनिक लॉग रखें।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> अंदर का खतरा बाहर के खतरे जितना ही बड़ा होता है। सबपर नजर रखें, सबके साथ न्याय करें।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">शेलबैक मेरिन्स सिक्योरिटी एजेंसी | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">2</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     पृष्ठ ३ — संस्थागत सुरक्षा + अग्निशमन + आपदा
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">भाग एक — प्रशिक्षण विषय</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="लोगो">
+      <span class="rh-right">सुरक्षा परिदृश्य एवं एजेंसी की भूमिका</span>
+    </div>
+
+    <h3 class="sub">(ग) संस्थागत सुरक्षा</h3>
+    <p>संस्थागत सुरक्षा का अर्थ है अस्पतालों, स्कूलों, बैंकों, कारखानों और सरकारी कार्यालयों जैसी इमारतों और सुविधाओं की रक्षा करना।</p>
+
+    <div class="img-grid-3">
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=200&h=120&q=70&auto=format&fit=crop" alt="अस्पताल सुरक्षा">
+        <div class="img-caption">अस्पताल सुरक्षा पोस्ट</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=200&h=120&q=70&auto=format&fit=crop" alt="बैंक सुरक्षा">
+        <div class="img-caption">बैंक प्रवेश नियंत्रण</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=200&h=120&q=70&auto=format&fit=crop" alt="कारखाना सुरक्षा">
+        <div class="img-caption">औद्योगिक साइट गार्ड</div>
+      </div>
+    </div>
+
+    <ul>
+      <li>प्रत्येक संस्था के अपने नियम होते हैं। जिस साइट पर आप तैनात हैं वहां के विशिष्ट नियम सीखें।</li>
+      <li>इमारत के सभी प्रवेश और निकास बिंदु, अग्नि निकास, अग्निशामक यंत्र और प्राथमिक चिकित्सा बॉक्स की स्थिति जानें।</li>
+      <li>साइट इन-चार्ज, HSE अधिकारी और आपातकालीन संपर्क कौन हैं, यह जानें।</li>
+      <li><strong>अस्पतालों के लिए:</strong> शांति बनाए रखें, मरीजों और आगंतुकों की विनम्रता से मदद करें।</li>
+      <li><strong>कारखानों के लिए:</strong> PPE और सुरक्षा नियमों का सख्ती से पालन करवाएं।</li>
+      <li><strong>बैंकों के लिए:</strong> कतार अनुशासन बनाए रखें, प्रवेश पर बैग जांचें।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> जिस साइट पर तैनात हों उसके नियम सीखें। हर इमारत अलग होती है — उसी के अनुसार काम करें।</span>
+    </div>
+
+    <h2 class="sh">विषय 2: निजी सुरक्षा एजेंसियों की भूमिका और कार्यप्रणाली</h2>
+
+    <h3 class="sub">(घ) अग्निशमन</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=160&q=80&auto=format&fit=crop" alt="अग्निशामक यंत्र">
+      <div class="img-caption">अग्निशामक यंत्रों के प्रकार जानें</div>
+    </div>
+
+    <p>प्रत्येक सुरक्षा गार्ड को अग्नि सुरक्षा की बुनियादी जानकारी और आग लगने पर कैसे प्रतिक्रिया करें, यह जानना चाहिए।</p>
+    <p><strong>अग्निशामक यंत्रों के प्रकार:</strong></p>
+    <ul>
+      <li><strong>लाल (पानी)</strong> — कागज, लकड़ी की आग के लिए</li>
+      <li><strong>पीला (सूखा पाउडर)</strong> — विद्युत और रासायनिक आग के लिए</li>
+      <li><strong>हरा (CO2)</strong> — विद्युत आग के लिए</li>
+    </ul>
+    <p><strong>अग्निशामक यंत्र का उपयोग — PASS याद रखें:</strong></p>
+    <div class="pass-box">
+      <div class="pass-letter">P</div><div class="pass-desc">पिन निकालें (Pull the pin)</div>
+      <div class="pass-letter">A</div><div class="pass-desc">आग की जड़ पर निशाना लगाएं (Aim at the base)</div>
+      <div class="pass-letter">S</div><div class="pass-desc">हैंडल दबाएं (Squeeze the handle)</div>
+      <div class="pass-letter" style="border-bottom:none;">S</div><div class="pass-desc" style="border-bottom:none;">बाएं-दाएं घुमाएं (Sweep side to side)</div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="callout">
+      <p>आग बड़ी हो तो — <strong>खुद बुझाने की कोशिश न करें।</strong> "आग!" चिल्लाएं, अलार्म बजाएं, दमकल <strong>(101)</strong> को कॉल करें और लोगों को शांति से बाहर निकालें। आग के दौरान लिफ्ट का उपयोग न करें — सीढ़ियां उपयोग करें।</p>
+    </div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> आग लगे तो — पहले अलार्म बजाएं, लोग निकालें, फिर छोटी हो तो बुझाएं।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">शेलबैक मेरिन्स सिक्योरिटी एजेंसी | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">3</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     पृष्ठ ४ — आपदा + सुरक्षा कर्तव्य + दस्तावेज
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">भाग एक — प्रशिक्षण विषय</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="लोगो">
+      <span class="rh-right">आपातकालीन प्रबंधन एवं कर्तव्य</span>
+    </div>
+
+    <h3 class="sub">(ङ) आपदा / आपातकालीन प्रबंधन प्रोटोकॉल</h3>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=794&h=160&q=80&auto=format&fit=crop" alt="आपातकालीन प्रतिक्रिया">
+      <div class="img-caption">आपातकालीन प्रतिक्रिया और निकासी — प्रत्येक गार्ड को पूरी प्रक्रिया जाननी चाहिए</div>
+    </div>
+
+    <p>आपदाएं प्राकृतिक (बाढ़, भूकंप) या मानव निर्मित (आग, बम की धमकी, दुर्घटना) हो सकती हैं।</p>
+    <p><strong>मानक आपातकालीन प्रतिक्रिया के चरण:</strong></p>
+    <ol>
+      <li>शांत रहें। बिना कारण दौड़ें या चिल्लाएं नहीं।</li>
+      <li>अलार्म बजाएं — चिल्लाएं, सीटी बजाएं या आपातकालीन बटन दबाएं।</li>
+      <li>तुरंत अपने सुपरवाइजर और साइट इन-चार्ज को सूचित करें।</li>
+      <li>आपातकालीन सेवाओं को कॉल करें: पुलिस – 100 | दमकल – 101 | एम्बुलेंस – 108</li>
+      <li>लोगों को निकटतम सुरक्षित निकास या एकत्रीकरण बिंदु पर ले जाएं।</li>
+      <li>अधिकारियों की अनुमति मिलने तक किसी को इमारत में वापस न आने दें।</li>
+      <li>प्रशिक्षित होने पर ही घायल व्यक्तियों की मदद करें — अन्यथा चिकित्सा सहायता का इंतजार करें।</li>
+      <li>घटना के बाद ड्यूटी रजिस्टर में सब कुछ लिखें।</li>
+    </ol>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> आपदा में घबराएं नहीं — संकेत दें, लोग बचाएं, मदद बुलाएं।</span>
+    </div>
+
+    <h3 class="sub">(च) सुरक्षा कर्तव्य</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=300&h=160&q=80&auto=format&fit=crop" alt="गार्ड ड्यूटी पर">
+      <div class="img-caption">मुख्य प्रवेश गेट पर गार्ड</div>
+    </div>
+
+    <ul>
+      <li>समय पर ड्यूटी पर रिपोर्ट करें, पूरी वर्दी में, साफ और प्रस्तुत योग्य अवस्था में।</li>
+      <li>जाने वाले गार्ड से उचित हस्तांतरण लें। हस्तांतरण रजिस्टर पढ़ें।</li>
+      <li>अपना पोस्ट जांचें — गेट, ताले, बत्तियां, CCTV काम कर रहे हैं या नहीं।</li>
+      <li>वैध पहचान पत्र के साथ केवल अधिकृत व्यक्तियों को प्रवेश दें।</li>
+      <li>सभी प्रवेश और निकास करने वाले वाहनों की जांच करें।</li>
+      <li>निर्धारित समय के अनुसार अपने क्षेत्र में गश्त करें।</li>
+      <li>सभी रजिस्टर बनाए रखें — आगंतुक, वाहन, सामग्री, उपस्थिति।</li>
+      <li>राहत के बिना पोस्ट न छोड़ें।</li>
+      <li>पूरी शिफ्ट में जागरूक और सतर्क रहें। <strong>ड्यूटी पर सोना गंभीर अपराध है।</strong></li>
+    </ul>
+
+    <div class="clearfix"></div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> ड्यूटी पर आएं — वर्दी सही रखें, रजिस्टर लिखें, सतर्क रहें, पोस्ट कभी न छोड़ें।</span>
+    </div>
+
+    <h3 class="sub">(छ) विभिन्न दस्तावेजों की जांच</h3>
+    <table>
+      <tr><th>दस्तावेज</th><th>कब जांचें</th></tr>
+      <tr><td>सरकारी पहचान पत्र (आधार, वोटर कार्ड, ड्राइविंग लाइसेंस, पासपोर्ट)</td><td>प्रवेश पर सभी आगंतुकों की</td></tr>
+      <tr><td>कंपनी का आईडी कार्ड</td><td>प्रतिदिन सभी कर्मचारियों की</td></tr>
+      <tr><td>विजिटर पास / गेट पास</td><td>सभी बाहरी लोगों की</td></tr>
+      <tr><td>वाहन प्रवेश पास</td><td>सभी वाहनों की</td></tr>
+      <tr><td>डिलीवरी चालान</td><td>सभी सामग्री आवागमन में</td></tr>
+      <tr><td>वर्क ऑर्डर / परमिट</td><td>ठेकेदारों और विक्रेताओं की</td></tr>
+    </table>
+    <p>आईडी पर फोटो देखें और सामने वाले व्यक्ति से मिलाएं। कार्ड का नाम, पदनाम और वैधता जांचें। कोई दस्तावेज बदला हुआ या अस्पष्ट दिखे — प्रवेश न दें। तुरंत रिपोर्ट करें।</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> आईडी देखें, फोटो मिलाएं, रजिस्टर में लिखें — तब अंदर जाने दें।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">शेलबैक मेरिन्स सिक्योरिटी एजेंसी | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">4</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     पृष्ठ ५ — भाग दो: सुरक्षा विषय
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">भाग दो — सुरक्षा विषय</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="लोगो">
+      <span class="rh-right">सूचना सुरक्षा · प्रवेश नियंत्रण · विस्फोटक</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">२</span>
+      <div><span class="pd-text">सुरक्षा विषय</span><span class="pd-sub">सूचना सुरक्षा · प्रवेश नियंत्रण · IED · ASC · उपकरण · संचार · गश्त · पोस्ट ड्यूटी</span></div>
+    </div>
+
+    <h3 class="sub">(ज) सूचना सुरक्षा</h3>
+    <p>सूचना सुरक्षा का अर्थ है अपनी साइट, क्लाइंट या एजेंसी से संबंधित सभी डेटा, दस्तावेज, रिकॉर्ड और बातचीत को अनधिकृत व्यक्तियों से सुरक्षित रखना।</p>
+    <ul>
+      <li>क्लाइंट का विवरण — उनका व्यवसाय, संचालन, लेआउट या सुरक्षा व्यवस्था — संगठन के बाहर किसी से भी न बताएं।</li>
+      <li>साइट इन-चार्ज द्वारा विशेष रूप से अनुमति न दिए जाने तक साइट के अंदर फोटो न खींचें।</li>
+      <li>CCTV फुटेज, प्रवेश रिकॉर्ड, विजिटर लॉग या कोई भी रजिस्टर डेटा बाहरी लोगों के साथ साझा न करें।</li>
+      <li>वरिष्ठ अधिकारियों, गश्त मार्गों, शिफ्ट समय या गार्ड तैनाती के बारे में कोई जानकारी अजनबियों के साथ साझा न करें।</li>
+      <li>कोई साइट के बारे में आपसे जानकारी एकत्र करने की कोशिश करे — तुरंत सुपरवाइजर को सूचित करें।</li>
+      <li>सभी रजिस्टर और दस्तावेज सुरक्षित स्थान पर रखें। बिना निगरानी न छोड़ें।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> काम की बात — काम तक ही रहे। बाहर किसी को कुछ मत बताओ।</span>
+    </div>
+
+    <h3 class="sub">(झ) प्रवेश नियंत्रण</h3>
+
+    <div class="img-grid-2">
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=140&q=70&auto=format&fit=crop" alt="आईडी कार्ड जांच">
+        <div class="img-caption">प्रवेश पर आईडी कार्ड सत्यापन</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1597452485595-b07d96de6f1d?w=300&h=140&q=70&auto=format&fit=crop" alt="CCTV निगरानी">
+        <div class="img-caption">CCTV निगरानी वाले प्रवेश बिंदु</div>
+      </div>
+    </div>
+
+    <ul>
+      <li>प्रत्येक प्रवेश और निकास को नाम, समय, आईडी संख्या और हस्ताक्षर के साथ In-Out रजिस्टर में लॉग करना होगा।</li>
+      <li>उचित अनुमति के बिना कोई प्रतिबंधित क्षेत्र में प्रवेश न करे।</li>
+      <li><strong>टेलगेटिंग</strong> — जब एक व्यक्ति व्यक्तिगत सत्यापन के बिना दूसरे के पीछे प्रवेश करे — सख्ती से प्रतिबंधित है।</li>
+      <li>सभी वाहनों को गेट पर जांचना होगा — केबिन, बूट और आवश्यकता पड़ने पर चेसिस के नीचे।</li>
+      <li>ठेकेदार कर्मियों के लिए: अलग ठेकेदार रजिस्टर रखें। प्रतिदिन वर्क परमिट जांचें।</li>
+      <li>काम के घंटों के बाद, वरिष्ठ अधिकारी की लिखित अनुमति के बिना किसी को अंदर न जाने दें।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> एक आईडी — एक प्रवेश। टेलगेटिंग रोकना आपका काम है।</span>
+    </div>
+
+    <h3 class="sub">(ञ) विस्फोटक और IED (इम्प्रोवाइज्ड एक्सप्लोसिव डिवाइस)</h3>
+    <p>IED एक हाथ से बना बम है जो उपलब्ध सामग्री से बनाया जाता है। इनका उपयोग असामाजिक और आतंकवादी तत्व नुकसान पहुंचाने के लिए करते हैं।</p>
+    <p><strong>संदिग्ध वस्तु की पहचान कैसे करें:</strong></p>
+    <ul>
+      <li>सार्वजनिक क्षेत्रों में छोड़े गए बैग, बक्से या पैकेज।</li>
+      <li>तार, बैटरी या किसी वस्तु से असामान्य गंध।</li>
+      <li>वे वस्तुएं जो आपके पिछले राउंड में नहीं थीं।</li>
+      <li>असामान्य स्थानों पर लंबे समय से खड़े वाहन।</li>
+    </ul>
+    <div class="callout">
+      <p><strong>संदिग्ध वस्तु मिलने पर:</strong> वस्तु को छुएं, हिलाएं या खोलने की कोशिश न करें। तुरंत क्षेत्र खाली करें — सभी को कम से कम 100 मीटर दूर ले जाएं। अबिलम्ब पुलिश: <strong>100</strong> को कॉल करें। वस्तु के पास मोबाइल फोन उपयोग न करें। बम निरोधक दस्ते का इंतजार करें।</p>
+    </div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> किसी वस्तु पर शक हो — छुएं मत, क्षेत्र खाली करें, पुलिस बुलाएं।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">शेलबैक मेरिन्स सिक्योरिटी एजेंसी | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">5</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     पृष्ठ ६ — ASC + उपकरण + संचार + गश्त + पोस्ट
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">भाग दो — सुरक्षा विषय</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="लोगो">
+      <span class="rh-right">ASC · उपकरण · गश्त · पोस्ट ड्यूटी</span>
+    </div>
+
+    <h3 class="sub">(ट) एंटी सेबोटेज चेक (ASC)</h3>
+    <p>एंटी सेबोटेज चेक नियमित तलाशी हैं जो यह सुनिश्चित करती हैं कि परिसर के अंदर कोई खतरनाक वस्तु या अनधिकृत सामग्री नहीं रखी गई है। किसी भी वीआईपी दौरे से पहले, महत्वपूर्ण कार्यक्रम से पहले, प्रत्येक शिफ्ट की शुरुआत में और संदिग्ध गतिविधि रिपोर्ट होने पर ASC करें।</p>
+    <ul>
+      <li>पूरे क्षेत्र में व्यवस्थित रूप से चलें — कमरे से कमरे, मंजिल से मंजिल।</li>
+      <li>मेजों के नीचे, कुर्सियों के पीछे, पर्दों के पीछे, डस्टबिन के अंदर और फॉल्स सीलिंग में जांचें।</li>
+      <li>सभी शौचालय, स्टोर रूम और रखरखाव क्षेत्रों की जांच करें।</li>
+      <li>अपरिचित बैग, बक्से, पैकेज या वस्तुओं की तलाश करें।</li>
+      <li>विद्युत बोर्ड और जंक्शन बॉक्स में छेड़छाड़ की जांच करें।</li>
+      <li>कोई भी वस्तु जो वहां नहीं होनी चाहिए — रिपोर्ट करें और <strong>छुएं नहीं।</strong></li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> ASC करें — आंखें खुली रखकर, हर कोने में देखें। कुछ अजीब लगे तो हाथ मत लगाएं।</span>
+    </div>
+
+    <h3 class="sub">(ठ) सुरक्षा संबंधी उपकरण &amp; (ड) संचार उपकरण</h3>
+
+    <div class="img-grid-2">
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=110&q=70&auto=format&fit=crop" alt="HHMD">
+        <div class="img-caption">हैंडहेल्ड मेटल डिटेक्टर (HHMD)</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1580745294621-09af2ced30a3?w=300&h=110&q=70&auto=format&fit=crop" alt="वॉकी-टॉकी">
+        <div class="img-caption">वॉकी-टॉकी / टू-वे रेडियो</div>
+      </div>
+    </div>
+
+    <ul>
+      <li><strong>HHMD:</strong> शरीर पर धीरे-धीरे उपकरण चलाएं — आगे, पीछे, बगल और पैरों पर। अगर बीप हो — विनम्रता से जांच करें। बैटरी चार्ज रखें।</li>
+      <li><strong>DFMD:</strong> एक समय में एक ही व्यक्ति गुजर सकता है। व्यक्तियों को इसे बायपास करने न दें।</li>
+      <li><strong>टॉर्च:</strong> रात की ड्यूटी पर हमेशा काम करने वाली टॉर्च रखें।</li>
+      <li><strong>डंडा / लाठी:</strong> केवल आत्मरक्षा और निवारण के लिए। बिना औचित्य के उपयोग आपराधिक अपराध है।</li>
+      <li><strong>वॉकी-टॉकी:</strong> ड्यूटी के दौरान हमेशा चार्ज और चालू रखें। स्पष्ट और धीरे बोलें। उदाहरण: "गेट 1 से कंट्रोल रूम — ओवर।"</li>
+      <li><strong>मोबाइल फोन:</strong> केवल सीधी कॉल के लिए। ड्यूटी के दौरान सोशल मीडिया ब्राउज न करें। आपातकालीन नंबर सहेजें।</li>
+      <li><strong>आपातकालीन अलार्म बटन:</strong> केवल वास्तविक आपातकाल में दबाएं। झूठा अलार्म गंभीर अपराध है।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> उपकरण तैयार रखें और सही तरीके से उपयोग करें। बात करें — स्पष्ट, संक्षिप्त और काम की।</span>
+    </div>
+
+    <h3 class="sub">(ढ) गश्त (पेट्रोलिंग) &amp; (ण) पोस्ट ड्यूटी</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1508856028117-89a28a12df56?w=300&h=160&q=80&auto=format&fit=crop" alt="रात की गश्त">
+      <div class="img-caption">परिधि की रात की गश्त</div>
+    </div>
+
+    <p><strong>गश्त:</strong> निश्चित मार्ग गश्त या यादृच्छिक गश्त (पूर्वानुमानीयता रोकने के लिए समय और मार्ग बदलें)। हमेशा टॉर्च (रात में), रेडियो और रजिस्टर साथ रखें। सभी दरवाजे, खिड़कियां, ताले और गेट जांचें। आग के खतरे और अनधिकृत व्यक्तियों की जांच करें।</p>
+    <p><strong>पोस्ट ड्यूटी नियम:</strong></p>
+    <ul>
+      <li>शिफ्ट शुरू होने से 10 मिनट पहले पोस्ट पर पहुंचें।</li>
+      <li>उचित हस्तांतरण लें। पिछले गार्ड के सभी नोट पढ़ें।</li>
+      <li>पोस्ट पर रहते हुए खाएं नहीं, सोएं नहीं या व्यक्तिगत कॉल के लिए फोन उपयोग न करें।</li>
+      <li>किसी भी कारण से राहत गार्ड के बिना पोस्ट न छोड़ें।</li>
+      <li>शिफ्ट के अंत में: आने वाले गार्ड को पूरा ब्रीफ करें, हस्तांतरण रजिस्टर में हस्ताक्षर करें, सभी चाबियां और उपकरण सौंपें।</li>
+    </ul>
+
+    <div class="clearfix"></div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> गश्त करें — आंखें खुली रखें, सब जांचें, सब रिकॉर्ड करें। पोस्ट छोड़ना = ड्यूटी तोड़ना। राहत न आने तक यहीं रहें।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">शेलबैक मेरिन्स सिक्योरिटी एजेंसी | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">6</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     पृष्ठ ७ — भाग तीन कानूनी + भाग चार प्रबंधन
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">भाग तीन — कानूनी प्रावधान</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="लोगो">
+      <span class="rh-right">PSARA 2005 · श्रम कानून</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">३</span>
+      <div><span class="pd-text">कानूनी प्रावधान</span><span class="pd-sub">PSARA 2005 · श्रम कानून · आपके अधिकार</span></div>
+    </div>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=300&h=170&q=80&auto=format&fit=crop" alt="कानूनी">
+      <div class="img-caption">PSARA — हमारे काम का कानून</div>
+    </div>
+
+    <h3 class="sub">(त) निजी सुरक्षा एजेंसी (विनियमन) अधिनियम, 2005 — PSARA</h3>
+    <p>PSARA भारत का केंद्रीय कानून है जो सभी निजी सुरक्षा एजेंसियों को नियंत्रित और विनियमित करता है। यह अधिनियम संसद द्वारा 2005 में पारित किया गया था।</p>
+    <p><strong>सुरक्षा गार्ड कौन बन सकता है:</strong> केवल भारतीय नागरिक | आयु: 18–65 वर्ष | नैतिक अधमता का कोई अपराध नहीं | शारीरिक और मानसिक रूप से स्वस्थ | न्यूनतम प्रशिक्षण पूरा किया हो।</p>
+    <p><strong>एजेंसी को क्या करना होगा:</strong> राज्य सरकार से लाइसेंस प्राप्ति | तैनाती से पहले प्रशिक्षण | न्यूनतम मजदूरी का भुगतान | वर्दी, आईडी कार्ड और नियुक्ति पत्र प्रदान करें | सभी गार्डों के रिकॉर्ड बनाए रखें।</p>
+    <p><strong>गार्ड को क्या करना होगा:</strong> ड्यूटी के दौरान हर समय पहचान पत्र रखें | अनुमोदित वर्दी पहनें | मदिरा या नशे के प्रभाव में ड्यूटी पर न आएं | हर समय पेशेवर और कानूनी रूप से व्यवहार करें।</p>
+    <p><strong>दंड:</strong> बिना लाइसेंस के संचालन: 1 वर्ष तक कारावास और/या 25,000 रुपये जुर्माना।</p>
+    <p>शेलबैक मेरिन्स लाइसेंस संख्या <strong>W.B – 55/WB/PSA/2025</strong> धारण करता है, पश्चिम बंगाल सरकार द्वारा जारी किया गया।</p>
+
+    <div class="clearfix"></div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> PSARA हमारे काम का कानून है — लाइसेंस जरूरी, प्रशिक्षण जरूरी, नियम मानो।</span>
+    </div>
+
+    <h3 class="sub">(थ) प्रासंगिक श्रम कानून — आपके अधिकार</h3>
+    <table>
+      <tr><th>कानून</th><th>आपके लिए क्या मतलब है</th></tr>
+      <tr><td><strong>न्यूनतम मजदूरी अधिनियम, 1948</strong></td><td>सरकार द्वारा अधिसूचित न्यूनतम मजदूरी पाने का अधिकार। सही राशि न मिलने पर श्रम विभाग में शिकायत करें।</td></tr>
+      <tr><td><strong>EPF अधिनियम, 1952</strong></td><td>मूल वेतन का 12% कर्मचारी + 12% नियोक्ता PF खाते में। अवकाश या आपातकाल पर उपलब्ध।</td></tr>
+      <tr><td><strong>ESI अधिनियम, 1948</strong></td><td>मजदूरी 21,000 रुपये से कम होने पर आप और परिवार ESI अस्पतालों में मुफ्त चिकित्सा पाएंगे।</td></tr>
+      <tr><td><strong>ग्रेच्युटी अधिनियम, 1972</strong></td><td>5 वर्ष की सेवा के बाद: 15 दिन का वेतन × सेवा के वर्ष। इस्तीफे या सेवानिवृत्ति पर देय।</td></tr>
+      <tr><td><strong>कारखाना अधिनियम</strong></td><td>सुरक्षित काम का माहौल आपका कानूनी अधिकार है। एक शिफ्ट में 12 घंटे से अधिक काम नहीं कराया जा सकता।</td></tr>
+    </table>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> कानून आपकी भी रक्षा करता है — अपने अधिकार जानें और मांगें।</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">४</span>
+      <div><span class="pd-text">सुरक्षा एजेंसियों का प्रबंधन</span><span class="pd-sub">वर्दी · प्रशिक्षण · दस्तावेज · डेटा प्रोटोकॉल</span></div>
+    </div>
+
+    <h3 class="sub">(द) वर्दी मानदंड</h3>
+    <ul>
+      <li>ड्यूटी के दौरान हर समय पूरी वर्दी पहननी होगी — साफ, इस्त्री की हुई और दाग या फटे बिना।</li>
+      <li>जूते पॉलिश और साफ होने चाहिए। कैप/बेरेट सही तरीके से पहनें — सीधी, तिरछी नहीं।</li>
+      <li>आईडी कार्ड हर समय सीने पर दृश्यमान रूप से पहना जाना चाहिए।</li>
+      <li>बाल साफ-सुथरे कटे और संवरे हुए होने चाहिए। प्रबंधन की अनुमति के बिना अस्त-व्यस्त दाढ़ी नहीं।</li>
+      <li>ड्यूटी के दौरान कोई गहना या आकस्मिक कपड़े नहीं। वर्दी एजेंसी की संपत्ति है।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> वर्दी = सम्मान। साफ, सही, पूरी — यही आपकी पहचान है।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">शेलबैक मेरिन्स सिक्योरिटी एजेंसी | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">7</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     पृष्ठ ८ — प्रशिक्षण + रिकॉर्ड + भाग ५ + भाग ६
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">भाग ४–६ — प्रबंधन · संपर्क · आचार संहिता</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="लोगो">
+      <span class="rh-right">दस्तावेज · जनता · पुलिश · करणीय एवं अकरणीय</span>
+    </div>
+
+    <h3 class="sub">(ध) कर्मियों का प्रशिक्षण &amp; (न) रिकॉर्ड बनाए रखना</h3>
+    <p>PSARA के अनुसार, प्रशिक्षण वैकल्पिक नहीं है — यह अनिवार्य है। <strong>न्यूनतम प्रशिक्षण अवधि: 6 कार्य दिवस।</strong> पर्यायक्रमिक रिफ्रेशर प्रशिक्षण परिचालित होगा। अपना प्रशिक्षण प्रमाणपत्र सुरक्षित रखें।</p>
+    <p><strong>प्रत्येक पोस्ट पर बनाए जाने वाले रजिस्टर:</strong></p>
+    <table>
+      <tr><th>रजिस्टर</th><th>उद्देश्य</th></tr>
+      <tr><td>आगंतुक रजिस्टर</td><td>सभी आगंतुक — नाम, आईडी, उद्देश्य, प्रवेश-निकास समय</td></tr>
+      <tr><td>वाहन रजिस्टर</td><td>सभी वाहन — नंबर प्लेट, चालक, उद्देश्य, प्रवेश-निकास समय</td></tr>
+      <tr><td>सामग्री In-Out रजिस्टर</td><td>सभी सामान — चालान संख्या, वस्तु, मात्रा, प्राधिकरण</td></tr>
+      <tr><td>ड्यूटी/उपस्थिति रजिस्टर</td><td>गार्ड का नाम, शिफ्ट, प्रवेश-निकास समय, हस्ताक्षर</td></tr>
+      <tr><td>घटना / ऑकरेंस बुक</td><td>कोई भी घटना, शिकायत या असामान्य घटना</td></tr>
+      <tr><td>ASC रजिस्टर</td><td>एंटी सेबोटेज चेक के रिकॉर्ड</td></tr>
+      <tr><td>चाबी रजिस्टर</td><td>जारी और वापस की गई चाबियां</td></tr>
+      <tr><td>ठेकेदार रजिस्टर</td><td>ठेकेदार कर्मियों का प्रवेश और निकास</td></tr>
+    </table>
+    <p>पेन का उपयोग करें — पेंसिल नहीं। व्हाइटनर से सुधार न करें। कोई भी कॉलम खाली न छोड़ें — 'Nil' लिखें। रजिस्टर कम से कम 1 वर्ष के लिए सुरक्षित रखें।</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> जो हुआ, वो लिखो। जो लिखा, वो सच हो। रजिस्टर झूठ नहीं बोलता।</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">५</span>
+      <div><span class="pd-text">जनता, पुलिश और अन्य विभागों के साथ संपर्क</span><span class="pd-sub">व्यवहार · पुलिश संपर्क · सरकारी विभाग</span></div>
+    </div>
+
+    <p><strong>सुनहरा नियम: दृढ़ लेकिन विनम्र। कड़क लेकिन सम्मानजनक।</strong></p>
+    <p>आगंतुकों का सम्मानपूर्ण नमस्कार से स्वागत करें। विनम्रता से आईडी मांगें: "सर/मैडम, क्या मैं आपका आईडी देख सकता हूं?" आगंतुकों की बात सुनें और सही मार्गदर्शन करें। बुजुर्ग और विकलांग व्यक्तियों की सहायता करें। आगंतुकों पर आवाज न उठाएं और न बहस करें। उपहार, पैसे या खाना स्वीकार न करें।</p>
+    <p><strong>पुलिश के साथ:</strong> स्थानीय पुलिश स्टेशन का नाम, नंबर और बीट कांस्टेबल का विवरण लिखित रिकॉर्ड में रखें। किसी भी आपातकाल में — तुरंत 100 पर कॉल करें। पूरा सहयोग करें। गंभीर घटनाओं के लिए FIR दर्ज करें।</p>
+    <p><strong>सरकारी परिदर्शकों के साथ:</strong> विनम्र और सहयोगी रहें। अनुमोदित सरकारी परिदर्शकों को प्रवेश देने से इनकार न करें।</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> इज्जत दो, इज्जत लो। सरकारी विभागों और पुलिश के साथ मिलकर काम करें — वे दुश्मन नहीं, सहयोगी हैं।</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">६</span>
+      <div><span class="pd-text">आचार संहिता — करणीय एवं अकरणीय</span><span class="pd-sub">शेलबैक मेरिन्स सुरक्षा गार्ड की दैनिक आचार संहिता</span></div>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="box-header">✓ &nbsp; करणीय — अवश्य करें</div>
+        <div class="box-body">
+          <ul>
+            <li>समय पर ड्यूटी पर रिपोर्ट करें, उचित वर्दी में, आईडी कार्ड के साथ।</li>
+            <li>पूरी शिफ्ट में सजग और जागरूक रहें।</li>
+            <li>सभी के साथ सम्मान के साथ व्यवहार करें।</li>
+            <li>सभी व्यक्तियों, वाहनों और सामग्री की बिना अपवाद जांच करें।</li>
+            <li>सभी ड्यूटी रजिस्टर सटीक और ईमानदारी से बनाए रखें।</li>
+            <li>प्रत्येक घटना तुरंत सुपरवाइजर को रिपोर्ट करें।</li>
+            <li>निर्धारित समय अनुसार गश्त करें और रिकॉर्ड करें।</li>
+            <li>प्रत्येक शिफ्ट बदलने पर उचित हस्तांतरण लें।</li>
+            <li>पुलिश और सरकारी विभागों के साथ पूरा सहयोग करें।</li>
+            <li>क्लाइंट की संपत्ति अपनी संपत्ति की तरह रक्षा करें।</li>
+            <li>उपकरण — रेडियो, टॉर्च, HHMD — चार्ज और कार्यात्मक रखें।</li>
+            <li>आपातकालीन नंबर जानें: 100 | 101 | 108।</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dont-box">
+        <div class="box-header">✗ &nbsp; अकरणीय — कभी न करें</div>
+        <div class="box-body">
+          <ul>
+            <li>ड्यूटी के दौरान कभी सोएं नहीं या असावधान न रहें।</li>
+            <li>राहत गार्ड के बिना कभी पोस्ट न छोड़ें।</li>
+            <li>कभी शराब या नशे के प्रभाव में ड्यूटी पर न आएं।</li>
+            <li>कभी रिश्वत, उपहार या एहसान स्वीकार न करें।</li>
+            <li>कभी अनधिकृत व्यक्तियों को प्रवेश न करने दें।</li>
+            <li>वास्तविक आत्मरक्षा को छोड़कर कभी शारीरिक बल न करें।</li>
+            <li>कभी अपमानजनक या असम्मानजनक भाषा न बोलें।</li>
+            <li>कभी गोपनीय क्लाइंट जानकारी बाहर न बताएं।</li>
+            <li>कभी क्लाइंट या एजेंसी की संपत्ति को नुकसान न पहुंचाएं।</li>
+            <li>कभी किसी घटना की रिपोर्ट न दबाएं या देरी न करें।</li>
+            <li>कभी अवैध हथियार न रखें।</li>
+            <li>ड्यूटी के दौरान कभी सोशल मीडिया ब्राउज न करें।</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">शेलबैक मेरिन्स सिक्योरिटी एजेंसी | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">8</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     पृष्ठ ९ — भाग सात: जिम्मेदारियों का दायरा
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">भाग सात — जिम्मेदारियों का दायरा</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="लोगो">
+      <span class="rh-right">फ्रिस्किंग · प्रवेश · आईडी · सामग्री · सुरक्षा · अनुशासन</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">७</span>
+      <div><span class="pd-text">जिम्मेदारियों का दायरा</span><span class="pd-sub">सभी तैनात गार्डों की साइट-स्तरीय जिम्मेदारियां</span></div>
+    </div>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=794&h=155&q=80&auto=format&fit=crop" alt="साइट सुरक्षा">
+      <div class="img-caption">व्यापक साइट सुरक्षा — प्रत्येक शेलबैक मेरिन्स गार्ड की दैनिक जिम्मेदारी</div>
+    </div>
+
+    <h3 class="sub">1. फ्रिस्किंग और पदार्थ नियंत्रण</h3>
+    <p>फ्रिस्किंग प्रतिबंधित वस्तुओं का पता लगाने के लिए किसी व्यक्ति के शरीर और सामान की शारीरिक तलाशी है। गुटखा, तंबाकू, शराब और नशीले पदार्थ साइट पर स्वास्थ्य और सुरक्षा खतरे पैदा करते हैं।</p>
+    <ul>
+      <li>फ्रिस्किंग उसी <strong>लिंग के गार्ड</strong> द्वारा की जानी चाहिए।</li>
+      <li>फ्रिस्क करने से पहले घोषणा करें: "सर/मैडम, सुरक्षा जांच — क्या मैं आगे बढ़ सकता हूं?"</li>
+      <li>पहले हैंडहेल्ड मेटल डिटेक्टर (HHMD) का उपयोग करें। केवल तभी शारीरिक पैट-डाउन करें जब उपकरण संकेत दे।</li>
+      <li>बैग, टिफिन, जेब और पैकेज की जांच करें।</li>
+      <li>कोई प्रतिबंधित वस्तु मिले — रसीद जारी किए बिना जब्त न करें। वस्तु, व्यक्ति का नाम, समय और कार्रवाई रिकॉर्ड करें।</li>
+    </ul>
+    <p><strong>प्रतिबंधित वस्तुएं:</strong> गुटखा, तंबाकू, पान मसाला | शराब या नशीला पदार्थ | नशीले पदार्थ (चिकित्सकीय रूप से घोषित नहीं) | धारदार हथियार या खतरनाक वस्तुएं।</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> इज्जत के साथ और नियम से फ्रिस्क करो। कोई नहीं छुपता — कोई अपवाद नहीं।</span>
+    </div>
+
+    <h3 class="sub">2. प्रवेश नियंत्रण और उपस्थिति</h3>
+    <table>
+      <tr><th>कॉलम</th><th>क्या लिखें</th></tr>
+      <tr><td>नाम</td><td>व्यक्ति का पूरा नाम</td></tr>
+      <tr><td>संगठन</td><td>कंपनी / विभाग</td></tr>
+      <tr><td>आईडी का प्रकार और संख्या</td><td>आधार / कर्मचारी आईडी / ड्राइविंग लाइसेंस — सटीक संख्या</td></tr>
+      <tr><td>उद्देश्य</td><td>यात्रा का कारण</td></tr>
+      <tr><td>प्रवेश / निकास समय</td><td>सटीक समय (दोनों)</td></tr>
+      <tr><td>हस्ताक्षर</td><td>व्यक्ति के अपने हस्ताक्षर — <strong>हस्ताक्षर नहीं = प्रवेश नहीं</strong></td></tr>
+    </table>
+    <p>प्रॉक्सी उपस्थिति (दूसरे गार्ड के लिए हस्ताक्षर) गंभीर अपराध है जो बर्खास्तगी का कारण बनता है।</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> रजिस्टर में नाम, समय और हस्ताक्षर। बिना हस्ताक्षर — प्रवेश नहीं।</span>
+    </div>
+
+    <h3 class="sub">3. आईडी सत्यापन &nbsp;|&nbsp; 4. सामग्री आवागमन नियंत्रण</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=300&h=150&q=80&auto=format&fit=crop" alt="सामग्री जांच">
+      <div class="img-caption">सामग्री आवागमन गेट जांच</div>
+    </div>
+
+    <p><strong>आईडी सत्यापन के चरण:</strong> विनम्रता से आईडी मांगें → फोटो से चेहरा मिलाएं → नाम, पदनाम और वैधता जांचें → छेड़छाड़ के संकेत देखें → वैध हो तो रजिस्टर में रिकॉर्ड करें → संदिग्ध हो तो सुपरवाइजर बुलाएं।</p>
+    <p><strong>स्वीकार्य आईडी:</strong> आधार कार्ड | वोटर आईडी | ड्राइविंग लाइसेंस | पासपोर्ट | कंपनी का कर्मचारी आईडी | ठेकेदार द्वारा जारी वर्कर पास।</p>
+    <p><strong>सामग्री आवागमन:</strong> आगत सामग्री — डिलीवरी चालान, क्रय आदेश संख्या, बक्से गिनें, सील जांचें, वाहन नंबर। निर्गत सामग्री — अधिकृत अधिकारी द्वारा हस्ताक्षरित गेट पास। <strong>गेट पास नहीं = कोई सामग्री बाहर नहीं जाती।</strong></p>
+
+    <div class="clearfix"></div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> चालान देखो, गेट पास देखो, गिनो, रिकॉर्ड करो — तब जाने दो। कागज के बिना कुछ भी अंदर-बाहर नहीं।</span>
+    </div>
+
+    <h3 class="sub">5. सुरक्षा एवं हाउसकीपिंग निगरानी &nbsp;|&nbsp; 6. अनुशासन और समन्वय</h3>
+    <ul>
+      <li>कार्यक्षेत्र में प्रवेश से पहले सभी कर्मचारियों को आवश्यक PPE (हेलमेट, सेफ्टी शूज, रिफ्लेक्टिव जैकेट, दस्ताने, सेफ्टी गॉगल) पहनना सुनिश्चित करें। PPE उल्लंघन दर्ज करें।</li>
+      <li>उच्च-जोखिम वाले क्षेत्रों (खुदाई गड्ढे, ऊंचाई पर काम, वेल्डिंग क्षेत्र, विद्युत पैनल) में हर समय बैरिकेडिंग टेप, चेतावनी संकेत और शारीरिक बाधाएं होनी चाहिए।</li>
+      <li>शिफ्ट की शुरुआत में प्राथमिक चिकित्सा बॉक्स की दृश्य जांच करें। बंद, खाली या क्षतिग्रस्त हो — तुरंत रिपोर्ट करें।</li>
+      <li>असुरक्षित कार्य (बिना हार्नेस ऊंचाई पर काम, नो-स्मोकिंग जोन में धूम्रपान) और असुरक्षित स्थितियां (खुला मेनहोल, उघड़े बिजली के तार) — तुरंत HSE अधिकारी को रिपोर्ट करें।</li>
+      <li><strong>ऑडिट के दौरान:</strong> पूरी वर्दी में रहें, सभी रजिस्टर अपडेट और प्रस्तुत योग्य। कोई भी रिकॉर्ड न छुपाएं।</li>
+      <li><strong>आपातकाल के दौरान:</strong> साइट की आपातकालीन प्रतिक्रिया योजना का पालन करें। भीड़ नियंत्रण बनाए रखें। आपातकालीन वाहनों के लिए मार्ग स्पष्ट रखें। निकासी के दौरान एकत्रीकरण बिंदु पर सभी की गिनती बनाए रखें।</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="नियम">
+      <span class="rb-text"><em>सरल नियम:</em> सुरक्षा भी आपकी जिम्मेदारी है। कुछ गलत दिखे — तुरंत बताएं। ऑडिट हो या आपदा — हमेशा तैयार, हमेशा सही।</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">शेलबैक मेरिन्स सिक्योरिटी एजेंसी | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">9</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     पृष्ठ १० — आपातकालीन नंबर + घोषणा
+============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">परिशिष्ट एवं घोषणा</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="लोगो">
+      <span class="rh-right">आपातकालीन नंबर · गार्ड की स्वीकृति</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num"></span>
+      <div><span class="pd-text">परिशिष्ट — त्वरित संदर्भ: आपातकालीन नंबर</span></div>
+    </div>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=794&h=130&q=80&auto=format&fit=crop" alt="आपातकाल">
+      <div class="img-caption">किसी भी आपातकाल में — तुरंत कार्रवाई करें। हर पल महत्वपूर्ण है।</div>
+    </div>
+
+    <table class="emergency-table">
+      <tr><th>सेवा</th><th>नंबर</th></tr>
+      <tr><td>पुलिश</td><td>100</td></tr>
+      <tr><td>दमकल सेवा</td><td>101</td></tr>
+      <tr><td>एम्बुलेंस</td><td>108</td></tr>
+      <tr><td>आपदा प्रबंधन</td><td>1078</td></tr>
+      <tr><td>शेलबैक मेरिन्स नियंत्रण</td><td>+91 9434127571</td></tr>
+    </table>
+
+    <div class="callout" style="margin-top:20px;">
+      <p><strong>याद रखें:</strong> पहले अपने सुपरवाइजर को कॉल करें। फिर आपातकालीन सेवा को। लाइन पर रहें। अपना स्थान, नाम और क्या हुआ बताएं। निर्देश न मिलने तक घटनास्थल न छोड़ें।</p>
+    </div>
+
+    <div class="part-divider" style="margin-top:30px;">
+      <span class="pd-num"></span>
+      <div><span class="pd-text">गार्ड की घोषणा और स्वीकृति</span></div>
+    </div>
+
+    <div class="declaration-block">
+      <p>मैं, <span style="display:inline-block;width:200px;border-bottom:1px solid #888;">&nbsp;</span> (नाम), गार्ड आईडी संख्या <span style="display:inline-block;width:130px;border-bottom:1px solid #888;">&nbsp;</span>, एतद्द्वारा पुष्टि करता/करती हूं कि मैंने इस नियम पुस्तिका की सामग्री पढ़ी है / समझाई गई है।</p>
+      <p>मैं <strong>शेलबैक मेरिन्स सिक्योरिटी एजेंसी</strong> के एक पेशेवर सुरक्षा गार्ड के रूप में अपने कर्तव्यों, जिम्मेदारियों और मुझसे अपेक्षित आचरण को समझता/समझती हूं।</p>
+      <p>मैं इस पुस्तिका में बताए गए सभी नियमों का पालन करने और हर समय <strong>अनुशासन, ईमानदारी और व्यावसायिकता</strong> के साथ व्यवहार करने के लिए सहमत हूं।</p>
+
+      <div class="sig-row">
+        <div>
+          <div class="sig-field"></div>
+          <div class="sig-label">गार्ड के हस्ताक्षर</div>
+        </div>
+        <div>
+          <div class="sig-field"></div>
+          <div class="sig-label">तारीख</div>
+        </div>
+        <div>
+          <div class="sig-field"></div>
+          <div class="sig-label">पोस्ट / साइट का नाम</div>
+        </div>
+        <div>
+          <div class="sig-field"></div>
+          <div class="sig-label">सुपरवाइजर के हस्ताक्षर</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">शेलबैक मेरिन्स सिक्योरिटी एजेंसी | W.B – 55/WB/PSA/2025 | जलपाईगुड़ी, पश्चिम बंगाल</span>
+    <span class="pf-num">10</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     पिछला कवर / BACK COVER
+============================================================ -->
+<div class="page back-cover">
+  <div class="bc-stripe-top"></div>
+  <div class="bc-stripe-bottom"></div>
+
+  <div class="bc-logo">
+    <!-- अपना असली लोगो यहाँ लगाएं -->
+    <img src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=200&h=200&q=80&auto=format&fit=crop" alt="शेलबैक मेरिन्स लोगो">
+  </div>
+
+  <div class="bc-title">शेलबैक मेरिन्स<br>सिक्योरिटी एजेंसी</div>
+  <div class="bc-tagline">"सुरक्षा के विश्वसनीय प्रहरी"</div>
+
+  <div class="bc-divider"></div>
+
+  <div class="bc-info">
+    <strong>लाइसेंस संख्या: W.B – 55/WB/PSA/2025</strong><br>
+    पश्चिम बंगाल सरकार द्वारा जारी किया गया<br><br>
+    ऊदलाबाड़ी बिधानपल्ली, पो. मानाबाड़ी<br>
+    जिला जलपाईगुड़ी, पश्चिम बंगाल – 735222<br><br>
+    <strong>+91 9434127571</strong><br>
+    contact@shellbackmarines.in<br>
+    www.shellbackmarines.in<br><br><br>
+    निजी सुरक्षा एजेंसी (विनियमन) अधिनियम, 2005<br>
+    और पश्चिम बंगाल राज्य नियमों के अनुसार तैयार किया गया।
+  </div>
+</div>
+
+</div><!-- end .book -->
+</body>
+</html>

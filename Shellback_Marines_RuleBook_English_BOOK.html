@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shellback Marines — Security Rule Book</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0B2545;
+  --navy-mid: #163872;
+  --gold: #C9973A;
+  --gold-light: #E8BE6A;
+  --cream: #FAF7F2;
+  --cream-dark: #F0EBE1;
+  --text: #1C1C1C;
+  --text-mid: #3A3A3A;
+  --text-light: #666;
+  --rule-bg: #FFF8E7;
+  --page-w: 794px;
+}
+
+body {
+  background: #C8C8C8;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 11.5px;
+  color: var(--text);
+  line-height: 1.75;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ===== A4 PAGE WRAPPER ===== */
+.book {
+  width: var(--page-w);
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.page {
+  width: var(--page-w);
+  min-height: 1123px;
+  background: var(--cream);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.35);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+/* ===== DECORATIVE SPINE LINE ===== */
+.page::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--navy) 50%, var(--gold) 100%);
+}
+
+/* ===== COVER PAGE ===== */
+.cover-page {
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  min-height: 1123px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-page::before { display: none; }
+
+/* Gold corner ornaments */
+.cover-page .corner-tl,
+.cover-page .corner-br {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.6;
+}
+.cover-page .corner-tl {
+  top: 24px; left: 24px;
+  border-width: 2px 0 0 2px;
+}
+.cover-page .corner-br {
+  bottom: 24px; right: 24px;
+  border-width: 0 2px 2px 0;
+}
+.cover-page .corner-tr,
+.cover-page .corner-bl {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.6;
+}
+.cover-page .corner-tr {
+  top: 24px; right: 24px;
+  border-width: 2px 2px 0 0;
+}
+.cover-page .corner-bl {
+  bottom: 24px; left: 24px;
+  border-width: 0 0 2px 2px;
+}
+
+/* Cover hero image */
+.cover-hero {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  opacity: 0.35;
+  position: absolute;
+  top: 0; left: 0;
+}
+
+/* Cover gold stripe top */
+.cover-stripe-top {
+  width: 100%;
+  height: 7px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  position: absolute;
+  top: 0; left: 0;
+}
+.cover-stripe-bottom {
+  width: 100%;
+  height: 7px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  position: absolute;
+  bottom: 0; left: 0;
+}
+
+.cover-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 60px 50px;
+  height: 100%;
+}
+
+/* Logo container */
+.cover-logo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(201,151,58,0.3);
+}
+.cover-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-badge {
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 5px 22px;
+  margin-bottom: 30px;
+}
+
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 46px;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.cover-title span {
+  color: var(--gold);
+}
+
+.cover-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cover-divider {
+  width: 280px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 30px;
+}
+
+.cover-rule-book {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Cover image strip */
+.cover-img-strip {
+  width: 100%;
+  display: flex;
+  gap: 4px;
+  margin-bottom: 36px;
+}
+.cover-img-strip img {
+  flex: 1;
+  height: 100px;
+  object-fit: cover;
+  filter: brightness(0.7) saturate(0.8);
+}
+
+.cover-meta {
+  text-align: center;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Barlow', sans-serif;
+  font-size: 9.5px;
+  letter-spacing: 0.5px;
+  line-height: 1.9;
+}
+
+.cover-meta strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.cover-tagline {
+  margin-top: 24px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* ===== INNER PAGES ===== */
+.page-inner {
+  padding: 54px 54px 54px 68px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Running header */
+.running-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--gold);
+}
+.running-header .rh-left {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.running-header .rh-right {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+.running-header .rh-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--gold);
+}
+
+/* ===== PART BANNERS ===== */
+.part-divider {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 20px 14px 24px;
+  margin: 28px -54px 22px -68px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+.part-divider::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 50px;
+  background: linear-gradient(90deg, transparent, var(--navy-mid));
+}
+.part-divider .pd-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--gold);
+  opacity: 0.4;
+  line-height: 1;
+}
+.part-divider .pd-text {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.part-divider .pd-sub {
+  font-family: 'Source Serif 4', serif;
+  font-size: 10px;
+  font-style: italic;
+  color: rgba(255,255,255,0.55);
+  display: block;
+}
+
+/* ===== SECTION HEADINGS ===== */
+h2.sh {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 24px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--cream-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+h2.sh::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: var(--gold);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+h3.sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--navy-mid);
+  margin: 16px 0 7px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+h3.sub::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* ===== BODY TEXT ===== */
+p { margin-bottom: 8px; text-align: justify; color: var(--text-mid); font-size: 11.5px; }
+
+/* ===== LISTS ===== */
+ul { margin: 6px 0 10px 0; list-style: none; }
+ul li {
+  padding: 3px 0 3px 20px;
+  position: relative;
+  color: var(--text-mid);
+  font-size: 11.5px;
+}
+ul li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+ol { margin: 6px 0 10px 24px; }
+ol li { padding: 2px 0; color: var(--text-mid); font-size: 11.5px; margin-bottom: 3px; }
+
+/* ===== RULE BOX ===== */
+.rule-box {
+  background: var(--rule-bg);
+  border-left: 4px solid var(--gold);
+  padding: 10px 14px;
+  margin: 12px 0;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.rule-box .rb-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.rule-box .rb-text {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--navy);
+  line-height: 1.5;
+}
+.rule-box .rb-text em {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ===== TABLES ===== */
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 11px; }
+th {
+  background: var(--navy);
+  color: #fff;
+  padding: 8px 10px;
+  text-align: left;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.5px;
+}
+td { padding: 7px 10px; border: 1px solid #DDD; color: var(--text-mid); vertical-align: top; }
+tr:nth-child(even) td { background: var(--cream-dark); }
+
+/* ===== FEATURE IMAGE BLOCKS ===== */
+.img-block {
+  width: 100%;
+  margin: 18px 0;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.img-block img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+.img-block .img-caption {
+  background: rgba(11,37,69,0.88);
+  color: rgba(255,255,255,0.85);
+  font-family: 'Barlow', sans-serif;
+  font-size: 9.5px;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  font-style: italic;
+}
+
+/* Inline float images */
+.img-float-right {
+  float: right;
+  width: 220px;
+  margin: 0 0 12px 18px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid var(--cream-dark);
+}
+.img-float-right img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+.img-float-right .img-caption {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px;
+  padding: 4px 8px;
+  font-style: italic;
+}
+.clearfix::after { content: ''; display: table; clear: both; }
+
+/* 2-col image grid */
+.img-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 14px 0;
+}
+.img-grid-2 .ig-item {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid var(--cream-dark);
+}
+.img-grid-2 .ig-item img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+}
+.img-grid-2 .ig-item .img-caption {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px;
+  padding: 4px 8px;
+  font-style: italic;
+}
+
+/* 3-col image grid */
+.img-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin: 14px 0;
+}
+.img-grid-3 .ig-item {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid var(--cream-dark);
+}
+.img-grid-3 .ig-item img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  display: block;
+}
+.img-grid-3 .ig-item .img-caption {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  font-family: 'Barlow', sans-serif;
+  font-size: 8.5px;
+  padding: 3px 7px;
+  font-style: italic;
+}
+
+/* ===== HIGHLIGHT CALLOUT ===== */
+.callout {
+  background: var(--navy);
+  color: #fff;
+  padding: 14px 18px;
+  margin: 16px 0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.callout::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+}
+.callout p {
+  color: rgba(255,255,255,0.85);
+  font-size: 11px;
+  margin: 0;
+}
+.callout strong { color: var(--gold); }
+
+/* ===== DO / DON'T GRID ===== */
+.do-dont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 14px 0;
+}
+.do-box, .dont-box {
+  border-radius: 4px;
+  overflow: hidden;
+}
+.do-box .box-header { background: #1A6B3C; color: #fff; padding: 6px 12px; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1px; }
+.dont-box .box-header { background: #8B1A1A; color: #fff; padding: 6px 12px; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1px; }
+.do-box .box-body { background: #F0FAF4; padding: 10px 12px; border: 1px solid #A8D5BC; border-top: none; }
+.dont-box .box-body { background: #FDF0F0; padding: 10px 12px; border: 1px solid #E0A8A8; border-top: none; }
+.do-box .box-body li::before { background: #1A6B3C; }
+.dont-box .box-body li::before { background: #8B1A1A; }
+
+/* ===== PAGE FOOTER ===== */
+.page-footer {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 12px 54px 14px 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--cream-dark);
+}
+.page-footer .pf-text {
+  font-family: 'Barlow', sans-serif;
+  font-size: 8.5px;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+}
+.page-footer .pf-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* ===== EMERGENCY TABLE ===== */
+.emergency-table th { background: #8B1A1A; }
+.emergency-table td:first-child { font-weight: 600; color: var(--navy); }
+.emergency-table td:last-child { font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 700; color: #8B1A1A; }
+
+/* ===== DECLARATION BLOCK ===== */
+.declaration-block {
+  background: var(--cream-dark);
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+.declaration-block p { margin-bottom: 12px; font-style: italic; }
+.sig-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+.sig-field {
+  border-bottom: 1px solid #AAA;
+  padding-bottom: 4px;
+  margin-bottom: 6px;
+}
+.sig-label {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ===== BACK COVER ===== */
+.back-cover {
+  background: var(--navy);
+  min-height: 1123px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 60px;
+}
+.back-cover::before { display: none; }
+.back-cover .bc-stripe-top, .back-cover .bc-stripe-bottom {
+  position: absolute;
+  left: 0; right: 0;
+  height: 7px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+}
+.back-cover .bc-stripe-top { top: 0; }
+.back-cover .bc-stripe-bottom { bottom: 0; }
+.back-cover .bc-logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 0 40px rgba(201,151,58,0.2);
+}
+.back-cover .bc-logo img { width: 100%; height: 100%; object-fit: cover; }
+.back-cover .bc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.back-cover .bc-tagline {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--gold);
+  margin-bottom: 40px;
+}
+.back-cover .bc-divider {
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 40px;
+}
+.back-cover .bc-info {
+  text-align: center;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
+  line-height: 2;
+}
+.back-cover .bc-info strong { color: var(--gold); }
+.back-cover .bc-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  opacity: 0.2;
+  position: absolute;
+  bottom: 40px; left: 0; right: 0;
+}
+
+/* PASS acronym box */
+.pass-box {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0;
+  margin: 12px 0;
+  border: 1px solid var(--cream-dark);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.pass-letter {
+  background: var(--navy);
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pass-desc {
+  padding: 8px 12px;
+  background: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-mid);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+/* strong */
+strong { font-weight: 700; color: var(--navy); }
+
+/* ===== PRINT ===== */
+@media print {
+  body { background: #fff; }
+  .book { margin: 0; gap: 0; }
+  .page { box-shadow: none; page-break-after: always; break-after: page; }
+  .page-footer { position: fixed; bottom: 0; }
+}
+</style>
+</head>
+<body>
+<div class="book">
+
+<!-- ============================================================ -->
+<!--  COVER PAGE                                                   -->
+<!-- ============================================================ -->
+<div class="page cover-page">
+  <div class="cover-stripe-top"></div>
+  <div class="cover-stripe-bottom"></div>
+  <div class="corner-tl"></div>
+  <div class="corner-tr"></div>
+  <div class="corner-bl"></div>
+  <div class="corner-br"></div>
+
+  <!-- Background hero image -->
+  <img class="cover-hero"
+    src="https://images.unsplash.com/photo-1508511267-9990d3a350d3?w=794&q=80&auto=format&fit=crop"
+    alt="Security background">
+
+  <div class="cover-inner">
+    <!-- Logo -->
+    <div class="cover-logo">
+      <!-- REPLACE THIS WITH YOUR ACTUAL LOGO IMAGE -->
+      <img src="./img/logo.png?w=200&h=200&q=80&auto=format&fit=crop" alt="Shellback Marines Logo">
+    </div>
+
+    <div class="cover-badge">W.B – 55/WB/PSA/2025 &nbsp;|&nbsp; Licensed Security Agency</div>
+
+    <div class="cover-title">
+      SHELLBACK<br><span>MARINES</span>
+    </div>
+    <div class="cover-subtitle">Security Agency — West Bengal</div>
+
+    <div class="cover-divider"></div>
+
+    <div class="cover-rule-book">Private Security Personnel — Training &amp; Conduct Rule Book</div>
+
+    <!-- 4-image strip -->
+    <div class="cover-img-strip">
+      <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=200&h=120&q=70&auto=format&fit=crop" alt="Security guard">
+      <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=200&h=120&q=70&auto=format&fit=crop" alt="Access control">
+      <img src="https://images.unsplash.com/photo-1597452485595-b07d96de6f1d?w=200&h=120&q=70&auto=format&fit=crop" alt="CCTV monitoring">
+      <img src="https://images.unsplash.com/photo-1508856028117-89a28a12df56?w=200&h=120&q=70&auto=format&fit=crop" alt="Patrol">
+    </div>
+
+    <div class="cover-meta">
+      <strong>Prepared in accordance with</strong><br>
+      The Private Security Agencies (Regulation) Act, 2005 (PSARA)<br>
+      and applicable State Rules of West Bengal<br><br>
+      Oodlabari Bidhanpally, PO Manabari, Dist. Jalpaiguri, West Bengal – 735222<br>
+      +91 9434127571 &nbsp;|&nbsp; contact@shellbackmarines.in
+    </div>
+
+    <div class="cover-tagline">"Trusted Guardians of Security"</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  PAGE 2 — FOREWORD + PART I START                           -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">Shellback Marines — Rule Book</span>
+      <!-- REPLACE WITH YOUR ACTUAL LOGO -->
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="Logo">
+      <span class="rh-right">Foreword &amp; Training Subjects</span>
+    </div>
+
+    <!-- Foreword -->
+    <div class="part-divider">
+      <span class="pd-num">00</span>
+      <div><span class="pd-text">Foreword</span><span class="pd-sub">From the Management of Shellback Marines</span></div>
+    </div>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1562564055-71e051d33c19?w=300&h=200&q=80&auto=format&fit=crop" alt="Security briefing">
+      <div class="img-caption">Security briefing at post handover</div>
+    </div>
+
+    <p>This Rule Book has been prepared for all security personnel employed under <strong>Shellback Marines Security Agency</strong>. It is written in simple language so that every guard, regardless of educational background, can understand their duties, rights, and responsibilities.</p>
+    <p>Every security guard must read this book carefully. If you cannot read, your supervisor will explain it to you. This book is your guide to being a <strong>professional, law-abiding, and respected security officer</strong>.</p>
+    <p>Keep this book with you. Follow it every day.</p>
+
+    <div class="clearfix"></div>
+
+    <!-- Part I -->
+    <div class="part-divider">
+      <span class="pd-num">I</span>
+      <div><span class="pd-text">Training Subjects</span><span class="pd-sub">Minimum 6 Working Days — Mandatory under PSARA 2005</span></div>
+    </div>
+
+    <h2 class="sh">Subject 1: Present Security Scenario</h2>
+
+    <h3 class="sub">(a) VIP Security</h3>
+    <p>VIP Security means protecting important persons — such as government officers, company directors, doctors, or any person whose safety is at special risk.</p>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&h=180&q=80&auto=format&fit=crop" alt="VIP escort">
+      <div class="img-caption">VIP escort and perimeter watch</div>
+    </div>
+
+    <p><strong>What a security guard must know:</strong></p>
+    <ul>
+      <li>A VIP is any person given special protection due to their position, work, or threat level.</li>
+      <li>VIP security requires extra alertness — observe surroundings at all times and report anything unusual immediately.</li>
+      <li>Do not allow any unknown person to approach a VIP without proper verification.</li>
+      <li>Maintain a safe distance perimeter. Do not allow crowding near the VIP.</li>
+      <li>In case of any threat, immediately alert your supervisor and the nearest police post.</li>
+      <li>Never leave your VIP post without written handover to another guard.</li>
+    </ul>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> When on VIP duty — not even a moment's lapse is acceptable. Eyes open, ears alert at all times.</span>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <h3 class="sub">(b) Internal Security</h3>
+    <p>Internal Security means keeping a workplace, factory, office, or site safe from threats that come from inside — such as theft by employees, misuse of assets, or workplace conflict.</p>
+    <ul>
+      <li>Watch for unusual behaviour of employees — repeated late-night stays, carrying bags without checking.</li>
+      <li>All employees — including staff, supervisors, or managers — are subject to standard security checks. No one is exempt.</li>
+      <li>Any incident of internal theft, fighting, or misconduct must be reported immediately in writing.</li>
+      <li>Do not take sides in any internal conflict. Stay neutral and call your supervisor.</li>
+      <li>Maintain a daily log of anything unusual you observe on site.</li>
+    </ul>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> The threat from inside is as serious as the threat from outside. Watch everyone, be fair to all.</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">Shellback Marines Security Agency | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">2</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  PAGE 3 — INSTITUTIONAL + FIRE + DISASTER                   -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">Part I — Training Subjects</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="Logo">
+      <span class="rh-right">Security Scenario &amp; Agency Role</span>
+    </div>
+
+    <h3 class="sub">(c) Institutional Security</h3>
+    <p>Institutional Security means protecting buildings and facilities like hospitals, schools, banks, factories, and government offices.</p>
+
+    <div class="img-grid-3">
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=200&h=120&q=70&auto=format&fit=crop" alt="Hospital security">
+        <div class="img-caption">Hospital security post</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=200&h=120&q=70&auto=format&fit=crop" alt="Bank security">
+        <div class="img-caption">Bank entrance control</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=200&h=120&q=70&auto=format&fit=crop" alt="Factory security">
+        <div class="img-caption">Industrial site guard</div>
+      </div>
+    </div>
+
+    <ul>
+      <li>Every institution has its own rules. Learn the specific rules of the site where you are posted.</li>
+      <li>Know all entry and exit points of the building, location of fire exits, fire extinguishers, and first aid box.</li>
+      <li>Know who the site in-charge, HSE officer, and emergency contacts are.</li>
+      <li>Control who enters and exits at all times.</li>
+      <li><strong>For hospitals:</strong> Maintain calm, assist patients and visitors politely, keep emergency areas clear.</li>
+      <li><strong>For factories:</strong> Strictly enforce PPE and safety rules.</li>
+      <li><strong>For banks:</strong> Maintain queue discipline, check bags at entry, be alert during cash transactions.</li>
+    </ul>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> Learn the rules of every site you are posted at. Each building is different — adapt accordingly.</span>
+    </div>
+
+    <h2 class="sh">Subject 2: Role and Functioning of Private Security Agencies</h2>
+
+    <h3 class="sub">(a) Fire Fighting</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=160&q=80&auto=format&fit=crop" alt="Fire extinguisher">
+      <div class="img-caption">Know your extinguisher types</div>
+    </div>
+
+    <p>Every security guard must know basic fire safety and how to respond when a fire breaks out. Know the location of all fire extinguishers on your site and check them monthly.</p>
+    <p><strong>Types of fire extinguishers:</strong></p>
+    <ul>
+      <li><strong>Red (Water)</strong> — for paper, wood fires</li>
+      <li><strong>Yellow (Dry Powder)</strong> — for electrical and chemical fires</li>
+      <li><strong>Green (CO2)</strong> — for electrical fires</li>
+    </ul>
+
+    <p><strong>How to use a fire extinguisher — remember PASS:</strong></p>
+    <div class="pass-box">
+      <div class="pass-letter">P</div><div class="pass-desc">Pull the pin</div>
+      <div class="pass-letter">A</div><div class="pass-desc">Aim at the base of the fire</div>
+      <div class="pass-letter">S</div><div class="pass-desc">Squeeze the handle</div>
+      <div class="pass-letter" style="border-bottom:none;">S</div><div class="pass-desc" style="border-bottom:none;">Sweep side to side</div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="callout">
+      <p>If fire is large — <strong>DO NOT try to fight it yourself.</strong> Shout "FIRE!", activate the alarm, call fire services <strong>(101)</strong>, and evacuate people calmly. Never use a lift during a fire. Always use stairs.</p>
+    </div>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> If fire breaks out — sound the alarm first, evacuate people, then extinguish only if small.</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">Shellback Marines Security Agency | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">3</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  PAGE 4 — DISASTER / SECURITY DUTIES / DOCUMENTS            -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">Part I — Training Subjects</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="Logo">
+      <span class="rh-right">Emergency &amp; Duties</span>
+    </div>
+
+    <h3 class="sub">(b) Disaster / Emergency Management Protocol</h3>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=794&h=180&q=80&auto=format&fit=crop" alt="Emergency response">
+      <div class="img-caption">Emergency response and evacuation — every guard must know the drill</div>
+    </div>
+
+    <p>Disasters can be natural (flood, earthquake) or man-made (fire, bomb threat, accident). Every guard must know how to respond.</p>
+    <p><strong>Standard Emergency Response Steps:</strong></p>
+    <ol>
+      <li>Stay calm. Do not run or shout unnecessarily.</li>
+      <li>Raise the alarm — shout, blow whistle, or press the emergency button.</li>
+      <li>Inform your supervisor and site in-charge immediately.</li>
+      <li>Call emergency services: Police – 100 | Fire – 101 | Ambulance – 108</li>
+      <li>Guide people to the nearest safe exit or assembly point.</li>
+      <li>Do not allow anyone to re-enter the building until cleared by authorities.</li>
+      <li>Assist injured persons only if trained — otherwise wait for medical help.</li>
+      <li>Write down everything that happened in your duty register after the incident.</li>
+    </ol>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> In a disaster — do not panic. Signal, save people, call for help.</span>
+    </div>
+
+    <h3 class="sub">(c) Security Duties</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=300&h=160&q=80&auto=format&fit=crop" alt="Guard on duty">
+      <div class="img-caption">Guard at main entry gate</div>
+    </div>
+
+    <ul>
+      <li>Report to duty on time, in full uniform, clean and presentable.</li>
+      <li>Take proper handover from the outgoing guard. Read the handover register.</li>
+      <li>Check your post — gates, locks, lights, CCTV working or not.</li>
+      <li>Allow entry only to authorised persons with valid ID.</li>
+      <li>Check all vehicles entering and exiting.</li>
+      <li>Patrol your area as per schedule.</li>
+      <li>Maintain all registers — visitor, vehicle, material, attendance.</li>
+      <li>Do not leave your post without relief.</li>
+      <li>Report any suspicious person, vehicle, or activity immediately.</li>
+      <li>Stay awake and alert throughout your shift. <strong>Sleeping on duty is a serious offence.</strong></li>
+    </ul>
+
+    <div class="clearfix"></div>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> Come to duty — keep uniform correct, maintain registers, stay alert, never leave your post.</span>
+    </div>
+
+    <h3 class="sub">(d) Checking of Various Documents</h3>
+    <table>
+      <tr><th>Document</th><th>When to Check</th></tr>
+      <tr><td>Government ID (Aadhaar, Voter Card, Driving Licence, Passport)</td><td>All visitors at entry</td></tr>
+      <tr><td>Company ID Card</td><td>All employees daily</td></tr>
+      <tr><td>Visitor Pass / Gate Pass</td><td>All outsiders</td></tr>
+      <tr><td>Vehicle Entry Pass</td><td>All vehicles</td></tr>
+      <tr><td>Delivery Challan</td><td>All material movements</td></tr>
+      <tr><td>Work Order / Permit</td><td>Contractors and vendors</td></tr>
+    </table>
+    <p>Look at the photograph on the ID and match it with the person in front of you. Check name, designation, and validity. Do not accept photocopies unless approved by site in-charge. If any document looks altered or unclear — do not allow entry. Report immediately.</p>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> See the ID, match the photo, record in register — only then allow entry.</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">Shellback Marines Security Agency | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">4</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  PAGE 5 — PART II SECURITY TOPICS                           -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">Part II — Security Topics</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="Logo">
+      <span class="rh-right">Information, Access, Explosives</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">II</span>
+      <div><span class="pd-text">Security Topics</span><span class="pd-sub">Information Security · Access Control · IEDs · ASC · Equipment · Communication · Patrolling · Post Duties</span></div>
+    </div>
+
+    <h3 class="sub">(e) Information Security</h3>
+    <p>Information Security means protecting all data, documents, records, and conversations related to your site, client, or agency from being shared with unauthorised persons.</p>
+    <ul>
+      <li>Do not discuss your client's details — their business, operations, layout, or security arrangements — with anyone outside the organisation.</li>
+      <li>Do not take photographs inside the site premises unless specifically authorised.</li>
+      <li>Do not share CCTV footage, entry records, visitor logs, or any register data with outside persons.</li>
+      <li>Do not share patrol routes, shift timings, or guard deployment details with strangers.</li>
+      <li>If someone tries to gather information about the site from you — report it immediately to your supervisor.</li>
+      <li>Keep all registers and documents in a secure place. Do not leave them unattended.</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> What is work-related stays at work. Tell nothing to anyone outside.</span>
+    </div>
+
+    <h3 class="sub">(f) Access Control</h3>
+
+    <div class="img-grid-2">
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=140&q=70&auto=format&fit=crop" alt="Access card check">
+        <div class="img-caption">ID card verification at entry</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1597452485595-b07d96de6f1d?w=300&h=140&q=70&auto=format&fit=crop" alt="CCTV">
+        <div class="img-caption">CCTV-monitored access points</div>
+      </div>
+    </div>
+
+    <ul>
+      <li>Every entry and exit must be logged in the In-Out Register with name, time, ID number, and signature.</li>
+      <li>No person should enter a restricted area without proper permission.</li>
+      <li><strong>Tailgating</strong> — when one person follows another through a secured door without individual verification — is strictly prohibited.</li>
+      <li>All vehicles must be checked at the gate — cabin, boot, and undercarriage if required.</li>
+      <li>For contractor workers: maintain a separate contractor register and check work permits daily.</li>
+      <li>After working hours, no person should be allowed inside without written authorisation from a senior officer.</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> One ID — one entry. Tailgating must be stopped. That is your duty.</span>
+    </div>
+
+    <h3 class="sub">(g) Explosives and IEDs (Improvised Explosive Devices)</h3>
+    <p>An IED is a homemade bomb made from available materials. These are used by anti-social and terrorist elements to cause harm.</p>
+    <p><strong>How to identify a suspicious object:</strong></p>
+    <ul>
+      <li>Unattended bags, boxes, or packages left in public areas.</li>
+      <li>Wires, batteries, or unusual smell coming from an object.</li>
+      <li>Objects that were not there in your last round.</li>
+      <li>Vehicles parked at unusual places for long periods.</li>
+    </ul>
+    <div class="callout">
+      <p><strong>If you find a suspicious object:</strong> DO NOT touch, move, or try to open it. Clear the area — move everyone at least 100 metres away. Call Police: <strong>100</strong> immediately. Do not use mobile phones near the object. Wait for Bomb Disposal Squad.</p>
+    </div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> If suspicious of any object — do not touch it, clear the area, call police.</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">Shellback Marines Security Agency | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">5</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  PAGE 6 — ASC, EQUIPMENT, COMMUNICATION, PATROLLING, POST   -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">Part II — Security Topics</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="Logo">
+      <span class="rh-right">ASC · Equipment · Patrolling · Post Duties</span>
+    </div>
+
+    <h3 class="sub">(h) Anti-Sabotage Checks (ASC)</h3>
+    <p>Anti-Sabotage Checks are routine searches done to ensure no dangerous object, device, or unauthorised material has been placed inside the premises. Conduct before any VIP visit, important event, at the start of each shift, or when suspicious activity is reported.</p>
+    <ul>
+      <li>Walk through the entire area methodically — room by room, floor by floor.</li>
+      <li>Check under tables, chairs, behind curtains, inside dustbins, and in false ceilings.</li>
+      <li>Check all toilets, store rooms, and maintenance areas.</li>
+      <li>Look for unfamiliar bags, boxes, packages, or objects.</li>
+      <li>Check electrical boards and junction boxes for tampering.</li>
+      <li>Any object that does not belong — report and <strong>do not touch.</strong></li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> Conduct ASC with eyes wide open, check every corner. If something seems out of place — do not touch it.</span>
+    </div>
+
+    <h3 class="sub">(i) Security Related Equipment &nbsp;&amp;&nbsp; (j) Communication Equipment</h3>
+
+    <div class="img-grid-2">
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=110&q=70&auto=format&fit=crop" alt="HHMD">
+        <div class="img-caption">Handheld Metal Detector (HHMD)</div>
+      </div>
+      <div class="ig-item">
+        <img src="https://images.unsplash.com/photo-1580745294621-09af2ced30a3?w=300&h=110&q=70&auto=format&fit=crop" alt="Walkie talkie">
+        <div class="img-caption">Walkie-Talkie / Two-Way Radio</div>
+      </div>
+    </div>
+
+    <ul>
+      <li><strong>HHMD:</strong> Pass slowly over the body — front, back, sides, legs. If it beeps — investigate politely. Keep battery charged.</li>
+      <li><strong>DFMD:</strong> One person at a time. Do not allow bypass.</li>
+      <li><strong>Torch:</strong> Always carry a working torch on night duty.</li>
+      <li><strong>Baton / Lathi:</strong> For self-defence and deterrence only. Using a baton without justification is a criminal offence.</li>
+      <li><strong>Walkie-Talkie:</strong> Always keep it charged and on during duty. Speak clearly and slowly. Example: "Gate 1 to Control Room — over." Confirm every message received.</li>
+      <li><strong>Mobile Phone:</strong> Official calls only. Keep emergency numbers saved. Do not browse social media during duty.</li>
+      <li><strong>Emergency Alarm Button:</strong> Press only in genuine emergencies. False alarms are a serious offence.</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> Keep equipment ready and use it correctly. Communicate — clearly, briefly, and relevantly. Radio on at all times.</span>
+    </div>
+
+    <h3 class="sub">(k) Patrolling &nbsp;&amp;&nbsp; (l) Post Duties</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1508856028117-89a28a12df56?w=300&h=160&q=80&auto=format&fit=crop" alt="Patrolling">
+      <div class="img-caption">Night patrol of the perimeter</div>
+    </div>
+
+    <p><strong>Patrolling:</strong> Walk through the protected area at regular intervals. Use Fixed Route Patrol or Random Patrol (change timing and route to prevent predictability). Always carry torch (night), radio, and register. Check all doors, windows, locks, gates. Look for fire hazards and unauthorised persons.</p>
+    <p><strong>Post Duty Rules:</strong></p>
+    <ul>
+      <li>Arrive at your post 10 minutes before shift starts.</li>
+      <li>Take proper handover. Read all notes from the previous guard.</li>
+      <li>Do not eat, sleep, or use phone for personal calls while on post.</li>
+      <li>Do not leave your post for any reason without a relief guard in place.</li>
+      <li>At end of shift: brief incoming guard, sign handover register, account for all keys and equipment.</li>
+    </ul>
+
+    <div class="clearfix"></div>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> Patrol — eyes open, check everything, record all findings. Leaving post = breaking duty. Stay until relief arrives.</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">Shellback Marines Security Agency | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">6</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  PAGE 7 — PART III LEGAL + PART IV MANAGEMENT               -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">Part III — Legal Provisions</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="Logo">
+      <span class="rh-right">PSARA 2005 · Labour Laws</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">III</span>
+      <div><span class="pd-text">Legal Provisions</span><span class="pd-sub">PSARA 2005 · Labour Laws · Your Rights</span></div>
+    </div>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=300&h=170&q=80&auto=format&fit=crop" alt="Legal">
+      <div class="img-caption">PSARA — the law that governs our work</div>
+    </div>
+
+    <h3 class="sub">(a) The Private Security Agencies (Regulation) Act, 2005 — PSARA</h3>
+    <p>PSARA is the central law of India that controls and regulates all private security agencies. Every security agency and every guard working in India must follow this law.</p>
+    <p><strong>Who can be a security guard:</strong> Indian citizen only | Age: 18–65 years | No criminal conviction involving moral turpitude | Medically fit | Minimum training completed.</p>
+    <p><strong>What the agency must do:</strong> Obtain a licence from the state government | Provide training before deployment | Pay minimum wages | Provide uniform, ID card, and appointment letter | Maintain records of all guards.</p>
+    <p><strong>What the guard must do:</strong> Carry identity card at all times | Wear approved uniform | Not carry unlicensed weapons | Not be under the influence of alcohol or drugs on duty.</p>
+    <p><strong>Penalties:</strong> Operating without a licence: Imprisonment up to 1 year and/or fine up to Rs. 25,000. Violation of any condition: Licence may be suspended or cancelled.</p>
+    <p>Shellback Marines holds Licence No. <strong>W.B – 55/WB/PSA/2025</strong>, issued by the Government of West Bengal.</p>
+
+    <div class="clearfix"></div>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> PSARA is the law governing our work — licence is mandatory, training is mandatory, follow the rules.</span>
+    </div>
+
+    <h3 class="sub">(b) Relevant Labour Laws — Your Rights</h3>
+    <table>
+      <tr><th>Law</th><th>What it Means for You</th></tr>
+      <tr><td><strong>Minimum Wages Act, 1948</strong></td><td>You must be paid the minimum wage as notified by the Government. If not, complain to the Labour Department.</td></tr>
+      <tr><td><strong>EPF Act, 1952</strong></td><td>12% of basic salary from you + 12% from employer goes into your PF account. Available on retirement or emergency.</td></tr>
+      <tr><td><strong>ESI Act, 1948</strong></td><td>Free medical treatment for you and your family at ESI hospitals if wage is below Rs. 21,000/month.</td></tr>
+      <tr><td><strong>Gratuity Act, 1972</strong></td><td>After 5 years of service: 15 days' salary × number of years. Payable on resignation or retirement.</td></tr>
+      <tr><td><strong>Factories Act</strong></td><td>Safe working conditions are your legal right. Cannot be made to work more than 12 hours per shift without compensation.</td></tr>
+    </table>
+
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> The law protects you too — know your rights and stand up for them.</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">IV</span>
+      <div><span class="pd-text">Management of Security Agencies</span><span class="pd-sub">Uniform · Training · Documentation · Data Protocol</span></div>
+    </div>
+
+    <h3 class="sub">(a) Uniform Standards</h3>
+    <ul>
+      <li>Full uniform must be worn at all times during duty hours — clean, ironed, free of stains or tears.</li>
+      <li>Shoes must be polished. Cap worn straight, not tilted. Belt properly fastened.</li>
+      <li>ID card to be worn visibly on the chest at all times.</li>
+      <li>Hair must be neatly cut and combed. No unkempt beard unless approved by management.</li>
+      <li>No jewellery, earrings, or casual clothing permitted during duty.</li>
+      <li>Uniform is property of the agency. It must be returned on leaving service.</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> Uniform = Respect. Clean, correct, complete — that is your identity.</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">Shellback Marines Security Agency | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">7</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  PAGE 8 — TRAINING, RECORDS, INTERFACE, CONDUCT RULES       -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">Part IV–VI — Management · Interface · Conduct</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="Logo">
+      <span class="rh-right">Documentation · Public · Police · DO's &amp; DON'Ts</span>
+    </div>
+
+    <h3 class="sub">(b) Training &nbsp;&amp;&nbsp; (c) Documentation and Records</h3>
+    <p>As per PSARA, training is not optional — it is mandatory. <strong>Minimum Training Duration: 6 Working Days.</strong> Refresher training will be conducted periodically. Keep your training certificate safe.</p>
+    <p><strong>Registers to be maintained at every post:</strong></p>
+    <table>
+      <tr><th>Register</th><th>Purpose</th></tr>
+      <tr><td>Visitor Register</td><td>All visitors — name, ID, purpose, in-time, out-time</td></tr>
+      <tr><td>Vehicle Register</td><td>All vehicles — number plate, driver, purpose, in-out time</td></tr>
+      <tr><td>Material In-Out Register</td><td>All goods — challan number, item, quantity, authorisation</td></tr>
+      <tr><td>Duty/Attendance Register</td><td>Guard name, shift, in-out time, signature</td></tr>
+      <tr><td>Incident / Occurrence Book</td><td>Any incident, complaint, or unusual event</td></tr>
+      <tr><td>ASC Register</td><td>Anti-Sabotage Check records</td></tr>
+      <tr><td>Key Register</td><td>Keys issued and returned</td></tr>
+      <tr><td>Contractor Register</td><td>Contractor workers entry and exit</td></tr>
+    </table>
+    <p>Use pen — not pencil. No whitener. Draw a single line through errors. Never leave a column blank — write "Nil". Registers must be preserved for a minimum of 1 year.</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> What happened, record it. What is recorded, let it be truth. Registers do not lie.</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">V</span>
+      <div><span class="pd-text">Interface with Public &amp; Departments</span><span class="pd-sub">Public Behaviour · Police Liaison · Government Departments</span></div>
+    </div>
+
+    <p><strong>The Golden Rule: Be firm but polite. Strict but respectful.</strong></p>
+    <p>Greet visitors with a respectful namaste or hello. Ask for ID politely: "Sir/Madam, may I see your ID please?" Listen to visitors' queries and guide them correctly. Assist elderly, disabled, or visually impaired persons. Do not raise your voice or argue. Do not accept gifts, money, or food from visitors.</p>
+    <p><strong>With Police:</strong> Maintain a written record of local police station details at your post. In any emergency — call 100 immediately. Cooperate fully during inspections. File an FIR for serious incidents — theft, assault, suspicious objects — without delay.</p>
+    <p><strong>With Fire Department:</strong> Know your nearest fire station number. Do not obstruct fire brigade personnel. Assist by clearing access routes.</p>
+    <p><strong>With Government Inspectors:</strong> Be polite and cooperative. Direct them to the site in-charge. Never deny entry to authorised government inspectors.</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> Give respect, earn respect. Work with government departments and police — they are partners, not adversaries.</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">VI</span>
+      <div><span class="pd-text">Conduct Rules — DO's and DON'Ts</span><span class="pd-sub">The Daily Code of a Shellback Marines Security Guard</span></div>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="box-header">✓ &nbsp; DO's — What You MUST Do</div>
+        <div class="box-body">
+          <ul>
+            <li>Report to duty on time, in proper uniform, with ID card.</li>
+            <li>Be alert and awake throughout your entire shift.</li>
+            <li>Treat all persons with respect.</li>
+            <li>Check all persons, vehicles, and materials without exception.</li>
+            <li>Maintain all duty registers accurately and honestly.</li>
+            <li>Report every incident — big or small — immediately.</li>
+            <li>Patrol your area as per schedule and record it.</li>
+            <li>Take proper handover at every shift change.</li>
+            <li>Cooperate fully with police and government departments.</li>
+            <li>Protect client property as if it were your own.</li>
+            <li>Keep equipment — radio, torch, HHMD — functional.</li>
+            <li>Know emergency numbers: 100 | 101 | 108.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dont-box">
+        <div class="box-header">✗ &nbsp; DON'Ts — What You Must NEVER Do</div>
+        <div class="box-body">
+          <ul>
+            <li>Never sleep or be inattentive while on duty.</li>
+            <li>Never leave your post without a relief guard.</li>
+            <li>Never come to duty under the influence of alcohol or drugs.</li>
+            <li>Never accept bribes, gifts, or favours from anyone.</li>
+            <li>Never allow unauthorised persons to enter the premises.</li>
+            <li>Never use physical force except in genuine self-defence.</li>
+            <li>Never use abusive or disrespectful language.</li>
+            <li>Never share confidential client information with outsiders.</li>
+            <li>Never damage or misuse client or agency property.</li>
+            <li>Never suppress or delay reporting of any incident.</li>
+            <li>Never carry an unlicensed weapon.</li>
+            <li>Never browse social media during duty hours.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">Shellback Marines Security Agency | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">8</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  PAGE 9 — PART VII SCOPE OF RESPONSIBILITIES                 -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">Part VII — Scope of Responsibilities</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="Logo">
+      <span class="rh-right">Frisking · Access · ID · Material · Safety · Discipline</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num">VII</span>
+      <div><span class="pd-text">Scope of Responsibilities</span><span class="pd-sub">Site-Level Duties for All Deployed Guards</span></div>
+    </div>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=794&h=160&q=80&auto=format&fit=crop" alt="Site security">
+      <div class="img-caption">Comprehensive site security — the daily responsibility of every Shellback Marines guard</div>
+    </div>
+
+    <h3 class="sub">1. Frisking and Substance Control</h3>
+    <p>Frisking is the physical search of a person's body and belongings to detect prohibited items. Gutka, tobacco, alcohol, and drugs create health and safety hazards on construction and industrial sites.</p>
+    <ul>
+      <li>Frisking must be conducted by a guard of the <strong>same gender</strong> as the person being frisked.</li>
+      <li>Announce before frisking: "Sir/Madam, security check — may I proceed?"</li>
+      <li>Use HHMD first. Conduct physical pat-down only if the device signals.</li>
+      <li>Check bags, tiffins, pockets, and packages.</li>
+      <li>If any prohibited item is found — do not confiscate without issuing a receipt. Record item, person's name, time, and action taken.</li>
+    </ul>
+    <p><strong>Prohibited items — Do NOT allow inside:</strong> Gutka, tobacco, pan masala | Alcohol or any intoxicating substance | Drugs (not medically declared) | Sharp weapons or blades.</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> Frisk with respect and by the rules. No one hides — no one is exempt.</span>
+    </div>
+
+    <h3 class="sub">2. Access Control and Attendance</h3>
+    <table>
+      <tr><th>Column</th><th>What to Write</th></tr>
+      <tr><td>Name</td><td>Full name of person</td></tr>
+      <tr><td>Organisation</td><td>Company / Department</td></tr>
+      <tr><td>ID Type &amp; Number</td><td>Aadhaar / Employee ID / Driving Licence — exact number</td></tr>
+      <tr><td>Purpose</td><td>Reason for visit</td></tr>
+      <tr><td>Entry / Exit Time</td><td>Exact time (both)</td></tr>
+      <tr><td>Signature</td><td>Person's own signature — <strong>No signature = No entry</strong></td></tr>
+    </table>
+    <p>Proxy attendance (signing for another guard) is a serious offence leading to dismissal.</p>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> Register name, time, and signature. Without signature — no entry.</span>
+    </div>
+
+    <h3 class="sub">3. ID Verification &nbsp;|&nbsp; 4. Material Movement Control</h3>
+
+    <div class="img-float-right">
+      <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=300&h=150&q=80&auto=format&fit=crop" alt="Material check">
+      <div class="img-caption">Material movement gate check</div>
+    </div>
+
+    <p><strong>ID Verification Steps:</strong> Ask for ID politely → Match photo with face → Check name, designation, and validity → Look for tampering → If valid, record in register → If doubtful, call supervisor.</p>
+    <p><strong>Acceptable IDs:</strong> Aadhaar | Voter ID | Driving Licence | Passport | Company Employee ID | Contractor Worker Pass (with photo).</p>
+    <p><strong>Material Movement:</strong> For incoming material — check Delivery Challan, Purchase Order number, count boxes, check seals, record vehicle registration. For outgoing material — check Gate Pass signed by authorised officer. <strong>No gate pass = no material leaves. This is absolute.</strong></p>
+
+    <div class="clearfix"></div>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> Check challan, check gate pass, count it, record it — then let it go. Nothing moves without paperwork.</span>
+    </div>
+
+    <h3 class="sub">5. Safety &amp; Housekeeping Surveillance &nbsp;|&nbsp; 6. Discipline &amp; Coordination</h3>
+    <ul>
+      <li>Ensure all workers wear required PPE (Helmet, Safety Shoes, Reflective Jacket, Gloves, Goggles) before entering the workfloor. Document PPE violations.</li>
+      <li>High-risk areas (excavation pits, confined spaces, elevated work zones, welding areas, electrical panels) must have barricading tape, warning signs, and physical barriers at all times.</li>
+      <li>Visually check the First Aid Box at the start of your shift. Report if locked, empty, or damaged.</li>
+      <li>Report unsafe acts (working at height without harness, removing PPE, smoking in no-smoking zone) and unsafe conditions (open manhole, spilled chemicals, exposed wires) — immediately and in writing.</li>
+      <li>During Audits: be in full uniform, all registers updated. Assist auditing team. Do not hide or destroy any record.</li>
+      <li>During Emergencies: follow the Emergency Response Plan. Control access to the emergency area. Keep entry/exit routes clear for emergency vehicles. Maintain headcount at assembly point during evacuation.</li>
+    </ul>
+    <div class="rule-box">
+      <img class="rb-icon" src="https://cdn-icons-png.flaticon.com/32/1047/1047711.png" alt="rule">
+      <span class="rb-text"><em>Simple Rule:</em> Safety is your responsibility too — not just security. If you see something wrong — report it immediately. Whether audit or emergency — always ready, always correct.</span>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">Shellback Marines Security Agency | W.B – 55/WB/PSA/2025</span>
+    <span class="pf-num">9</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  PAGE 10 — EMERGENCY NUMBERS + DECLARATION                  -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="running-header">
+      <span class="rh-left">Annexure &amp; Declaration</span>
+      <img class="rh-logo" src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=60&h=60&q=80&auto=format&fit=crop" alt="Logo">
+      <span class="rh-right">Emergency Numbers · Guard's Acknowledgement</span>
+    </div>
+
+    <div class="part-divider">
+      <span class="pd-num"></span>
+      <div><span class="pd-text">Annexure — Quick Reference: Emergency Numbers</span></div>
+    </div>
+
+    <div class="img-block">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=794&h=130&q=80&auto=format&fit=crop" alt="Emergency">
+      <div class="img-caption">In any emergency — act immediately. Seconds matter.</div>
+    </div>
+
+    <table class="emergency-table">
+      <tr><th>Service</th><th>Number</th></tr>
+      <tr><td>Police</td><td>100</td></tr>
+      <tr><td>Fire Service</td><td>101</td></tr>
+      <tr><td>Ambulance</td><td>108</td></tr>
+      <tr><td>Disaster Management</td><td>1078</td></tr>
+      <tr><td>Shellback Marines Control</td><td>+91 9434127571</td></tr>
+    </table>
+
+    <div class="callout" style="margin-top:20px;">
+      <p><strong>REMEMBER:</strong> Always call your supervisor first. Then call the emergency service. Stay on the line. Give your location, name, and what has happened. Do not leave the scene unless directed.</p>
+    </div>
+
+    <!-- Declaration -->
+    <div class="part-divider" style="margin-top:30px;">
+      <span class="pd-num"></span>
+      <div><span class="pd-text">Guard's Declaration and Acknowledgement</span></div>
+    </div>
+
+    <div class="declaration-block">
+      <p>I, <span style="display:inline-block;width:200px;border-bottom:1px solid #888;">&nbsp;</span> (Name), Guard ID No. <span style="display:inline-block;width:130px;border-bottom:1px solid #888;">&nbsp;</span>, hereby confirm that I have read / been explained the contents of this Rule Book.</p>
+      <p>I understand my duties, responsibilities, and the conduct expected of me as a professional security guard of <strong>Shellback Marines Security Agency</strong>.</p>
+      <p>I agree to follow all rules stated in this book and to conduct myself with <strong>discipline, integrity, and professionalism</strong> at all times.</p>
+
+      <div class="sig-row">
+        <div>
+          <div class="sig-field">&nbsp;</div>
+          <div class="sig-label">Guard's Signature</div>
+        </div>
+        <div>
+          <div class="sig-field">&nbsp;</div>
+          <div class="sig-label">Date</div>
+        </div>
+        <div>
+          <div class="sig-field">&nbsp;</div>
+          <div class="sig-label">Post / Site Name</div>
+        </div>
+        <div>
+          <div class="sig-field">&nbsp;</div>
+          <div class="sig-label">Supervisor's Signature</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">
+    <span class="pf-text">Shellback Marines Security Agency | W.B – 55/WB/PSA/2025 | Jalpaiguri, West Bengal</span>
+    <span class="pf-num">10</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  BACK COVER                                                   -->
+<!-- ============================================================ -->
+<div class="page back-cover">
+  <div class="bc-stripe-top"></div>
+  <div class="bc-stripe-bottom"></div>
+
+  <div class="bc-logo">
+    <!-- REPLACE WITH YOUR ACTUAL LOGO -->
+    <img src="https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=200&h=200&q=80&auto=format&fit=crop" alt="Shellback Marines Logo">
+  </div>
+
+  <div class="bc-title">Shellback Marines<br>Security Agency</div>
+  <div class="bc-tagline">"Trusted Guardians of Security"</div>
+
+  <div class="bc-divider"></div>
+
+  <div class="bc-info">
+    <strong>Licence No.: W.B – 55/WB/PSA/2025</strong><br>
+    Issued by the Government of West Bengal<br><br>
+    Oodlabari Bidhanpally, PO Manabari<br>
+    Dist. Jalpaiguri, West Bengal – 735222<br><br>
+    <strong>+91 9434127571</strong><br>
+    contact@shellbackmarines.in<br>
+    www.shellbackmarines.in<br><br><br>
+    Prepared in accordance with the Private Security Agencies<br>
+    (Regulation) Act, 2005 and applicable State Rules of West Bengal.
+  </div>
+</div>
+
+</div><!-- end .book -->
+</body>
+</html>
