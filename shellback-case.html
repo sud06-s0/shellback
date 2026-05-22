@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shellback Marines – Manufacturing Plant Security Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* Shellback Marines brand palette */
+    --navy:       #0b1829;    /* deep dark navy — primary dark */
+    --navy2:      #112240;    /* mid navy — secondary dark */
+    --navy3:      #1a3358;    /* lighter navy — borders/hover */
+    --gold:       #b8963e;    /* military olive-gold — primary accent */
+    --gold-light: #d4af5a;    /* lighter gold for text on dark */
+    --red:        #8b1a1a;    /* muted military red — alert/highlight */
+    --white:      #ffffff;
+    --off-white:  #f4f5f7;
+    --body-text:  #2e3545;    /* dark readable body */
+    --body-mid:   #3f4758;
+    --body-light: #5a6278;
+    --rule:       #cdd3df;
+    --pale:       #eef1f7;
+    --font-head:  'Oswald', sans-serif;
+    --font-serif: 'Source Serif 4', Georgia, serif;
+    --font-body:  'Lato', sans-serif;
+  }
+
+  body {
+    background: #7a8192;
+    font-family: var(--font-body);
+    color: var(--body-text);
+    display: flex;
+    justify-content: center;
+    padding: 32px 0 48px;
+  }
+
+  .page {
+    width: 794px;
+    background: var(--white);
+    box-shadow: 0 16px 60px rgba(0,0,0,.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 275px;
+    min-height: 220px;
+    background: var(--navy);
+  }
+
+  .header-left {
+    padding: 26px 30px 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    border-right: 1px solid rgba(255,255,255,.07);
+  }
+
+  .header-left > img {
+    display: block !important;
+    height: 40px !important;
+    width: auto !important;
+    max-width: 170px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+    align-self: flex-start !important;
+    flex-shrink: 0 !important;
+  }
+
+  .header-eyebrow {
+    font-family: var(--font-head);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+
+  .header-title {
+    font-family: var(--font-head);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: .02em;
+  }
+
+  .header-title em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+
+  .header-subtitle {
+    margin-top: 8px;
+    font-size: 11.5px;
+    font-weight: 400;
+    color: #8fa8c8;
+    letter-spacing: .03em;
+  }
+
+  /* ─── IMAGE SLOT ─── */
+  .header-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--navy2);
+  }
+
+  .header-right img {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Military corner badge */
+  .corner-badge {
+    position: absolute;
+    top: 0; right: 0;
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 0 52px 52px 0;
+    border-color: transparent var(--gold) transparent transparent;
+  }
+
+  /* ─── LICENCE STRIP ─── */
+  .lic-strip {
+    background: var(--navy2);
+    padding: 7px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .lic-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: #8fa8c8;
+  }
+
+  .lic-item i { color: var(--gold); font-size: 10px; }
+  .lic-item span { color: var(--gold-light); }
+
+  .lic-sep { width: 1px; height: 12px; background: rgba(255,255,255,.1); }
+
+  /* ─── CATEGORY STRIP ─── */
+  .strip {
+    background: var(--gold);
+    padding: 9px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .strip-label {
+    font-family: var(--font-head);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  .strip-tags { display: flex; gap: 7px; }
+
+  .tag {
+    background: rgba(11,24,41,.2);
+    border: 1px solid rgba(11,24,41,.3);
+    border-radius: 2px;
+    padding: 2px 9px;
+    font-family: var(--font-head);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  /* ─── OVERVIEW ─── */
+  .overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 26px 30px 22px;
+    border-bottom: 1px solid var(--rule);
+    gap: 0;
+  }
+
+  .overview-text {
+    padding-right: 24px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .overview-text p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.78;
+    color: var(--body-mid);
+  }
+
+  .overview-text p + p { margin-top: 8px; }
+
+  .overview-meta {
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 13px;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+  }
+
+  .meta-row i {
+    color: var(--gold);
+    font-size: 13px;
+    width: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .meta-label {
+    font-family: var(--font-head);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--body-light);
+    margin-bottom: 2px;
+  }
+
+  .meta-val {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--body-text);
+    line-height: 1.5;
+  }
+
+  /* ─── SECTION HEAD ─── */
+  .sec-head {
+    font-family: var(--font-head);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--navy);
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  /* ─── TWO-COL ─── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 22px 30px 0;
+  }
+
+  .col-l {
+    padding-right: 24px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .col-r { padding-left: 24px; }
+
+  .obj { margin-bottom: 15px; }
+
+  .obj-title {
+    font-family: var(--font-head);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--navy2);
+    margin-bottom: 4px;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+  }
+
+  .obj p {
+    font-size: 11.5px;
+    font-weight: 400;
+    line-height: 1.72;
+    color: var(--body-mid);
+  }
+
+  .sol-grp { margin-bottom: 14px; }
+
+  .sol-grp-title {
+    font-family: var(--font-head);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy2);
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+  }
+
+  .sol-list { list-style: none; }
+
+  .sol-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--body-mid);
+    line-height: 1.62;
+    padding: 2px 0;
+  }
+
+  .sol-list li i {
+    color: var(--gold);
+    font-size: 7px;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  /* ─── RESULTS ─── */
+  .results {
+    background: var(--navy);
+    margin-top: 22px;
+    padding: 22px 30px 26px;
+    border-top: 3px solid var(--gold);
+  }
+
+  .results .sec-head {
+    color: var(--gold-light);
+    border-color: var(--gold);
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 16px;
+    gap: 0;
+  }
+
+  .res-card {
+    padding-right: 22px;
+    border-right: 1px solid rgba(255,255,255,.08);
+  }
+
+  .res-card:last-child { border-right: none; padding-right: 0; }
+  .res-card:not(:first-child) { padding-left: 22px; }
+
+  .res-num {
+    font-family: var(--font-head);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: .02em;
+  }
+
+  .res-label {
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  .res-card p {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #7a9abf;
+  }
+
+  /* ─── CONCLUSION ─── */
+  .conclusion {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 16px;
+    padding: 20px 30px 18px;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+    background: var(--off-white);
+  }
+
+  .concl-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .concl-icon i { color: var(--gold-light); font-size: 18px; }
+
+  .concl-inner .sec-head { margin-bottom: 9px; }
+
+  .concl-inner p {
+    font-size: 11.5px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--body-mid);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy);
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 2px solid var(--gold);
+  }
+
+  .foot-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 400;
+    color: #8fa8c8;
+  }
+
+  .foot-item i { font-size: 11px; color: var(--gold); }
+
+  .foot-sep {
+    width: 1px;
+    height: 14px;
+    background: rgba(255,255,255,.1);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <img src="./img/logo.png"/>
+      <div>
+        <div class="header-eyebrow">Client Success Story</div>
+        <h1 class="header-title">Securing a<br/><em>Textile Manufacturing</em><br/>Plant, West Bengal</h1>
+        <p class="header-subtitle">Physical Guarding &amp; Loss Prevention — Shellback Marines</p>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <img src="./img/ig.png"/>
+      <div class="corner-badge"></div>
+    </div>
+  </div>
+
+  <!-- LICENCE STRIP -->
+  <div class="lic-strip">
+    <div class="lic-item"><i class="fa-solid fa-certificate"></i> Licence: <span>W.B – 55/WB/PSA/2025</span></div>
+    <div class="lic-sep"></div>
+    <div class="lic-item"><i class="fa-solid fa-shield-halved"></i> PSA Licensed Agency</div>
+    <div class="lic-sep"></div>
+    <div class="lic-item"><i class="fa-solid fa-star"></i> Founded by Retired Indian Navy Marine</div>
+    <div class="lic-sep"></div>
+    <div class="lic-item"><i class="fa-solid fa-check-circle"></i> 100% Incident Resolution</div>
+  </div>
+
+  <!-- CATEGORY STRIP -->
+  <div class="strip">
+    <span class="strip-label">Industrial Manufacturing — Physical Guarding · Perimeter Security · Loss Prevention</span>
+    <div class="strip-tags">
+      <span class="tag">Manufacturing</span>
+      <span class="tag">West Bengal</span>
+      <span class="tag">2024–25</span>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="overview">
+    <div class="overview-text">
+      <div class="sec-head">Overview</div>
+      <p>A large textile manufacturing unit operating in the Siliguri industrial corridor had been experiencing persistent after-hours theft of raw materials and finished goods. Previous informal security arrangements lacked structure, written accountability, or defined post instructions — leaving management exposed and unable to act decisively against repeat incidents.</p>
+      <p>Shellback Marines was engaged to conduct a full site security survey, identify perimeter vulnerabilities, and deploy a structured round-the-clock physical guarding programme — eliminating incidents and restoring operational confidence across the facility within six weeks.</p>
+    </div>
+    <div class="overview-meta">
+      <div class="meta-row">
+        <i class="fa-solid fa-industry"></i>
+        <div>
+          <div class="meta-label">Industry</div>
+          <div class="meta-val">Textile Manufacturing &amp; Industrial Production</div>
+        </div>
+      </div>
+      <div class="meta-row">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+          <div class="meta-label">Location</div>
+          <div class="meta-val">Siliguri Industrial Corridor, North Bengal</div>
+        </div>
+      </div>
+      <div class="meta-row">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div>
+          <div class="meta-label">Services Deployed</div>
+          <div class="meta-val">Physical Guarding, Perimeter Patrol, Gate Management, Incident Reporting</div>
+        </div>
+      </div>
+      <div class="meta-row">
+        <i class="fa-solid fa-calendar-check"></i>
+        <div>
+          <div class="meta-label">Engagement</div>
+          <div class="meta-val">6-week initial deployment · Permanent contract awarded</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TWO-COL -->
+  <div class="two-col">
+    <div class="col-l">
+      <div class="sec-head">Challenges &amp; Objectives</div>
+
+      <div class="obj">
+        <div class="obj-title">Repeated After-Hours Theft</div>
+        <p>Raw materials and production equipment were stolen from the yard and perimeter consistently after working hours. No formal incident log existed, leaving management without evidence to act or claim insurance.</p>
+      </div>
+
+      <div class="obj">
+        <div class="obj-title">Three Critical Perimeter Gaps</div>
+        <p>An initial walkthrough revealed three unmanned breach points not covered by the previous arrangement — leaving large sections of the facility open and unmonitored throughout the night.</p>
+      </div>
+
+      <div class="obj">
+        <div class="obj-title">No Formal Reporting Regime</div>
+        <p>Previous guards operated with no written instructions, no daily occurrence reports, and no escalation protocols — making it impossible to identify patterns or demonstrate accountability to management.</p>
+      </div>
+
+      <div class="obj">
+        <div class="obj-title">Low Staff Confidence On-Site</div>
+        <p>Factory supervisors and night-shift workers reported feeling unsafe, impacting productivity and morale. A visible, disciplined security presence was needed urgently to restore confidence across the facility.</p>
+      </div>
+    </div>
+
+    <div class="col-r">
+      <div class="sec-head">Our Solution</div>
+
+      <div class="sol-grp">
+        <div class="sol-grp-title">Full Site Security Survey</div>
+        <ul class="sol-list">
+          <li><i class="fa-solid fa-circle"></i>Comprehensive perimeter and access point vulnerability assessment</li>
+          <li><i class="fa-solid fa-circle"></i>Three critical unguarded breach locations identified and mapped</li>
+          <li><i class="fa-solid fa-circle"></i>High-risk zones defined: production yard, raw material store, main gate</li>
+        </ul>
+      </div>
+
+      <div class="sol-grp">
+        <div class="sol-grp-title">Structured Guard Deployment</div>
+        <ul class="sol-list">
+          <li><i class="fa-solid fa-circle"></i>Static guard posts at main gate and two critical perimeter points</li>
+          <li><i class="fa-solid fa-circle"></i>Randomised mobile patrol cycle introduced across all three shifts</li>
+          <li><i class="fa-solid fa-circle"></i>Site-specific post standing orders and guard briefings issued Day 1</li>
+        </ul>
+      </div>
+
+      <div class="sol-grp">
+        <div class="sol-grp-title">Gate Management &amp; Loss Prevention</div>
+        <ul class="sol-list">
+          <li><i class="fa-solid fa-circle"></i>Structured entry/exit log for all personnel and vehicles</li>
+          <li><i class="fa-solid fa-circle"></i>Material movement register for outbound goods verification</li>
+          <li><i class="fa-solid fa-circle"></i>Daily occurrence reports introduced and filed with management</li>
+        </ul>
+      </div>
+
+      <div class="sol-grp">
+        <div class="sol-grp-title">Accountability &amp; Management Reporting</div>
+        <ul class="sol-list">
+          <li><i class="fa-solid fa-circle"></i>Weekly security briefings delivered to plant management</li>
+          <li><i class="fa-solid fa-circle"></i>Full written incident reporting and escalation protocols established</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results">
+    <div class="sec-head">Outcomes &amp; Impact</div>
+    <div class="results-grid">
+      <div class="res-card">
+        <div class="res-num">Zero</div>
+        <div class="res-label">Theft Incidents in 6 Weeks</div>
+        <p>All after-hours theft and perimeter breach incidents ceased entirely within six weeks — a complete turnaround from the client's situation at contract start.</p>
+      </div>
+      <div class="res-card">
+        <div class="res-num">3</div>
+        <div class="res-label">Critical Gaps Closed</div>
+        <p>Three previously unguarded breach points identified during the site survey were brought under permanent guard coverage within 48 hours of deployment.</p>
+      </div>
+      <div class="res-card">
+        <div class="res-num">Perm.</div>
+        <div class="res-label">Contract Made Permanent</div>
+        <p>Following the six-week programme, management confirmed Shellback Marines as a permanent security partner — with scope extended to additional coverage zones.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCLUSION -->
+  <div class="conclusion">
+    <div class="concl-icon">
+      <i class="fa-solid fa-shield-halved"></i>
+    </div>
+    <div class="concl-inner">
+      <div class="sec-head">Conclusion</div>
+      <p>This engagement demonstrates that effective industrial security does not require expensive technology — it requires the right people, properly deployed, with clear accountability. By starting with a rigorous site survey, closing the physical gaps, and establishing a culture of documented reporting, Shellback Marines eliminated a persistent theft problem that had cost the client both financially and operationally for months. The transition from informal guarding to a structured, PSA-licensed programme restored confidence across the workforce and gave management full visibility of their facility's security posture for the first time.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="foot-item">
+      <i class="fa-solid fa-globe"></i>
+      shellbackmarines.in
+    </div>
+    <div class="foot-sep"></div>
+    <div class="foot-item">
+      <i class="fa-solid fa-envelope"></i>
+      contact@shellbackmarines.in
+    </div>
+    <div class="foot-sep"></div>
+    <div class="foot-item">
+      <i class="fa-solid fa-location-dot"></i>
+      Oodlabari, Jalpaiguri, West Bengal – 735222
+    </div>
+    <div class="foot-sep"></div>
+    <div class="foot-item">
+      <i class="fa-solid fa-phone"></i>
+      +91 9434127571
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
